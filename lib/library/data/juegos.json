@@ -1,0 +1,38 @@
+[
+  {
+    "id": "sample-wordrace-1",
+    "title": "Word Race - Carrera de Palabras",
+    "level": "intermediate",
+    "summary": "Rápido: traduce lo más rápido posible",
+    "excerpt": "Rondas cronometradas para practicar vocabulario y velocidad",
+    "image": "/assets/games/sample3.svg",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"rounds\":10,\"timePerQuestion\":5}}"
+  },
+  {
+    "id": "sample-quiz-1",
+    "title": "Quick Quiz - Verbos",
+    "level": "beginner",
+    "summary": "Pequeño cuestionario de verbos comunes",
+    "excerpt": "10 preguntas de opción múltiple para practicar verbos",
+    "image": "/assets/games/sample2.svg",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":12345}}"
+  },
+  {
+    "id": "laberinto-decisiones",
+    "title": "El Laberinto de Decisiones",
+    "level": "beginner",
+    "summary": "Juego educativo multinivel que integra gramática, vocabulario y situaciones reales",
+    "excerpt": "Navega por situaciones reales y toma las decisiones correctas en español",
+    "image": "/assets/games/laberinto.svg",
+    "content": "{\"gameType\":\"laberinto\"}"
+  },
+  {
+    "id": "desafio-multifase",
+    "title": "Desafío Multifase",
+    "level": "intermediate",
+    "summary": "Completa tres etapas diferentes: Memoria, Carrera de Palabras y Quiz",
+    "excerpt": "Desafío completo que combina diferentes tipos de juegos educativos",
+    "image": "/assets/games/sample2.svg",
+    "content": "{\"gameType\":\"multi-stage\"}"
+  }
+]

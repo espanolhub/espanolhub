@@ -1,0 +1,11 @@
+{
+  "groups": [
+    { "id": "timed", "label": "Timed Challenges", "description": "Rondas rápidas contra reloj (word-race, timedSprint)" },
+    { "id": "simulator", "label": "Simulators", "description": "Simulacros de examen y tests largos" },
+    { "id": "flashcard", "label": "Flashcards", "description": "Tarjetas de vocabulario para repaso" },
+    { "id": "matching", "label": "Matching & Ordering", "description": "Actividades de emparejar y ordenar" },
+    { "id": "listening", "label": "Listening", "description": "Ejercicios de comprensión auditiva" },
+    { "id": "other", "label": "Other Games", "description": "Otros tipos de juegos" }
+  ]
+}
+

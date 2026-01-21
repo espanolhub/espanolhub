@@ -1,0 +1,520 @@
+{
+  "gameId": "laberinto-decisiones",
+  "title": "El Laberinto de Decisiones",
+  "description": "Juego educativo multinivel que integra gramática, vocabulario y situaciones reales",
+  "icon": "🗝️",
+  "levels": [
+    {
+      "levelId": "nivel-inicial",
+      "name": "Nivel Inicial",
+      "description": "Situaciones cotidianas simples",
+      "timeLimit": 300,
+      "scenarios": [
+        {
+          "id": "s1",
+          "situation": "Estás en una cafetería en Madrid. El camarero te pregunta: '¿Qué desea tomar?'",
+          "options": [
+            "Quiero un café, por favor",
+            "Yo quiero café",
+            "Café quiero yo"
+          ],
+          "correct": 0,
+          "hint": "En español, el orden más natural es: verbo + objeto + cortesía. 'Quiero un café, por favor' es la forma más educada y común.",
+          "explanation": "La estructura correcta usa el verbo 'quiero' + artículo 'un' + objeto 'café' + expresión de cortesía 'por favor'."
+        },
+        {
+          "id": "s2",
+          "situation": "En una tienda, el dependiente te pregunta: '¿Necesita ayuda?'",
+          "options": [
+            "Sí, estoy buscando un regalo",
+            "Sí, busco un regalo",
+            "Sí, yo busco regalo"
+          ],
+          "correct": 0,
+          "hint": "Cuando usas 'estar + gerundio' (estoy buscando) expresas una acción en curso. Con 'busco' (presente simple) es más directo. Ambas son correctas, pero la primera es más común en situaciones formales.",
+          "explanation": "'Estoy buscando' enfatiza que la acción está en desarrollo ahora mismo, lo cual es natural cuando estás en una tienda."
+        },
+        {
+          "id": "s3",
+          "situation": "Te presentas a alguien nuevo. ¿Cómo te presentas correctamente?",
+          "options": [
+            "Hola, soy María. Mucho gusto",
+            "Hola, yo soy María. Gusto mucho",
+            "Hola, me llamo es María"
+          ],
+          "correct": 0,
+          "hint": "Después de 'me llamo' no necesitas 'es'. Es 'Me llamo María' o 'Soy María'. 'Mucho gusto' es una expresión fija que no cambia.",
+          "explanation": "'Soy María' o 'Me llamo María' son correctos. 'Mucho gusto' es una expresión de cortesía fija para presentaciones."
+        },
+        {
+          "id": "s4",
+          "situation": "Quieres preguntar la hora. ¿Cuál es la forma más educada?",
+          "options": [
+            "¿Disculpe, qué hora es?",
+            "¿Qué hora es?",
+            "¿Me das la hora?"
+          ],
+          "correct": 0,
+          "hint": "'Disculpe' se usa para iniciar una pregunta de forma educada con desconocidos. '¿Qué hora es?' es correcto pero menos formal. '¿Me das la hora?' es demasiado informal para un desconocido.",
+          "explanation": "Con desconocidos, 'Disculpe' o 'Perdón' al inicio muestra cortesía. 'Disculpe, ¿qué hora es?' es la opción más apropiada."
+        },
+        {
+          "id": "s5",
+          "situation": "En un restaurante, quieres pedir la cuenta. ¿Qué dices?",
+          "options": [
+            "La cuenta, por favor",
+            "Quiero pagar ahora",
+            "Dame la cuenta"
+          ],
+          "correct": 0,
+          "hint": "En restaurantes, 'La cuenta, por favor' es la expresión estándar y educada. 'Dame' es demasiado directo. 'Quiero pagar' es correcto pero menos común.",
+          "explanation": "'La cuenta, por favor' es la forma más común y educada de pedir la factura en un restaurante en España."
+        },
+        {
+          "id": "s6",
+          "situation": "Alguien te pregunta '¿Cómo estás?' ¿Cuál es la respuesta más natural?",
+          "options": [
+            "Bien, gracias. ¿Y tú?",
+            "Yo estoy bien",
+            "Estoy bien y tú"
+          ],
+          "correct": 0,
+          "hint": "La respuesta natural incluye: estado + agradecimiento + pregunta de vuelta. 'Bien, gracias. ¿Y tú?' es la forma más común y completa.",
+          "explanation": "Es costumbre responder con cortesía y devolver la pregunta. 'Bien, gracias. ¿Y tú?' muestra buena educación."
+        },
+        {
+          "id": "s7",
+          "situation": "Quieres pedir direcciones. ¿Cómo empiezas?",
+          "options": [
+            "Perdón, ¿dónde está la estación?",
+            "Dime dónde está la estación",
+            "Yo busco la estación"
+          ],
+          "correct": 0,
+          "hint": "Para pedir ayuda a desconocidos, empieza con 'Perdón' o 'Disculpe'. '¿Dónde está...?' es la pregunta correcta. 'Dime' es demasiado directo.",
+          "explanation": "'Perdón' o 'Disculpe' al inicio + pregunta con '¿Dónde está...?' es la forma educada de pedir direcciones."
+        },
+        {
+          "id": "s8",
+          "situation": "Quieres comprar algo. ¿Cómo preguntas el precio?",
+          "options": [
+            "¿Cuánto cuesta esto?",
+            "¿Cuánto es esto?",
+            "¿Qué precio tiene?"
+          ],
+          "correct": 0,
+          "hint": "Las tres opciones son correctas, pero '¿Cuánto cuesta?' es la más común y directa. '¿Cuánto es?' también es muy usado. Ambas son apropiadas.",
+          "explanation": "'¿Cuánto cuesta?' y '¿Cuánto es?' son las formas más comunes. Ambas son correctas y naturales."
+        },
+        {
+          "id": "s9",
+          "situation": "Quieres agradecer por algo. ¿Qué dices?",
+          "options": [
+            "Muchas gracias",
+            "Gracias mucho",
+            "Yo te agradezco mucho"
+          ],
+          "correct": 0,
+          "hint": "'Muchas gracias' es la expresión estándar y más común. 'Gracias mucho' no se usa. 'Te agradezco' es muy formal, 'Muchas gracias' es perfecto para cualquier situación.",
+          "explanation": "'Muchas gracias' es la forma estándar y universal de agradecer en español."
+        },
+        {
+          "id": "s10",
+          "situation": "Alguien te ayuda. Quieres decir 'de nada'. ¿Cuál es correcto?",
+          "options": [
+            "De nada",
+            "No hay nada",
+            "No es nada"
+          ],
+          "correct": 0,
+          "hint": "'De nada' es la respuesta estándar a 'gracias'. 'No hay nada' y 'No es nada' también se usan, pero 'De nada' es la más común.",
+          "explanation": "'De nada' es la respuesta universal a 'gracias'. También puedes decir 'No hay de qué' o 'No es nada'."
+        }
+      ]
+    },
+    {
+      "levelId": "vida-social",
+      "name": "Vida Social",
+      "description": "Hablar con amigos, expresar gustos y desacuerdos",
+      "timeLimit": 360,
+      "scenarios": [
+        {
+          "id": "vs1",
+          "situation": "Un amigo te invita a una fiesta este sábado. No puedes ir. ¿Cómo lo rechazas amablemente?",
+          "options": [
+            "Me encantaría, pero no puedo este sábado. ¿Otro día?",
+            "No puedo ir",
+            "Yo no quiero ir"
+          ],
+          "correct": 0,
+          "hint": "Para rechazar una invitación de forma educada, muestra interés primero ('Me encantaría') y luego explica la razón. Ofrecer una alternativa ('¿Otro día?') es muy cortés.",
+          "explanation": "La estructura educada: expresión de interés + pero + razón + alternativa. 'Me encantaría, pero no puedo este sábado. ¿Otro día?' es perfecto."
+        },
+        {
+          "id": "vs2",
+          "situation": "Alguien te pregunta sobre tus planes para el fin de semana. ¿Cómo respondes naturalmente?",
+          "options": [
+            "Todavía no estoy seguro. ¿Y tú qué vas a hacer?",
+            "Yo no sé",
+            "Voy a hacer cosas"
+          ],
+          "correct": 0,
+          "hint": "En español, 'Todavía no estoy seguro/a' es más natural que 'No sé'. Devolver la pregunta ('¿Y tú?') crea una conversación fluida.",
+          "explanation": "'Todavía no estoy seguro/a' es la forma común de decir que aún no has decidido. Incluir '¿Y tú?' mantiene la conversación."
+        },
+        {
+          "id": "vs3",
+          "situation": "Quieres expresar que algo te gusta mucho. ¿Cuál es la forma más entusiasta?",
+          "options": [
+            "¡Me encanta esta película!",
+            "Yo gusto esta película",
+            "A mí me encanta mucho esta película"
+          ],
+          "correct": 0,
+          "hint": "'Me encanta' ya expresa intensidad. No necesitas 'mucho' después. 'Yo gusto' es incorrecto - el verbo gustar funciona diferente: 'Me gusta' o 'Me encanta'.",
+          "explanation": "'Me encanta' es más fuerte que 'Me gusta'. Con 'encantar', no necesitas 'mucho' porque ya implica intensidad máxima."
+        },
+        {
+          "id": "vs4",
+          "situation": "Un amigo te cuenta un problema. Quieres mostrar empatía. ¿Qué dices?",
+          "options": [
+            "Lo siento mucho. ¿Necesitas ayuda?",
+            "Yo siento",
+            "Está mal"
+          ],
+          "correct": 0,
+          "hint": "'Lo siento' (con 'Lo') es la expresión correcta para mostrar empatía. Añadir 'mucho' enfatiza. Ofrecer ayuda ('¿Necesitas ayuda?') muestra verdadero interés.",
+          "explanation": "'Lo siento mucho' es la forma estándar de expresar empatía. 'Lo' es necesario porque se refiere a la situación."
+        },
+        {
+          "id": "vs5",
+          "situation": "Quieres hacer una sugerencia a un grupo de amigos. ¿Cómo lo haces?",
+          "options": [
+            "¿Qué os parece si vamos al cine?",
+            "Vamos al cine",
+            "Yo quiero que vamos al cine"
+          ],
+          "correct": 0,
+          "hint": "'¿Qué os parece si...?' es una forma educada de sugerir. 'Os' es el pronombre para 'vosotros' (vosotros = you plural en España). También puedes usar '¿Qué les parece si...?' si hablas con 'ustedes'.",
+          "explanation": "'¿Qué os parece si...?' es una construcción común para sugerir en grupo. Muestra consideración por las opiniones de los demás."
+        },
+        {
+          "id": "vs6",
+          "situation": "Quieres expresar acuerdo con una opinión. ¿Cuál es la forma más natural?",
+          "options": [
+            "Estoy de acuerdo contigo",
+            "Yo acuerdo",
+            "Estoy acuerdo"
+          ],
+          "correct": 0,
+          "hint": "El verbo 'estar de acuerdo' usa 'estar' + 'de acuerdo' + 'con'. No puedes decir 'Yo acuerdo' - necesitas 'Estoy de acuerdo con...'.",
+          "explanation": "'Estar de acuerdo' es una expresión fija. Siempre se conjuga con 'estar' y se usa con 'con': 'Estoy de acuerdo contigo/con él/con eso'."
+        },
+        {
+          "id": "vs7",
+          "situation": "Alguien te pregunta '¿Qué te parece este restaurante?' ¿Cómo respondes positivamente?",
+          "options": [
+            "Me parece muy bueno. La comida está deliciosa",
+            "Yo pienso que es bueno",
+            "Está bien"
+          ],
+          "correct": 0,
+          "hint": "'Me parece' + adjetivo es la forma común de dar opiniones. 'Me parece muy bueno' es más completo que solo 'Está bien'. Justificar tu opinión ('La comida está deliciosa') mejora la respuesta.",
+          "explanation": "'Me parece' + adjetivo es la estructura estándar para opiniones. Es más natural que 'Yo pienso que...' en conversaciones informales."
+        },
+        {
+          "id": "vs8",
+          "situation": "Quieres invitar a alguien a salir. ¿Cuál es la forma más amigable?",
+          "options": [
+            "¿Te apetece tomar un café?",
+            "¿Quieres café?",
+            "Vamos a tomar café"
+          ],
+          "correct": 0,
+          "hint": "'¿Te apetece...?' es una forma muy común y amigable de invitar en España. Es más suave que '¿Quieres...?' y menos directo que 'Vamos...'.",
+          "explanation": "'¿Te apetece + infinitivo?' es una construcción muy usada en España para hacer invitaciones de forma amigable y no presionante."
+        },
+        {
+          "id": "vs9",
+          "situation": "Quieres expresar desacuerdo de forma educada. ¿Qué dices?",
+          "options": [
+            "Respeto tu opinión, pero yo veo las cosas de otra manera",
+            "No estoy de acuerdo",
+            "Estás equivocado"
+          ],
+          "correct": 0,
+          "hint": "Para desacuerdo educado, empieza reconociendo la otra opinión ('Respeto tu opinión') y luego presenta la tuya con 'pero'. 'Estás equivocado' es demasiado directo y puede sonar agresivo.",
+          "explanation": "La estructura educada: reconocimiento + pero + tu opinión. 'Respeto tu opinión, pero yo veo las cosas de otra manera' mantiene el respeto."
+        },
+        {
+          "id": "vs10",
+          "situation": "Quieres hacer una pregunta personal sin ser invasivo. ¿Cómo lo haces?",
+          "options": [
+            "Si no es indiscreto, ¿dónde vives?",
+            "¿Dónde vives?",
+            "Dime dónde vives"
+          ],
+          "correct": 0,
+          "hint": "'Si no es indiscreto' o 'Si no es mucha molestia' son frases que muestran respeto por la privacidad del otro antes de hacer una pregunta personal.",
+          "explanation": "Añadir 'Si no es indiscreto' antes de una pregunta personal muestra consideración y educación, especialmente con personas que no conoces mucho."
+        }
+      ]
+    },
+    {
+      "levelId": "el-trabajo",
+      "name": "El Trabajo",
+      "description": "Entrevistas de trabajo, entender instrucciones profesionales",
+      "timeLimit": 420,
+      "scenarios": [
+        {
+          "id": "et1",
+          "situation": "En una entrevista de trabajo, te preguntan: '¿Por qué quieres trabajar aquí?' ¿Cuál es la mejor respuesta?",
+          "options": [
+            "Me interesa esta empresa porque valoro sus valores y me gustaría aportar mi experiencia",
+            "Porque necesito trabajo",
+            "Porque el sueldo es bueno"
+          ],
+          "correct": 0,
+          "hint": "En entrevistas, muestra conocimiento de la empresa y motivación genuina. Habla de valores, objetivos profesionales y lo que puedes aportar, no de necesidades personales.",
+          "explanation": "La mejor respuesta conecta tus valores con los de la empresa y muestra qué puedes aportar. Evita mencionar solo necesidades económicas."
+        },
+        {
+          "id": "et2",
+          "situation": "Tu jefe te da una tarea compleja. ¿Cómo confirmas que entendiste?",
+          "options": [
+            "Perfecto, lo entiendo. ¿Tiene alguna fecha límite específica?",
+            "Sí",
+            "Está bien"
+          ],
+          "correct": 0,
+          "hint": "En el trabajo, es importante confirmar entendimiento y hacer preguntas relevantes (plazo, prioridad, recursos). Solo decir 'Sí' puede indicar que no entendiste completamente.",
+          "explanation": "Confirmar entendimiento + hacer preguntas relevantes muestra profesionalismo y asegura que completarás la tarea correctamente."
+        },
+        {
+          "id": "et3",
+          "situation": "Un compañero te pide ayuda con un proyecto. ¿Cómo respondes profesionalmente?",
+          "options": [
+            "Claro, con gusto. ¿En qué puedo ayudarte específicamente?",
+            "Sí, te ayudo",
+            "Está bien, yo lo hago"
+          ],
+          "correct": 0,
+          "hint": "Aceptar ayuda debe incluir: confirmación positiva + expresión de disposición ('con gusto') + pregunta específica para entender mejor la necesidad.",
+          "explanation": "Una respuesta profesional muestra disposición y busca entender exactamente qué necesita el compañero antes de actuar."
+        },
+        {
+          "id": "et4",
+          "situation": "Quieres pedir un día libre. ¿Cuál es la forma más profesional?",
+          "options": [
+            "¿Sería posible que tomara el viernes libre? Tengo un compromiso personal importante",
+            "Necesito el viernes libre",
+            "No voy a trabajar el viernes"
+          ],
+          "correct": 0,
+          "hint": "Pedir permiso profesionalmente: pregunta cortés ('¿Sería posible...?') + explicación breve + respeto por las necesidades de la empresa. Evita ser demasiado directo o asumir que se concederá.",
+          "explanation": "Usar '¿Sería posible...?' muestra respeto y considera que la petición puede no ser aprobada. Una explicación breve es apropiada."
+        },
+        {
+          "id": "et5",
+          "situation": "Tu jefe te pregunta sobre el progreso de un proyecto. ¿Cómo respondes?",
+          "options": [
+            "Va bien. Ya completé la primera fase y estoy trabajando en la segunda. ¿Quiere que le envíe un informe?",
+            "Está bien",
+            "Casi terminado"
+          ],
+          "correct": 0,
+          "hint": "En el trabajo, las actualizaciones deben ser específicas: estado general + detalles concretos + oferta de más información si es necesario. Evita respuestas vagas.",
+          "explanation": "Una actualización profesional incluye: estado claro + progreso específico + oferta de documentación adicional. Muestra transparencia y organización."
+        },
+        {
+          "id": "et6",
+          "situation": "En una reunión, no entendiste una instrucción. ¿Cómo lo pides de forma profesional?",
+          "options": [
+            "Disculpe, ¿podría repetir la última parte? Quiero asegurarme de entender correctamente",
+            "No entendí",
+            "Repite eso"
+          ],
+          "correct": 0,
+          "hint": "Pedir aclaración profesionalmente: cortesía ('Disculpe') + petición específica + razón válida. Explicar por qué preguntas muestra que es importante para ti hacerlo bien.",
+          "explanation": "'Disculpe, ¿podría repetir...?' + razón muestra profesionalismo. 'Quiero asegurarme de entender correctamente' indica responsabilidad, no distracción."
+        },
+        {
+          "id": "et7",
+          "situation": "Quieres hacer una sugerencia para mejorar un proceso. ¿Cómo lo presentas?",
+          "options": [
+            "He pensado en una posible mejora. ¿Le parece bien si lo comentamos?",
+            "Yo tengo una idea",
+            "Deberíamos hacer esto de otra manera"
+          ],
+          "correct": 0,
+          "hint": "Presentar sugerencias profesionalmente: introducción suave ('He pensado en...') + pregunta que invita a discusión + respeto por la autoridad. Evita sonar como si impusieras cambios.",
+          "explanation": "Una sugerencia profesional se presenta como una propuesta para discutir, no como una orden. Muestra respeto por los procesos existentes y la jerarquía."
+        },
+        {
+          "id": "et8",
+          "situation": "Necesitas pedir una extensión de plazo. ¿Cómo lo comunicas?",
+          "options": [
+            "Me encuentro con algunas dificultades inesperadas. ¿Sería posible extender el plazo hasta el viernes?",
+            "No puedo terminar a tiempo",
+            "Necesito más tiempo"
+          ],
+          "correct": 0,
+          "hint": "Pedir extensión profesionalmente: explicar la situación + petición específica con fecha + reconocimiento del impacto. Comunicar proactivamente es mejor que esperar al último momento.",
+          "explanation": "Una comunicación profesional explica el contexto, propone una solución específica (nueva fecha) y muestra responsabilidad al comunicar el problema a tiempo."
+        },
+        {
+          "id": "et9",
+          "situation": "Quieres agradecer a un compañero por su ayuda. ¿Cuál es la forma más profesional?",
+          "options": [
+            "Muchas gracias por tu ayuda. Realmente lo aprecio",
+            "Gracias",
+            "Bien hecho"
+          ],
+          "correct": 0,
+          "hint": "Agradecer profesionalmente: expresión estándar + reconocimiento específico + valoración. 'Realmente lo aprecio' enfatiza que su ayuda fue significativa.",
+          "explanation": "Un agradecimiento profesional va más allá de 'Gracias'. Reconoce específicamente qué ayudó y muestra que valoras el esfuerzo del otro."
+        },
+        {
+          "id": "et10",
+          "situation": "En una entrevista, te preguntan sobre tus debilidades. ¿Cómo respondes profesionalmente?",
+          "options": [
+            "Una área que estoy mejorando es la gestión del tiempo. Estoy usando técnicas de organización para ser más eficiente",
+            "No tengo debilidades",
+            "Soy muy malo organizándome"
+          ],
+          "correct": 0,
+          "hint": "La mejor respuesta menciona un área real de mejora + muestra acción activa para superarla. Evita decir 'no tengo debilidades' (suena arrogante) o ser demasiado negativo.",
+          "explanation": "Mencionar una debilidad real pero mostrar que trabajas activamente en mejorarla demuestra autoconocimiento, humildad y crecimiento profesional."
+        }
+      ]
+    },
+    {
+      "levelId": "problemas-soluciones",
+      "name": "Problemas y Soluciones",
+      "description": "Situaciones de emergencia: hospital, pérdida de objetos, problemas urgentes",
+      "timeLimit": 480,
+      "scenarios": [
+        {
+          "id": "ps1",
+          "situation": "Estás en un hospital y necesitas explicar tus síntomas a un médico. ¿Cómo lo haces?",
+          "options": [
+            "Llevo tres días con dolor de cabeza fuerte y fiebre. ¿Podría revisarme?",
+            "Estoy enfermo",
+            "Me duele la cabeza mucho"
+          ],
+          "correct": 0,
+          "hint": "En situaciones médicas, es importante ser específico: duración ('tres días') + síntomas concretos ('dolor de cabeza fuerte y fiebre') + cortesía. Esto ayuda al médico a diagnosticar mejor.",
+          "explanation": "Una descripción médica efectiva incluye: tiempo de duración + síntomas específicos + gravedad. '¿Podría revisarme?' es la forma educada de pedir atención médica."
+        },
+        {
+          "id": "ps2",
+          "situation": "Has perdido tu maleta en el aeropuerto. ¿Cómo lo reportas?",
+          "options": [
+            "Disculpe, he perdido mi maleta. ¿Dónde puedo reportarlo?",
+            "Mi maleta desapareció",
+            "Dame mi maleta"
+          ],
+          "correct": 0,
+          "hint": "Reportar pérdida: cortesía inicial + explicación clara del problema + pregunta específica sobre qué hacer. 'He perdido' (presente perfecto) indica que la acción pasada afecta el presente.",
+          "explanation": "En situaciones de pérdida, empieza con cortesía, explica claramente el problema y pregunta específicamente dónde o cómo reportarlo para obtener ayuda eficiente."
+        },
+        {
+          "id": "ps3",
+          "situation": "Necesitas ayuda urgente en la calle. ¿Cómo pides ayuda de forma efectiva?",
+          "options": [
+            "¡Disculpe! Necesito ayuda urgente, por favor",
+            "Ayuda",
+            "Ven aquí"
+          ],
+          "correct": 0,
+          "hint": "Pedir ayuda urgente: llamada de atención clara ('¡Disculpe!') + explicación del tipo de ayuda + cortesía. Ser específico ayuda a que otros entiendan la urgencia.",
+          "explanation": "En emergencias, combina cortesía con claridad. '¡Disculpe!' llama la atención, 'Necesito ayuda urgente' explica la situación, y 'por favor' mantiene la cortesía incluso en urgencia."
+        },
+        {
+          "id": "ps4",
+          "situation": "Tu teléfono no funciona y necesitas hacer una llamada urgente. ¿Cómo pides usar un teléfono?",
+          "options": [
+            "Disculpe, mi teléfono no funciona. ¿Podría prestarme su teléfono para una llamada urgente?",
+            "Dame tu teléfono",
+            "Necesito llamar"
+          ],
+          "correct": 0,
+          "hint": "Pedir prestado algo: explicar la situación + petición cortés ('¿Podría prestarme...?') + razón válida. Reconocer que es una petición especial ('prestarme') muestra respeto.",
+          "explanation": "Cuando pides prestado algo personal como un teléfono, explica por qué lo necesitas y usa '¿Podría prestarme...?' que reconoce que estás pidiendo un favor."
+        },
+        {
+          "id": "ps5",
+          "situation": "Tienes una alergia alimentaria y estás en un restaurante. ¿Cómo lo comunicas?",
+          "options": [
+            "Tengo alergia a los frutos secos. ¿Este plato los contiene?",
+            "No puedo comer esto",
+            "Soy alérgico"
+          ],
+          "correct": 0,
+          "hint": "Comunicar alergia: especificar el alérgeno exacto + pregunta específica sobre el plato. Esto permite al restaurante ayudarte mejor. Ser vago ('no puedo comer esto') no ayuda.",
+          "explanation": "Para alergias, ser específico es crucial para tu seguridad. 'Tengo alergia a los frutos secos' + pregunta sobre el plato permite al personal verificar y protegerte."
+        },
+        {
+          "id": "ps6",
+          "situation": "Se te ha roto algo importante y necesitas explicarlo a alguien. ¿Cómo lo haces?",
+          "options": [
+            "Lamentablemente, se me ha roto el móvil. ¿Dónde puedo arreglarlo?",
+            "Mi móvil está roto",
+            "Rompí el móvil"
+          ],
+          "correct": 0,
+          "hint": "Explicar un problema: expresión de pesar ('Lamentablemente') + descripción clara + pregunta sobre solución. 'Se me ha roto' (pasiva refleja) es más natural que 'Rompí' cuando no fue intencional.",
+          "explanation": "'Se me ha roto' (pasiva refleja) es la forma natural de decir que algo se rompió sin que fuera tu culpa directa. 'Lamentablemente' muestra que es un problema que te afecta."
+        },
+        {
+          "id": "ps7",
+          "situation": "Necesitas cancelar una reserva por una emergencia. ¿Cómo lo comunicas?",
+          "options": [
+            "Disculpe, tengo una emergencia familiar y necesito cancelar mi reserva. ¿Es posible?",
+            "Quiero cancelar",
+            "No voy a venir"
+          ],
+          "correct": 0,
+          "hint": "Cancelar profesionalmente: cortesía + explicación breve (no necesitas detalles privados) + petición + reconocimiento de posibles políticas. '¿Es posible?' muestra que entiendes que puede haber condiciones.",
+          "explanation": "Una cancelación profesional incluye: cortesía + razón válida pero no excesivamente detallada + pregunta que reconoce que la cancelación puede tener condiciones."
+        },
+        {
+          "id": "ps8",
+          "situation": "Estás perdido y necesitas direcciones. ¿Cómo pides ayuda de forma clara?",
+          "options": [
+            "Disculpe, me he perdido. ¿Podría indicarme cómo llegar a la Plaza Mayor?",
+            "¿Dónde está la Plaza Mayor?",
+            "No sé dónde estoy"
+          ],
+          "correct": 0,
+          "hint": "Cuando estás perdido, explicar tu situación ('me he perdido') ayuda a que otros entiendan tu necesidad. '¿Podría indicarme cómo llegar a...?' es más completo que solo '¿Dónde está...?' porque pides direcciones, no solo ubicación.",
+          "explanation": "Para direcciones cuando estás perdido: reconocer tu situación + petición específica de direcciones. '¿Podría indicarme cómo llegar a...?' pide instrucciones, no solo ubicación."
+        },
+        {
+          "id": "ps9",
+          "situation": "Necesitas reportar un problema a tu arrendador (problema en el apartamento). ¿Cómo lo comunicas?",
+          "options": [
+            "Buenos días. Tengo un problema con la calefacción que no funciona. ¿Cuándo podría venir a revisarlo?",
+            "La calefacción está rota",
+            "Arregla la calefacción"
+          ],
+          "correct": 0,
+          "hint": "Reportar problema a arrendador: saludo + descripción clara del problema + petición específica con flexibilidad. Ser específico ('calefacción que no funciona') ayuda. Preguntar cuándo (no exigir 'ahora') muestra respeto.",
+          "explanation": "Una comunicación profesional con arrendador: saludo + problema específico + petición que reconoce que él tiene un horario. '¿Cuándo podría venir...?' es más respetuoso que exigir atención inmediata."
+        },
+        {
+          "id": "ps10",
+          "situation": "Has tenido un accidente menor (sin heridos) y necesitas intercambiar información. ¿Cómo lo haces?",
+          "options": [
+            "Disculpe el incidente. ¿Podríamos intercambiar información de contacto?",
+            "Fue tu culpa",
+            "Dame tu número"
+          ],
+          "correct": 0,
+          "hint": "Después de un incidente: disculpa inicial (mantiene calma) + petición profesional de información. Evita asignar culpa inmediatamente. Mantener la calma y ser profesional facilita la resolución.",
+          "explanation": "En incidentes, empezar con disculpa (aunque no sea tu culpa) mantiene un tono profesional. Pedir información de forma cortés ('¿Podríamos intercambiar...?') es más efectivo que exigirla."
+        }
+      ]
+    }
+  ]
+}

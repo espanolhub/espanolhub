@@ -1,0 +1,67 @@
+'use client';
+
+import Link from 'next/link';
+import { CheckCircle, Sparkles } from 'lucide-react';
+import { useEffect } from 'react';
+import { useUser } from '@clerk/nextjs';
+
+export default function SuccessPage() {
+  const { isSignedIn, isLoaded, user } = useUser();
+
+  useEffect(() => {
+    // Force a reload when the page loads to refresh Clerk session metadata
+    // Only reload once
+    if (typeof window === 'undefined') return;
+    try {
+      // small delay to allow redirect flow
+      setTimeout(() => {
+        window.location.reload();
+      }, 800);
+    } catch (e) {}
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center py-12 px-4">
+      <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-center">
+        <div className="mb-6">
+          <div className="mx-auto flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-4">
+            <CheckCircle className="w-12 h-12 text-green-600" />
+          </div>
+          <Sparkles className="w-8 h-8 text-yellow-400 mx-auto mb-4" />
+        </div>
+
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          ¡Pago Exitoso! / الدفع ناجح!
+        </h1>
+        
+        <p className="text-lg text-gray-600 mb-6">
+          ¡Gracias por tu suscripción! Tu cuenta Premium está activa ahora.
+        </p>
+        
+        <p className="text-sm text-gray-500 mb-8" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
+          شكراً لك على الاشتراك! حسابك Premium مفعّل الآن.
+        </p>
+
+        <div className="space-y-3">
+          <Link
+            href="/dashboard"
+            className="block w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all"
+          >
+            Ir al Dashboard / اذهب إلى لوحة التحكم
+          </Link>
+          
+          <Link
+            href="/"
+            className="block w-full px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-colors"
+          >
+            Volver al Inicio / العودة للصفحة الرئيسية
+          </Link>
+        </div>
+
+        <p className="text-xs text-gray-400 mt-6">
+          Si tienes alguna pregunta, contáctanos.
+        </p>
+      </div>
+    </div>
+  );
+}

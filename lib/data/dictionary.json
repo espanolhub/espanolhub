@@ -1,0 +1,4007 @@
+[
+  {
+    "id": "dict-verb-hablar",
+    "word": "hablar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "تحدّث",
+      "يتكلّم"
+    ],
+    "pronunciation": "ha-blar",
+    "example": "Yo hablo español todos los días.",
+    "audio": null,
+    "tags": [
+      "common",
+      "regular"
+    ]
+  },
+  {
+    "id": "dict-verb-ir",
+    "word": "ir",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يذهب"
+    ],
+    "pronunciation": "ir",
+    "example": "Ayer yo fui al cine.",
+    "audio": null,
+    "tags": [
+      "irregular"
+    ]
+  },
+  {
+    "id": "dict-noun-casa",
+    "word": "casa",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "منزل",
+      "بيت"
+    ],
+    "pronunciation": "ca-sa",
+    "example": "La casa es grande.",
+    "audio": null,
+    "tags": [
+      "house"
+    ]
+  },
+  {
+    "id": "dict-noun-multa",
+    "word": "multa",
+    "pos": "noun",
+    "category": "tramites",
+    "translations": [
+      "غرامة",
+      "مخالفة"
+    ],
+    "pronunciation": "mul-ta",
+    "example": "Recibí una multa por aparcar mal.",
+    "audio": null,
+    "tags": [
+      "legal",
+      "driving"
+    ]
+  },
+  {
+    "id": "dict-legal-nacionalidad",
+    "word": "nacionalidad",
+    "pos": "noun",
+    "category": "legal",
+    "translations": [
+      "جنسية"
+    ],
+    "pronunciation": "na-cio-na-li-dad",
+    "example": "La nacionalidad se obtiene tras el proceso.",
+    "audio": null,
+    "tags": [
+      "legal"
+    ]
+  },
+  {
+    "id": "dict-verb-renovar",
+    "word": "renovar",
+    "pos": "verb",
+    "category": "tramites",
+    "translations": [
+      "تجديد"
+    ],
+    "pronunciation": "re-no-var",
+    "example": "Necesito renovar mi permiso de residencia.",
+    "audio": null,
+    "tags": [
+      "admin",
+      "regular"
+    ]
+  },
+  {
+    "id": "dict-verb-cruzar",
+    "word": "cruzar",
+    "pos": "verb",
+    "category": "driving",
+    "translations": [
+      "عبر",
+      "اجتاز"
+    ],
+    "pronunciation": "cru-zar",
+    "example": "Debes cruzar la calle por el paso de peatones.",
+    "audio": null,
+    "tags": [
+      "driving"
+    ]
+  },
+  {
+    "id": "dict-noun-rey",
+    "word": "rey",
+    "pos": "noun",
+    "category": "politica",
+    "translations": [
+      "ملك"
+    ],
+    "pronunciation": "rey",
+    "example": "El rey visitó la ciudad.",
+    "audio": null,
+    "tags": [
+      "culture"
+    ]
+  },
+  {
+    "id": "dict-vocab-hablar",
+    "word": "hablar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "تحدث",
+      "تكلم"
+    ],
+    "pronunciation": "ah-blahr",
+    "example": "",
+    "audio": null,
+    "tags": [
+      "common"
+    ]
+  },
+  {
+    "id": "dict-vocab-comer",
+    "word": "comer",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "أكل",
+      "تناول الطعام"
+    ],
+    "pronunciation": "koh-mehr",
+    "example": "",
+    "audio": null,
+    "tags": [
+      "common"
+    ]
+  },
+  {
+    "id": "dict-vocab-beber",
+    "word": "beber",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "شرب"
+    ],
+    "pronunciation": "beh-behr",
+    "example": "",
+    "audio": null,
+    "tags": [
+      "common"
+    ]
+  },
+  {
+    "id": "dict-vocab-dormir",
+    "word": "dormir",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "نام",
+      "يغفو"
+    ],
+    "pronunciation": "dohr-meer",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-trabajar",
+    "word": "trabajar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "عمل",
+      "اشتغل"
+    ],
+    "pronunciation": "trah-bah-hahr",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-estudiar",
+    "word": "estudiar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "درس",
+      "تعلم"
+    ],
+    "pronunciation": "eh-stoo-dyahr",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-caminar",
+    "word": "caminar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "مشى",
+      "يمشي"
+    ],
+    "pronunciation": "kah-mee-nahr",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-correr",
+    "word": "correr",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "ركض",
+      "يجري"
+    ],
+    "pronunciation": "koh-rrehr",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-leer",
+    "word": "leer",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "قرأ",
+      "يتلو"
+    ],
+    "pronunciation": "leh-ehr",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-escribir",
+    "word": "escribir",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "كتب",
+      "دوّن"
+    ],
+    "pronunciation": "eh-skree-beer",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-casa",
+    "word": "casa",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "منزل",
+      "بيت",
+      "دار"
+    ],
+    "pronunciation": "kah-sah",
+    "example": "",
+    "audio": null,
+    "tags": [
+      "house"
+    ]
+  },
+  {
+    "id": "dict-vocab-puerta",
+    "word": "puerta",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "باب"
+    ],
+    "pronunciation": "pwehr-tah",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-ventana",
+    "word": "ventana",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "نافذة",
+      "شباك"
+    ],
+    "pronunciation": "vehn-tah-nah",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-cocina",
+    "word": "cocina",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "مطبخ"
+    ],
+    "pronunciation": "koh-see-nah",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-bano",
+    "word": "baño",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "حمام",
+      "دورة مياه"
+    ],
+    "pronunciation": "bah-nyoh",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-mesa",
+    "word": "mesa",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "طاولة"
+    ],
+    "pronunciation": "meh-sah",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-silla",
+    "word": "silla",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "كرسي"
+    ],
+    "pronunciation": "see-yah",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-cama",
+    "word": "cama",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "سرير"
+    ],
+    "pronunciation": "kah-mah",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-armario",
+    "word": "armario",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "خزانة"
+    ],
+    "pronunciation": "ahr-mah-ryoh",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-lampara",
+    "word": "lámpara",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "مصباح"
+    ],
+    "pronunciation": "lahm-pah-rah",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-lavadora",
+    "word": "lavadora",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "غسالة"
+    ],
+    "pronunciation": "lah-vah-doh-rah",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-television",
+    "word": "televisión",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "تلفاز",
+      "تلفزيون"
+    ],
+    "pronunciation": "teh-leh-bsee-ohn",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-nevera",
+    "word": "nevera",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "ثلاجة"
+    ],
+    "pronunciation": "neh-veh-rah",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-horno",
+    "word": "horno",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "فرن"
+    ],
+    "pronunciation": "ohr-noh",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-microondas",
+    "word": "microondas",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "مايكروويف"
+    ],
+    "pronunciation": "mee-kroh-ohn-dahs",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-vocab-fregadero",
+    "word": "fregadero",
+    "pos": "noun",
+    "category": "casa",
+    "translations": [
+      "حوض غسيل"
+    ],
+    "pronunciation": "fre-gah-deh-roh",
+    "example": "",
+    "audio": null,
+    "tags": []
+  },
+  {
+    "id": "dict-food-pan",
+    "word": "pan",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "خبز"
+    ],
+    "pronunciation": "pan",
+    "example": "Quiero pan fresco.",
+    "audio": null,
+    "tags": [
+      "food",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-food-agua",
+    "word": "agua",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "ماء"
+    ],
+    "pronunciation": "ah-gwa",
+    "example": "Necesito un vaso de agua.",
+    "audio": null,
+    "tags": [
+      "food",
+      "common",
+      "drinks"
+    ]
+  },
+  {
+    "id": "dict-food-leche",
+    "word": "leche",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "حليب"
+    ],
+    "pronunciation": "leh-che",
+    "example": "Tomo leche en el desayuno.",
+    "audio": null,
+    "tags": [
+      "food",
+      "drinks"
+    ]
+  },
+  {
+    "id": "dict-food-cafe",
+    "word": "café",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "قهوة"
+    ],
+    "pronunciation": "ka-fé",
+    "example": "Me gusta el café con leche.",
+    "audio": null,
+    "tags": [
+      "food",
+      "drinks",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-food-te",
+    "word": "té",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "شاي"
+    ],
+    "pronunciation": "té",
+    "example": "Prefiero té verde.",
+    "audio": null,
+    "tags": [
+      "food",
+      "drinks"
+    ]
+  },
+  {
+    "id": "dict-food-zumo",
+    "word": "zumo",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "عصير"
+    ],
+    "pronunciation": "thu-mo",
+    "example": "Bebo zumo de naranja.",
+    "audio": null,
+    "tags": [
+      "food",
+      "drinks"
+    ]
+  },
+  {
+    "id": "dict-food-cerveza",
+    "word": "cerveza",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "بيرة"
+    ],
+    "pronunciation": "ser-ve-tha",
+    "example": "Una cerveza, por favor.",
+    "audio": null,
+    "tags": [
+      "food",
+      "drinks"
+    ]
+  },
+  {
+    "id": "dict-food-vino",
+    "word": "vino",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "نبيذ"
+    ],
+    "pronunciation": "vi-no",
+    "example": "El vino tinto es popular.",
+    "audio": null,
+    "tags": [
+      "food",
+      "drinks"
+    ]
+  },
+  {
+    "id": "dict-food-carne",
+    "word": "carne",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "لحم"
+    ],
+    "pronunciation": "kar-ne",
+    "example": "Como carne una vez por semana.",
+    "audio": null,
+    "tags": [
+      "food",
+      "meat"
+    ]
+  },
+  {
+    "id": "dict-food-pollo",
+    "word": "pollo",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "دجاج"
+    ],
+    "pronunciation": "po-yo",
+    "example": "El pollo asado es delicioso.",
+    "audio": null,
+    "tags": [
+      "food",
+      "meat"
+    ]
+  },
+  {
+    "id": "dict-food-pescado",
+    "word": "pescado",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "سمك"
+    ],
+    "pronunciation": "pes-ka-do",
+    "example": "El pescado es muy saludable.",
+    "audio": null,
+    "tags": [
+      "food",
+      "seafood"
+    ]
+  },
+  {
+    "id": "dict-food-arroz",
+    "word": "arroz",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "أرز"
+    ],
+    "pronunciation": "a-rroth",
+    "example": "Me gusta el arroz con pollo.",
+    "audio": null,
+    "tags": [
+      "food",
+      "grains"
+    ]
+  },
+  {
+    "id": "dict-food-pasta",
+    "word": "pasta",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "معكرونة"
+    ],
+    "pronunciation": "pas-ta",
+    "example": "La pasta italiana es famosa.",
+    "audio": null,
+    "tags": [
+      "food",
+      "grains"
+    ]
+  },
+  {
+    "id": "dict-food-ensalada",
+    "word": "ensalada",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "سلطة"
+    ],
+    "pronunciation": "en-sa-la-da",
+    "example": "Comeré una ensalada fresca.",
+    "audio": null,
+    "tags": [
+      "food",
+      "vegetables"
+    ]
+  },
+  {
+    "id": "dict-food-sopa",
+    "word": "sopa",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "حساء",
+      "شوربة"
+    ],
+    "pronunciation": "so-pa",
+    "example": "La sopa está caliente.",
+    "audio": null,
+    "tags": [
+      "food"
+    ]
+  },
+  {
+    "id": "dict-food-queso",
+    "word": "queso",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "جبن"
+    ],
+    "pronunciation": "ke-so",
+    "example": "El queso manchego es típico de España.",
+    "audio": null,
+    "tags": [
+      "food",
+      "dairy"
+    ]
+  },
+  {
+    "id": "dict-food-huevo",
+    "word": "huevo",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "بيضة"
+    ],
+    "pronunciation": "we-vo",
+    "example": "Desayuno dos huevos.",
+    "audio": null,
+    "tags": [
+      "food",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-food-mantequilla",
+    "word": "mantequilla",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "زبدة"
+    ],
+    "pronunciation": "man-te-ki-ya",
+    "example": "Pongo mantequilla en el pan.",
+    "audio": null,
+    "tags": [
+      "food",
+      "dairy"
+    ]
+  },
+  {
+    "id": "dict-food-azucar",
+    "word": "azúcar",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "سكر"
+    ],
+    "pronunciation": "a-thu-kar",
+    "example": "Pongo azúcar en el café.",
+    "audio": null,
+    "tags": [
+      "food"
+    ]
+  },
+  {
+    "id": "dict-food-sal",
+    "word": "sal",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "ملح"
+    ],
+    "pronunciation": "sal",
+    "example": "Necesito un poco de sal.",
+    "audio": null,
+    "tags": [
+      "food"
+    ]
+  },
+  {
+    "id": "dict-food-pimienta",
+    "word": "pimienta",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "فلفل أسود"
+    ],
+    "pronunciation": "pi-myen-ta",
+    "example": "La pimienta da sabor.",
+    "audio": null,
+    "tags": [
+      "food",
+      "spices"
+    ]
+  },
+  {
+    "id": "dict-food-aceite",
+    "word": "aceite",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "زيت"
+    ],
+    "pronunciation": "a-they-te",
+    "example": "Uso aceite de oliva para cocinar.",
+    "audio": null,
+    "tags": [
+      "food"
+    ]
+  },
+  {
+    "id": "dict-fruit-manzana",
+    "word": "manzana",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "تفاحة"
+    ],
+    "pronunciation": "man-tha-na",
+    "example": "Como una manzana al día.",
+    "audio": null,
+    "tags": [
+      "food",
+      "fruit",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-fruit-naranja",
+    "word": "naranja",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "برتقالة"
+    ],
+    "pronunciation": "na-ran-ha",
+    "example": "Las naranjas valencianas son famosas.",
+    "audio": null,
+    "tags": [
+      "food",
+      "fruit",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-fruit-platano",
+    "word": "plátano",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "موزة"
+    ],
+    "pronunciation": "pla-ta-no",
+    "example": "El plátano es muy nutritivo.",
+    "audio": null,
+    "tags": [
+      "food",
+      "fruit"
+    ]
+  },
+  {
+    "id": "dict-fruit-fresa",
+    "word": "fresa",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "فراولة"
+    ],
+    "pronunciation": "fre-sa",
+    "example": "Las fresas son dulces.",
+    "audio": null,
+    "tags": [
+      "food",
+      "fruit"
+    ]
+  },
+  {
+    "id": "dict-fruit-uva",
+    "word": "uva",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "عنب"
+    ],
+    "pronunciation": "u-va",
+    "example": "Las uvas son para hacer vino.",
+    "audio": null,
+    "tags": [
+      "food",
+      "fruit"
+    ]
+  },
+  {
+    "id": "dict-fruit-melon",
+    "word": "melón",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "بطيخ أصفر"
+    ],
+    "pronunciation": "me-lon",
+    "example": "El melón es refrescante en verano.",
+    "audio": null,
+    "tags": [
+      "food",
+      "fruit"
+    ]
+  },
+  {
+    "id": "dict-fruit-sandia",
+    "word": "sandía",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "بطيخ أحمر"
+    ],
+    "pronunciation": "san-di-a",
+    "example": "La sandía tiene mucha agua.",
+    "audio": null,
+    "tags": [
+      "food",
+      "fruit"
+    ]
+  },
+  {
+    "id": "dict-fruit-pera",
+    "word": "pera",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "كمثرى"
+    ],
+    "pronunciation": "pe-ra",
+    "example": "La pera está madura.",
+    "audio": null,
+    "tags": [
+      "food",
+      "fruit"
+    ]
+  },
+  {
+    "id": "dict-fruit-cereza",
+    "word": "cereza",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "كرز"
+    ],
+    "pronunciation": "the-re-tha",
+    "example": "Las cerezas son rojas.",
+    "audio": null,
+    "tags": [
+      "food",
+      "fruit"
+    ]
+  },
+  {
+    "id": "dict-fruit-limon",
+    "word": "limón",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "ليمون"
+    ],
+    "pronunciation": "li-mon",
+    "example": "El limón es ácido.",
+    "audio": null,
+    "tags": [
+      "food",
+      "fruit"
+    ]
+  },
+  {
+    "id": "dict-veggie-tomate",
+    "word": "tomate",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "طماطم"
+    ],
+    "pronunciation": "to-ma-te",
+    "example": "El tomate es rojo.",
+    "audio": null,
+    "tags": [
+      "food",
+      "vegetables"
+    ]
+  },
+  {
+    "id": "dict-veggie-lechuga",
+    "word": "lechuga",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "خس"
+    ],
+    "pronunciation": "le-chu-ga",
+    "example": "La lechuga es verde.",
+    "audio": null,
+    "tags": [
+      "food",
+      "vegetables"
+    ]
+  },
+  {
+    "id": "dict-veggie-zanahoria",
+    "word": "zanahoria",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "جزر"
+    ],
+    "pronunciation": "tha-na-o-rya",
+    "example": "La zanahoria es naranja.",
+    "audio": null,
+    "tags": [
+      "food",
+      "vegetables"
+    ]
+  },
+  {
+    "id": "dict-veggie-cebolla",
+    "word": "cebolla",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "بصل"
+    ],
+    "pronunciation": "the-bo-ya",
+    "example": "La cebolla hace llorar.",
+    "audio": null,
+    "tags": [
+      "food",
+      "vegetables"
+    ]
+  },
+  {
+    "id": "dict-veggie-patata",
+    "word": "patata",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "بطاطا"
+    ],
+    "pronunciation": "pa-ta-ta",
+    "example": "Las patatas fritas son populares.",
+    "audio": null,
+    "tags": [
+      "food",
+      "vegetables",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-veggie-pimiento",
+    "word": "pimiento",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "فلفل"
+    ],
+    "pronunciation": "pi-myen-to",
+    "example": "El pimiento puede ser rojo o verde.",
+    "audio": null,
+    "tags": [
+      "food",
+      "vegetables"
+    ]
+  },
+  {
+    "id": "dict-veggie-pepino",
+    "word": "pepino",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "خيار"
+    ],
+    "pronunciation": "pe-pi-no",
+    "example": "El pepino es refrescante.",
+    "audio": null,
+    "tags": [
+      "food",
+      "vegetables"
+    ]
+  },
+  {
+    "id": "dict-veggie-ajo",
+    "word": "ajo",
+    "pos": "noun",
+    "category": "comida",
+    "translations": [
+      "ثوم"
+    ],
+    "pronunciation": "a-ho",
+    "example": "El ajo tiene sabor fuerte.",
+    "audio": null,
+    "tags": [
+      "food",
+      "vegetables"
+    ]
+  },
+  {
+    "id": "dict-animal-perro",
+    "word": "perro",
+    "pos": "noun",
+    "category": "animales",
+    "translations": [
+      "كلب"
+    ],
+    "pronunciation": "pe-rro",
+    "example": "El perro es el mejor amigo del hombre.",
+    "audio": null,
+    "tags": [
+      "animals",
+      "common",
+      "pets"
+    ]
+  },
+  {
+    "id": "dict-animal-gato",
+    "word": "gato",
+    "pos": "noun",
+    "category": "animales",
+    "translations": [
+      "قط"
+    ],
+    "pronunciation": "ga-to",
+    "example": "El gato es independiente.",
+    "audio": null,
+    "tags": [
+      "animals",
+      "common",
+      "pets"
+    ]
+  },
+  {
+    "id": "dict-animal-pajaro",
+    "word": "pájaro",
+    "pos": "noun",
+    "category": "animales",
+    "translations": [
+      "طائر",
+      "عصفور"
+    ],
+    "pronunciation": "pa-ha-ro",
+    "example": "El pájaro canta en la mañana.",
+    "audio": null,
+    "tags": [
+      "animals",
+      "birds"
+    ]
+  },
+  {
+    "id": "dict-animal-pez",
+    "word": "pez",
+    "pos": "noun",
+    "category": "animales",
+    "translations": [
+      "سمكة"
+    ],
+    "pronunciation": "peth",
+    "example": "El pez nada en el agua.",
+    "audio": null,
+    "tags": [
+      "animals",
+      "fish"
+    ]
+  },
+  {
+    "id": "dict-animal-caballo",
+    "word": "caballo",
+    "pos": "noun",
+    "category": "animales",
+    "translations": [
+      "حصان"
+    ],
+    "pronunciation": "ka-ba-yo",
+    "example": "El caballo es rápido.",
+    "audio": null,
+    "tags": [
+      "animals",
+      "farm"
+    ]
+  },
+  {
+    "id": "dict-animal-vaca",
+    "word": "vaca",
+    "pos": "noun",
+    "category": "animales",
+    "translations": [
+      "بقرة"
+    ],
+    "pronunciation": "va-ka",
+    "example": "La vaca da leche.",
+    "audio": null,
+    "tags": [
+      "animals",
+      "farm"
+    ]
+  },
+  {
+    "id": "dict-animal-oveja",
+    "word": "oveja",
+    "pos": "noun",
+    "category": "animales",
+    "translations": [
+      "خروف",
+      "نعجة"
+    ],
+    "pronunciation": "o-ve-ha",
+    "example": "La oveja tiene lana.",
+    "audio": null,
+    "tags": [
+      "animals",
+      "farm"
+    ]
+  },
+  {
+    "id": "dict-animal-cerdo",
+    "word": "cerdo",
+    "pos": "noun",
+    "category": "animales",
+    "translations": [
+      "خنزير"
+    ],
+    "pronunciation": "ther-do",
+    "example": "El cerdo vive en la granja.",
+    "audio": null,
+    "tags": [
+      "animals",
+      "farm"
+    ]
+  },
+  {
+    "id": "dict-animal-leon",
+    "word": "león",
+    "pos": "noun",
+    "category": "animales",
+    "translations": [
+      "أسد"
+    ],
+    "pronunciation": "le-on",
+    "example": "El león es el rey de la selva.",
+    "audio": null,
+    "tags": [
+      "animals",
+      "wild"
+    ]
+  },
+  {
+    "id": "dict-animal-elefante",
+    "word": "elefante",
+    "pos": "noun",
+    "category": "animales",
+    "translations": [
+      "فيل"
+    ],
+    "pronunciation": "e-le-fan-te",
+    "example": "El elefante es muy grande.",
+    "audio": null,
+    "tags": [
+      "animals",
+      "wild"
+    ]
+  },
+  {
+    "id": "dict-animal-mono",
+    "word": "mono",
+    "pos": "noun",
+    "category": "animales",
+    "translations": [
+      "قرد"
+    ],
+    "pronunciation": "mo-no",
+    "example": "El mono salta de árbol en árbol.",
+    "audio": null,
+    "tags": [
+      "animals",
+      "wild"
+    ]
+  },
+  {
+    "id": "dict-animal-serpiente",
+    "word": "serpiente",
+    "pos": "noun",
+    "category": "animales",
+    "translations": [
+      "ثعبان"
+    ],
+    "pronunciation": "ser-pyen-te",
+    "example": "La serpiente se arrastra.",
+    "audio": null,
+    "tags": [
+      "animals",
+      "reptiles"
+    ]
+  },
+  {
+    "id": "dict-family-padre",
+    "word": "padre",
+    "pos": "noun",
+    "category": "familia",
+    "translations": [
+      "أب",
+      "والد"
+    ],
+    "pronunciation": "pa-dre",
+    "example": "Mi padre trabaja en una oficina.",
+    "audio": null,
+    "tags": [
+      "family",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-family-madre",
+    "word": "madre",
+    "pos": "noun",
+    "category": "familia",
+    "translations": [
+      "أم",
+      "والدة"
+    ],
+    "pronunciation": "ma-dre",
+    "example": "Mi madre cocina muy bien.",
+    "audio": null,
+    "tags": [
+      "family",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-family-hijo",
+    "word": "hijo",
+    "pos": "noun",
+    "category": "familia",
+    "translations": [
+      "ابن"
+    ],
+    "pronunciation": "i-ho",
+    "example": "Tengo un hijo de 5 años.",
+    "audio": null,
+    "tags": [
+      "family",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-family-hija",
+    "word": "hija",
+    "pos": "noun",
+    "category": "familia",
+    "translations": [
+      "ابنة",
+      "بنت"
+    ],
+    "pronunciation": "i-ha",
+    "example": "Mi hija estudia medicina.",
+    "audio": null,
+    "tags": [
+      "family",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-family-hermano",
+    "word": "hermano",
+    "pos": "noun",
+    "category": "familia",
+    "translations": [
+      "أخ"
+    ],
+    "pronunciation": "er-ma-no",
+    "example": "Mi hermano es mayor que yo.",
+    "audio": null,
+    "tags": [
+      "family",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-family-hermana",
+    "word": "hermana",
+    "pos": "noun",
+    "category": "familia",
+    "translations": [
+      "أخت"
+    ],
+    "pronunciation": "er-ma-na",
+    "example": "Tengo dos hermanas.",
+    "audio": null,
+    "tags": [
+      "family",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-family-abuelo",
+    "word": "abuelo",
+    "pos": "noun",
+    "category": "familia",
+    "translations": [
+      "جد"
+    ],
+    "pronunciation": "a-bwe-lo",
+    "example": "Mi abuelo tiene 80 años.",
+    "audio": null,
+    "tags": [
+      "family"
+    ]
+  },
+  {
+    "id": "dict-family-abuela",
+    "word": "abuela",
+    "pos": "noun",
+    "category": "familia",
+    "translations": [
+      "جدة"
+    ],
+    "pronunciation": "a-bwe-la",
+    "example": "Mi abuela cocina muy rico.",
+    "audio": null,
+    "tags": [
+      "family"
+    ]
+  },
+  {
+    "id": "dict-family-tio",
+    "word": "tío",
+    "pos": "noun",
+    "category": "familia",
+    "translations": [
+      "عم",
+      "خال"
+    ],
+    "pronunciation": "ti-o",
+    "example": "Mi tío vive en Madrid.",
+    "audio": null,
+    "tags": [
+      "family"
+    ]
+  },
+  {
+    "id": "dict-family-tia",
+    "word": "tía",
+    "pos": "noun",
+    "category": "familia",
+    "translations": [
+      "عمة",
+      "خالة"
+    ],
+    "pronunciation": "ti-a",
+    "example": "Mi tía es profesora.",
+    "audio": null,
+    "tags": [
+      "family"
+    ]
+  },
+  {
+    "id": "dict-family-primo",
+    "word": "primo",
+    "pos": "noun",
+    "category": "familia",
+    "translations": [
+      "ابن العم",
+      "ابن الخال"
+    ],
+    "pronunciation": "pri-mo",
+    "example": "Mi primo estudia en Barcelona.",
+    "audio": null,
+    "tags": [
+      "family"
+    ]
+  },
+  {
+    "id": "dict-family-prima",
+    "word": "prima",
+    "pos": "noun",
+    "category": "familia",
+    "translations": [
+      "ابنة العم",
+      "ابنة الخال"
+    ],
+    "pronunciation": "pri-ma",
+    "example": "Mi prima se casó el año pasado.",
+    "audio": null,
+    "tags": [
+      "family"
+    ]
+  },
+  {
+    "id": "dict-family-esposo",
+    "word": "esposo",
+    "pos": "noun",
+    "category": "familia",
+    "translations": [
+      "زوج"
+    ],
+    "pronunciation": "es-po-so",
+    "example": "Mi esposo trabaja mucho.",
+    "audio": null,
+    "tags": [
+      "family"
+    ]
+  },
+  {
+    "id": "dict-family-esposa",
+    "word": "esposa",
+    "pos": "noun",
+    "category": "familia",
+    "translations": [
+      "زوجة"
+    ],
+    "pronunciation": "es-po-sa",
+    "example": "Mi esposa es médica.",
+    "audio": null,
+    "tags": [
+      "family"
+    ]
+  },
+  {
+    "id": "dict-body-cabeza",
+    "word": "cabeza",
+    "pos": "noun",
+    "category": "cuerpo",
+    "translations": [
+      "رأس"
+    ],
+    "pronunciation": "ka-be-tha",
+    "example": "Me duele la cabeza.",
+    "audio": null,
+    "tags": [
+      "body",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-body-ojo",
+    "word": "ojo",
+    "pos": "noun",
+    "category": "cuerpo",
+    "translations": [
+      "عين"
+    ],
+    "pronunciation": "o-ho",
+    "example": "Tengo los ojos azules.",
+    "audio": null,
+    "tags": [
+      "body",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-body-nariz",
+    "word": "nariz",
+    "pos": "noun",
+    "category": "cuerpo",
+    "translations": [
+      "أنف"
+    ],
+    "pronunciation": "na-rith",
+    "example": "La nariz sirve para oler.",
+    "audio": null,
+    "tags": [
+      "body"
+    ]
+  },
+  {
+    "id": "dict-body-boca",
+    "word": "boca",
+    "pos": "noun",
+    "category": "cuerpo",
+    "translations": [
+      "فم"
+    ],
+    "pronunciation": "bo-ka",
+    "example": "Abre la boca, por favor.",
+    "audio": null,
+    "tags": [
+      "body",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-body-oreja",
+    "word": "oreja",
+    "pos": "noun",
+    "category": "cuerpo",
+    "translations": [
+      "أذن"
+    ],
+    "pronunciation": "o-re-ha",
+    "example": "Me duele la oreja.",
+    "audio": null,
+    "tags": [
+      "body"
+    ]
+  },
+  {
+    "id": "dict-body-diente",
+    "word": "diente",
+    "pos": "noun",
+    "category": "cuerpo",
+    "translations": [
+      "سن"
+    ],
+    "pronunciation": "dyen-te",
+    "example": "Tengo dolor de diente.",
+    "audio": null,
+    "tags": [
+      "body"
+    ]
+  },
+  {
+    "id": "dict-body-mano",
+    "word": "mano",
+    "pos": "noun",
+    "category": "cuerpo",
+    "translations": [
+      "يد"
+    ],
+    "pronunciation": "ma-no",
+    "example": "Dame la mano.",
+    "audio": null,
+    "tags": [
+      "body",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-body-pie",
+    "word": "pie",
+    "pos": "noun",
+    "category": "cuerpo",
+    "translations": [
+      "قدم"
+    ],
+    "pronunciation": "pye",
+    "example": "Me duelen los pies.",
+    "audio": null,
+    "tags": [
+      "body",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-body-brazo",
+    "word": "brazo",
+    "pos": "noun",
+    "category": "cuerpo",
+    "translations": [
+      "ذراع"
+    ],
+    "pronunciation": "bra-tho",
+    "example": "Levanta el brazo.",
+    "audio": null,
+    "tags": [
+      "body"
+    ]
+  },
+  {
+    "id": "dict-body-pierna",
+    "word": "pierna",
+    "pos": "noun",
+    "category": "cuerpo",
+    "translations": [
+      "ساق"
+    ],
+    "pronunciation": "pyer-na",
+    "example": "Me rompí la pierna.",
+    "audio": null,
+    "tags": [
+      "body"
+    ]
+  },
+  {
+    "id": "dict-body-espalda",
+    "word": "espalda",
+    "pos": "noun",
+    "category": "cuerpo",
+    "translations": [
+      "ظهر"
+    ],
+    "pronunciation": "es-pal-da",
+    "example": "Me duele la espalda.",
+    "audio": null,
+    "tags": [
+      "body"
+    ]
+  },
+  {
+    "id": "dict-body-corazon",
+    "word": "corazón",
+    "pos": "noun",
+    "category": "cuerpo",
+    "translations": [
+      "قلب"
+    ],
+    "pronunciation": "ko-ra-thon",
+    "example": "El corazón late rápido.",
+    "audio": null,
+    "tags": [
+      "body"
+    ]
+  },
+  {
+    "id": "dict-clothes-camisa",
+    "word": "camisa",
+    "pos": "noun",
+    "category": "ropa",
+    "translations": [
+      "قميص"
+    ],
+    "pronunciation": "ka-mi-sa",
+    "example": "Llevo una camisa blanca.",
+    "audio": null,
+    "tags": [
+      "clothing",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-clothes-pantalon",
+    "word": "pantalón",
+    "pos": "noun",
+    "category": "ropa",
+    "translations": [
+      "بنطلون"
+    ],
+    "pronunciation": "pan-ta-lon",
+    "example": "Compré un pantalón negro.",
+    "audio": null,
+    "tags": [
+      "clothing",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-clothes-vestido",
+    "word": "vestido",
+    "pos": "noun",
+    "category": "ropa",
+    "translations": [
+      "فستان"
+    ],
+    "pronunciation": "ves-ti-do",
+    "example": "Ella lleva un vestido rojo.",
+    "audio": null,
+    "tags": [
+      "clothing"
+    ]
+  },
+  {
+    "id": "dict-clothes-falda",
+    "word": "falda",
+    "pos": "noun",
+    "category": "ropa",
+    "translations": [
+      "تنورة"
+    ],
+    "pronunciation": "fal-da",
+    "example": "La falda es corta.",
+    "audio": null,
+    "tags": [
+      "clothing"
+    ]
+  },
+  {
+    "id": "dict-clothes-zapato",
+    "word": "zapato",
+    "pos": "noun",
+    "category": "ropa",
+    "translations": [
+      "حذاء"
+    ],
+    "pronunciation": "tha-pa-to",
+    "example": "Necesito zapatos nuevos.",
+    "audio": null,
+    "tags": [
+      "clothing",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-clothes-chaqueta",
+    "word": "chaqueta",
+    "pos": "noun",
+    "category": "ropa",
+    "translations": [
+      "سترة",
+      "جاكيت"
+    ],
+    "pronunciation": "cha-ke-ta",
+    "example": "Hace frío, ponte la chaqueta.",
+    "audio": null,
+    "tags": [
+      "clothing"
+    ]
+  },
+  {
+    "id": "dict-clothes-abrigo",
+    "word": "abrigo",
+    "pos": "noun",
+    "category": "ropa",
+    "translations": [
+      "معطف"
+    ],
+    "pronunciation": "a-bri-go",
+    "example": "En invierno uso abrigo.",
+    "audio": null,
+    "tags": [
+      "clothing"
+    ]
+  },
+  {
+    "id": "dict-clothes-calcetines",
+    "word": "calcetines",
+    "pos": "noun",
+    "category": "ropa",
+    "translations": [
+      "جوارب"
+    ],
+    "pronunciation": "kal-the-ti-nes",
+    "example": "Los calcetines están limpios.",
+    "audio": null,
+    "tags": [
+      "clothing"
+    ]
+  },
+  {
+    "id": "dict-clothes-gorro",
+    "word": "gorro",
+    "pos": "noun",
+    "category": "ropa",
+    "translations": [
+      "قبعة"
+    ],
+    "pronunciation": "go-rro",
+    "example": "Llevo un gorro en invierno.",
+    "audio": null,
+    "tags": [
+      "clothing"
+    ]
+  },
+  {
+    "id": "dict-clothes-bufanda",
+    "word": "bufanda",
+    "pos": "noun",
+    "category": "ropa",
+    "translations": [
+      "وشاح"
+    ],
+    "pronunciation": "bu-fan-da",
+    "example": "La bufanda me abriga el cuello.",
+    "audio": null,
+    "tags": [
+      "clothing"
+    ]
+  },
+  {
+    "id": "dict-time-hoy",
+    "word": "hoy",
+    "pos": "adverb",
+    "category": "tiempo",
+    "translations": [
+      "اليوم"
+    ],
+    "pronunciation": "oy",
+    "example": "Hoy hace buen tiempo.",
+    "audio": null,
+    "tags": [
+      "time",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-time-ayer",
+    "word": "ayer",
+    "pos": "adverb",
+    "category": "tiempo",
+    "translations": [
+      "أمس"
+    ],
+    "pronunciation": "a-yer",
+    "example": "Ayer llovió mucho.",
+    "audio": null,
+    "tags": [
+      "time",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-time-manana",
+    "word": "mañana",
+    "pos": "adverb",
+    "category": "tiempo",
+    "translations": [
+      "غداً"
+    ],
+    "pronunciation": "ma-nya-na",
+    "example": "Mañana iré al médico.",
+    "audio": null,
+    "tags": [
+      "time",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-time-ahora",
+    "word": "ahora",
+    "pos": "adverb",
+    "category": "tiempo",
+    "translations": [
+      "الآن"
+    ],
+    "pronunciation": "a-o-ra",
+    "example": "Ahora estoy ocupado.",
+    "audio": null,
+    "tags": [
+      "time",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-time-despues",
+    "word": "después",
+    "pos": "adverb",
+    "category": "tiempo",
+    "translations": [
+      "بعد"
+    ],
+    "pronunciation": "des-pwes",
+    "example": "Después de comer, voy al parque.",
+    "audio": null,
+    "tags": [
+      "time"
+    ]
+  },
+  {
+    "id": "dict-time-antes",
+    "word": "antes",
+    "pos": "adverb",
+    "category": "tiempo",
+    "translations": [
+      "قبل"
+    ],
+    "pronunciation": "an-tes",
+    "example": "Antes de salir, cierra la puerta.",
+    "audio": null,
+    "tags": [
+      "time"
+    ]
+  },
+  {
+    "id": "dict-time-siempre",
+    "word": "siempre",
+    "pos": "adverb",
+    "category": "tiempo",
+    "translations": [
+      "دائماً"
+    ],
+    "pronunciation": "syem-pre",
+    "example": "Siempre llego a tiempo.",
+    "audio": null,
+    "tags": [
+      "time",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-time-nunca",
+    "word": "nunca",
+    "pos": "adverb",
+    "category": "tiempo",
+    "translations": [
+      "أبداً"
+    ],
+    "pronunciation": "nun-ka",
+    "example": "Nunca llego tarde.",
+    "audio": null,
+    "tags": [
+      "time",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-time-tarde",
+    "word": "tarde",
+    "pos": "noun",
+    "category": "tiempo",
+    "translations": [
+      "مساء",
+      "عصر"
+    ],
+    "pronunciation": "tar-de",
+    "example": "Por la tarde voy al gimnasio.",
+    "audio": null,
+    "tags": [
+      "time"
+    ]
+  },
+  {
+    "id": "dict-time-noche",
+    "word": "noche",
+    "pos": "noun",
+    "category": "tiempo",
+    "translations": [
+      "ليل"
+    ],
+    "pronunciation": "no-che",
+    "example": "Por la noche duermo 8 horas.",
+    "audio": null,
+    "tags": [
+      "time",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-profession-medico",
+    "word": "médico",
+    "pos": "noun",
+    "category": "profesiones",
+    "translations": [
+      "طبيب"
+    ],
+    "pronunciation": "me-di-ko",
+    "example": "El médico me recetó medicina.",
+    "audio": null,
+    "tags": [
+      "profession",
+      "health"
+    ]
+  },
+  {
+    "id": "dict-profession-profesor",
+    "word": "profesor",
+    "pos": "noun",
+    "category": "profesiones",
+    "translations": [
+      "معلم",
+      "أستاذ"
+    ],
+    "pronunciation": "pro-fe-sor",
+    "example": "Mi profesor es muy bueno.",
+    "audio": null,
+    "tags": [
+      "profession",
+      "education"
+    ]
+  },
+  {
+    "id": "dict-profession-ingeniero",
+    "word": "ingeniero",
+    "pos": "noun",
+    "category": "profesiones",
+    "translations": [
+      "مهندس"
+    ],
+    "pronunciation": "in-he-nye-ro",
+    "example": "Soy ingeniero civil.",
+    "audio": null,
+    "tags": [
+      "profession"
+    ]
+  },
+  {
+    "id": "dict-profession-abogado",
+    "word": "abogado",
+    "pos": "noun",
+    "category": "profesiones",
+    "translations": [
+      "محامي"
+    ],
+    "pronunciation": "a-bo-ga-do",
+    "example": "Necesito un abogado.",
+    "audio": null,
+    "tags": [
+      "profession",
+      "legal"
+    ]
+  },
+  {
+    "id": "dict-profession-enfermero",
+    "word": "enfermero",
+    "pos": "noun",
+    "category": "profesiones",
+    "translations": [
+      "ممرض"
+    ],
+    "pronunciation": "en-fer-me-ro",
+    "example": "El enfermero cuida a los pacientes.",
+    "audio": null,
+    "tags": [
+      "profession",
+      "health"
+    ]
+  },
+  {
+    "id": "dict-profession-policia",
+    "word": "policía",
+    "pos": "noun",
+    "category": "profesiones",
+    "translations": [
+      "شرطي"
+    ],
+    "pronunciation": "po-li-thi-a",
+    "example": "El policía vigila la calle.",
+    "audio": null,
+    "tags": [
+      "profession"
+    ]
+  },
+  {
+    "id": "dict-profession-cocinero",
+    "word": "cocinero",
+    "pos": "noun",
+    "category": "profesiones",
+    "translations": [
+      "طباخ"
+    ],
+    "pronunciation": "ko-thi-ne-ro",
+    "example": "El cocinero prepara la comida.",
+    "audio": null,
+    "tags": [
+      "profession"
+    ]
+  },
+  {
+    "id": "dict-profession-conductor",
+    "word": "conductor",
+    "pos": "noun",
+    "category": "profesiones",
+    "translations": [
+      "سائق"
+    ],
+    "pronunciation": "kon-duk-tor",
+    "example": "El conductor maneja el autobús.",
+    "audio": null,
+    "tags": [
+      "profession",
+      "driving"
+    ]
+  },
+  {
+    "id": "dict-place-hospital",
+    "word": "hospital",
+    "pos": "noun",
+    "category": "lugares",
+    "translations": [
+      "مستشفى"
+    ],
+    "pronunciation": "os-pi-tal",
+    "example": "Voy al hospital a visitar a mi amigo.",
+    "audio": null,
+    "tags": [
+      "places",
+      "health"
+    ]
+  },
+  {
+    "id": "dict-place-escuela",
+    "word": "escuela",
+    "pos": "noun",
+    "category": "lugares",
+    "translations": [
+      "مدرسة"
+    ],
+    "pronunciation": "es-kwe-la",
+    "example": "Los niños van a la escuela.",
+    "audio": null,
+    "tags": [
+      "places",
+      "education",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-place-universidad",
+    "word": "universidad",
+    "pos": "noun",
+    "category": "lugares",
+    "translations": [
+      "جامعة"
+    ],
+    "pronunciation": "u-ni-ver-si-dad",
+    "example": "Estudio en la universidad.",
+    "audio": null,
+    "tags": [
+      "places",
+      "education"
+    ]
+  },
+  {
+    "id": "dict-place-biblioteca",
+    "word": "biblioteca",
+    "pos": "noun",
+    "category": "lugares",
+    "translations": [
+      "مكتبة"
+    ],
+    "pronunciation": "bi-blyo-te-ka",
+    "example": "Leo libros en la biblioteca.",
+    "audio": null,
+    "tags": [
+      "places",
+      "education"
+    ]
+  },
+  {
+    "id": "dict-place-banco",
+    "word": "banco",
+    "pos": "noun",
+    "category": "lugares",
+    "translations": [
+      "بنك"
+    ],
+    "pronunciation": "ban-ko",
+    "example": "Voy al banco a sacar dinero.",
+    "audio": null,
+    "tags": [
+      "places",
+      "finance",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-place-supermercado",
+    "word": "supermercado",
+    "pos": "noun",
+    "category": "lugares",
+    "translations": [
+      "سوبرماركت"
+    ],
+    "pronunciation": "su-per-mer-ka-do",
+    "example": "Compro comida en el supermercado.",
+    "audio": null,
+    "tags": [
+      "places",
+      "shopping",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-place-farmacia",
+    "word": "farmacia",
+    "pos": "noun",
+    "category": "lugares",
+    "translations": [
+      "صيدلية"
+    ],
+    "pronunciation": "far-ma-thya",
+    "example": "Compro medicinas en la farmacia.",
+    "audio": null,
+    "tags": [
+      "places",
+      "health",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-place-restaurante",
+    "word": "restaurante",
+    "pos": "noun",
+    "category": "lugares",
+    "translations": [
+      "مطعم"
+    ],
+    "pronunciation": "res-tau-ran-te",
+    "example": "Cenamos en un restaurante italiano.",
+    "audio": null,
+    "tags": [
+      "places",
+      "food",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-place-parque",
+    "word": "parque",
+    "pos": "noun",
+    "category": "lugares",
+    "translations": [
+      "حديقة عامة"
+    ],
+    "pronunciation": "par-ke",
+    "example": "Camino en el parque los domingos.",
+    "audio": null,
+    "tags": [
+      "places",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-place-cine",
+    "word": "cine",
+    "pos": "noun",
+    "category": "lugares",
+    "translations": [
+      "سينما"
+    ],
+    "pronunciation": "thi-ne",
+    "example": "Voy al cine a ver una película.",
+    "audio": null,
+    "tags": [
+      "places",
+      "entertainment",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-place-aeropuerto",
+    "word": "aeropuerto",
+    "pos": "noun",
+    "category": "lugares",
+    "translations": [
+      "مطار"
+    ],
+    "pronunciation": "a-e-ro-pwer-to",
+    "example": "El avión sale del aeropuerto.",
+    "audio": null,
+    "tags": [
+      "places",
+      "transport"
+    ]
+  },
+  {
+    "id": "dict-place-estacion",
+    "word": "estación",
+    "pos": "noun",
+    "category": "lugares",
+    "translations": [
+      "محطة"
+    ],
+    "pronunciation": "es-ta-thyon",
+    "example": "Espero el tren en la estación.",
+    "audio": null,
+    "tags": [
+      "places",
+      "transport",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-transport-coche",
+    "word": "coche",
+    "pos": "noun",
+    "category": "transporte",
+    "translations": [
+      "سيارة"
+    ],
+    "pronunciation": "ko-che",
+    "example": "Voy al trabajo en coche.",
+    "audio": null,
+    "tags": [
+      "transport",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-transport-autobus",
+    "word": "autobús",
+    "pos": "noun",
+    "category": "transporte",
+    "translations": [
+      "باص",
+      "حافلة"
+    ],
+    "pronunciation": "au-to-bus",
+    "example": "Tomo el autobús para ir al centro.",
+    "audio": null,
+    "tags": [
+      "transport",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-transport-tren",
+    "word": "tren",
+    "pos": "noun",
+    "category": "transporte",
+    "translations": [
+      "قطار"
+    ],
+    "pronunciation": "tren",
+    "example": "El tren es rápido y cómodo.",
+    "audio": null,
+    "tags": [
+      "transport",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-transport-metro",
+    "word": "metro",
+    "pos": "noun",
+    "category": "transporte",
+    "translations": [
+      "مترو"
+    ],
+    "pronunciation": "me-tro",
+    "example": "El metro es barato.",
+    "audio": null,
+    "tags": [
+      "transport",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-transport-avion",
+    "word": "avión",
+    "pos": "noun",
+    "category": "transporte",
+    "translations": [
+      "طائرة"
+    ],
+    "pronunciation": "a-vyon",
+    "example": "Viajo a Londres en avión.",
+    "audio": null,
+    "tags": [
+      "transport"
+    ]
+  },
+  {
+    "id": "dict-transport-bicicleta",
+    "word": "bicicleta",
+    "pos": "noun",
+    "category": "transporte",
+    "translations": [
+      "دراجة هوائية"
+    ],
+    "pronunciation": "bi-thi-kle-ta",
+    "example": "Voy al parque en bicicleta.",
+    "audio": null,
+    "tags": [
+      "transport",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-transport-taxi",
+    "word": "taxi",
+    "pos": "noun",
+    "category": "transporte",
+    "translations": [
+      "تاكسي"
+    ],
+    "pronunciation": "tak-si",
+    "example": "Llamo un taxi para ir al aeropuerto.",
+    "audio": null,
+    "tags": [
+      "transport",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-transport-moto",
+    "word": "moto",
+    "pos": "noun",
+    "category": "transporte",
+    "translations": [
+      "دراجة نارية"
+    ],
+    "pronunciation": "mo-to",
+    "example": "Mi hermano tiene una moto nueva.",
+    "audio": null,
+    "tags": [
+      "transport"
+    ]
+  },
+  {
+    "id": "dict-adj-grande",
+    "word": "grande",
+    "pos": "adjective",
+    "category": "adjetivos",
+    "translations": [
+      "كبير"
+    ],
+    "pronunciation": "gran-de",
+    "example": "La casa es muy grande.",
+    "audio": null,
+    "tags": [
+      "adjectives",
+      "common",
+      "size"
+    ]
+  },
+  {
+    "id": "dict-adj-pequeno",
+    "word": "pequeño",
+    "pos": "adjective",
+    "category": "adjetivos",
+    "translations": [
+      "صغير"
+    ],
+    "pronunciation": "pe-ke-nyo",
+    "example": "El perro es pequeño.",
+    "audio": null,
+    "tags": [
+      "adjectives",
+      "common",
+      "size"
+    ]
+  },
+  {
+    "id": "dict-adj-bueno",
+    "word": "bueno",
+    "pos": "adjective",
+    "category": "adjetivos",
+    "translations": [
+      "جيد"
+    ],
+    "pronunciation": "bwe-no",
+    "example": "Este libro es muy bueno.",
+    "audio": null,
+    "tags": [
+      "adjectives",
+      "common",
+      "quality"
+    ]
+  },
+  {
+    "id": "dict-adj-malo",
+    "word": "malo",
+    "pos": "adjective",
+    "category": "adjetivos",
+    "translations": [
+      "سيء"
+    ],
+    "pronunciation": "ma-lo",
+    "example": "Hoy hace mal tiempo.",
+    "audio": null,
+    "tags": [
+      "adjectives",
+      "common",
+      "quality"
+    ]
+  },
+  {
+    "id": "dict-adj-bonito",
+    "word": "bonito",
+    "pos": "adjective",
+    "category": "adjetivos",
+    "translations": [
+      "جميل"
+    ],
+    "pronunciation": "bo-ni-to",
+    "example": "Tu vestido es muy bonito.",
+    "audio": null,
+    "tags": [
+      "adjectives",
+      "common",
+      "appearance"
+    ]
+  },
+  {
+    "id": "dict-adj-feo",
+    "word": "feo",
+    "pos": "adjective",
+    "category": "adjetivos",
+    "translations": [
+      "قبيح"
+    ],
+    "pronunciation": "fe-o",
+    "example": "El edificio es feo.",
+    "audio": null,
+    "tags": [
+      "adjectives",
+      "appearance"
+    ]
+  },
+  {
+    "id": "dict-adj-nuevo",
+    "word": "nuevo",
+    "pos": "adjective",
+    "category": "adjetivos",
+    "translations": [
+      "جديد"
+    ],
+    "pronunciation": "nwe-vo",
+    "example": "Tengo un coche nuevo.",
+    "audio": null,
+    "tags": [
+      "adjectives",
+      "common",
+      "age"
+    ]
+  },
+  {
+    "id": "dict-adj-viejo",
+    "word": "viejo",
+    "pos": "adjective",
+    "category": "adjetivos",
+    "translations": [
+      "قديم",
+      "عجوز"
+    ],
+    "pronunciation": "vye-ho",
+    "example": "Mi abuelo es muy viejo.",
+    "audio": null,
+    "tags": [
+      "adjectives",
+      "common",
+      "age"
+    ]
+  },
+  {
+    "id": "dict-adj-facil",
+    "word": "fácil",
+    "pos": "adjective",
+    "category": "adjetivos",
+    "translations": [
+      "سهل"
+    ],
+    "pronunciation": "fa-thil",
+    "example": "El examen fue fácil.",
+    "audio": null,
+    "tags": [
+      "adjectives",
+      "common",
+      "difficulty"
+    ]
+  },
+  {
+    "id": "dict-adj-dificil",
+    "word": "difícil",
+    "pos": "adjective",
+    "category": "adjetivos",
+    "translations": [
+      "صعب"
+    ],
+    "pronunciation": "di-fi-thil",
+    "example": "El español es difícil.",
+    "audio": null,
+    "tags": [
+      "adjectives",
+      "common",
+      "difficulty"
+    ]
+  },
+  {
+    "id": "dict-adj-alto",
+    "word": "alto",
+    "pos": "adjective",
+    "category": "adjetivos",
+    "translations": [
+      "طويل",
+      "عالي"
+    ],
+    "pronunciation": "al-to",
+    "example": "Mi hermano es muy alto.",
+    "audio": null,
+    "tags": [
+      "adjectives",
+      "common",
+      "size"
+    ]
+  },
+  {
+    "id": "dict-adj-bajo",
+    "word": "bajo",
+    "pos": "adjective",
+    "category": "adjetivos",
+    "translations": [
+      "قصير",
+      "منخفض"
+    ],
+    "pronunciation": "ba-ho",
+    "example": "La mesa es baja.",
+    "audio": null,
+    "tags": [
+      "adjectives",
+      "common",
+      "size"
+    ]
+  },
+  {
+    "id": "dict-adj-rapido",
+    "word": "rápido",
+    "pos": "adjective",
+    "category": "adjetivos",
+    "translations": [
+      "سريع"
+    ],
+    "pronunciation": "ra-pi-do",
+    "example": "El coche es muy rápido.",
+    "audio": null,
+    "tags": [
+      "adjectives",
+      "common",
+      "speed"
+    ]
+  },
+  {
+    "id": "dict-adj-lento",
+    "word": "lento",
+    "pos": "adjective",
+    "category": "adjetivos",
+    "translations": [
+      "بطيء"
+    ],
+    "pronunciation": "len-to",
+    "example": "El tráfico es lento hoy.",
+    "audio": null,
+    "tags": [
+      "adjectives",
+      "speed"
+    ]
+  },
+  {
+    "id": "dict-adj-caliente",
+    "word": "caliente",
+    "pos": "adjective",
+    "category": "adjetivos",
+    "translations": [
+      "ساخن"
+    ],
+    "pronunciation": "ka-lyen-te",
+    "example": "El café está caliente.",
+    "audio": null,
+    "tags": [
+      "adjectives",
+      "temperature"
+    ]
+  },
+  {
+    "id": "dict-adj-frio",
+    "word": "frío",
+    "pos": "adjective",
+    "category": "adjetivos",
+    "translations": [
+      "بارد"
+    ],
+    "pronunciation": "fri-o",
+    "example": "El agua está muy fría.",
+    "audio": null,
+    "tags": [
+      "adjectives",
+      "common",
+      "temperature"
+    ]
+  },
+  {
+    "id": "dict-verb-tener",
+    "word": "tener",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يملك",
+      "لديه"
+    ],
+    "pronunciation": "te-ner",
+    "example": "Tengo dos hermanos.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common",
+      "irregular"
+    ]
+  },
+  {
+    "id": "dict-verb-hacer",
+    "word": "hacer",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يفعل",
+      "يصنع"
+    ],
+    "pronunciation": "a-ther",
+    "example": "Hago ejercicio todos los días.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common",
+      "irregular"
+    ]
+  },
+  {
+    "id": "dict-verb-poder",
+    "word": "poder",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يستطيع",
+      "يقدر"
+    ],
+    "pronunciation": "po-der",
+    "example": "¿Puedes ayudarme?",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common",
+      "irregular"
+    ]
+  },
+  {
+    "id": "dict-verb-querer",
+    "word": "querer",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يريد",
+      "يحب"
+    ],
+    "pronunciation": "ke-rer",
+    "example": "Quiero aprender español.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common",
+      "irregular"
+    ]
+  },
+  {
+    "id": "dict-verb-saber",
+    "word": "saber",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يعرف",
+      "يعلم"
+    ],
+    "pronunciation": "sa-ber",
+    "example": "Sé hablar tres idiomas.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common",
+      "irregular"
+    ]
+  },
+  {
+    "id": "dict-verb-dar",
+    "word": "dar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يعطي"
+    ],
+    "pronunciation": "dar",
+    "example": "Dame tu teléfono, por favor.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common",
+      "irregular"
+    ]
+  },
+  {
+    "id": "dict-verb-ver",
+    "word": "ver",
+    "pos": "noun",
+    "category": "verbos",
+    "translations": [
+      "يرى",
+      "يشاهد"
+    ],
+    "pronunciation": "ver",
+    "example": "Veo la televisión por la noche.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common",
+      "irregular"
+    ]
+  },
+  {
+    "id": "dict-verb-venir",
+    "word": "venir",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يأتي"
+    ],
+    "pronunciation": "ve-nir",
+    "example": "¿Vienes a la fiesta?",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common",
+      "irregular"
+    ]
+  },
+  {
+    "id": "dict-verb-salir",
+    "word": "salir",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يخرج",
+      "يغادر"
+    ],
+    "pronunciation": "sa-lir",
+    "example": "Salgo de casa a las 8.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common",
+      "irregular"
+    ]
+  },
+  {
+    "id": "dict-verb-poner",
+    "word": "poner",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يضع"
+    ],
+    "pronunciation": "po-ner",
+    "example": "Pongo la mesa antes de comer.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common",
+      "irregular"
+    ]
+  },
+  {
+    "id": "dict-verb-decir",
+    "word": "decir",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يقول"
+    ],
+    "pronunciation": "de-thir",
+    "example": "Digo la verdad siempre.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common",
+      "irregular"
+    ]
+  },
+  {
+    "id": "dict-verb-conocer",
+    "word": "conocer",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يعرف (شخص/مكان)"
+    ],
+    "pronunciation": "ko-no-ther",
+    "example": "Conozco bien Madrid.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-entender",
+    "word": "entender",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يفهم"
+    ],
+    "pronunciation": "en-ten-der",
+    "example": "No entiendo esta palabra.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-pensar",
+    "word": "pensar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يفكر"
+    ],
+    "pronunciation": "pen-sar",
+    "example": "Pienso que tienes razón.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-sentir",
+    "word": "sentir",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يشعر"
+    ],
+    "pronunciation": "sen-tir",
+    "example": "Me siento feliz hoy.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-encontrar",
+    "word": "encontrar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يجد"
+    ],
+    "pronunciation": "en-kon-trar",
+    "example": "No encuentro mis llaves.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-buscar",
+    "word": "buscar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يبحث"
+    ],
+    "pronunciation": "bus-kar",
+    "example": "Busco trabajo.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-preguntar",
+    "word": "preguntar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يسأل"
+    ],
+    "pronunciation": "pre-gun-tar",
+    "example": "Pregunto por ti.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-responder",
+    "word": "responder",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يجيب"
+    ],
+    "pronunciation": "res-pon-der",
+    "example": "Respondo a todas las preguntas.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-comprar",
+    "word": "comprar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يشتري"
+    ],
+    "pronunciation": "kom-prar",
+    "example": "Compro pan todos los días.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-vender",
+    "word": "vender",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يبيع"
+    ],
+    "pronunciation": "ven-der",
+    "example": "Vendo mi coche viejo.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-pagar",
+    "word": "pagar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يدفع"
+    ],
+    "pronunciation": "pa-gar",
+    "example": "Pago con tarjeta.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-abrir",
+    "word": "abrir",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يفتح"
+    ],
+    "pronunciation": "a-brir",
+    "example": "Abro la ventana para ventilar.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-cerrar",
+    "word": "cerrar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يغلق"
+    ],
+    "pronunciation": "the-rrar",
+    "example": "Cierro la puerta con llave.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-empezar",
+    "word": "empezar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يبدأ"
+    ],
+    "pronunciation": "em-pe-thar",
+    "example": "La clase empieza a las 9.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-terminar",
+    "word": "terminar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "ينتهي",
+      "ينهي"
+    ],
+    "pronunciation": "ter-mi-nar",
+    "example": "Termino el trabajo a las 6.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-llegar",
+    "word": "llegar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يصل"
+    ],
+    "pronunciation": "ye-gar",
+    "example": "Llego a casa tarde.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-necesitar",
+    "word": "necesitar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يحتاج"
+    ],
+    "pronunciation": "ne-the-si-tar",
+    "example": "Necesito ayuda con esto.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-gustar",
+    "word": "gustar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يعجب",
+      "يحب"
+    ],
+    "pronunciation": "gus-tar",
+    "example": "Me gusta el chocolate.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common",
+      "special"
+    ]
+  },
+  {
+    "id": "dict-verb-preferir",
+    "word": "preferir",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يفضل"
+    ],
+    "pronunciation": "pre-fe-rir",
+    "example": "Prefiero el té al café.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-esperar",
+    "word": "esperar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "ينتظر",
+      "يأمل"
+    ],
+    "pronunciation": "es-pe-rar",
+    "example": "Espero el autobús.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-ayudar",
+    "word": "ayudar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يساعد"
+    ],
+    "pronunciation": "a-yu-dar",
+    "example": "Ayudo a mi madre en la cocina.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-llevar",
+    "word": "llevar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يحمل",
+      "يلبس"
+    ],
+    "pronunciation": "ye-var",
+    "example": "Llevo una camisa azul.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-verb-jugar",
+    "word": "jugar",
+    "pos": "verb",
+    "category": "verbos",
+    "translations": [
+      "يلعب"
+    ],
+    "pronunciation": "hu-gar",
+    "example": "Juego al fútbol los sábados.",
+    "audio": null,
+    "tags": [
+      "verbs",
+      "common",
+      "sports"
+    ]
+  },
+  {
+    "id": "dict-weather-sol",
+    "word": "sol",
+    "pos": "noun",
+    "category": "tiempo",
+    "translations": [
+      "شمس"
+    ],
+    "pronunciation": "sol",
+    "example": "Hace sol hoy.",
+    "audio": null,
+    "tags": [
+      "weather",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-weather-lluvia",
+    "word": "lluvia",
+    "pos": "noun",
+    "category": "tiempo",
+    "translations": [
+      "مطر"
+    ],
+    "pronunciation": "yu-vya",
+    "example": "La lluvia es buena para las plantas.",
+    "audio": null,
+    "tags": [
+      "weather",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-weather-nieve",
+    "word": "nieve",
+    "pos": "noun",
+    "category": "tiempo",
+    "translations": [
+      "ثلج"
+    ],
+    "pronunciation": "nye-ve",
+    "example": "En invierno cae nieve.",
+    "audio": null,
+    "tags": [
+      "weather"
+    ]
+  },
+  {
+    "id": "dict-weather-viento",
+    "word": "viento",
+    "pos": "noun",
+    "category": "tiempo",
+    "translations": [
+      "رياح"
+    ],
+    "pronunciation": "vyen-to",
+    "example": "Hace mucho viento hoy.",
+    "audio": null,
+    "tags": [
+      "weather",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-weather-nube",
+    "word": "nube",
+    "pos": "noun",
+    "category": "tiempo",
+    "translations": [
+      "غيمة",
+      "سحابة"
+    ],
+    "pronunciation": "nu-be",
+    "example": "El cielo está lleno de nubes.",
+    "audio": null,
+    "tags": [
+      "weather"
+    ]
+  },
+  {
+    "id": "dict-emotion-feliz",
+    "word": "feliz",
+    "pos": "adjective",
+    "category": "emociones",
+    "translations": [
+      "سعيد"
+    ],
+    "pronunciation": "fe-lith",
+    "example": "Estoy muy feliz hoy.",
+    "audio": null,
+    "tags": [
+      "emotions",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-emotion-triste",
+    "word": "triste",
+    "pos": "adjective",
+    "category": "emociones",
+    "translations": [
+      "حزين"
+    ],
+    "pronunciation": "tris-te",
+    "example": "Estoy triste porque perdí mi trabajo.",
+    "audio": null,
+    "tags": [
+      "emotions",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-emotion-enojado",
+    "word": "enojado",
+    "pos": "adjective",
+    "category": "emociones",
+    "translations": [
+      "غاضب"
+    ],
+    "pronunciation": "e-no-ha-do",
+    "example": "Estoy enojado contigo.",
+    "audio": null,
+    "tags": [
+      "emotions"
+    ]
+  },
+  {
+    "id": "dict-emotion-cansado",
+    "word": "cansado",
+    "pos": "adjective",
+    "category": "emociones",
+    "translations": [
+      "متعب"
+    ],
+    "pronunciation": "kan-sa-do",
+    "example": "Estoy muy cansado después del trabajo.",
+    "audio": null,
+    "tags": [
+      "emotions",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-emotion-nervioso",
+    "word": "nervioso",
+    "pos": "adjective",
+    "category": "emociones",
+    "translations": [
+      "قلق",
+      "متوتر"
+    ],
+    "pronunciation": "ner-vyo-so",
+    "example": "Estoy nervioso por el examen.",
+    "audio": null,
+    "tags": [
+      "emotions",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-emotion-emocionado",
+    "word": "emocionado",
+    "pos": "adjective",
+    "category": "emociones",
+    "translations": [
+      "متحمس"
+    ],
+    "pronunciation": "e-mo-thyo-na-do",
+    "example": "Estoy emocionado por el viaje.",
+    "audio": null,
+    "tags": [
+      "emotions"
+    ]
+  },
+  {
+    "id": "dict-common-si",
+    "word": "sí",
+    "pos": "adverb",
+    "category": "comun",
+    "translations": [
+      "نعم"
+    ],
+    "pronunciation": "si",
+    "example": "Sí, estoy de acuerdo.",
+    "audio": null,
+    "tags": [
+      "common",
+      "answer"
+    ]
+  },
+  {
+    "id": "dict-common-no",
+    "word": "no",
+    "pos": "adverb",
+    "category": "comun",
+    "translations": [
+      "لا"
+    ],
+    "pronunciation": "no",
+    "example": "No, gracias.",
+    "audio": null,
+    "tags": [
+      "common",
+      "answer"
+    ]
+  },
+  {
+    "id": "dict-common-por-favor",
+    "word": "por favor",
+    "pos": "phrase",
+    "category": "comun",
+    "translations": [
+      "من فضلك"
+    ],
+    "pronunciation": "por fa-vor",
+    "example": "Un café, por favor.",
+    "audio": null,
+    "tags": [
+      "common",
+      "polite"
+    ]
+  },
+  {
+    "id": "dict-common-gracias",
+    "word": "gracias",
+    "pos": "phrase",
+    "category": "comun",
+    "translations": [
+      "شكراً"
+    ],
+    "pronunciation": "gra-thyas",
+    "example": "Gracias por tu ayuda.",
+    "audio": null,
+    "tags": [
+      "common",
+      "polite"
+    ]
+  },
+  {
+    "id": "dict-common-de-nada",
+    "word": "de nada",
+    "pos": "phrase",
+    "category": "comun",
+    "translations": [
+      "عفواً"
+    ],
+    "pronunciation": "de na-da",
+    "example": "De nada, no hay problema.",
+    "audio": null,
+    "tags": [
+      "common",
+      "polite"
+    ]
+  },
+  {
+    "id": "dict-common-perdon",
+    "word": "perdón",
+    "pos": "noun",
+    "category": "comun",
+    "translations": [
+      "آسف",
+      "عذراً"
+    ],
+    "pronunciation": "per-don",
+    "example": "Perdón, no te escuché.",
+    "audio": null,
+    "tags": [
+      "common",
+      "polite"
+    ]
+  },
+  {
+    "id": "dict-common-disculpa",
+    "word": "disculpa",
+    "pos": "noun",
+    "category": "comun",
+    "translations": [
+      "اعتذار"
+    ],
+    "pronunciation": "dis-kul-pa",
+    "example": "Pido disculpas por llegar tarde.",
+    "audio": null,
+    "tags": [
+      "common",
+      "polite"
+    ]
+  },
+  {
+    "id": "dict-common-hola",
+    "word": "hola",
+    "pos": "interjection",
+    "category": "comun",
+    "translations": [
+      "مرحباً"
+    ],
+    "pronunciation": "o-la",
+    "example": "¡Hola! ¿Cómo estás?",
+    "audio": null,
+    "tags": [
+      "common",
+      "greeting"
+    ]
+  },
+  {
+    "id": "dict-common-adios",
+    "word": "adiós",
+    "pos": "interjection",
+    "category": "comun",
+    "translations": [
+      "وداعاً"
+    ],
+    "pronunciation": "a-dyos",
+    "example": "Adiós, hasta mañana.",
+    "audio": null,
+    "tags": [
+      "common",
+      "greeting"
+    ]
+  },
+  {
+    "id": "dict-common-buenos-dias",
+    "word": "buenos días",
+    "pos": "phrase",
+    "category": "comun",
+    "translations": [
+      "صباح الخير"
+    ],
+    "pronunciation": "bwe-nos di-as",
+    "example": "Buenos días, ¿cómo has dormido?",
+    "audio": null,
+    "tags": [
+      "common",
+      "greeting"
+    ]
+  },
+  {
+    "id": "dict-common-buenas-tardes",
+    "word": "buenas tardes",
+    "pos": "phrase",
+    "category": "comun",
+    "translations": [
+      "مساء الخير"
+    ],
+    "pronunciation": "bwe-nas tar-des",
+    "example": "Buenas tardes, ¿en qué puedo ayudarte?",
+    "audio": null,
+    "tags": [
+      "common",
+      "greeting"
+    ]
+  },
+  {
+    "id": "dict-common-buenas-noches",
+    "word": "buenas noches",
+    "pos": "phrase",
+    "category": "comun",
+    "translations": [
+      "مساء الخير",
+      "تصبح على خير"
+    ],
+    "pronunciation": "bwe-nas no-ches",
+    "example": "Buenas noches, que duermas bien.",
+    "audio": null,
+    "tags": [
+      "common",
+      "greeting"
+    ]
+  },
+  {
+    "id": "dict-number-uno",
+    "word": "uno",
+    "pos": "number",
+    "category": "numeros",
+    "translations": [
+      "واحد"
+    ],
+    "pronunciation": "u-no",
+    "example": "Tengo un hermano.",
+    "audio": null,
+    "tags": [
+      "numbers",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-number-dos",
+    "word": "dos",
+    "pos": "number",
+    "category": "numeros",
+    "translations": [
+      "اثنان"
+    ],
+    "pronunciation": "dos",
+    "example": "Tengo dos gatos.",
+    "audio": null,
+    "tags": [
+      "numbers",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-number-tres",
+    "word": "tres",
+    "pos": "number",
+    "category": "numeros",
+    "translations": [
+      "ثلاثة"
+    ],
+    "pronunciation": "tres",
+    "example": "Son las tres de la tarde.",
+    "audio": null,
+    "tags": [
+      "numbers",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-number-cuatro",
+    "word": "cuatro",
+    "pos": "number",
+    "category": "numeros",
+    "translations": [
+      "أربعة"
+    ],
+    "pronunciation": "kwa-tro",
+    "example": "La mesa tiene cuatro patas.",
+    "audio": null,
+    "tags": [
+      "numbers",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-number-cinco",
+    "word": "cinco",
+    "pos": "number",
+    "category": "numeros",
+    "translations": [
+      "خمسة"
+    ],
+    "pronunciation": "thin-ko",
+    "example": "Trabajo cinco días a la semana.",
+    "audio": null,
+    "tags": [
+      "numbers",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-number-diez",
+    "word": "diez",
+    "pos": "number",
+    "category": "numeros",
+    "translations": [
+      "عشرة"
+    ],
+    "pronunciation": "dyeth",
+    "example": "Tengo diez dedos.",
+    "audio": null,
+    "tags": [
+      "numbers",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-number-veinte",
+    "word": "veinte",
+    "pos": "number",
+    "category": "numeros",
+    "translations": [
+      "عشرون"
+    ],
+    "pronunciation": "veyn-te",
+    "example": "Cuesta veinte euros.",
+    "audio": null,
+    "tags": [
+      "numbers",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-number-cien",
+    "word": "cien",
+    "pos": "number",
+    "category": "numeros",
+    "translations": [
+      "مئة"
+    ],
+    "pronunciation": "thyen",
+    "example": "Pagué cien euros.",
+    "audio": null,
+    "tags": [
+      "numbers",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-number-mil",
+    "word": "mil",
+    "pos": "number",
+    "category": "numeros",
+    "translations": [
+      "ألف"
+    ],
+    "pronunciation": "mil",
+    "example": "Gano mil euros al mes.",
+    "audio": null,
+    "tags": [
+      "numbers",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-color-rojo",
+    "word": "rojo",
+    "pos": "adjective",
+    "category": "colores",
+    "translations": [
+      "أحمر"
+    ],
+    "pronunciation": "ro-ho",
+    "example": "El tomate es rojo.",
+    "audio": null,
+    "tags": [
+      "colors",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-color-azul",
+    "word": "azul",
+    "pos": "adjective",
+    "category": "colores",
+    "translations": [
+      "أزرق"
+    ],
+    "pronunciation": "a-thul",
+    "example": "El cielo es azul.",
+    "audio": null,
+    "tags": [
+      "colors",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-color-verde",
+    "word": "verde",
+    "pos": "adjective",
+    "category": "colores",
+    "translations": [
+      "أخضر"
+    ],
+    "pronunciation": "ver-de",
+    "example": "La hierba es verde.",
+    "audio": null,
+    "tags": [
+      "colors",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-color-amarillo",
+    "word": "amarillo",
+    "pos": "adjective",
+    "category": "colores",
+    "translations": [
+      "أصفر"
+    ],
+    "pronunciation": "a-ma-ri-yo",
+    "example": "El sol es amarillo.",
+    "audio": null,
+    "tags": [
+      "colors",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-color-blanco",
+    "word": "blanco",
+    "pos": "adjective",
+    "category": "colores",
+    "translations": [
+      "أبيض"
+    ],
+    "pronunciation": "blan-ko",
+    "example": "La nieve es blanca.",
+    "audio": null,
+    "tags": [
+      "colors",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-color-negro",
+    "word": "negro",
+    "pos": "adjective",
+    "category": "colores",
+    "translations": [
+      "أسود"
+    ],
+    "pronunciation": "ne-gro",
+    "example": "La noche es negra.",
+    "audio": null,
+    "tags": [
+      "colors",
+      "common"
+    ]
+  },
+  {
+    "id": "dict-color-gris",
+    "word": "gris",
+    "pos": "adjective",
+    "category": "colores",
+    "translations": [
+      "رمادي"
+    ],
+    "pronunciation": "gris",
+    "example": "Las nubes son grises.",
+    "audio": null,
+    "tags": [
+      "colors"
+    ]
+  },
+  {
+    "id": "dict-color-marron",
+    "word": "marrón",
+    "pos": "adjective",
+    "category": "colores",
+    "translations": [
+      "بني"
+    ],
+    "pronunciation": "ma-rron",
+    "example": "El chocolate es marrón.",
+    "audio": null,
+    "tags": [
+      "colors"
+    ]
+  },
+  {
+    "id": "dict-color-rosa",
+    "word": "rosa",
+    "pos": "adjective",
+    "category": "colores",
+    "translations": [
+      "وردي"
+    ],
+    "pronunciation": "ro-sa",
+    "example": "La flor es rosa.",
+    "audio": null,
+    "tags": [
+      "colors"
+    ]
+  },
+  {
+    "id": "dict-color-naranja",
+    "word": "naranja",
+    "pos": "adjective",
+    "category": "colores",
+    "translations": [
+      "برتقالي"
+    ],
+    "pronunciation": "na-ran-ha",
+    "example": "La naranja es... naranja.",
+    "audio": null,
+    "tags": [
+      "colors"
+    ]
+  }
+]

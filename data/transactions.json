@@ -1,0 +1,32 @@
+[
+  {
+    "id": "TEST_TXN_12345",
+    "clerkUserId": "user_38UjCDiQDVpn2EWzf1zHPIv8Obx",
+    "email": "testuser@example.com",
+    "amount": 9.99,
+    "currency": "EUR",
+    "status": "completed",
+    "paymentMethod": "paypal",
+    "createdAt": "2026-01-20T00:11:46.037Z"
+  },
+  {
+    "id": "TESTPAYPAL123",
+    "clerkUserId": "user_38UjCDiQDVpn2EWzf1zHPIv8Obx",
+    "email": "testuser@example.com",
+    "amount": 9.99,
+    "currency": "EUR",
+    "status": "completed",
+    "paymentMethod": "paypal",
+    "createdAt": "2026-01-20T08:57:25.786Z"
+  },
+  {
+    "id": "TESTPAYPAL456",
+    "clerkUserId": "user_38UjCDiQDVpn2EWzf1zHPIv8Obx",
+    "email": "testuser@example.com",
+    "amount": 9.99,
+    "currency": "EUR",
+    "status": "completed",
+    "paymentMethod": "paypal",
+    "createdAt": "2026-01-20T09:17:48.217Z"
+  }
+]

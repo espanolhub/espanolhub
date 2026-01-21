@@ -1,0 +1,21 @@
+[
+  {
+    "id": "lect-001",
+    "title": "Mi Familia",
+    "level": "beginner",
+    "summary": "Texto sobre la familia y relaciones.",
+    "excerpt": "Mi familia es muy grande...",
+    "content": "Texto completo de la lección 'Mi Familia'...",
+    "examples": []
+  },
+  {
+    "id": "lect-002",
+    "title": "La Casa",
+    "level": "beginner",
+    "summary": "Descripción de una casa típica.",
+    "excerpt": "Vivo en una casa grande...",
+    "content": "Texto completo de la lección 'La Casa'...",
+    "examples": []
+  }
+]
+

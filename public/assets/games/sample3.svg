@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" rx="24" fill="#FEF3C7"/>
+  <polygon points="120,320 240,120 360,320" fill="#F59E0B"/>
+  <text x="400" y="250" text-anchor="middle" font-size="36" fill="#B45309" font-family="Arial, sans-serif">Word Race</text>
+</svg>
+

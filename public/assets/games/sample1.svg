@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" rx="24" fill="#FCE7F3"/>
+  <circle cx="140" cy="140" r="60" fill="#FF6B9A"/>
+  <rect x="240" y="100" width="420" height="220" rx="16" fill="#FFF0F6" stroke="#FFB3CE"/>
+  <text x="400" y="250" text-anchor="middle" font-size="36" fill="#FF6B9A" font-family="Arial, sans-serif">Memory Match</text>
+</svg>
+

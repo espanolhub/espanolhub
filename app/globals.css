@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --brand-red: #c8102e; /* Spanish Red */
+  --muted-bg: #f7f7f9; /* light gray background */
 }
 
 @theme inline {
@@ -20,7 +22,344 @@
 }
 
 body {
-  background: var(--background);
+  background: var(--muted-bg);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Arabic font styling for RTL text */
+[dir="rtl"] {
+  font-family: var(--font-cairo), "Segoe UI", Tahoma, sans-serif;
+}
+
+/* Accessibility improvements - WCAG 2.1 AA Compliant */
+*:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+  transition: outline-offset 0.2s ease;
+}
+
+/* Skip to main content link for screen readers */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 9999;
+  background: #1e40af;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.skip-to-main:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure sufficient color contrast - WCAG AA minimum 4.5:1 */
+.text-gray-600 {
+  color: #4b5563; /* Contrast ratio 7.59:1 on white background */
+}
+
+.text-gray-700 {
+  color: #374151; /* Contrast ratio 10.74:1 on white background */
+}
+
+/* Focus styles for interactive elements - Enhanced for better visibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* High contrast focus for important actions */
+.btn-primary:focus-visible,
+.btn-glow:focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 3px;
+}
+
+/* Ensure all clickable elements have minimum touch target size (44x44px) */
+button,
+a,
+[role="button"],
+[role="link"] {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Exception for text links that are inline */
+p a,
+span a {
+  min-height: auto;
+  min-width: auto;
+  display: inline;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Visible focus indicator for keyboard navigation */
+.focus-ring {
+  position: relative;
+}
+
+.focus-ring:focus-visible::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 3px solid #2563eb;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  * {
+    border-color: currentColor;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-page {
+    background: white !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Card hover effects with glow */
+.card-hover-effect {
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.card-hover-effect:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15), 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+/* XP Progress Bar Animation */
+.xp-progress-bar {
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global primary button */
+.btn-primary {
+  background: var(--brand-red);
+  color: white !important;
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: all 200ms ease-in-out;
+}
+.btn-primary:hover {
+  filter: brightness(0.95);
+  transform: translateY(-1px);
+}
+
+/* Modern card global style: rounded-3xl, thin border, soft large shadow */
+.modern-card {
+  border-radius: 1.5rem !important; /* rounded-3xl */
+  border: 1px solid rgba(2,6,23,0.04);
+  box-shadow: 0 30px 80px rgba(2,6,23,0.06);
+  transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+}
+.modern-card:hover {
+  box-shadow: 0 40px 120px rgba(2,6,23,0.08);
+}
+
+/* Global clickable transition for micro-interactions */
+button, a, .card-hover-effect, .modern-card {
+  transition: all 200ms ease-in-out;
+}
+
+/* Increase default spacing between grids and sections */
+.container > .grid, .grid.gap-4 {
+  gap: 1.25rem; /* increase gap */
+}
+section, .section {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+/* Mobile: two columns for card grids by default */
+@media (max-width: 767px) {
+  .grid.grid-cols-1 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Ripple animation used by createRipple */
+.ripple-element {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Override common Tailwind red utilities to use brand red for primary look */
+.bg-red-600 {
+  background-color: var(--brand-red) !important;
+  color: #fff !important;
+}
+.bg-red-700 {
+  background-color: #a30b24 !important;
+  color: #fff !important;
+}
+
+/* Modern card style applied globally via class or rounded-xl */
+.modern-card, .bg-white.rounded-xl, .rounded-xl {
+  border-radius: 24px !important;
+  box-shadow: 0 30px 80px rgba(2,6,23,0.06) !important;
+}
+
+/* Mobile grid: default two columns for card grids */
+@media (max-width: 767px) {
+  .grid.grid-cols-1 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Glowing PRO CTA */
+.btn-glow {
+  box-shadow: 0 12px 40px rgba(200,80,60,0.16), 0 0 60px rgba(200,80,60,0.08);
+  animation: glowPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 8px 20px rgba(200,80,60,0.10); transform: translateY(0); }
+  50% { box-shadow: 0 18px 40px rgba(200,80,60,0.16); transform: translateY(-2px); }
+  100% { box-shadow: 0 8px 20px rgba(200,80,60,0.10); transform: translateY(0); }
+}
+
+/* Hide sidebars and ads on mobile to maximize content width */
+@media (max-width: 767px) {
+  .sidebar,
+  .ads-container {
+    display: none !important;
+  }
+}
+
+/* Arabic headings bold and dark */
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4 {
+  font-weight: 700;
+}
+
+/* WordRaceGame animations (replaces framer-motion) */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotateTrophy {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  75% { transform: rotate(-10deg); }
+}
+
+.word-race-fade-in {
+  animation: fadeInScale 0.3s ease-out;
+}
+
+.word-race-slide-in {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.word-race-slide-out {
+  animation: slideOutLeft 0.3s ease-out;
+}
+
+.word-race-fade-up {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.word-race-trophy {
+  animation: rotateTrophy 0.5s ease-in-out;
 }

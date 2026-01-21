@@ -1,0 +1,2756 @@
+[
+  {
+    "id": "game-001",
+    "title": "Memory - Verbos Comunes",
+    "level": "all",
+    "summary": "Juego de memoria para verbos básicos.",
+    "excerpt": "Encuentra las parejas de verbos y sus traducciones.",
+    "content": "Configuración del juego memory: ...",
+    "examples": []
+  },
+  {
+    "id": "game-002",
+    "title": "Simulador DGT - Demo",
+    "level": "all",
+    "summary": "Versión demo del simulador de examen.",
+    "excerpt": "5 preguntas demo gratuitas.",
+    "content": "Contenido del simulador demo...",
+    "examples": []
+  },
+  {
+    "id": "game-003",
+    "title": "Reto Relámpago: Verbos",
+    "level": "all",
+    "summary": "Un desafío rápido y adictivo para conjugar verbos y elegir la forma correcta antes de que se acabe el tiempo.",
+    "excerpt": "Conjuga y gana: rounds rápidos, aumenta la puntuación y compite contra el reloj.",
+    "content": "{ \"gameType\": \"word-race\", \"config\": { \"difficulty\": \"medium\", \"rounds\": 10, \"timePerQuestion\": 5 } }",
+    "examples": []
+  },
+  {
+    "id": "game-gen-4",
+    "title": "Simulador Oficial 4",
+    "level": "beginner",
+    "summary": "Simulador Oficial 4 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923859927}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-5",
+    "title": "Reto Verbo 5",
+    "level": "intermediate",
+    "summary": "Reto Verbo 5 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":6,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-6",
+    "title": "Reto Verbo 6",
+    "level": "advanced",
+    "summary": "Reto Verbo 6 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":7,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-7",
+    "title": "Reto Verbo 7",
+    "level": "beginner",
+    "summary": "Reto Verbo 7 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":8,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-8",
+    "title": "Reto Verbo 8",
+    "level": "intermediate",
+    "summary": "Reto Verbo 8 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":9,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-9",
+    "title": "Simulador Oficial 9",
+    "level": "advanced",
+    "summary": "Simulador Oficial 9 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923859932}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-10",
+    "title": "Reto Verbo 10",
+    "level": "beginner",
+    "summary": "Reto Verbo 10 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":11,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-11",
+    "title": "Reto Verbo 11",
+    "level": "intermediate",
+    "summary": "Reto Verbo 11 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":12,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-12",
+    "title": "Reto Verbo 12",
+    "level": "advanced",
+    "summary": "Reto Verbo 12 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":13,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-13",
+    "title": "Reto Verbo 13",
+    "level": "beginner",
+    "summary": "Reto Verbo 13 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":14,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-14",
+    "title": "Simulador Oficial 14",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 14 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923859937}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-15",
+    "title": "Reto Verbo 15",
+    "level": "advanced",
+    "summary": "Reto Verbo 15 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":6,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-16",
+    "title": "Reto Verbo 16",
+    "level": "beginner",
+    "summary": "Reto Verbo 16 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":7,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-17",
+    "title": "Reto Verbo 17",
+    "level": "intermediate",
+    "summary": "Reto Verbo 17 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":8,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-18",
+    "title": "Reto Verbo 18",
+    "level": "advanced",
+    "summary": "Reto Verbo 18 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":9,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-19",
+    "title": "Simulador Oficial 19",
+    "level": "beginner",
+    "summary": "Simulador Oficial 19 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923859942}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-20",
+    "title": "Reto Verbo 20",
+    "level": "intermediate",
+    "summary": "Reto Verbo 20 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":11,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-21",
+    "title": "Reto Verbo 21",
+    "level": "advanced",
+    "summary": "Reto Verbo 21 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":12,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-22",
+    "title": "Reto Verbo 22",
+    "level": "beginner",
+    "summary": "Reto Verbo 22 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":13,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-23",
+    "title": "Reto Verbo 23",
+    "level": "intermediate",
+    "summary": "Reto Verbo 23 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":14,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-24",
+    "title": "Simulador Oficial 24",
+    "level": "advanced",
+    "summary": "Simulador Oficial 24 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923859948}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-25",
+    "title": "Reto Verbo 25",
+    "level": "beginner",
+    "summary": "Reto Verbo 25 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":6,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-26",
+    "title": "Reto Verbo 26",
+    "level": "intermediate",
+    "summary": "Reto Verbo 26 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":7,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-27",
+    "title": "Reto Verbo 27",
+    "level": "advanced",
+    "summary": "Reto Verbo 27 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":8,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-28",
+    "title": "Reto Verbo 28",
+    "level": "beginner",
+    "summary": "Reto Verbo 28 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":9,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-29",
+    "title": "Simulador Oficial 29",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 29 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923859953}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-30",
+    "title": "Reto Verbo 30",
+    "level": "advanced",
+    "summary": "Reto Verbo 30 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":11,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-31",
+    "title": "Reto Verbo 31",
+    "level": "beginner",
+    "summary": "Reto Verbo 31 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":12,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-32",
+    "title": "Reto Verbo 32",
+    "level": "intermediate",
+    "summary": "Reto Verbo 32 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":13,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-33",
+    "title": "Reto Verbo 33",
+    "level": "advanced",
+    "summary": "Reto Verbo 33 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":14,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-34",
+    "title": "Simulador Oficial 34",
+    "level": "beginner",
+    "summary": "Simulador Oficial 34 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923859958}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-35",
+    "title": "Reto Verbo 35",
+    "level": "intermediate",
+    "summary": "Reto Verbo 35 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":6,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-36",
+    "title": "Reto Verbo 36",
+    "level": "advanced",
+    "summary": "Reto Verbo 36 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":7,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-37",
+    "title": "Reto Verbo 37",
+    "level": "beginner",
+    "summary": "Reto Verbo 37 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":8,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-38",
+    "title": "Reto Verbo 38",
+    "level": "intermediate",
+    "summary": "Reto Verbo 38 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":9,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-39",
+    "title": "Simulador Oficial 39",
+    "level": "advanced",
+    "summary": "Simulador Oficial 39 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923859963}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-40",
+    "title": "Reto Verbo 40",
+    "level": "beginner",
+    "summary": "Reto Verbo 40 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":11,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-41",
+    "title": "Reto Verbo 41",
+    "level": "intermediate",
+    "summary": "Reto Verbo 41 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":12,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-42",
+    "title": "Reto Verbo 42",
+    "level": "advanced",
+    "summary": "Reto Verbo 42 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":13,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-43",
+    "title": "Reto Verbo 43",
+    "level": "beginner",
+    "summary": "Reto Verbo 43 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":14,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-44",
+    "title": "Simulador Oficial 44",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 44 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923859968}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-45",
+    "title": "Reto Verbo 45",
+    "level": "advanced",
+    "summary": "Reto Verbo 45 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":6,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-46",
+    "title": "Reto Verbo 46",
+    "level": "beginner",
+    "summary": "Reto Verbo 46 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":7,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-47",
+    "title": "Reto Verbo 47",
+    "level": "intermediate",
+    "summary": "Reto Verbo 47 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":8,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-48",
+    "title": "Reto Verbo 48",
+    "level": "advanced",
+    "summary": "Reto Verbo 48 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":9,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-49",
+    "title": "Simulador Oficial 49",
+    "level": "beginner",
+    "summary": "Simulador Oficial 49 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923859973}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-50",
+    "title": "Reto Verbo 50",
+    "level": "intermediate",
+    "summary": "Reto Verbo 50 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":11,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-51",
+    "title": "Reto Verbo 51",
+    "level": "advanced",
+    "summary": "Reto Verbo 51 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":12,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-52",
+    "title": "Reto Verbo 52",
+    "level": "beginner",
+    "summary": "Reto Verbo 52 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":13,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-53",
+    "title": "Reto Verbo 53",
+    "level": "intermediate",
+    "summary": "Reto Verbo 53 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":14,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-54",
+    "title": "Simulador Oficial 54",
+    "level": "advanced",
+    "summary": "Simulador Oficial 54 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923859978}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-55",
+    "title": "Reto Verbo 55",
+    "level": "beginner",
+    "summary": "Reto Verbo 55 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":6,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-56",
+    "title": "Reto Verbo 56",
+    "level": "intermediate",
+    "summary": "Reto Verbo 56 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":7,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-57",
+    "title": "Reto Verbo 57",
+    "level": "advanced",
+    "summary": "Reto Verbo 57 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":8,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-58",
+    "title": "Reto Verbo 58",
+    "level": "beginner",
+    "summary": "Reto Verbo 58 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":9,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-59",
+    "title": "Simulador Oficial 59",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 59 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923859983}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-60",
+    "title": "Reto Verbo 60",
+    "level": "advanced",
+    "summary": "Reto Verbo 60 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":11,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-61",
+    "title": "Reto Verbo 61",
+    "level": "beginner",
+    "summary": "Reto Verbo 61 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":12,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-62",
+    "title": "Reto Verbo 62",
+    "level": "intermediate",
+    "summary": "Reto Verbo 62 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":13,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-63",
+    "title": "Reto Verbo 63",
+    "level": "advanced",
+    "summary": "Reto Verbo 63 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":14,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-64",
+    "title": "Simulador Oficial 64",
+    "level": "beginner",
+    "summary": "Simulador Oficial 64 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923859988}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-65",
+    "title": "Reto Verbo 65",
+    "level": "intermediate",
+    "summary": "Reto Verbo 65 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":6,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-66",
+    "title": "Reto Verbo 66",
+    "level": "advanced",
+    "summary": "Reto Verbo 66 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":7,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-67",
+    "title": "Reto Verbo 67",
+    "level": "beginner",
+    "summary": "Reto Verbo 67 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":8,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-68",
+    "title": "Reto Verbo 68",
+    "level": "intermediate",
+    "summary": "Reto Verbo 68 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":9,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-69",
+    "title": "Simulador Oficial 69",
+    "level": "advanced",
+    "summary": "Simulador Oficial 69 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923859993}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-70",
+    "title": "Reto Verbo 70",
+    "level": "beginner",
+    "summary": "Reto Verbo 70 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":11,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-71",
+    "title": "Reto Verbo 71",
+    "level": "intermediate",
+    "summary": "Reto Verbo 71 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":12,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-72",
+    "title": "Reto Verbo 72",
+    "level": "advanced",
+    "summary": "Reto Verbo 72 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":13,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-73",
+    "title": "Reto Verbo 73",
+    "level": "beginner",
+    "summary": "Reto Verbo 73 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":14,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-74",
+    "title": "Simulador Oficial 74",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 74 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923859998}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-75",
+    "title": "Reto Verbo 75",
+    "level": "advanced",
+    "summary": "Reto Verbo 75 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":6,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-76",
+    "title": "Reto Verbo 76",
+    "level": "beginner",
+    "summary": "Reto Verbo 76 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":7,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-77",
+    "title": "Reto Verbo 77",
+    "level": "intermediate",
+    "summary": "Reto Verbo 77 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":8,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-78",
+    "title": "Reto Verbo 78",
+    "level": "advanced",
+    "summary": "Reto Verbo 78 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":9,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-79",
+    "title": "Simulador Oficial 79",
+    "level": "beginner",
+    "summary": "Simulador Oficial 79 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860003}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-80",
+    "title": "Reto Verbo 80",
+    "level": "intermediate",
+    "summary": "Reto Verbo 80 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":11,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-81",
+    "title": "Reto Verbo 81",
+    "level": "advanced",
+    "summary": "Reto Verbo 81 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":12,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-82",
+    "title": "Reto Verbo 82",
+    "level": "beginner",
+    "summary": "Reto Verbo 82 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":13,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-83",
+    "title": "Reto Verbo 83",
+    "level": "intermediate",
+    "summary": "Reto Verbo 83 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":14,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-84",
+    "title": "Simulador Oficial 84",
+    "level": "advanced",
+    "summary": "Simulador Oficial 84 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860008}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-85",
+    "title": "Reto Verbo 85",
+    "level": "beginner",
+    "summary": "Reto Verbo 85 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":6,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-86",
+    "title": "Reto Verbo 86",
+    "level": "intermediate",
+    "summary": "Reto Verbo 86 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":7,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-87",
+    "title": "Reto Verbo 87",
+    "level": "advanced",
+    "summary": "Reto Verbo 87 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":8,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-88",
+    "title": "Reto Verbo 88",
+    "level": "beginner",
+    "summary": "Reto Verbo 88 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":9,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-89",
+    "title": "Simulador Oficial 89",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 89 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860013}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-90",
+    "title": "Reto Verbo 90",
+    "level": "advanced",
+    "summary": "Reto Verbo 90 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":11,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-91",
+    "title": "Reto Verbo 91",
+    "level": "beginner",
+    "summary": "Reto Verbo 91 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":12,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-92",
+    "title": "Reto Verbo 92",
+    "level": "intermediate",
+    "summary": "Reto Verbo 92 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":13,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-93",
+    "title": "Reto Verbo 93",
+    "level": "advanced",
+    "summary": "Reto Verbo 93 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":14,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-94",
+    "title": "Simulador Oficial 94",
+    "level": "beginner",
+    "summary": "Simulador Oficial 94 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860018}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-95",
+    "title": "Reto Verbo 95",
+    "level": "intermediate",
+    "summary": "Reto Verbo 95 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":6,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-96",
+    "title": "Reto Verbo 96",
+    "level": "advanced",
+    "summary": "Reto Verbo 96 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":7,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-97",
+    "title": "Reto Verbo 97",
+    "level": "beginner",
+    "summary": "Reto Verbo 97 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":8,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-98",
+    "title": "Reto Verbo 98",
+    "level": "intermediate",
+    "summary": "Reto Verbo 98 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":9,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-99",
+    "title": "Simulador Oficial 99",
+    "level": "advanced",
+    "summary": "Simulador Oficial 99 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860023}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-100",
+    "title": "Reto Verbo 100",
+    "level": "beginner",
+    "summary": "Reto Verbo 100 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":11,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-101",
+    "title": "Reto Verbo 101",
+    "level": "intermediate",
+    "summary": "Reto Verbo 101 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":12,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-102",
+    "title": "Reto Verbo 102",
+    "level": "advanced",
+    "summary": "Reto Verbo 102 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":13,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-103",
+    "title": "Reto Verbo 103",
+    "level": "beginner",
+    "summary": "Reto Verbo 103 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":14,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-104",
+    "title": "Simulador Oficial 104",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 104 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860028}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-105",
+    "title": "Reto Verbo 105",
+    "level": "advanced",
+    "summary": "Reto Verbo 105 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":6,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-106",
+    "title": "Reto Verbo 106",
+    "level": "beginner",
+    "summary": "Reto Verbo 106 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":7,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-107",
+    "title": "Reto Verbo 107",
+    "level": "intermediate",
+    "summary": "Reto Verbo 107 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":8,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-108",
+    "title": "Reto Verbo 108",
+    "level": "advanced",
+    "summary": "Reto Verbo 108 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":9,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-109",
+    "title": "Simulador Oficial 109",
+    "level": "beginner",
+    "summary": "Simulador Oficial 109 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860033}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-110",
+    "title": "Reto Verbo 110",
+    "level": "intermediate",
+    "summary": "Reto Verbo 110 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":11,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-111",
+    "title": "Reto Verbo 111",
+    "level": "advanced",
+    "summary": "Reto Verbo 111 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":12,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-112",
+    "title": "Reto Verbo 112",
+    "level": "beginner",
+    "summary": "Reto Verbo 112 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":13,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-113",
+    "title": "Reto Verbo 113",
+    "level": "intermediate",
+    "summary": "Reto Verbo 113 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":14,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-114",
+    "title": "Simulador Oficial 114",
+    "level": "advanced",
+    "summary": "Simulador Oficial 114 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860038}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-115",
+    "title": "Reto Verbo 115",
+    "level": "beginner",
+    "summary": "Reto Verbo 115 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":6,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-116",
+    "title": "Reto Verbo 116",
+    "level": "intermediate",
+    "summary": "Reto Verbo 116 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":7,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-117",
+    "title": "Reto Verbo 117",
+    "level": "advanced",
+    "summary": "Reto Verbo 117 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":8,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-118",
+    "title": "Reto Verbo 118",
+    "level": "beginner",
+    "summary": "Reto Verbo 118 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":9,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-119",
+    "title": "Simulador Oficial 119",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 119 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860043}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-120",
+    "title": "Reto Verbo 120",
+    "level": "advanced",
+    "summary": "Reto Verbo 120 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":11,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-121",
+    "title": "Reto Verbo 121",
+    "level": "beginner",
+    "summary": "Reto Verbo 121 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":12,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-122",
+    "title": "Reto Verbo 122",
+    "level": "intermediate",
+    "summary": "Reto Verbo 122 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":13,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-123",
+    "title": "Reto Verbo 123",
+    "level": "advanced",
+    "summary": "Reto Verbo 123 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":14,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-124",
+    "title": "Simulador Oficial 124",
+    "level": "beginner",
+    "summary": "Simulador Oficial 124 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860048}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-125",
+    "title": "Reto Verbo 125",
+    "level": "intermediate",
+    "summary": "Reto Verbo 125 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":6,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-126",
+    "title": "Reto Verbo 126",
+    "level": "advanced",
+    "summary": "Reto Verbo 126 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":7,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-127",
+    "title": "Reto Verbo 127",
+    "level": "beginner",
+    "summary": "Reto Verbo 127 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":8,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-128",
+    "title": "Reto Verbo 128",
+    "level": "intermediate",
+    "summary": "Reto Verbo 128 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":9,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-129",
+    "title": "Simulador Oficial 129",
+    "level": "advanced",
+    "summary": "Simulador Oficial 129 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860053}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-130",
+    "title": "Reto Verbo 130",
+    "level": "beginner",
+    "summary": "Reto Verbo 130 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":11,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-131",
+    "title": "Reto Verbo 131",
+    "level": "intermediate",
+    "summary": "Reto Verbo 131 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":12,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-132",
+    "title": "Reto Verbo 132",
+    "level": "advanced",
+    "summary": "Reto Verbo 132 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":13,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-133",
+    "title": "Reto Verbo 133",
+    "level": "beginner",
+    "summary": "Reto Verbo 133 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":14,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-134",
+    "title": "Simulador Oficial 134",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 134 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860058}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-135",
+    "title": "Reto Verbo 135",
+    "level": "advanced",
+    "summary": "Reto Verbo 135 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":6,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-136",
+    "title": "Reto Verbo 136",
+    "level": "beginner",
+    "summary": "Reto Verbo 136 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":7,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-137",
+    "title": "Reto Verbo 137",
+    "level": "intermediate",
+    "summary": "Reto Verbo 137 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":8,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-138",
+    "title": "Reto Verbo 138",
+    "level": "advanced",
+    "summary": "Reto Verbo 138 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":9,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-139",
+    "title": "Simulador Oficial 139",
+    "level": "beginner",
+    "summary": "Simulador Oficial 139 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860063}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-140",
+    "title": "Reto Verbo 140",
+    "level": "intermediate",
+    "summary": "Reto Verbo 140 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":11,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-141",
+    "title": "Reto Verbo 141",
+    "level": "advanced",
+    "summary": "Reto Verbo 141 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":12,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-142",
+    "title": "Reto Verbo 142",
+    "level": "beginner",
+    "summary": "Reto Verbo 142 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":13,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-143",
+    "title": "Reto Verbo 143",
+    "level": "intermediate",
+    "summary": "Reto Verbo 143 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":14,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-144",
+    "title": "Simulador Oficial 144",
+    "level": "advanced",
+    "summary": "Simulador Oficial 144 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860068}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-145",
+    "title": "Reto Verbo 145",
+    "level": "beginner",
+    "summary": "Reto Verbo 145 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":6,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-146",
+    "title": "Reto Verbo 146",
+    "level": "intermediate",
+    "summary": "Reto Verbo 146 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":7,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-147",
+    "title": "Reto Verbo 147",
+    "level": "advanced",
+    "summary": "Reto Verbo 147 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":8,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-148",
+    "title": "Reto Verbo 148",
+    "level": "beginner",
+    "summary": "Reto Verbo 148 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":9,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-149",
+    "title": "Simulador Oficial 149",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 149 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860073}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-150",
+    "title": "Reto Verbo 150",
+    "level": "advanced",
+    "summary": "Reto Verbo 150 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":11,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-151",
+    "title": "Reto Verbo 151",
+    "level": "beginner",
+    "summary": "Reto Verbo 151 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":12,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-152",
+    "title": "Reto Verbo 152",
+    "level": "intermediate",
+    "summary": "Reto Verbo 152 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":13,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-153",
+    "title": "Reto Verbo 153",
+    "level": "advanced",
+    "summary": "Reto Verbo 153 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":14,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-154",
+    "title": "Simulador Oficial 154",
+    "level": "beginner",
+    "summary": "Simulador Oficial 154 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860078}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-155",
+    "title": "Reto Verbo 155",
+    "level": "intermediate",
+    "summary": "Reto Verbo 155 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":6,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-156",
+    "title": "Reto Verbo 156",
+    "level": "advanced",
+    "summary": "Reto Verbo 156 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":7,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-157",
+    "title": "Reto Verbo 157",
+    "level": "beginner",
+    "summary": "Reto Verbo 157 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":8,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-158",
+    "title": "Reto Verbo 158",
+    "level": "intermediate",
+    "summary": "Reto Verbo 158 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":9,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-159",
+    "title": "Simulador Oficial 159",
+    "level": "advanced",
+    "summary": "Simulador Oficial 159 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860083}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-160",
+    "title": "Reto Verbo 160",
+    "level": "beginner",
+    "summary": "Reto Verbo 160 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":11,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-161",
+    "title": "Reto Verbo 161",
+    "level": "intermediate",
+    "summary": "Reto Verbo 161 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":12,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-162",
+    "title": "Reto Verbo 162",
+    "level": "advanced",
+    "summary": "Reto Verbo 162 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":13,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-163",
+    "title": "Reto Verbo 163",
+    "level": "beginner",
+    "summary": "Reto Verbo 163 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":14,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-164",
+    "title": "Simulador Oficial 164",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 164 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860088}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-165",
+    "title": "Reto Verbo 165",
+    "level": "advanced",
+    "summary": "Reto Verbo 165 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":6,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-166",
+    "title": "Reto Verbo 166",
+    "level": "beginner",
+    "summary": "Reto Verbo 166 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":7,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-167",
+    "title": "Reto Verbo 167",
+    "level": "intermediate",
+    "summary": "Reto Verbo 167 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":8,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-168",
+    "title": "Reto Verbo 168",
+    "level": "advanced",
+    "summary": "Reto Verbo 168 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":9,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-169",
+    "title": "Simulador Oficial 169",
+    "level": "beginner",
+    "summary": "Simulador Oficial 169 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860093}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-170",
+    "title": "Reto Verbo 170",
+    "level": "intermediate",
+    "summary": "Reto Verbo 170 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":11,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-171",
+    "title": "Reto Verbo 171",
+    "level": "advanced",
+    "summary": "Reto Verbo 171 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":12,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-172",
+    "title": "Reto Verbo 172",
+    "level": "beginner",
+    "summary": "Reto Verbo 172 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":13,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-173",
+    "title": "Reto Verbo 173",
+    "level": "intermediate",
+    "summary": "Reto Verbo 173 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":14,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-174",
+    "title": "Simulador Oficial 174",
+    "level": "advanced",
+    "summary": "Simulador Oficial 174 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860098}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-175",
+    "title": "Reto Verbo 175",
+    "level": "beginner",
+    "summary": "Reto Verbo 175 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":6,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-176",
+    "title": "Reto Verbo 176",
+    "level": "intermediate",
+    "summary": "Reto Verbo 176 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":7,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-177",
+    "title": "Reto Verbo 177",
+    "level": "advanced",
+    "summary": "Reto Verbo 177 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":8,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-178",
+    "title": "Reto Verbo 178",
+    "level": "beginner",
+    "summary": "Reto Verbo 178 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":9,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-179",
+    "title": "Simulador Oficial 179",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 179 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860103}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-180",
+    "title": "Reto Verbo 180",
+    "level": "advanced",
+    "summary": "Reto Verbo 180 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":11,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-181",
+    "title": "Reto Verbo 181",
+    "level": "beginner",
+    "summary": "Reto Verbo 181 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":12,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-182",
+    "title": "Reto Verbo 182",
+    "level": "intermediate",
+    "summary": "Reto Verbo 182 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":13,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-183",
+    "title": "Reto Verbo 183",
+    "level": "advanced",
+    "summary": "Reto Verbo 183 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":14,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-184",
+    "title": "Simulador Oficial 184",
+    "level": "beginner",
+    "summary": "Simulador Oficial 184 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860108}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-185",
+    "title": "Reto Verbo 185",
+    "level": "intermediate",
+    "summary": "Reto Verbo 185 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":6,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-186",
+    "title": "Reto Verbo 186",
+    "level": "advanced",
+    "summary": "Reto Verbo 186 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":7,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-187",
+    "title": "Reto Verbo 187",
+    "level": "beginner",
+    "summary": "Reto Verbo 187 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":8,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-188",
+    "title": "Reto Verbo 188",
+    "level": "intermediate",
+    "summary": "Reto Verbo 188 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":9,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-189",
+    "title": "Simulador Oficial 189",
+    "level": "advanced",
+    "summary": "Simulador Oficial 189 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860113}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-190",
+    "title": "Reto Verbo 190",
+    "level": "beginner",
+    "summary": "Reto Verbo 190 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":11,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-191",
+    "title": "Reto Verbo 191",
+    "level": "intermediate",
+    "summary": "Reto Verbo 191 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":12,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-192",
+    "title": "Reto Verbo 192",
+    "level": "advanced",
+    "summary": "Reto Verbo 192 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":13,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-193",
+    "title": "Reto Verbo 193",
+    "level": "beginner",
+    "summary": "Reto Verbo 193 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":14,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-194",
+    "title": "Simulador Oficial 194",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 194 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860118}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-195",
+    "title": "Reto Verbo 195",
+    "level": "advanced",
+    "summary": "Reto Verbo 195 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":6,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-196",
+    "title": "Reto Verbo 196",
+    "level": "beginner",
+    "summary": "Reto Verbo 196 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":7,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-197",
+    "title": "Reto Verbo 197",
+    "level": "intermediate",
+    "summary": "Reto Verbo 197 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":8,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-198",
+    "title": "Reto Verbo 198",
+    "level": "advanced",
+    "summary": "Reto Verbo 198 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":9,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-199",
+    "title": "Simulador Oficial 199",
+    "level": "beginner",
+    "summary": "Simulador Oficial 199 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860123}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-200",
+    "title": "Reto Verbo 200",
+    "level": "intermediate",
+    "summary": "Reto Verbo 200 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":11,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-201",
+    "title": "Reto Verbo 201",
+    "level": "advanced",
+    "summary": "Reto Verbo 201 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":12,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-202",
+    "title": "Reto Verbo 202",
+    "level": "beginner",
+    "summary": "Reto Verbo 202 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":13,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-203",
+    "title": "Reto Verbo 203",
+    "level": "intermediate",
+    "summary": "Reto Verbo 203 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":14,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-204",
+    "title": "Simulador Oficial 204",
+    "level": "advanced",
+    "summary": "Simulador Oficial 204 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860128}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-205",
+    "title": "Reto Verbo 205",
+    "level": "beginner",
+    "summary": "Reto Verbo 205 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":6,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-206",
+    "title": "Reto Verbo 206",
+    "level": "intermediate",
+    "summary": "Reto Verbo 206 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":7,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-207",
+    "title": "Reto Verbo 207",
+    "level": "advanced",
+    "summary": "Reto Verbo 207 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":8,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-208",
+    "title": "Reto Verbo 208",
+    "level": "beginner",
+    "summary": "Reto Verbo 208 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":9,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-209",
+    "title": "Simulador Oficial 209",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 209 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860133}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-210",
+    "title": "Reto Verbo 210",
+    "level": "advanced",
+    "summary": "Reto Verbo 210 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":11,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-211",
+    "title": "Reto Verbo 211",
+    "level": "beginner",
+    "summary": "Reto Verbo 211 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":12,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-212",
+    "title": "Reto Verbo 212",
+    "level": "intermediate",
+    "summary": "Reto Verbo 212 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":13,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-213",
+    "title": "Reto Verbo 213",
+    "level": "advanced",
+    "summary": "Reto Verbo 213 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":14,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-214",
+    "title": "Simulador Oficial 214",
+    "level": "beginner",
+    "summary": "Simulador Oficial 214 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860138}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-215",
+    "title": "Reto Verbo 215",
+    "level": "intermediate",
+    "summary": "Reto Verbo 215 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":6,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-216",
+    "title": "Reto Verbo 216",
+    "level": "advanced",
+    "summary": "Reto Verbo 216 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":7,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-217",
+    "title": "Reto Verbo 217",
+    "level": "beginner",
+    "summary": "Reto Verbo 217 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":8,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-218",
+    "title": "Reto Verbo 218",
+    "level": "intermediate",
+    "summary": "Reto Verbo 218 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":9,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-219",
+    "title": "Simulador Oficial 219",
+    "level": "advanced",
+    "summary": "Simulador Oficial 219 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860143}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-220",
+    "title": "Reto Verbo 220",
+    "level": "beginner",
+    "summary": "Reto Verbo 220 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":11,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-221",
+    "title": "Reto Verbo 221",
+    "level": "intermediate",
+    "summary": "Reto Verbo 221 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":12,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-222",
+    "title": "Reto Verbo 222",
+    "level": "advanced",
+    "summary": "Reto Verbo 222 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":13,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-223",
+    "title": "Reto Verbo 223",
+    "level": "beginner",
+    "summary": "Reto Verbo 223 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":14,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-224",
+    "title": "Simulador Oficial 224",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 224 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860148}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-225",
+    "title": "Reto Verbo 225",
+    "level": "advanced",
+    "summary": "Reto Verbo 225 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":6,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-226",
+    "title": "Reto Verbo 226",
+    "level": "beginner",
+    "summary": "Reto Verbo 226 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":7,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-227",
+    "title": "Reto Verbo 227",
+    "level": "intermediate",
+    "summary": "Reto Verbo 227 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":8,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-228",
+    "title": "Reto Verbo 228",
+    "level": "advanced",
+    "summary": "Reto Verbo 228 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":9,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-229",
+    "title": "Simulador Oficial 229",
+    "level": "beginner",
+    "summary": "Simulador Oficial 229 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860153}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-230",
+    "title": "Reto Verbo 230",
+    "level": "intermediate",
+    "summary": "Reto Verbo 230 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":11,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-231",
+    "title": "Reto Verbo 231",
+    "level": "advanced",
+    "summary": "Reto Verbo 231 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":12,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-232",
+    "title": "Reto Verbo 232",
+    "level": "beginner",
+    "summary": "Reto Verbo 232 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":13,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-233",
+    "title": "Reto Verbo 233",
+    "level": "intermediate",
+    "summary": "Reto Verbo 233 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":14,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-234",
+    "title": "Simulador Oficial 234",
+    "level": "advanced",
+    "summary": "Simulador Oficial 234 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860158}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-235",
+    "title": "Reto Verbo 235",
+    "level": "beginner",
+    "summary": "Reto Verbo 235 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":6,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-236",
+    "title": "Reto Verbo 236",
+    "level": "intermediate",
+    "summary": "Reto Verbo 236 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":7,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-237",
+    "title": "Reto Verbo 237",
+    "level": "advanced",
+    "summary": "Reto Verbo 237 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":8,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-238",
+    "title": "Reto Verbo 238",
+    "level": "beginner",
+    "summary": "Reto Verbo 238 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":9,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-239",
+    "title": "Simulador Oficial 239",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 239 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860163}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-240",
+    "title": "Reto Verbo 240",
+    "level": "advanced",
+    "summary": "Reto Verbo 240 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":11,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-241",
+    "title": "Reto Verbo 241",
+    "level": "beginner",
+    "summary": "Reto Verbo 241 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":12,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-242",
+    "title": "Reto Verbo 242",
+    "level": "intermediate",
+    "summary": "Reto Verbo 242 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":13,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-243",
+    "title": "Reto Verbo 243",
+    "level": "advanced",
+    "summary": "Reto Verbo 243 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":14,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-244",
+    "title": "Simulador Oficial 244",
+    "level": "beginner",
+    "summary": "Simulador Oficial 244 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860168}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-245",
+    "title": "Reto Verbo 245",
+    "level": "intermediate",
+    "summary": "Reto Verbo 245 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":6,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-246",
+    "title": "Reto Verbo 246",
+    "level": "advanced",
+    "summary": "Reto Verbo 246 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":7,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-247",
+    "title": "Reto Verbo 247",
+    "level": "beginner",
+    "summary": "Reto Verbo 247 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":8,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-248",
+    "title": "Reto Verbo 248",
+    "level": "intermediate",
+    "summary": "Reto Verbo 248 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":9,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-249",
+    "title": "Simulador Oficial 249",
+    "level": "advanced",
+    "summary": "Simulador Oficial 249 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860173}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-250",
+    "title": "Reto Verbo 250",
+    "level": "beginner",
+    "summary": "Reto Verbo 250 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":11,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-251",
+    "title": "Reto Verbo 251",
+    "level": "intermediate",
+    "summary": "Reto Verbo 251 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":12,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-252",
+    "title": "Reto Verbo 252",
+    "level": "advanced",
+    "summary": "Reto Verbo 252 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":13,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-253",
+    "title": "Reto Verbo 253",
+    "level": "beginner",
+    "summary": "Reto Verbo 253 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":14,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-254",
+    "title": "Simulador Oficial 254",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 254 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860178}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-255",
+    "title": "Reto Verbo 255",
+    "level": "advanced",
+    "summary": "Reto Verbo 255 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":6,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-256",
+    "title": "Reto Verbo 256",
+    "level": "beginner",
+    "summary": "Reto Verbo 256 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":7,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-257",
+    "title": "Reto Verbo 257",
+    "level": "intermediate",
+    "summary": "Reto Verbo 257 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":8,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-258",
+    "title": "Reto Verbo 258",
+    "level": "advanced",
+    "summary": "Reto Verbo 258 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":9,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-259",
+    "title": "Simulador Oficial 259",
+    "level": "beginner",
+    "summary": "Simulador Oficial 259 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860183}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-260",
+    "title": "Reto Verbo 260",
+    "level": "intermediate",
+    "summary": "Reto Verbo 260 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":11,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-261",
+    "title": "Reto Verbo 261",
+    "level": "advanced",
+    "summary": "Reto Verbo 261 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":12,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-262",
+    "title": "Reto Verbo 262",
+    "level": "beginner",
+    "summary": "Reto Verbo 262 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":13,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-263",
+    "title": "Reto Verbo 263",
+    "level": "intermediate",
+    "summary": "Reto Verbo 263 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":14,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-264",
+    "title": "Simulador Oficial 264",
+    "level": "advanced",
+    "summary": "Simulador Oficial 264 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860188}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-265",
+    "title": "Reto Verbo 265",
+    "level": "beginner",
+    "summary": "Reto Verbo 265 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":6,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-266",
+    "title": "Reto Verbo 266",
+    "level": "intermediate",
+    "summary": "Reto Verbo 266 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":7,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-267",
+    "title": "Reto Verbo 267",
+    "level": "advanced",
+    "summary": "Reto Verbo 267 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":8,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-268",
+    "title": "Reto Verbo 268",
+    "level": "beginner",
+    "summary": "Reto Verbo 268 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":9,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-269",
+    "title": "Simulador Oficial 269",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 269 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860193}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-270",
+    "title": "Reto Verbo 270",
+    "level": "advanced",
+    "summary": "Reto Verbo 270 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":11,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-271",
+    "title": "Reto Verbo 271",
+    "level": "beginner",
+    "summary": "Reto Verbo 271 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":12,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-272",
+    "title": "Reto Verbo 272",
+    "level": "intermediate",
+    "summary": "Reto Verbo 272 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":13,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-273",
+    "title": "Reto Verbo 273",
+    "level": "advanced",
+    "summary": "Reto Verbo 273 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":14,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-274",
+    "title": "Simulador Oficial 274",
+    "level": "beginner",
+    "summary": "Simulador Oficial 274 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860198}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-275",
+    "title": "Reto Verbo 275",
+    "level": "intermediate",
+    "summary": "Reto Verbo 275 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":6,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-276",
+    "title": "Reto Verbo 276",
+    "level": "advanced",
+    "summary": "Reto Verbo 276 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":7,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-277",
+    "title": "Reto Verbo 277",
+    "level": "beginner",
+    "summary": "Reto Verbo 277 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":8,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-278",
+    "title": "Reto Verbo 278",
+    "level": "intermediate",
+    "summary": "Reto Verbo 278 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":9,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-279",
+    "title": "Simulador Oficial 279",
+    "level": "advanced",
+    "summary": "Simulador Oficial 279 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860203}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-280",
+    "title": "Reto Verbo 280",
+    "level": "beginner",
+    "summary": "Reto Verbo 280 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":11,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-281",
+    "title": "Reto Verbo 281",
+    "level": "intermediate",
+    "summary": "Reto Verbo 281 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":12,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-282",
+    "title": "Reto Verbo 282",
+    "level": "advanced",
+    "summary": "Reto Verbo 282 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":13,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-283",
+    "title": "Reto Verbo 283",
+    "level": "beginner",
+    "summary": "Reto Verbo 283 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":14,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-284",
+    "title": "Simulador Oficial 284",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 284 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860208}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-285",
+    "title": "Reto Verbo 285",
+    "level": "advanced",
+    "summary": "Reto Verbo 285 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":6,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-286",
+    "title": "Reto Verbo 286",
+    "level": "beginner",
+    "summary": "Reto Verbo 286 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":7,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-287",
+    "title": "Reto Verbo 287",
+    "level": "intermediate",
+    "summary": "Reto Verbo 287 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":8,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-288",
+    "title": "Reto Verbo 288",
+    "level": "advanced",
+    "summary": "Reto Verbo 288 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":9,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-289",
+    "title": "Simulador Oficial 289",
+    "level": "beginner",
+    "summary": "Simulador Oficial 289 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel beginner",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860213}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-290",
+    "title": "Reto Verbo 290",
+    "level": "intermediate",
+    "summary": "Reto Verbo 290 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":11,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-291",
+    "title": "Reto Verbo 291",
+    "level": "advanced",
+    "summary": "Reto Verbo 291 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":12,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-292",
+    "title": "Reto Verbo 292",
+    "level": "beginner",
+    "summary": "Reto Verbo 292 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":13,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-293",
+    "title": "Reto Verbo 293",
+    "level": "intermediate",
+    "summary": "Reto Verbo 293 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":14,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-294",
+    "title": "Simulador Oficial 294",
+    "level": "advanced",
+    "summary": "Simulador Oficial 294 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel advanced",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860218}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-295",
+    "title": "Reto Verbo 295",
+    "level": "beginner",
+    "summary": "Reto Verbo 295 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":6,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-296",
+    "title": "Reto Verbo 296",
+    "level": "intermediate",
+    "summary": "Reto Verbo 296 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":7,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-297",
+    "title": "Reto Verbo 297",
+    "level": "advanced",
+    "summary": "Reto Verbo 297 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":8,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-298",
+    "title": "Reto Verbo 298",
+    "level": "beginner",
+    "summary": "Reto Verbo 298 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":9,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-299",
+    "title": "Simulador Oficial 299",
+    "level": "intermediate",
+    "summary": "Simulador Oficial 299 - exam-simulator",
+    "excerpt": "Juego exam-simulator - nivel intermediate",
+    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":1768923860223}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-300",
+    "title": "Reto Verbo 300",
+    "level": "advanced",
+    "summary": "Reto Verbo 300 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":11,\"timePerQuestion\":3}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-301",
+    "title": "Reto Verbo 301",
+    "level": "beginner",
+    "summary": "Reto Verbo 301 - word-race",
+    "excerpt": "Juego word-race - nivel beginner",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"easy\",\"rounds\":12,\"timePerQuestion\":4}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-302",
+    "title": "Reto Verbo 302",
+    "level": "intermediate",
+    "summary": "Reto Verbo 302 - word-race",
+    "excerpt": "Juego word-race - nivel intermediate",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"medium\",\"rounds\":13,\"timePerQuestion\":5}}",
+    "examples": []
+  },
+  {
+    "id": "game-gen-303",
+    "title": "Reto Verbo 303",
+    "level": "advanced",
+    "summary": "Reto Verbo 303 - word-race",
+    "excerpt": "Juego word-race - nivel advanced",
+    "content": "{\"gameType\":\"word-race\",\"config\":{\"difficulty\":\"advanced\",\"rounds\":14,\"timePerQuestion\":6}}",
+    "examples": []
+  },
+  {
+    "id": "sample-mcq-001",
+    "title": "MCQ — Por vs Para (1 pregunta)",
+    "level": "intermediate",
+    "summary": "Pregunta sobre el uso correcto de 'por' y 'para'.",
+    "excerpt": "El regalo es ___ ti.",
+    "content": "{ \"gameType\": \"exam-simulator\", \"config\": { \"questions\": [ { \"id\": \"mcq-por-para-1\", \"question\": \"El regalo es ___ ti.\", \"options\": [\"por\", \"para\", \"a\", \"de\"], \"correctAnswer\": \"para\", \"explanation\": \"“Para” indica destinatario o propósito final. Aquí se refiere al destinatario (el regalo es para ti).\", \"points\": 10 } ], \"timeLimit\": 60 } }",
+    "examples": []
+  },
+  {
+    "id": "sample-flash-001",
+    "title": "Flashcard — cita",
+    "level": "all",
+    "summary": "Tarjeta de vocabulario: 'cita' (appointment).",
+    "excerpt": "Palabra: cita — ترجمة: موعد",
+    "content": "{ \"gameType\": \"word-race\", \"config\": { \"type\": \"flashcard\", \"word\": \"cita\", \"pronunciation\": \"ˈθita\", \"examples\": [ \"Tengo una cita con el médico mañana.\", \"Pedí una cita para renovar el DNI.\" ], \"translations\": [\"موعد\",\"حجز\"], \"notes\": \"En Español de España se pronuncia con ce/θ en muchas variantes peninsulares.\" } }",
+    "examples": []
+  },
+  {
+    "id": "sample-sim-001",
+    "title": "Mini‑Exam — Vida en España (3 preguntas)",
+    "level": "all",
+    "summary": "Mini simulador con 3 preguntas útiles para la vida diaria en España.",
+    "excerpt": "Documentos, urgencias y frases útiles.",
+    "content": "{ \"gameType\": \"exam-simulator\", \"config\": { \"questions\": [ { \"id\": \"sim-v1-q1\", \"question\": \"¿Cuál documento necesitas para empadronarte en un municipio español?\", \"options\": [\"Pasaporte o DNI\", \"Carné de conducir\", \"Certificado de trabajo\", \"Título universitario\"], \"correctAnswer\": \"Pasaporte o DNI\", \"explanation\": \"Para el empadronamiento se requiere identificación oficial (DNI o pasaporte).\", \"points\": 10 }, { \"id\": \"sim-v1-q2\", \"question\": \"Si tienes fiebre alta y malestar, ¿qué debes hacer primero?\", \"options\": [\"Ir a urgencias si es severo\", \"Esperar 2 semanas\", \"Tomar un examen oficial\", \"Cambiar de médico\"], \"correctAnswer\": \"Ir a urgencias si es severo\", \"explanation\": \"Ante síntomas graves (fiebre alta, dificultad respiratoria) acudir a urgencias.\", \"points\": 10 }, { \"id\": \"sim-v1-q3\", \"question\": \"¿Qué expresión es más natural para pedir ayuda en una tienda?\", \"options\": [\"¿Me puede ayudar, por favor?\", \"¿Qué pasa aquí?\", \"¿Desde cuándo?\", \"¿Dónde estoy?\"], \"correctAnswer\": \"¿Me puede ayudar, por favor?\", \"explanation\": \"Forma educada y estándar para pedir ayuda.\", \"points\": 10 } ], \"timeLimit\": 300 } }",
+    "examples": []
+  }
+]

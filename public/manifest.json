@@ -1,0 +1,29 @@
+{
+  "name": "EspañolHub - Tu Centro Inteligente para Aprender Español",
+  "short_name": "EspañolHub",
+  "description": "Tu centro inteligente para aprender español. Gramática, vocabulario, CCSE, carnet de conducir y más. ¡100% gratis!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#9333ea",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "languages"],
+  "lang": "es",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}

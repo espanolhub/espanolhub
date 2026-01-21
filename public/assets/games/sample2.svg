@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" rx="24" fill="#EFF6FF"/>
+  <rect x="80" y="80" width="640" height="290" rx="20" fill="#FFFFFF" stroke="#BFDBFE"/>
+  <text x="400" y="240" text-anchor="middle" font-size="36" fill="#2563EB" font-family="Arial, sans-serif">Quick Quiz</text>
+  <circle cx="600" cy="140" r="36" fill="#34D399"/>
+  <text x="600" y="146" text-anchor="middle" font-size="18" fill="#064E3B">10Q</text>
+</svg>
+

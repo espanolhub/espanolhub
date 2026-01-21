@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Español Educativo
 
-## Getting Started
+El mejor sitio educativo en español del mundo - Aprende español de forma completa e integral.
 
-First, run the development server:
+## Características Principales
+
+- **Alfabeto**: Aprende las 27 letras del alfabeto español con pronunciación, ejemplos y ejercicios interactivos
+- **Números**: Domina los números del 0 al 1000+ con pronunciación correcta
+- **Lectura**: Mejora tu comprensión lectora con textos graduados y ejercicios
+- **Gramática**: Aprende la conjugación de verbos, cambios de género y número
+- **Vocabulario**: Amplía tu vocabulario con categorías temáticas y pronunciación
+- **Juegos**: Aprende divirtiéndote con juegos educativos interactivos
+- **Tablas**: Consulta tablas completas imprimibles de todos los temas
+
+## Tecnologías Utilizadas
+
+- **Next.js 14** (App Router)
+- **TypeScript**
+- **Tailwind CSS**
+- **Framer Motion** (para animaciones)
+- **React Hook Form**
+- **Zustand** (para estado)
+- **Lucide React** (iconos)
+
+## Instalación
+
+```bash
+npm install
+```
+
+## Desarrollo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Construcción
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+## Características Técnicas
 
-To learn more about Next.js, take a look at the following resources:
+- Diseño responsive (móvil, tablet, desktop)
+- Audio integrado usando Web Speech API
+- Interfaz moderna y atractiva
+- Navegación intuitiva
+- Tablas imprimibles
+- Juegos interactivos con sistema de puntuación
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Estructura del Proyecto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+/
+├── app/              # Páginas Next.js (App Router)
+│   ├── alfabeto/      # Aprende el alfabeto
+│   ├── numeros/       # Aprende números
+│   ├── lectura/       # Lectura y comprensión
+│   ├── gramatica/     # Gramática y conjugación
+│   ├── vocabulario/   # Vocabulario por categorías
+│   ├── juegos/        # Juegos educativos
+│   └── tablas/        # Tablas educativas
+├── components/        # Componentes React reutilizables
+├── lib/
+│   ├── data/         # Datos educativos (alfabeto, números, vocabulario, etc.)
+│   └── types.ts      # Tipos TypeScript
+└── public/           # Archivos estáticos
+```
 
-## Deploy on Vercel
+## Licencia
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Este proyecto es de código abierto y está disponible para uso educativo.

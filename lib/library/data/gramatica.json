@@ -1,0 +1,29 @@
+[
+  {
+    "id": "gram-001",
+    "title": "Presente de Indicativo - Verbos Regulares",
+    "subtitle": "Conjugación básica",
+    "level": "beginner",
+    "summary": "Cómo conjugar verbos regulares en presente (terminaciones -ar, -er, -ir).",
+    "excerpt": "Aprende las terminaciones y ejemplos comunes.",
+    "content": "Contenido completo del capítulo 1: ...",
+    "examples": [
+      "Yo hablo español.",
+      "Tú comes una manzana."
+    ]
+  },
+  {
+    "id": "gram-002",
+    "title": "Pretérito Perfecto",
+    "subtitle": "Usos y formación",
+    "level": "intermediate",
+    "summary": "Uso del pretérito perfecto compuesto.",
+    "excerpt": "Cuando usamos haber + participio.",
+    "content": "Contenido completo del capítulo 2: ...",
+    "examples": [
+      "He estudiado mucho.",
+      "Has comido ya?"
+    ]
+  }
+]
+
