@@ -3,10 +3,12 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState, useRef, useEffect } from 'react';
-import { UserButton, SignInButton, SignUpButton, useUser, useAuth, SignedIn, SignedOut } from '@clerk/nextjs';
+// Clerk hooks removed to avoid SSR issues - Navigation works without auth
+// import { UserButton, SignInButton, SignUpButton, useUser, useAuth, SignedIn, SignedOut } from '@clerk/nextjs';
 import { BookOpen, Gamepad2, GraduationCap, Book, Languages, X, Menu, Shield, Award, Search, ChevronDown, Download, Car } from 'lucide-react';
 import SearchOverlay from './SearchOverlay';
-import AdminNotificationBadge from './AdminNotificationBadge';
+// AdminNotificationBadge removed - Navigation works without Clerk hooks
+// import AdminNotificationBadge from './AdminNotificationBadge';
 
 const aprenderDropdown = {
   label: 'Aprender',
@@ -34,20 +36,11 @@ export default function Navigation() {
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const courseRef = useRef<HTMLDivElement>(null);
   
-  // Clerk hooks - optional (work without ClerkProvider)
-  let isSignedIn = false;
-  let user = null;
-  let isAdmin = false;
-  
-  try {
-    const userData = useUser();
-    const authData = useAuth();
-    isSignedIn = userData.isSignedIn || false;
-    user = userData.user;
-    isAdmin = authData.has && authData.has({ permission: 'org:admin' }) || false;
-  } catch (e) {
-    // Clerk not configured - continue without auth
-  }
+  // Clerk hooks removed to avoid SSR/prerendering issues
+  // Admin link is hidden - users can access /admin directly if they have access
+  const isSignedIn = false;
+  const user = null;
+  const isAdmin = false;
   
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);

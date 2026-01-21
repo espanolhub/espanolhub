@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Geist_Mono, Cairo } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/Navigation";
+import NavigationWrapper from "@/components/NavigationWrapper";
 import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
 import SuccessMomentClient from '@/components/SuccessMomentClient';
@@ -127,7 +127,7 @@ export default function RootLayout({
             >
               <Providers>
                 <WebVitalsTracker />
-                <Navigation />
+                <NavigationWrapper />
                 <GlobalPronounceListener />
                 <GlobalDictionaryProvider />
                 <main id="main-content" className="flex-grow w-full">
@@ -140,7 +140,7 @@ export default function RootLayout({
           ) : (
             <Providers>
               <WebVitalsTracker />
-              <Navigation />
+              <NavigationWrapper />
               <GlobalPronounceListener />
               <GlobalDictionaryProvider />
               <main id="main-content" className="flex-grow w-full">

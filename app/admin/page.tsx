@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import Dashboard from '@/components/admin/Dashboard';
 import ContentManagement from '@/components/admin/ContentManagement';
@@ -11,27 +10,29 @@ import Subscribers from '@/components/admin/Subscribers';
 import AdminSettingsPanel from '@/components/AdminSettingsPanel';
 import { LayoutDashboard, FileText, Users, BarChart3, LogOut, CreditCard, Mail } from 'lucide-react';
 import ContactMessages from '@/components/admin/ContactMessages';
+import { useAuth } from '@/lib/hooks/useAuth';
+import { logout } from '@/lib/auth';
 
 type TabType = 'dashboard' | 'content' | 'users' | 'subscriptions' | 'stats' | 'messages';
 
-const ADMIN_EMAILS = ['esconabdou@gmail.com', 'boutibderrahim@gmail.com'];
-
 export default function AdminPage() {
-  const { isSignedIn, isLoaded, user } = useUser();
+  const { user, isAuthenticated, loading } = useAuth();
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<TabType>('dashboard');
 
-  const userEmail = user?.primaryEmailAddress?.emailAddress || user?.emailAddresses?.[0]?.emailAddress || '';
-  const isAdmin = isSignedIn && ADMIN_EMAILS.includes(String(userEmail).toLowerCase());
-
   useEffect(() => {
-    if (!isLoaded) return;
-    if (!isSignedIn || !isAdmin) {
-      router.push('/');
+    if (!loading && !isAuthenticated) {
+      router.push('/login');
     }
-  }, [isLoaded, isSignedIn, isAdmin, router]);
+  }, [loading, isAuthenticated, router]);
 
-  if (!isLoaded) {
+  const handleLogout = async () => {
+    await logout();
+    router.push('/');
+    router.refresh();
+  };
+
+  if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-xl">Cargando...</div>
@@ -39,7 +40,9 @@ export default function AdminPage() {
     );
   }
 
-  if (!isSignedIn || !isAdmin) return null;
+  if (!isAuthenticated || !user) {
+    return null;
+  }
 
   const tabs = [
     { id: 'dashboard' as TabType, label: 'Panel de Control', icon: LayoutDashboard },
@@ -57,12 +60,15 @@ export default function AdminPage() {
           <div className="flex justify-between items-center py-4">
             <div>
               <h1 className="text-2xl font-bold text-gray-900">Panel de Control</h1>
-              <p className="text-sm text-gray-600">Hola, {user?.firstName || user?.primaryEmailAddress?.emailAddress || 'Admin'}</p>
+              <p className="text-sm text-gray-600">Hola, {user.email || 'Admin'}</p>
             </div>
-            <a href="/" className="flex items-center gap-2 px-4 py-2 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition-colors font-medium">
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-2 px-4 py-2 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition-colors font-medium"
+            >
               <LogOut className="w-5 h-5" />
-              <span>Volver al Inicio</span>
-            </a>
+              <span>Cerrar Sesión</span>
+            </button>
           </div>
         </div>
       </header>

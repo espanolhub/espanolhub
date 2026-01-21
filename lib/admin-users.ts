@@ -16,18 +16,18 @@ export interface User {
 export const users: User[] = [
   {
     id: '1',
-    username: 'admin',
-    email: 'admin@espanol-educativo.com',
-    password: 'admin123', // كلمة مرور بسيطة للاختبار
+    username: 'esconabdou',
+    email: 'esconabdou@gmail.com',
+    password: 'Esconabdou123', // كلمة مرور المستخدم
     role: 'admin',
     createdAt: new Date().toISOString(),
   },
   {
     id: '2',
-    username: 'user',
-    email: 'user@example.com',
-    password: 'user123',
-    role: 'user',
+    username: 'boutibderrahim',
+    email: 'boutibderrahim@gmail.com',
+    password: 'Boutibderrahim123', // يمكن تغييرها لاحقاً
+    role: 'admin',
     createdAt: new Date().toISOString(),
   },
 ];
@@ -43,14 +43,14 @@ export function findUserByUsername(username: string): User | undefined {
  * البحث عن مستخدم بواسطة البريد الإلكتروني
  */
 export function findUserByEmail(email: string): User | undefined {
-  return users.find(user => user.email === email);
+  return users.find(user => user.email === email.toLowerCase());
 }
 
 /**
  * التحقق من صحة بيانات تسجيل الدخول
  */
-export function validateCredentials(username: string, password: string): User | null {
-  const user = findUserByUsername(username);
+export function validateCredentials(email: string, password: string): User | null {
+  const user = findUserByEmail(email);
   if (user && user.password === password) {
     return user;
   }
@@ -62,4 +62,11 @@ export function validateCredentials(username: string, password: string): User | 
  */
 export function getUserById(id: string): User | undefined {
   return users.find(user => user.id === id);
+}
+
+/**
+ * التحقق من أن المستخدم هو admin
+ */
+export function isAdmin(user: User | null): boolean {
+  return user !== null && user.role === 'admin';
 }
