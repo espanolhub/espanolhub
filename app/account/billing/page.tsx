@@ -2,20 +2,14 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useUser } from '@clerk/nextjs';
 
 export default function BillingPage() {
-  const { isSignedIn } = useUser();
   const router = useRouter();
   const [sub, setSub] = useState<any>(null);
 
   useEffect(() => {
-    if (!isSignedIn) {
-      router.push('/sign-in');
-      return;
-    }
     fetchMe();
-  }, [isSignedIn]);
+  }, []);
 
   const fetchMe = async () => {
     try {
@@ -26,10 +20,6 @@ export default function BillingPage() {
       console.error(e);
     }
   };
-
-  if (!isSignedIn) {
-    return <div className="p-8">Redirigiendo a iniciar sesión...</div>;
-  }
 
   return (
     <div className="min-h-screen py-12">

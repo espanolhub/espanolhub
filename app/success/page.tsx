@@ -3,21 +3,10 @@
 import Link from 'next/link';
 import { CheckCircle, Sparkles } from 'lucide-react';
 import { useEffect } from 'react';
-import { useUser } from '@clerk/nextjs';
 
 export default function SuccessPage() {
-  const { isSignedIn, isLoaded, user } = useUser();
-
   useEffect(() => {
-    // Force a reload when the page loads to refresh Clerk session metadata
-    // Only reload once
-    if (typeof window === 'undefined') return;
-    try {
-      // small delay to allow redirect flow
-      setTimeout(() => {
-        window.location.reload();
-      }, 800);
-    } catch (e) {}
+    // Page reload is not needed anymore
   }, []);
 
   return (

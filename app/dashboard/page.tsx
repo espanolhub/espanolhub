@@ -5,28 +5,15 @@ import { getUserProgress, getXPTransactions } from '@/lib/utils/progress';
 import { CheckCircle, Clock, Award } from 'lucide-react';
 import { drivingLessons } from '@/lib/data/lessons';
 import { getAllNacionalidadLessons } from '@/lib/data/nacionalidad-lessons';
-import { useUser } from '@clerk/nextjs';
-import { setLocalUserId } from '@/lib/utils/progress';
 import Link from 'next/link';
 
 export default function DashboardPage() {
-  const { isSignedIn, isLoaded, user } = useUser();
   const [progress, setProgress] = useState(() => getUserProgress());
   const [recentExams, setRecentExams] = useState<any[]>([]);
   const [drivingUnlocked, setDrivingUnlocked] = useState(false);
   const [completedLessons, setCompletedLessons] = useState({ total: 0, completed: 0, percentage: 0 });
 
   useEffect(() => {
-    if (!isLoaded) return;
-    // when user signs in, bind local progress to their user id
-    try {
-      if (isSignedIn && user?.id) {
-        setLocalUserId(user.id);
-        // refresh progress now stored under user key
-        setProgress(getUserProgress());
-      }
-    } catch (e) {}
-    
     try {
       setProgress(getUserProgress());
       const raw = localStorage.getItem('dl_exam_history');
@@ -36,27 +23,23 @@ export default function DashboardPage() {
       const completed = dlCompleted ? JSON.parse(dlCompleted) : [];
       setDrivingUnlocked(Array.isArray(completed) && completed.length > 0);
       
-      // Calculate completion percentage (only if user is authenticated)
-      if (isSignedIn) {
-        const drivingTotal = drivingLessons?.length || 0;
-        const drivingCompleted = Array.isArray(completed) ? completed.length : 0;
-        
-        // Check nacionalidad completed chapters from localStorage
-        const nacCompletedRaw = localStorage.getItem('nac_completed_chapters');
-        const nacCompleted = nacCompletedRaw ? JSON.parse(nacCompletedRaw) : [];
-        const nacTotal = getAllNacionalidadLessons()?.length || 0;
-        const nacCompletedCount = Array.isArray(nacCompleted) ? nacCompleted.length : 0;
-        
-        const totalLessons = drivingTotal + nacTotal;
-        const completedCount = drivingCompleted + nacCompletedCount;
-        const percentage = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
-        
-        setCompletedLessons({ total: totalLessons, completed: completedCount, percentage });
-      } else {
-        setCompletedLessons({ total: 0, completed: 0, percentage: 0 });
-      }
+      // Calculate completion percentage
+      const drivingTotal = drivingLessons?.length || 0;
+      const drivingCompleted = Array.isArray(completed) ? completed.length : 0;
+      
+      // Check nacionalidad completed chapters from localStorage
+      const nacCompletedRaw = localStorage.getItem('nac_completed_chapters');
+      const nacCompleted = nacCompletedRaw ? JSON.parse(nacCompletedRaw) : [];
+      const nacTotal = getAllNacionalidadLessons()?.length || 0;
+      const nacCompletedCount = Array.isArray(nacCompleted) ? nacCompleted.length : 0;
+      
+      const totalLessons = drivingTotal + nacTotal;
+      const completedCount = drivingCompleted + nacCompletedCount;
+      const percentage = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
+      
+      setCompletedLessons({ total: totalLessons, completed: completedCount, percentage });
     } catch (e) {}
-  }, [isLoaded, isSignedIn]);
+  }, []);
 
   const totalXP = progress.totalXP || 0;
   const level = progress.level || 1;
@@ -68,28 +51,15 @@ export default function DashboardPage() {
     { id: 'driving-master', title: 'Driver License Master 🚗', unlocked: drivingUnlocked },
   ];
 
-  if (!isLoaded) {
-    return (
-      <div className="min-h-screen bg-[var(--muted-bg)] py-12 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Cargando...</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-[var(--muted-bg)] py-12">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-bold">Mi Progreso / ملفي الشخصي</h1>
-            {isSignedIn && (
-              <div className="text-sm text-gray-600 mt-1">
-                Lecciones: {completedLessons.completed} / {completedLessons.total} ({completedLessons.percentage}% Completado)
-              </div>
-            )}
+            <div className="text-sm text-gray-600 mt-1">
+              Lecciones: {completedLessons.completed} / {completedLessons.total} ({completedLessons.percentage}% Completado)
+            </div>
           </div>
           <Link href="/nacionalidad" className="text-sm text-blue-600">Ir a Nacionalidad</Link>
         </div>
@@ -123,37 +93,35 @@ export default function DashboardPage() {
         </div>
 
         {/* Account Management Links */}
-        {isSignedIn && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            <Link href="/account/billing" className="modern-card bg-gradient-to-r from-blue-50 to-blue-100 p-6 hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3">
-                <div className="bg-blue-500 text-white rounded-lg p-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-800">Facturación</h3>
-                  <p className="text-sm text-gray-600">Gestiona tu suscripción</p>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <Link href="/account/billing" className="modern-card bg-gradient-to-r from-blue-50 to-blue-100 p-6 hover:shadow-lg transition-shadow">
+            <div className="flex items-center gap-3">
+              <div className="bg-blue-500 text-white rounded-lg p-3">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
               </div>
-            </Link>
+              <div>
+                <h3 className="font-semibold text-gray-800">Facturación</h3>
+                <p className="text-sm text-gray-600">Gestiona tu suscripción</p>
+              </div>
+            </div>
+          </Link>
 
-            <Link href="/account/invoices" className="modern-card bg-gradient-to-r from-purple-50 to-purple-100 p-6 hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3">
-                <div className="bg-purple-500 text-white rounded-lg p-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-800">Facturas</h3>
-                  <p className="text-sm text-gray-600">Ver tus facturas y pagos</p>
-                </div>
+          <Link href="/account/invoices" className="modern-card bg-gradient-to-r from-purple-50 to-purple-100 p-6 hover:shadow-lg transition-shadow">
+            <div className="flex items-center gap-3">
+              <div className="bg-purple-500 text-white rounded-lg p-3">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
               </div>
-            </Link>
-          </div>
-        )}
+              <div>
+                <h3 className="font-semibold text-gray-800">Facturas</h3>
+                <p className="text-sm text-gray-600">Ver tus facturas y pagos</p>
+              </div>
+            </div>
+          </Link>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="modern-card bg-white p-6">

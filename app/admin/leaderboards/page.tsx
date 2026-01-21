@@ -1,10 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useUser } from '@clerk/nextjs';
 
 export default function AdminLeaderboardsPage() {
-  const { user, isSignedIn } = useUser();
   const [scores, setScores] = useState<any[]>([]);
 
   useEffect(() => {

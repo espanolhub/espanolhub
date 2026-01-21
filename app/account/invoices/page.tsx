@@ -1,21 +1,15 @@
  'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 
 export default function InvoicesPage() {
-  const { isSignedIn } = useUser();
   const router = useRouter();
   const [transactions, setTransactions] = useState<any[]>([]);
 
   useEffect(() => {
-    if (!isSignedIn) {
-      router.push('/sign-in');
-      return;
-    }
     fetchTx();
-  }, [isSignedIn]);
+  }, []);
 
   const fetchTx = async () => {
     try {
