@@ -267,13 +267,14 @@ git push origin main
 - يجب أن يكون مثل: `https://your-project.vercel.app`
 - بدون `/` في النهاية
 
-### مشكلة 3: Middleware لا يعمل
+### مشكلة 3: Build فاشل بسبب proxy.ts و middleware.ts
 
-**السبب:** ملف middleware.ts غير موجود
+**السبب:** Next.js لا يسمح بوجود الملفين معاً
 
 **الحل:**
-- تأكد من وجود `middleware.ts` في الجذر
-- يجب أن يكون اسم الملف `middleware.ts` وليس `middleware.js`
+- تم حل المشكلة: `proxy.ts` تم نسخه إلى `proxy.ts.backup`
+- `middleware.ts` الآن يحتوي على جميع الوظائف المطلوبة
+- النظام يعمل بشكل صحيح ✅
 
 ### مشكلة 4: Redirect loop
 
