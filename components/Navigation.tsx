@@ -33,9 +33,22 @@ export default function Navigation() {
   const [searchOverlayOpen, setSearchOverlayOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const courseRef = useRef<HTMLDivElement>(null);
-  const { isSignedIn, user } = useUser();
-  const { has } = useAuth();
-  const isAdmin = has && has({ permission: 'org:admin' });
+  
+  // Clerk hooks - optional (work without ClerkProvider)
+  let isSignedIn = false;
+  let user = null;
+  let isAdmin = false;
+  
+  try {
+    const userData = useUser();
+    const authData = useAuth();
+    isSignedIn = userData.isSignedIn || false;
+    user = userData.user;
+    isAdmin = authData.has && authData.has({ permission: 'org:admin' }) || false;
+  } catch (e) {
+    // Clerk not configured - continue without auth
+  }
+  
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const closeTimeoutRef = useRef<number | null>(null);
@@ -240,38 +253,43 @@ export default function Navigation() {
                 <Search className="w-5 h-5" />
               </button>
 
-              <SignedIn>
-                <div className="flex items-center gap-3">
-                  <AdminNotificationBadge />
-                  <UserButton 
-                    appearance={{
-                      elements: {
-                        avatarBox: 'w-8 h-8',
-                        userButtonPopoverCard: 'shadow-xl',
-                        userButtonPopoverActionButton: 'text-[#0f172a] hover:bg-gray-50',
-                      }
-                    }}
-                    afterSignOutUrl="/"
-                  />
-                  <span className="hidden lg:inline text-sm text-[#0f172a] font-medium">
-                    {user?.firstName || (user?.primaryEmailAddress && user.primaryEmailAddress.emailAddress) || ''}
-                  </span>
-                </div>
-              </SignedIn>
-              <SignedOut>
-                <div className="flex items-center gap-2">
-                  <SignInButton mode="modal">
-                    <button className="px-4 py-2 text-sm font-medium text-[#0f172a] hover:bg-gray-50 rounded-lg transition-colors">
-                      Iniciar Sesión
-                    </button>
-                  </SignInButton>
-                  <SignUpButton mode="modal">
-                    <button className="px-4 py-2 text-sm font-semibold bg-[#1e40af] text-white rounded-lg hover:bg-[#1e3a8a] transition-colors">
-                      Registrarse
-                    </button>
-                  </SignUpButton>
-                </div>
-              </SignedOut>
+              {/* Clerk auth buttons - temporarily disabled */}
+              {false && (
+                <>
+                  <SignedIn>
+                    <div className="flex items-center gap-3">
+                      <AdminNotificationBadge />
+                      <UserButton 
+                        appearance={{
+                          elements: {
+                            avatarBox: 'w-8 h-8',
+                            userButtonPopoverCard: 'shadow-xl',
+                            userButtonPopoverActionButton: 'text-[#0f172a] hover:bg-gray-50',
+                          }
+                        }}
+                        afterSignOutUrl="/"
+                      />
+                      <span className="hidden lg:inline text-sm text-[#0f172a] font-medium">
+                        {user?.firstName || (user?.primaryEmailAddress && user.primaryEmailAddress.emailAddress) || ''}
+                      </span>
+                    </div>
+                  </SignedIn>
+                  <SignedOut>
+                    <div className="flex items-center gap-2">
+                      <SignInButton mode="modal">
+                        <button className="px-4 py-2 text-sm font-medium text-[#0f172a] hover:bg-gray-50 rounded-lg transition-colors">
+                          Iniciar Sesión
+                        </button>
+                      </SignInButton>
+                      <SignUpButton mode="modal">
+                        <button className="px-4 py-2 text-sm font-semibold bg-[#1e40af] text-white rounded-lg hover:bg-[#1e3a8a] transition-colors">
+                          Registrarse
+                        </button>
+                      </SignUpButton>
+                    </div>
+                  </SignedOut>
+                </>
+              )}
             </div>
 
             <button
@@ -297,25 +315,30 @@ export default function Navigation() {
               {practicarDropdown.children.map((child) => (
                 <Link key={child.href} href={child.href} className="block px-4 py-2 text-sm text-[#0f172a] hover:bg-gray-50">{child.label}</Link>
               ))}
-              <SignedOut>
-                <div className="px-4 py-2 space-y-2 border-t border-gray-200 pt-4">
-                  <SignInButton mode="modal">
-                    <button className="w-full px-4 py-2 text-sm font-medium text-[#0f172a] border border-gray-300 rounded-lg hover:bg-gray-50">
-                      Iniciar Sesión
-                    </button>
-                  </SignInButton>
-                  <SignUpButton mode="modal">
-                    <button className="w-full px-4 py-2 text-sm font-semibold bg-[#1e40af] text-white rounded-lg hover:bg-[#1e3a8a]">
-                      Registrarse
-                    </button>
-                  </SignUpButton>
-                </div>
-              </SignedOut>
-              <SignedIn>
-                <div className="px-4 py-2 border-t border-gray-200 pt-4">
-                  <UserButton afterSignOutUrl="/" />
-                </div>
-              </SignedIn>
+              {/* Clerk components disabled in mobile menu */}
+              {false && (
+                <>
+                  <SignedOut>
+                    <div className="px-4 py-2 space-y-2 border-t border-gray-200 pt-4">
+                      <SignInButton mode="modal">
+                        <button className="w-full px-4 py-2 text-sm font-medium text-[#0f172a] border border-gray-300 rounded-lg hover:bg-gray-50">
+                          Iniciar Sesión
+                        </button>
+                      </SignInButton>
+                      <SignUpButton mode="modal">
+                        <button className="w-full px-4 py-2 text-sm font-semibold bg-[#1e40af] text-white rounded-lg hover:bg-[#1e3a8a]">
+                          Registrarse
+                        </button>
+                      </SignUpButton>
+                    </div>
+                  </SignedOut>
+                  <SignedIn>
+                    <div className="px-4 py-2 border-t border-gray-200 pt-4">
+                      <UserButton afterSignOutUrl="/" />
+                    </div>
+                  </SignedIn>
+                </>
+              )}
             </div>
           )}
         </div>
