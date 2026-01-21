@@ -1,20 +1,20 @@
 /**
  * Contact Form API Route
- * Using Resend for email delivery
+ * Using Resend for email delivery (optional)
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { Resend } from 'resend';
 import { ContactEmailTemplate } from '@/lib/email-templates/contact-email';
 import { addMessage } from '@/lib/data/contact-messages';
 
-// Initialize Resend only if API key is available
-const getResend = () => {
+// Dynamic import Resend only when needed (prevents build errors if API key is missing)
+async function getResend() {
   if (!process.env.RESEND_API_KEY) {
     return null;
   }
+  const { Resend } = await import('resend');
   return new Resend(process.env.RESEND_API_KEY);
-};
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -42,8 +42,8 @@ export async function POST(request: NextRequest) {
     const savedMessage = addMessage({ name, email, subject, message });
     console.log('✅ Message saved to storage:', savedMessage.id);
 
-    // Send email using Resend
-    const resend = getResend();
+    // Send email using Resend (if configured)
+    const resend = await getResend();
     if (!resend) {
       console.warn('⚠️ RESEND_API_KEY not configured. Email not sent.');
       console.log('Contact form submission:', {
