@@ -1,6 +1,6 @@
-# Español Educativo
+# EspañolHub
 
-El mejor sitio educativo en español del mundo - Aprende español de forma completa e integral.
+Tu centro inteligente para aprender español.
 
 ## Características Principales
 
