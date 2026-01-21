@@ -8,7 +8,13 @@ import { Resend } from 'resend';
 import { ContactEmailTemplate } from '@/lib/email-templates/contact-email';
 import { addMessage } from '@/lib/data/contact-messages';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend only if API key is available
+const getResend = () => {
+  if (!process.env.RESEND_API_KEY) {
+    return null;
+  }
+  return new Resend(process.env.RESEND_API_KEY);
+};
 
 export async function POST(request: NextRequest) {
   try {
@@ -36,8 +42,9 @@ export async function POST(request: NextRequest) {
     const savedMessage = addMessage({ name, email, subject, message });
     console.log('✅ Message saved to storage:', savedMessage.id);
 
-    // Check if Resend is configured
-    if (!process.env.RESEND_API_KEY) {
+    // Send email using Resend
+    const resend = getResend();
+    if (!resend) {
       console.warn('⚠️ RESEND_API_KEY not configured. Email not sent.');
       console.log('Contact form submission:', {
         name,
@@ -57,7 +64,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Send email using Resend
     try {
       const data = await resend.emails.send({
         from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
