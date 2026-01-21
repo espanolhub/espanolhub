@@ -114,16 +114,30 @@ export default function RootLayout({
           Saltar al contenido principal
         </a>
         <div className="w-full max-w-full overflow-x-hidden">
-          <ClerkProvider
-            publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
-            appearance={{
-              variables: {
-                colorPrimary: '#1e40af',
-                colorSuccess: '#fbbf24',
-                colorText: '#0f172a',
-              },
-            }}
-          >
+          {process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY ? (
+            <ClerkProvider
+              publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+              appearance={{
+                variables: {
+                  colorPrimary: '#1e40af',
+                  colorSuccess: '#fbbf24',
+                  colorText: '#0f172a',
+                },
+              }}
+            >
+              <Providers>
+                <WebVitalsTracker />
+                <Navigation />
+                <GlobalPronounceListener />
+                <GlobalDictionaryProvider />
+                <main id="main-content" className="flex-grow w-full">
+                  {children}
+                </main>
+                <Footer />
+                <SuccessMomentClient />
+              </Providers>
+            </ClerkProvider>
+          ) : (
             <Providers>
               <WebVitalsTracker />
               <Navigation />
@@ -135,7 +149,7 @@ export default function RootLayout({
               <Footer />
               <SuccessMomentClient />
             </Providers>
-          </ClerkProvider>
+          )}
         </div>
       </body>
     </html>
