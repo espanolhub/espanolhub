@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   
+  // Output configuration for faster builds
+  output: 'standalone',
+  
   // Performance optimizations
   compress: true,
   
