@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate credentials
-    const user = validateCredentials(email, password);
+    const user = await validateCredentials(email, password);
     
     if (!user) {
       return NextResponse.json(

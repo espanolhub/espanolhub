@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
       }
 
       // Get user
-      const user = getUserById(sessionData.id);
+      const user = await getUserById(sessionData.id);
 
       if (!user || user.role !== 'admin') {
         return NextResponse.json(

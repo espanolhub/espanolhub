@@ -13,6 +13,7 @@ import SearchOverlay from './SearchOverlay';
 const aprenderDropdown = {
   label: 'Aprender',
   icon: BookOpen,
+  subtitle: 'Elige tu Lección',
   children: [
     { href: '/gramatica', label: 'Gramática', icon: GraduationCap },
     { href: '/vocabulario', label: 'Vocabulario', icon: Languages },
@@ -28,6 +29,18 @@ const practicarDropdown = {
     { href: '/simulator', label: 'Simulador (DGT)', icon: Car },
   ],
 };
+
+// Mobile menu: card-based items with colored icons (used only on md and below)
+const mobileMenuItems: { href: string; label: string; icon: typeof Shield; bg: string; iconColor: string }[] = [
+  { href: '/nacionalidad', label: 'Nacionalidad ES', icon: Shield, bg: 'bg-blue-50', iconColor: 'text-blue-600' },
+  { href: '/driving-license', label: 'Carnet', icon: Car, bg: 'bg-emerald-50', iconColor: 'text-emerald-600' },
+  { href: '/tramites', label: 'Guías Legales', icon: Download, bg: 'bg-violet-50', iconColor: 'text-violet-600' },
+  { href: '/gramatica', label: 'Gramática', icon: GraduationCap, bg: 'bg-amber-50', iconColor: 'text-amber-600' },
+  { href: '/vocabulario', label: 'Vocabulario', icon: Languages, bg: 'bg-teal-50', iconColor: 'text-teal-600' },
+  { href: '/lectura', label: 'Lectura', icon: Book, bg: 'bg-indigo-50', iconColor: 'text-indigo-600' },
+  { href: '/juegos', label: 'Juegos', icon: Gamepad2, bg: 'bg-pink-50', iconColor: 'text-pink-600' },
+  { href: '/simulator', label: 'Simulador (DGT)', icon: Car, bg: 'bg-orange-50', iconColor: 'text-orange-600' },
+];
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -295,43 +308,28 @@ export default function Navigation() {
           </div>
 
           {mobileMenuOpen && (
-            <div className="md:hidden border-t border-gray-200 py-4 space-y-2">
-              <Link href="/nacionalidad" className="block px-4 py-2 text-sm text-[#0f172a] hover:bg-gray-50">Nacionalidad ES</Link>
-              <Link href="/driving-license" className="block px-4 py-2 text-sm text-[#0f172a] hover:bg-gray-50">Carnet de Conducir</Link>
-              <Link href="/tramites" className="block px-4 py-2 text-sm text-[#0f172a] hover:bg-gray-50">Guías Legales</Link>
-              <div className="px-4 py-2">
-                <div className="text-xs text-gray-500 mb-2">Curso de Español</div>
-                {aprenderDropdown.children.map((child) => (
-                  <Link key={child.href} href={child.href} className="block px-4 py-2 text-sm text-[#0f172a] hover:bg-gray-50">{child.label}</Link>
-                ))}
+            <div className="md:hidden border-t border-gray-200 pt-5 pb-6 px-2">
+              <div className="grid grid-cols-2 gap-3">
+                {mobileMenuItems.map((item) => {
+                  const Icon = item.icon;
+                  const isActive = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`flex items-center gap-3 p-4 rounded-xl border border-gray-100 transition-all active:scale-[0.98] min-h-[56px] ${
+                        isActive ? `${item.bg} ring-2 ring-offset-2 ring-gray-300 shadow-sm` : `bg-white hover:shadow-md hover:border-gray-200`
+                      }`}
+                    >
+                      <div className={`flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center bg-white shadow-sm ${!isActive ? 'border border-gray-100' : ''}`}>
+                        <Icon className={`w-5 h-5 ${item.iconColor}`} />
+                      </div>
+                      <span className="text-sm font-semibold text-gray-800 truncate">{item.label}</span>
+                    </Link>
+                  );
+                })}
               </div>
-              {practicarDropdown.children.map((child) => (
-                <Link key={child.href} href={child.href} className="block px-4 py-2 text-sm text-[#0f172a] hover:bg-gray-50">{child.label}</Link>
-              ))}
-              {/* Clerk components disabled in mobile menu */}
-              {false && (
-                <>
-                  <SignedOut>
-                    <div className="px-4 py-2 space-y-2 border-t border-gray-200 pt-4">
-                      <SignInButton mode="modal">
-                        <button className="w-full px-4 py-2 text-sm font-medium text-[#0f172a] border border-gray-300 rounded-lg hover:bg-gray-50">
-                          Iniciar Sesión
-                        </button>
-                      </SignInButton>
-                      <SignUpButton mode="modal">
-                        <button className="w-full px-4 py-2 text-sm font-semibold bg-[#1e40af] text-white rounded-lg hover:bg-[#1e3a8a]">
-                          Registrarse
-                        </button>
-                      </SignUpButton>
-                    </div>
-                  </SignedOut>
-                  <SignedIn>
-                    <div className="px-4 py-2 border-t border-gray-200 pt-4">
-                      <UserButton afterSignOutUrl="/" />
-                    </div>
-                  </SignedIn>
-                </>
-              )}
             </div>
           )}
         </div>

@@ -254,29 +254,29 @@ export default function JuegosPage() {
         ) : !selectedGame ? (
           <>
             {/* Tabs Navigation */}
-            <div className="flex justify-center mb-8">
-              <div className="inline-flex bg-white rounded-2xl shadow-xl p-2 border-2 border-gray-100">
+            <div className="flex justify-center mb-8 overflow-x-auto">
+              <div className="inline-flex flex-nowrap bg-white rounded-2xl shadow-xl p-2 border-2 border-gray-100 min-w-0">
                 <button
                   onClick={() => setActiveTab('principales')}
-                  className={`flex items-center gap-3 px-6 py-3 rounded-xl font-bold transition-all duration-200 transform ${
+                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold transition-all duration-200 transform flex-shrink-0 ${
                     activeTab === 'principales'
                       ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg scale-105'
                       : 'bg-transparent text-gray-700 hover:bg-gray-100 hover:scale-105'
                   }`}
                 >
-                  <Gamepad2 className="w-5 h-5" />
-                  <span>Juegos Principales</span>
+                  <Gamepad2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="text-sm sm:text-base">Principales</span>
                 </button>
                 <button
                   onClick={() => setActiveTab('biblioteca')}
-                  className={`flex items-center gap-3 px-6 py-3 rounded-xl font-bold transition-all duration-200 transform ${
+                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold transition-all duration-200 transform flex-shrink-0 ${
                     activeTab === 'biblioteca'
                       ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg scale-105'
                       : 'bg-transparent text-gray-700 hover:bg-gray-100 hover:scale-105'
                   }`}
                 >
-                  <BookOpen className="w-5 h-5" />
-                  <span>Biblioteca</span>
+                  <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="text-sm sm:text-base">Biblioteca</span>
                   {libraryTitles.length > 0 && (
                     <span className={`text-xs px-2 py-0.5 rounded-full ${
                       activeTab === 'biblioteca' ? 'bg-white/20 text-white' : 'bg-purple-100 text-purple-700'
@@ -287,14 +287,14 @@ export default function JuegosPage() {
                 </button>
                 <button
                   onClick={() => setActiveTab('todos')}
-                  className={`flex items-center gap-3 px-6 py-3 rounded-xl font-bold transition-all duration-200 transform ${
+                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold transition-all duration-200 transform flex-shrink-0 ${
                     activeTab === 'todos'
                       ? 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-lg scale-105'
                       : 'bg-transparent text-gray-700 hover:bg-gray-100 hover:scale-105'
                   }`}
                 >
-                  <Grid3x3 className="w-5 h-5" />
-                  <span>Todos</span>
+                  <Grid3x3 className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="text-sm sm:text-base">Todos</span>
                 </button>
               </div>
             </div>
@@ -306,31 +306,31 @@ export default function JuegosPage() {
                 <span className="text-4xl">🎯</span>
                 Juegos Principales
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
                 {games.map((gameItem) => {
                   const gradient = gameGradients[gameItem.id] || 'from-gray-500 to-gray-600';
                   return (
                     <div
                       key={gameItem.id}
                       onClick={() => handleStartGame(gameItem.id)}
-                      className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl p-8 cursor-pointer transform transition-all duration-300 hover:scale-105 border-2 border-transparent hover:border-blue-200 relative overflow-hidden"
+                      className="group bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl p-4 sm:p-6 md:p-8 cursor-pointer transform transition-all duration-300 hover:scale-105 border-2 border-transparent hover:border-blue-200 relative overflow-hidden"
                     >
                       {/* Gradient overlay on hover */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
                       
                       <div className="text-center relative z-10">
-                        <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${gradient} mb-4 transform group-hover:scale-110 transition-transform shadow-lg`}>
-                          <span className="text-4xl">{gameItem.icon}</span>
+                        <div className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl sm:rounded-2xl bg-gradient-to-br ${gradient} mb-2 sm:mb-4 transform group-hover:scale-110 transition-transform shadow-lg`}>
+                          <span className="text-2xl sm:text-3xl md:text-4xl">{gameItem.icon}</span>
                         </div>
-                        <h2 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors">
+                        <h2 className="text-sm sm:text-lg md:text-2xl font-bold text-gray-800 mb-1 sm:mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                           {gameItem.name}
                         </h2>
-                        <p className="text-gray-600 mb-4 min-h-[48px]">
+                        <p className="text-gray-600 mb-2 sm:mb-4 min-h-[36px] sm:min-h-[48px] text-xs sm:text-base line-clamp-2 hidden sm:block">
                           {gameItem.description}
                         </p>
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full">
-                          <span className="text-sm font-semibold text-gray-700">
-                            {gameItem.questions.length > 0 ? `${gameItem.questions.length} preguntas` : '⏱️ Juego de tiempo'}
+                        <div className="inline-flex items-center gap-2 px-2 sm:px-4 py-1 sm:py-2 bg-gray-100 rounded-full">
+                          <span className="text-[10px] sm:text-sm font-semibold text-gray-700 truncate max-w-full">
+                            {gameItem.questions.length > 0 ? `${gameItem.questions.length} preguntas` : '⏱️ Tiempo'}
                           </span>
                         </div>
                       </div>
@@ -353,7 +353,7 @@ export default function JuegosPage() {
                     </span>
                   )}
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
                   {libraryTitles.map((g) => (
                     <div
                       key={g.id}
@@ -364,25 +364,25 @@ export default function JuegosPage() {
                           setSelectedEntry(entry);
                         }
                       }}
-                      className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 border-2 border-transparent hover:border-purple-200 relative overflow-hidden"
+                      className="group bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl p-4 sm:p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 border-2 border-transparent hover:border-purple-200 relative overflow-hidden"
                     >
                       {/* Gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
                       
                       <div className="relative z-10">
                         {g.image && (
-                          <div className="w-full h-32 bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl mb-4 flex items-center justify-center overflow-hidden">
+                          <div className="w-full h-20 sm:h-32 bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg sm:rounded-xl mb-2 sm:mb-4 flex items-center justify-center overflow-hidden">
                             <img src={g.image} alt={g.title} className="w-full h-full object-cover" />
                           </div>
                         )}
-                        <h4 className="font-bold text-xl text-gray-800 mb-2 group-hover:text-purple-600 transition-colors">
+                        <h4 className="font-bold text-sm sm:text-xl text-gray-800 mb-1 sm:mb-2 group-hover:text-purple-600 transition-colors line-clamp-2">
                           {g.title}
                         </h4>
-                        <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                        <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3 line-clamp-2 hidden sm:block">
                           {g.excerpt}
                         </p>
                         {g.level && (
-                          <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+                          <span className={`inline-block px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold ${
                             g.level === 'beginner' ? 'bg-green-100 text-green-700' :
                             g.level === 'intermediate' ? 'bg-yellow-100 text-yellow-700' :
                             'bg-orange-100 text-orange-700'
