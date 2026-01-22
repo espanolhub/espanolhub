@@ -2,16 +2,17 @@
   "name": "espanol-educativo",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
-    "db:migrate": "prisma migrate dev",
-    "db:generate": "prisma generate",
-    "db:seed": "tsx prisma/seed.ts",
-    "db:studio": "prisma studio"
-  },
+"scripts": {
+  "dev": "next dev",
+  "build": "prisma generate && next build",
+  "start": "next start",
+  "postinstall": "prisma generate",
+  "lint": "eslint",
+  "db:migrate": "prisma migrate dev",
+  "db:generate": "prisma generate",
+  "db:seed": "tsx prisma/seed.ts",
+  "db:studio": "prisma studio"
+},
   "prisma": {
     "seed": "tsx prisma/seed.ts"
   },
