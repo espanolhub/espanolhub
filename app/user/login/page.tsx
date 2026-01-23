@@ -2,28 +2,42 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { LogIn, Mail, Lock, AlertCircle } from 'lucide-react';
+import { LogIn, Mail, Lock, AlertCircle, CheckCircle } from 'lucide-react';
+import Link from 'next/link';
 import { login } from '@/lib/auth';
 
-function LoginForm() {
+function UserLoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
-  const redirectUrl = searchParams.get('redirect') || '/admin';
+  const redirectUrl = searchParams.get('redirect') || '/dashboard';
+
+  useEffect(() => {
+    // التحقق من التسجيل الناجح
+    if (searchParams.get('registered') === 'true') {
+      setSuccess('¡Cuenta creada exitosamente! Por favor, inicia sesión.');
+      const emailParam = searchParams.get('email');
+      if (emailParam) {
+        setEmail(decodeURIComponent(emailParam));
+      }
+    }
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setSuccess('');
     setLoading(true);
 
     try {
       const result = await login(email, password);
       
       if (result.success) {
-        // Redirect to the intended page or admin panel
+        // إعادة التوجيه للصفحة المطلوبة
         router.push(redirectUrl);
         router.refresh();
       } else {
@@ -45,12 +59,20 @@ function LoginForm() {
             <LogIn className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Panel de Administración
+            Iniciar Sesión
           </h1>
           <p className="text-gray-600">
-            Inicia sesión para acceder al panel de control
+            Accede a tu cuenta de estudiante
           </p>
         </div>
+
+        {/* Success Message */}
+        {success && (
+          <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-start gap-3">
+            <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+            <p className="text-sm text-green-800">{success}</p>
+          </div>
+        )}
 
         {/* Error Message */}
         {error && (
@@ -122,35 +144,41 @@ function LoginForm() {
           </button>
         </form>
 
-        {/* Footer */}
-        <div className="mt-6 text-center">
-          <p className="text-sm text-gray-500">
-            Solo administradores autorizados
+        {/* Register Link */}
+        <div className="mt-6 text-center border-t pt-6">
+          <p className="text-sm text-gray-600">
+            ¿No tienes cuenta?{' '}
+            <Link 
+              href={`/register${redirectUrl !== '/dashboard' ? `?redirect=${redirectUrl}` : ''}`}
+              className="text-blue-600 hover:underline font-semibold"
+            >
+              Regístrate gratis
+            </Link>
           </p>
         </div>
 
-        {/* User Login Link */}
-        <div className="mt-4 text-center border-t pt-4">
-          <p className="text-xs text-gray-500">
-            ¿Eres estudiante?{' '}
-            <a href="/user/login" className="text-blue-600 hover:underline font-semibold">
-              Inicia sesión aquí
-            </a>
-          </p>
+        {/* Admin Login Link */}
+        <div className="mt-4 text-center">
+          <Link 
+            href="/login"
+            className="text-xs text-gray-500 hover:text-gray-700"
+          >
+            ¿Eres administrador? Inicia sesión aquí
+          </Link>
         </div>
       </div>
     </div>
   );
 }
 
-export default function LoginPage() {
+export default function UserLoginPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center">
         <div className="text-xl">Cargando...</div>
       </div>
     }>
-      <LoginForm />
+      <UserLoginForm />
     </Suspense>
   );
 }

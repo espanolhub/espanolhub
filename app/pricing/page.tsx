@@ -20,7 +20,9 @@ export default function PricingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
   
-  // TEMPORARILY DISABLED - PayPal not configured
+  // PAYMENT SYSTEM - Change to false to enable payments
+  // نظام الدفع - غيّر إلى false لتفعيل الدفعات
+  // Para activar pagos, cambia a false
   const PAYMENT_DISABLED = true;
 
   const toggleFaq = (index: number) => {
@@ -218,7 +220,7 @@ export default function PricingPage() {
                 ))}
               </ul>
 
-              <SubscriptionButton />
+              <SubscriptionButton disabled={PAYMENT_DISABLED} />
 
               <div className="mt-4 flex items-center justify-center gap-2 text-xs text-purple-200">
                 <Shield className="w-4 h-4" />
@@ -367,7 +369,7 @@ export default function PricingPage() {
 					¿Listo para comenzar?
 				</h2>
 				<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-					<SubscriptionButton />
+					<SubscriptionButton disabled={PAYMENT_DISABLED} />
 					<Link
 						href="/"
 						className="px-8 py-3 bg-white text-purple-600 rounded-xl font-semibold hover:bg-gray-100 transition-colors"

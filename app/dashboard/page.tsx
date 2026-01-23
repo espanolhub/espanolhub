@@ -1,19 +1,75 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { getUserProgress, getXPTransactions } from '@/lib/utils/progress';
-import { CheckCircle, Clock, Award } from 'lucide-react';
+import { CheckCircle, Clock, Award, Crown, LogOut } from 'lucide-react';
 import { drivingLessons } from '@/lib/data/lessons';
 import { getAllNacionalidadLessons } from '@/lib/data/nacionalidad-lessons';
+import { logout } from '@/lib/auth';
 import Link from 'next/link';
 
+interface UserData {
+  id: string;
+  email: string;
+  username?: string;
+  role: string;
+}
+
+interface SubscriptionData {
+  planId: string;
+  status: string;
+  currentPeriodEnd?: string;
+  paymentMethod?: string;
+}
+
 export default function DashboardPage() {
+  const router = useRouter();
+  const [user, setUser] = useState<UserData | null>(null);
+  const [subscription, setSubscription] = useState<SubscriptionData | null>(null);
+  const [authLoading, setAuthLoading] = useState(true);
   const [progress, setProgress] = useState(() => getUserProgress());
   const [recentExams, setRecentExams] = useState<any[]>([]);
   const [drivingUnlocked, setDrivingUnlocked] = useState(false);
   const [completedLessons, setCompletedLessons] = useState({ total: 0, completed: 0, percentage: 0 });
 
   useEffect(() => {
+    async function checkAuth() {
+      try {
+        // Check authentication
+        const authRes = await fetch('/api/auth/me', {
+          credentials: 'include',
+          cache: 'no-store',
+        });
+        const authData = await authRes.json();
+
+        if (!authData.authenticated) {
+          router.push('/user/login?redirect=/dashboard');
+          return;
+        }
+
+        setUser(authData.user);
+
+        // Get subscription data
+        const subRes = await fetch('/api/subscribers/me', {
+          credentials: 'include',
+        });
+        
+        if (subRes.ok) {
+          const subData = await subRes.json();
+          if (subData.subscription) {
+            setSubscription(subData.subscription);
+          }
+        }
+      } catch (error) {
+        console.error('Error checking auth:', error);
+      } finally {
+        setAuthLoading(false);
+      }
+    }
+
+    checkAuth();
+
     try {
       setProgress(getUserProgress());
       const raw = localStorage.getItem('dl_exam_history');
@@ -39,30 +95,103 @@ export default function DashboardPage() {
       
       setCompletedLessons({ total: totalLessons, completed: completedCount, percentage });
     } catch (e) {}
-  }, []);
+  }, [router]);
 
   const totalXP = progress.totalXP || 0;
   const level = progress.level || 1;
   const currentXP = progress.currentLevelXP || 0;
   const nextXP = progress.nextLevelXP || 100;
 
+  const handleLogout = async () => {
+    await logout();
+    router.push('/');
+    router.refresh();
+  };
+
   const badges = [
     { id: 'ccse-apto', title: 'CCSE Apto 🇪🇸', unlocked: progress.achievements.some(a => a.id === 'ccse-apto') },
     { id: 'driving-master', title: 'Driver License Master 🚗', unlocked: drivingUnlocked },
   ];
 
+  const isPro = subscription?.status === 'active';
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-xl text-gray-600">Cargando...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-[var(--muted-bg)] py-12">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <h1 className="text-3xl font-bold">Mi Progreso / ملفي الشخصي</h1>
-            <div className="text-sm text-gray-600 mt-1">
-              Lecciones: {completedLessons.completed} / {completedLessons.total} ({completedLessons.percentage}% Completado)
+    <div className="min-h-screen bg-[var(--muted-bg)]">
+      {/* Header with user info */}
+      <div className="bg-white border-b shadow-sm">
+        <div className="container mx-auto px-4 max-w-5xl py-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-2xl font-bold">
+                ¡Hola, {user?.username || user?.email?.split('@')[0]}! 👋
+              </h1>
+              <div className="flex items-center gap-3 mt-1">
+                {isPro && (
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 rounded-full text-sm font-semibold">
+                    <Crown className="w-4 h-4" />
+                    Premium
+                  </span>
+                )}
+                <span className="text-sm text-gray-600">
+                  Lecciones: {completedLessons.completed} / {completedLessons.total} ({completedLessons.percentage}%)
+                </span>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <Link href="/pricing" className="text-sm text-blue-600 hover:underline">
+                {isPro ? 'Mi Plan' : 'Actualizar a PRO'}
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 px-4 py-2 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition-colors text-sm font-medium"
+              >
+                <LogOut className="w-4 h-4" />
+                <span>Salir</span>
+              </button>
             </div>
           </div>
-          <Link href="/nacionalidad" className="text-sm text-blue-600">Ir a Nacionalidad</Link>
         </div>
+      </div>
+
+      <div className="container mx-auto px-4 max-w-5xl py-8">
+        {/* Subscription Status Card (if not pro) */}
+        {!isPro && (
+          <div className="mb-6 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl shadow-lg p-6 text-white">
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <Crown className="w-6 h-6 text-yellow-300" />
+                  <h3 className="text-xl font-bold">Actualiza a Premium</h3>
+                </div>
+                <p className="text-purple-100 mb-3">
+                  Accede a 150+ lecciones, simuladores oficiales y certificados
+                </p>
+                <ul className="space-y-1 text-sm text-purple-100">
+                  <li>✅ Simuladores DGT y CCSE</li>
+                  <li>✅ Material PDF descargable</li>
+                  <li>✅ Sin publicidad</li>
+                </ul>
+              </div>
+              <Link
+                href="/pricing"
+                className="px-6 py-3 bg-white text-purple-600 rounded-xl font-bold hover:bg-gray-100 transition-colors whitespace-nowrap"
+              >
+                Ver Planes
+              </Link>
+            </div>
+          </div>
+        )}
 
         <div className="modern-card bg-white p-6 mb-6">
           <div className="flex items-center justify-between">
