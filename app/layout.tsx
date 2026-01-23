@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, Geist_Mono, Cairo } from "next/font/google";
-import dynamic from "next/dynamic";
 import "./globals.css";
 import NavigationWrapper from "@/components/NavigationWrapper";
 import Footer from "@/components/Footer";
@@ -9,9 +8,8 @@ import SuccessMomentClient from '@/components/SuccessMomentClient';
 import { ClerkProvider } from '@clerk/nextjs';
 import GlobalPronounceListener from '@/components/GlobalPronounceListener';
 import GlobalDictionaryProvider from '@/components/GlobalDictionaryProvider';
+import WebVitalsTracker from '@/components/WebVitalsTracker';
 import { GoogleTagManager } from '@next/third-parties/google';
-
-const WebVitalsTracker = dynamic(() => import('@/components/WebVitalsTracker'), { ssr: false });
 
 const inter = Inter({
   variable: "--font-inter",
