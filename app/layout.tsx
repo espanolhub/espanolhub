@@ -32,6 +32,18 @@ export const metadata: Metadata = {
   description: "Tu centro inteligente para aprender español. Gramática, vocabulario, preparación CCSE, carnet de conducir y más. ¡100% gratis!",
   keywords: ["aprender español", "español gratis", "CCSE", "nacionalidad española", "carnet de conducir", "DGT", "gramática española", "vocabulario español"],
   authors: [{ name: "Espanol Hub Team" }],
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#9333ea' },
+    ],
+  },
+  manifest: '/manifest.json',
   openGraph: {
     title: "Espanol Hub - Tu Centro Inteligente para Aprender Español",
     description: "Tu centro inteligente para aprender español. Gramática, vocabulario, preparación CCSE, carnet de conducir y más. ¡100% gratis!",
@@ -39,11 +51,20 @@ export const metadata: Metadata = {
     locale: "es_ES",
     url: "https://www.espanolhub.com",
     siteName: "Espanol Hub",
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Espanol Hub - Tu Centro Inteligente para Aprender Español',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Espanol Hub - Tu Centro Inteligente para Aprender Español",
     description: "Tu centro inteligente para aprender español. Gramática, vocabulario, preparación CCSE, carnet de conducir y más. ¡100% gratis!",
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
