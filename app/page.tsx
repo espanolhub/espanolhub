@@ -13,13 +13,6 @@ import { useModuleAccess } from '@/components/useModuleAccess';
 import { useAdminSettings } from '@/components/AdminSettingsProvider';
 import SubscriptionButton from '@/components/SubscriptionButton';
 import PracticeCTA from '@/components/StickyPlayCTA';
-import { Cairo } from 'next/font/google';
-
-const cairo = Cairo({
-  variable: '--font-cairo',
-  subsets: ['arabic', 'latin'],
-  weight: ['400', '600', '700'],
-});
 
 export default function Home() {
 	const { settings } = useAdminSettings();
@@ -74,7 +67,7 @@ export default function Home() {
 	};
 
 	return (
-		<div className={`min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 text-slate-900 ${cairo.variable}`}>
+		<div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 text-slate-900">
 		<a href="#main-content" className="skip-link absolute left-2 top-16 z-50 -translate-y-12 focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-yellow-300 rounded px-3 py-2 bg-white/6 backdrop-blur-sm text-sm">
 			Ir al contenido
 		</a>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Geist_Mono, Cairo } from "next/font/google";
+import dynamic from "next/dynamic";
 import "./globals.css";
 import NavigationWrapper from "@/components/NavigationWrapper";
 import Footer from "@/components/Footer";
@@ -8,23 +9,28 @@ import SuccessMomentClient from '@/components/SuccessMomentClient';
 import { ClerkProvider } from '@clerk/nextjs';
 import GlobalPronounceListener from '@/components/GlobalPronounceListener';
 import GlobalDictionaryProvider from '@/components/GlobalDictionaryProvider';
-import WebVitalsTracker from '@/components/WebVitalsTracker';
+import { GoogleTagManager } from '@next/third-parties/google';
+
+const WebVitalsTracker = dynamic(() => import('@/components/WebVitalsTracker'), { ssr: false });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300","400","600","700"]
+  weight: ["300","400","600","700"],
+  display: 'swap',
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: 'swap',
 });
 
 const cairo = Cairo({
   variable: "--font-cairo",
   subsets: ["arabic", "latin"],
   weight: ["400", "600", "700"],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -138,16 +144,10 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        {/* Google Tag Manager */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P4HL68DB');`,
-          }}
-        />
+        {/* Preconnect to external domains for faster resource loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -160,21 +160,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             __html: JSON.stringify(websiteSchema),
           }}
         />
-        <link rel="preload" href="/sounds/ding.mp3" as="audio" type="audio/mpeg" />
       </head>
   <body
             className={`${inter.variable} ${geistMono.variable} ${cairo.variable} antialiased flex flex-col min-h-screen overflow-x-hidden`}
           >
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-P4HL68DB"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript>
-        {/* End Google Tag Manager (noscript) */}
+        {/* Google Tag Manager - Loaded via @next/third-parties for optimal performance */}
+        <GoogleTagManager gtmId="GTM-P4HL68DB" />
         <a href="#main-content" className="skip-to-main">
           Saltar al contenido principal
         </a>
