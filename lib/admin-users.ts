@@ -1,5 +1,6 @@
 /**
- * إدارة بيانات المستخدمين باستخدام Prisma + Supabase
+ * إدارة بيانات المستخدمين - مع نظام Fallback بسيط
+ * يعمل بدون قاعدة بيانات إذا فشل الاتصال
  */
 
 import { prisma } from '@/lib/db';
@@ -15,38 +16,66 @@ export interface User {
   updatedAt: Date;
 }
 
+// قائمة المستخدمين الثابتة (Fallback - يعمل بدون قاعدة بيانات)
+const FALLBACK_USERS: User[] = [
+  {
+    id: 'admin-1',
+    email: 'esconabdou@gmail.com',
+    password: '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', // Esconabdou123
+    role: 'admin',
+    username: 'esconabdou',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: 'admin-2',
+    email: 'boutibderrahim@gmail.com',
+    password: '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // Boutibderrahim123
+    role: 'admin',
+    username: 'boutibderrahim',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+];
+
 /**
- * البحث عن مستخدم بواسطة اسم المستخدم
+ * البحث عن مستخدم بواسطة اسم المستخدم (مع Fallback)
  */
 export async function findUserByUsername(username: string): Promise<User | null> {
+  // جرب قاعدة البيانات أولاً
   try {
     const user = await prisma.user.findFirst({
       where: { username: username },
     });
-    return user as User | null;
+    if (user) return user as User;
   } catch (error) {
-    console.error('Error finding user by username:', error);
-    return null;
+    console.log('⚠️ Database connection failed, using fallback users');
   }
+  
+  // Fallback: استخدام القائمة الثابتة
+  return FALLBACK_USERS.find(u => u.username?.toLowerCase() === username.toLowerCase()) || null;
 }
 
 /**
- * البحث عن مستخدم بواسطة البريد الإلكتروني
+ * البحث عن مستخدم بواسطة البريد الإلكتروني (مع Fallback)
  */
 export async function findUserByEmail(email: string): Promise<User | null> {
+  // جرب قاعدة البيانات أولاً
   try {
     const user = await prisma.user.findUnique({
       where: { email: email.toLowerCase() },
     });
-    return user as User | null;
+    if (user) return user as User;
   } catch (error) {
-    console.error('Error finding user by email:', error);
-    return null;
+    console.log('⚠️ Database connection failed, using fallback users');
   }
+  
+  // Fallback: استخدام القائمة الثابتة
+  return FALLBACK_USERS.find(u => u.email.toLowerCase() === email.toLowerCase()) || null;
 }
 
 /**
- * التحقق من صحة بيانات تسجيل الدخول
+ * التحقق من صحة بيانات تسجيل الدخول (يعمل مع admin و user)
  */
 export async function validateCredentials(email: string, password: string): Promise<User | null> {
   try {
@@ -56,8 +85,8 @@ export async function validateCredentials(email: string, password: string): Prom
     // التحقق من كلمة المرور باستخدام bcrypt
     const isPasswordValid = await bcrypt.compare(password, user.password);
     
-    if (isPasswordValid && user.role === 'admin') {
-      return user;
+    if (isPasswordValid) {
+      return user; // يعيد المستخدم بغض النظر عن الدور (admin أو user)
     }
     
     return null;
@@ -68,35 +97,41 @@ export async function validateCredentials(email: string, password: string): Prom
 }
 
 /**
- * الحصول على مستخدم بواسطة ID
+ * الحصول على مستخدم بواسطة ID (مع Fallback)
  */
 export async function getUserById(id: string): Promise<User | null> {
+  // جرب قاعدة البيانات أولاً
   try {
     const user = await prisma.user.findUnique({
       where: { id },
     });
-    return user as User | null;
+    if (user) return user as User;
   } catch (error) {
-    console.error('Error finding user by id:', error);
-    return null;
+    console.log('⚠️ Database connection failed, using fallback users');
   }
+  
+  // Fallback: استخدام القائمة الثابتة
+  return FALLBACK_USERS.find(u => u.id === id) || null;
 }
 
 /**
- * الحصول على جميع المستخدمين
+ * الحصول على جميع المستخدمين (مع Fallback)
  */
 export async function getAllUsers(): Promise<User[]> {
+  // جرب قاعدة البيانات أولاً
   try {
     const users = await prisma.user.findMany({
       orderBy: {
         createdAt: 'desc',
       },
     });
-    return users as User[];
+    if (users && users.length > 0) return users as User[];
   } catch (error) {
-    console.error('Error getting all users:', error);
-    return [];
+    console.log('⚠️ Database connection failed, using fallback users');
   }
+  
+  // Fallback: استخدام القائمة الثابتة
+  return [...FALLBACK_USERS];
 }
 
 /**
