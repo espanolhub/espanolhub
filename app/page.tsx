@@ -75,30 +75,7 @@ export default function Home() {
 		<header className="relative overflow-hidden">
 			<div className="absolute inset-0 -z-10">
 				<div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)', opacity: 0.1 }} />
-				<style>{`
-						@keyframes meshMove { 0% { transform: translate3d(-10%, -10%, 0); } 50% { transform: translate3d(10%, 10%, 0); } 100% { transform: translate3d(-10%, -10%, 0); } }
-						.mesh { width: 140%; height: 140%; filter: blur(60px); opacity: 0.12; background: radial-gradient(circle at 20% 20%, rgba(255,200,100,0.12), transparent 20%), radial-gradient(circle at 80% 80%, rgba(100,120,255,0.12), transparent 20%); animation: meshMove 12s linear infinite; position: absolute; top: -20%; left: -20%; }
-						@keyframes floatY { 0% { transform: translateY(0); } 50% { transform: translateY(-8px); } 100% { transform: translateY(0); } }
-						.animate-float { animation: floatY 4s ease-in-out infinite; }
-						@keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-						.gradient-anim { background-size: 200% 200%; animation: gradientShift 6s ease infinite; }
-						.cta-pulse { box-shadow: 0 8px 24px rgba(255,200,60,0.14); transition: transform .18s ease, box-shadow .18s ease; }
-						.cta-pulse:focus-visible { outline: 3px solid rgba(255,200,60,0.9); outline-offset: 3px; }
-						.cta-pulse:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(255,200,60,0.18); }
-						.card-glow { transition: transform .2s ease, box-shadow .2s ease; }
-						.card-glow:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 18px 50px rgba(0,0,0,0.28), 0 2px 6px rgba(0,0,0,0.06); }
-						/* skip link visible on focus */
-						.skip-link { transform: translateY(-100%); transition: transform .18s ease; }
-						.skip-link:focus { transform: translateY(0); }
-						/* entrance animation for cards */
-						.enter-fade { opacity: 0; transform: translateY(10px); animation: enterFade .6s ease forwards; }
-						@keyframes enterFade { to { opacity: 1; transform: translateY(0); } }
-						/* Feature card shimmer effect */
-						@keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
-						.feature-shimmer { position: relative; overflow: hidden; }
-						.feature-shimmer::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); animation: shimmer 3s infinite; }
-					`}</style>
-					<div className="mesh pointer-events-none" />
+				<div className="mesh pointer-events-none" />
 				</div>
 
 			<div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
@@ -470,13 +447,13 @@ export default function Home() {
 						<div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
 							{/* Left side */}
 							<div className="flex-1 text-center md:text-left">
-								<div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-4">
-									<Star className="w-4 h-4 text-yellow-300 fill-yellow-300" />
-									<span className="text-sm font-semibold text-white">Oferta Especial</span>
-								</div>
-								<h3 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
-									Empieza hoy tu camino al éxito
-								</h3>
+							<div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-4">
+								<Star className="w-4 h-4 text-yellow-300 fill-yellow-300" />
+								<span className="text-sm font-semibold text-white">Oferta Especial</span>
+							</div>
+							<h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
+								Empieza hoy tu camino al éxito
+							</h2>
 								
 								{settings.is_sale_active && saleEndsAt && (
 									<div className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-2xl">
@@ -657,9 +634,9 @@ function SimpleFeatureBox({
 				<div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mb-4 text-white">
 					{icon}
 				</div>
-				<h4 className="text-lg font-bold mb-2 text-white">
+				<h3 className="text-lg font-bold mb-2 text-white">
 					{title}
-				</h4>
+				</h3>
 				<p className="text-sm text-purple-100">
 					{description}
 				</p>

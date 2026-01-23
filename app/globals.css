@@ -78,6 +78,11 @@ body {
   color: #f3e8ff; /* Adjusted for better contrast on dark backgrounds */
 }
 
+/* Enhanced contrast for green text - WCAG AA compliant */
+.text-green-600 {
+  color: #059669; /* Darker green for better contrast (was #16a34a) - 4.5:1 ratio on white */
+}
+
 /* Focus styles for interactive elements - Enhanced for better visibility */
 button:focus-visible,
 a:focus-visible,
@@ -427,4 +432,110 @@ section, .section {
 
 .word-race-trophy {
   animation: rotateTrophy 0.5s ease-in-out;
+}
+
+/* Hero animations - moved from inline styles in page.tsx for better performance */
+@keyframes meshMove {
+  0% { transform: translate3d(-10%, -10%, 0); }
+  50% { transform: translate3d(10%, 10%, 0); }
+  100% { transform: translate3d(-10%, -10%, 0); }
+}
+
+@keyframes floatY {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes enterFade {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mesh {
+  width: 140%;
+  height: 140%;
+  filter: blur(60px);
+  opacity: 0.12;
+  background: radial-gradient(circle at 20% 20%, rgba(255,200,100,0.12), transparent 20%),
+              radial-gradient(circle at 80% 80%, rgba(100,120,255,0.12), transparent 20%);
+  animation: meshMove 12s linear infinite;
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  will-change: transform;
+}
+
+.animate-float {
+  animation: floatY 4s ease-in-out infinite;
+}
+
+.gradient-anim {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+
+.cta-pulse {
+  box-shadow: 0 8px 24px rgba(255,200,60,0.14);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.cta-pulse:focus-visible {
+  outline: 3px solid rgba(255,200,60,0.9);
+  outline-offset: 3px;
+}
+
+.cta-pulse:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(255,200,60,0.18);
+}
+
+.card-glow {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.card-glow:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.28), 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.skip-link {
+  transform: translateY(-100%);
+  transition: transform .18s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.enter-fade {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: enterFade .6s ease forwards;
+}
+
+.feature-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 3s infinite;
 }

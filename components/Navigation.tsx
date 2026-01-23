@@ -112,9 +112,9 @@ export default function Navigation() {
       }`}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-            <Link href="/" className="flex items-center gap-3 flex-shrink-0 group">
+            <Link href="/" className="flex items-center gap-3 flex-shrink-0 group" aria-label="Espanol Hub - Ir a la página principal">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 rounded-xl flex items-center justify-center font-bold text-white text-lg shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all">
-                <GraduationCap className="w-6 h-6" />
+                <GraduationCap className="w-6 h-6" aria-hidden="true" />
               </div>
               <div className="hidden sm:flex flex-col">
                 <div className="flex items-baseline gap-1">
