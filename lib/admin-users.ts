@@ -20,17 +20,26 @@ export interface User {
 const FALLBACK_USERS: User[] = [
   {
     id: 'admin-1',
+    email: 'admin@espanolhub.com',
+    password: '$2b$10$dBazvdaPTkTxF6qz/a8K0u3bNkrt89V8EpxfSTDQiVVXDI.Mqx.Dm', // admin123
+    role: 'admin',
+    username: 'admin',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: 'admin-2',
     email: 'esconabdou@gmail.com',
-    password: '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', // Esconabdou123
+    password: '$2b$10$LlOiScysoNHG25rk0sxx6.UVLayYmr9om7FaSCAuIuOz8XH6L3nNu', // Esconabdou123
     role: 'admin',
     username: 'esconabdou',
     createdAt: new Date(),
     updatedAt: new Date(),
   },
   {
-    id: 'admin-2',
+    id: 'admin-3',
     email: 'boutibderrahim@gmail.com',
-    password: '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // Boutibderrahim123
+    password: '$2b$10$4c24urplLI3zWdWzqJkEz.T2W.gemKZYhSVaJO4QJGlhuPgDZV.o6', // Admin123
     role: 'admin',
     username: 'boutibderrahim',
     createdAt: new Date(),
