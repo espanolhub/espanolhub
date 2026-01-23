@@ -11,6 +11,7 @@ import {
 import { useModuleAccess } from '@/components/useModuleAccess';
 import { useAdminSettings } from '@/components/AdminSettingsProvider';
 import SubscriptionButton from '@/components/SubscriptionButton';
+import PracticeCTA from '@/components/StickyPlayCTA';
 import { Cairo } from 'next/font/google';
 
 const cairo = Cairo({
@@ -240,6 +241,24 @@ export default function Home() {
 						href="/tramites"
 						locked={tramites.isLocked}
 					/>
+					</div>
+				</div>
+			</section>
+
+			{/* Practice Section */}
+			<section className="py-16 bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50">
+				<div className="max-w-7xl mx-auto px-6">
+					<div className="text-center mb-8">
+						<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-3">
+							<Gamepad2 className="w-8 h-8 text-purple-600" />
+							<span>Aprende Practicando</span>
+						</h2>
+						<p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+							Pon en práctica lo que has aprendido con juegos educativos interactivos
+						</p>
+						<div className="flex justify-center">
+							<PracticeCTA />
+						</div>
 					</div>
 				</div>
 			</section>

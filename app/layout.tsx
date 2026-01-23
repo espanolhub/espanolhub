@@ -3,7 +3,6 @@ import { Inter, Geist_Mono, Cairo } from "next/font/google";
 import "./globals.css";
 import NavigationWrapper from "@/components/NavigationWrapper";
 import Footer from "@/components/Footer";
-import StickyPlayCTA from "@/components/StickyPlayCTA";
 import Providers from "@/components/Providers";
 import SuccessMomentClient from '@/components/SuccessMomentClient';
 import { ClerkProvider } from '@clerk/nextjs';
@@ -135,8 +134,6 @@ export default function RootLayout({
                   {children}
                 </main>
                 <Footer />
-                <div className="h-24 flex-shrink-0" aria-hidden="true" />
-                <StickyPlayCTA />
                 <SuccessMomentClient />
               </Providers>
             </ClerkProvider>
@@ -150,8 +147,6 @@ export default function RootLayout({
                 {children}
               </main>
               <Footer />
-              <div className="h-24 flex-shrink-0" aria-hidden="true" />
-              <StickyPlayCTA />
               <SuccessMomentClient />
             </Providers>
           )}
