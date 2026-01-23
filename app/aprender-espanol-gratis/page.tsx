@@ -243,6 +243,127 @@ export default function AprenderEspanolGratisPage() {
           </div>
         </section>
 
+        {/* How It Works Section */}
+        <section className="container mx-auto px-4 py-16 bg-white">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+              Cómo Funciona
+            </h2>
+            <p className="text-lg text-gray-700 text-center mb-12">
+              Aprender español en Espanol Hub es simple, directo y completamente gratis. Sigue estos pasos para empezar tu viaje de aprendizaje.
+            </p>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  step: '1',
+                  title: 'Elige tu Área',
+                  description: 'Selecciona lo que quieres aprender: gramática, vocabulario, juegos, o preparación para exámenes. Todo está organizado para que encuentres fácilmente lo que necesitas.',
+                },
+                {
+                  step: '2',
+                  title: 'Estudia a Tu Ritmo',
+                  description: 'No hay horarios fijos ni presión. Estudia cuando quieras, donde quieras. Cada lección está diseñada para ser completa e independiente.',
+                },
+                {
+                  step: '3',
+                  title: 'Practica con Juegos',
+                  description: 'Refuerza lo que aprendes con nuestros juegos educativos interactivos. Aprende divirtiéndote y mejora tu español de forma efectiva.',
+                },
+              ].map((item, index) => (
+                <div key={index} className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                    {item.step}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                  <p className="text-gray-700">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Statistics and Benefits Section */}
+        <section className="container mx-auto px-4 py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+              Estadísticas y Beneficios
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              {[
+                { number: '1000+', label: 'Palabras de Vocabulario' },
+                { number: '200+', label: 'Preguntas de Práctica' },
+                { number: '12', label: 'Unidades de Gramática' },
+                { number: '100%', label: 'Gratis Siempre' },
+              ].map((stat, index) => (
+                <div key={index} className="bg-white p-6 rounded-xl shadow-md text-center">
+                  <div className="text-4xl font-bold text-blue-600 mb-2">{stat.number}</div>
+                  <div className="text-gray-700">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                Beneficios de Aprender con Espanol Hub
+              </h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                {[
+                  'Acceso inmediato sin registro',
+                  'Contenido actualizado regularmente',
+                  'Diseñado para todos los niveles',
+                  'Optimizado para móviles',
+                  'Sin anuncios molestos',
+                  'Recursos de alta calidad',
+                ].map((benefit, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
+                    <span className="text-gray-700">{benefit}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Comparison Section */}
+        <section className="container mx-auto px-4 py-16 bg-white">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+              ¿Por Qué Elegir Espanol Hub?
+            </h2>
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b-2 border-gray-300">
+                      <th className="text-left py-4 px-4 font-bold text-gray-900">Característica</th>
+                      <th className="text-center py-4 px-4 font-bold text-blue-600">Espanol Hub</th>
+                      <th className="text-center py-4 px-4 font-bold text-gray-600">Otras Plataformas</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { feature: 'Precio', espanolHub: '100% Gratis', otras: 'Suscripción mensual' },
+                      { feature: 'Registro', espanolHub: 'No requerido', otras: 'Obligatorio' },
+                      { feature: 'Anuncios', espanolHub: 'Sin anuncios', otras: 'Con anuncios' },
+                      { feature: 'Contenido Completo', espanolHub: 'Acceso total', otras: 'Limitado en versión gratis' },
+                      { feature: 'Preparación Exámenes', espanolHub: 'CCSE y DGT incluidos', otras: 'Requiere pago adicional' },
+                    ].map((row, index) => (
+                      <tr key={index} className="border-b border-gray-200">
+                        <td className="py-4 px-4 font-semibold text-gray-900">{row.feature}</td>
+                        <td className="py-4 px-4 text-center text-green-600 font-semibold">{row.espanolHub}</td>
+                        <td className="py-4 px-4 text-center text-gray-600">{row.otras}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <p className="text-center text-gray-600 mt-6">
+              Comparado con otras plataformas, Espanol Hub ofrece más valor sin costo alguno.
+            </p>
+          </div>
+        </section>
+
         {/* FAQ Section */}
         <section className="container mx-auto px-4 py-16 bg-gray-50">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">

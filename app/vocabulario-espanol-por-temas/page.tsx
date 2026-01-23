@@ -334,6 +334,189 @@ export default function VocabularioEspanolPorTemasPage() {
           </div>
         </section>
 
+        {/* Useful Phrases Section */}
+        <section className="container mx-auto px-4 py-16 bg-white">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+              Frases Útiles por Tema
+            </h2>
+            <p className="text-lg text-gray-700 text-center mb-8">
+              Aprender palabras individuales es importante, pero aprender frases completas te ayuda a comunicarte de forma más natural. Aquí tienes frases útiles para cada tema.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                {
+                  theme: 'Familia',
+                  phrases: [
+                    'Tengo una familia grande',
+                    'Mi padre es médico',
+                    'Vivo con mis padres',
+                    'Tengo dos hermanos',
+                  ],
+                },
+                {
+                  theme: 'Comida',
+                  phrases: [
+                    'Me gusta la comida española',
+                    'Quiero pedir una paella',
+                    '¿Qué vas a comer?',
+                    'Tengo hambre',
+                  ],
+                },
+                {
+                  theme: 'Trabajo',
+                  phrases: [
+                    'Trabajo en una oficina',
+                    'Mi jefe es muy amable',
+                    'Tengo una reunión mañana',
+                    'Me gusta mi trabajo',
+                  ],
+                },
+                {
+                  theme: 'Viajes',
+                  phrases: [
+                    'Quiero viajar a España',
+                    'Necesito un billete de avión',
+                    '¿Dónde está el hotel?',
+                    'Quiero reservar una habitación',
+                  ],
+                },
+              ].map((item, index) => (
+                <div key={index} className="bg-gray-50 p-6 rounded-xl">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{item.theme}</h3>
+                  <ul className="space-y-2">
+                    {item.phrases.map((phrase, phraseIndex) => (
+                      <li key={phraseIndex} className="flex items-start text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>"{phrase}"</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 text-center">
+              <p className="text-gray-600 mb-4">
+                Cada tema incluye frases útiles que puedes usar inmediatamente en conversaciones reales.
+              </p>
+              <Link
+                href="/vocabulario"
+                className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700"
+              >
+                Ver más frases útiles <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Memorization Tips Section */}
+        <section className="container mx-auto px-4 py-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+              Consejos de Memorización por Tema
+            </h2>
+            <div className="space-y-6">
+              {[
+                {
+                  theme: 'Tema: Familia',
+                  tip: 'Crea un árbol genealógico en español. Escribe los nombres de tus familiares y sus relaciones. Esto te ayuda a memorizar palabras como padre, madre, hermano, hermana, abuelo, abuela, etc.',
+                },
+                {
+                  theme: 'Tema: Comida',
+                  tip: 'Haz una lista de compras en español. Cuando vayas al supermercado, piensa en los nombres de los alimentos en español. Esto conecta el vocabulario con experiencias reales.',
+                },
+                {
+                  theme: 'Tema: Trabajo',
+                  tip: 'Describe tu día de trabajo en español. Escribe o habla sobre lo que haces en el trabajo usando el vocabulario que aprendes. Esto te ayuda a recordar palabras relacionadas con tu profesión.',
+                },
+                {
+                  theme: 'Tema: Viajes',
+                  tip: 'Planifica un viaje imaginario en español. Escribe sobre dónde quieres ir, qué quieres hacer, y qué necesitas. Esto te ayuda a aprender vocabulario de viajes de forma práctica.',
+                },
+                {
+                  theme: 'Tema: Casa',
+                  tip: 'Recorre tu casa nombrando cada objeto en español. Ve de habitación en habitación y di el nombre de cada mueble y objeto. Esto crea asociaciones visuales fuertes.',
+                },
+                {
+                  theme: 'Tema: Tiempo',
+                  tip: 'Habla sobre el tiempo y el clima diariamente en español. Cada mañana, describe el clima usando vocabulario nuevo. La repetición diaria ayuda a memorizar.',
+                },
+              ].map((item, index) => (
+                <div key={index} className="bg-white p-6 rounded-xl shadow-md border-l-4 border-green-500">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{item.theme}</h3>
+                  <p className="text-gray-700">{item.tip}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Example Usage Section */}
+        <section className="container mx-auto px-4 py-16 bg-gradient-to-br from-green-50 to-blue-50">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+              Ejemplos de Uso en Contexto
+            </h2>
+            <p className="text-lg text-gray-700 text-center mb-8">
+              Ver palabras en contexto real te ayuda a entender cómo se usan y recordarlas mejor. Aquí tienes ejemplos de cómo usar vocabulario de diferentes temas.
+            </p>
+            <div className="space-y-6">
+              {[
+                {
+                  title: 'Conversación sobre Familia',
+                  dialogue: [
+                    { speaker: 'María', text: '¿Tienes hermanos?' },
+                    { speaker: 'Juan', text: 'Sí, tengo una hermana mayor y un hermano menor.' },
+                    { speaker: 'María', text: '¿Vives con tus padres?' },
+                    { speaker: 'Juan', text: 'No, vivo solo, pero los visito todos los fines de semana.' },
+                  ],
+                },
+                {
+                  title: 'Conversación en un Restaurante',
+                  dialogue: [
+                    { speaker: 'Camarero', text: '¿Qué desean comer?' },
+                    { speaker: 'Cliente', text: 'Quiero una paella y una ensalada.' },
+                    { speaker: 'Camarero', text: '¿Y para beber?' },
+                    { speaker: 'Cliente', text: 'Dos vasos de agua, por favor.' },
+                  ],
+                },
+                {
+                  title: 'Conversación sobre Trabajo',
+                  dialogue: [
+                    { speaker: 'Ana', text: '¿Dónde trabajas?' },
+                    { speaker: 'Carlos', text: 'Trabajo en un banco. Soy contador.' },
+                    { speaker: 'Ana', text: '¿Te gusta tu trabajo?' },
+                    { speaker: 'Carlos', text: 'Sí, es interesante y mis compañeros son muy amables.' },
+                  ],
+                },
+              ].map((conversation, index) => (
+                <div key={index} className="bg-white p-6 rounded-xl shadow-md">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{conversation.title}</h3>
+                  <div className="space-y-3">
+                    {conversation.dialogue.map((line, lineIndex) => (
+                      <div key={lineIndex} className="flex gap-3">
+                        <span className="font-semibold text-blue-600 min-w-[80px]">{line.speaker}:</span>
+                        <span className="text-gray-700">"{line.text}"</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 text-center">
+              <p className="text-gray-600 mb-4">
+                Estos ejemplos muestran cómo usar el vocabulario en conversaciones reales. Practica creando tus propias conversaciones.
+              </p>
+              <Link
+                href="/lectura"
+                className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700"
+              >
+                Lee más diálogos en contexto <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="container mx-auto px-4 py-16">
           <div className="max-w-3xl mx-auto text-center bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-white">

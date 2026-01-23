@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { generateLandingMetadata } from '@/lib/utils/dynamic-metadata';
 import { generateHowToSchema, generateLessonSchema } from '@/lib/utils/schemaMarkup';
-import { BookOpen, CheckCircle, Gamepad2, ArrowRight } from 'lucide-react';
+import { BookOpen, CheckCircle, Gamepad2, ArrowRight, Book } from 'lucide-react';
 
 export const metadata: Metadata = generateLandingMetadata(
   'gramática española',
@@ -302,6 +302,157 @@ export default function GramaticaEspanolaCompletaPage() {
                 </span>
               </li>
             </ol>
+          </div>
+        </section>
+
+        {/* Common Mistakes Section */}
+        <section className="container mx-auto px-4 py-16 bg-white">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+              Errores Comunes en Gramática Española
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                {
+                  title: 'Confundir Ser y Estar',
+                  description: 'Uno de los errores más comunes. Recuerda: SER para características permanentes, ESTAR para ubicación y estados temporales.',
+                  example: '❌ "Estoy estudiante" → ✅ "Soy estudiante"',
+                },
+                {
+                  title: 'Olvidar los Artículos',
+                  description: 'En español casi siempre necesitas artículos. "Voy a la escuela" no "Voy a escuela".',
+                  example: '❌ "Voy a escuela" → ✅ "Voy a la escuela"',
+                },
+                {
+                  title: 'No Conjugar los Verbos',
+                  description: 'Los verbos deben conjugarse según la persona. "Yo hablo" no "Yo hablar".',
+                  example: '❌ "Yo hablar español" → ✅ "Yo hablo español"',
+                },
+                {
+                  title: 'Olvidar el Género',
+                  description: 'Todos los sustantivos tienen género. Aprende cada sustantivo con su artículo.',
+                  example: '❌ "El mesa" → ✅ "La mesa"',
+                },
+                {
+                  title: 'Confundir Por y Para',
+                  description: 'Ambas significan "for" pero tienen usos diferentes. POR para razón, PARA para propósito.',
+                  example: 'Estudio POR mi trabajo (razón) vs Estudio PARA aprender (propósito)',
+                },
+                {
+                  title: 'No Concordar Adjetivos',
+                  description: 'Los adjetivos deben coincidir en género y número con el sustantivo.',
+                  example: '❌ "Casas grande" → ✅ "Casas grandes"',
+                },
+              ].map((mistake, index) => (
+                <div key={index} className="bg-gray-50 p-6 rounded-xl border-l-4 border-blue-500">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{mistake.title}</h3>
+                  <p className="text-gray-700 mb-3">{mistake.description}</p>
+                  <p className="text-sm text-gray-600 font-mono bg-white p-2 rounded">{mistake.example}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 text-center">
+              <Link
+                href="/blog/10-errores-comunes-aprender-espanol"
+                className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700"
+              >
+                Lee más sobre errores comunes <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Tips and Tricks Section */}
+        <section className="container mx-auto px-4 py-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+              Tips y Trucos para Aprender Gramática
+            </h2>
+            <div className="space-y-6">
+              {[
+                {
+                  tip: 'Aprende en Contexto',
+                  description: 'No memorices reglas abstractas. Aprende gramática viendo cómo se usa en oraciones reales. Lee textos en español y presta atención a las estructuras gramaticales.',
+                },
+                {
+                  tip: 'Practica con Oraciones Completas',
+                  description: 'En lugar de solo memorizar conjugaciones, crea oraciones completas. Esto te ayuda a entender cómo funciona la gramática en la práctica.',
+                },
+                {
+                  tip: 'Agrupa Conceptos Similares',
+                  description: 'Aprende conceptos relacionados juntos. Por ejemplo, estudia todos los tiempos pasados a la vez para ver las diferencias.',
+                },
+                {
+                  tip: 'Usa Mnemotecnia',
+                  description: 'Crea trucos de memoria para recordar reglas. Por ejemplo, DOCTOR para SER (Description, Occupation, Characteristic, Time, Origin, Relationship) y PLACE para ESTAR.',
+                },
+                {
+                  tip: 'Practica Regularmente',
+                  description: 'La gramática se olvida si no la practicas. Dedica 15-20 minutos diarios a practicar gramática, incluso si solo es revisar lo que ya aprendiste.',
+                },
+                {
+                  tip: 'No Busques la Perfección',
+                  description: 'Es mejor cometer errores mientras practicas que no practicar por miedo a equivocarte. Los errores son oportunidades de aprendizaje.',
+                },
+              ].map((item, index) => (
+                <div key={index} className="flex gap-4 bg-white p-6 rounded-xl shadow-md">
+                  <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                    <span className="text-blue-600 font-bold text-xl">{index + 1}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{item.tip}</h3>
+                    <p className="text-gray-700">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Practice Exercises Section */}
+        <section className="container mx-auto px-4 py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+              Ejercicios Prácticos
+            </h2>
+            <p className="text-lg text-gray-700 text-center mb-8">
+              La práctica es esencial para dominar la gramática. Aquí tienes recursos para practicar cada unidad.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  title: 'Juegos Interactivos',
+                  description: 'Practica gramática de forma divertida con nuestros juegos educativos.',
+                  link: '/juegos',
+                  icon: <Gamepad2 className="w-8 h-8" />,
+                },
+                {
+                  title: 'Ejercicios de Gramática',
+                  description: 'Ejercicios estructurados para cada tema gramatical.',
+                  link: '/gramatica',
+                  icon: <BookOpen className="w-8 h-8" />,
+                },
+                {
+                  title: 'Blog Educativo',
+                  description: 'Artículos detallados sobre temas gramaticales específicos.',
+                  link: '/blog',
+                  icon: <Book className="w-8 h-8" />,
+                },
+              ].map((resource, index) => (
+                <Link
+                  key={index}
+                  href={resource.link}
+                  className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all transform hover:scale-105"
+                >
+                  <div className="text-blue-600 mb-4">{resource.icon}</div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{resource.title}</h3>
+                  <p className="text-gray-600 mb-4">{resource.description}</p>
+                  <span className="text-blue-600 font-semibold inline-flex items-center">
+                    Explorar <ArrowRight className="w-4 h-4 ml-2" />
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
