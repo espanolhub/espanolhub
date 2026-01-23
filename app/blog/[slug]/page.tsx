@@ -9,13 +9,14 @@ import { Calendar, Clock, ArrowLeft, ArrowRight } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const post = getBlogPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = getBlogPostBySlug(slug);
   
   if (!post) {
     return {
@@ -33,9 +34,10 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   );
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = getBlogPostBySlug(params.slug);
-  const relatedPosts = post ? getRelatedBlogPosts(params.slug, 3) : [];
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+  const post = getBlogPostBySlug(slug);
+  const relatedPosts = post ? getRelatedBlogPosts(slug, 3) : [];
 
   if (!post) {
     notFound();
