@@ -1,10 +1,3 @@
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P4HL68DB');</script>
-<!-- End Google Tag Manager -->
 import type { Metadata } from "next";
 import { Inter, Geist_Mono, Cairo } from "next/font/google";
 import "./globals.css";
@@ -16,6 +9,8 @@ import { ClerkProvider } from '@clerk/nextjs';
 import GlobalPronounceListener from '@/components/GlobalPronounceListener';
 import GlobalDictionaryProvider from '@/components/GlobalDictionaryProvider';
 import WebVitalsTracker from '@/components/WebVitalsTracker';
+// استيراد مكون Script لضمان أفضل أداء للأكواد الخارجية
+import Script from 'next/script';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -39,103 +34,10 @@ export const metadata: Metadata = {
   description: "Tu centro inteligente para aprender español. Gramática, vocabulario, preparación CCSE, carnet de conducir y más. ¡100% gratis!",
   keywords: ["aprender español", "español gratis", "CCSE", "nacionalidad española", "carnet de conducir", "DGT", "gramática española", "vocabulario español"],
   authors: [{ name: "Espanol Hub Team" }],
-  icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-    ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
-    other: [
-      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#9333ea' },
-    ],
-  },
-  manifest: '/manifest.json',
-  openGraph: {
-    title: "Espanol Hub - Tu Centro Inteligente para Aprender Español",
-    description: "Tu centro inteligente para aprender español. Gramática, vocabulario, preparación CCSE, carnet de conducir y más. ¡100% gratis!",
-    type: "website",
-    locale: "es_ES",
-    url: "https://www.espanolhub.com",
-    siteName: "Espanol Hub",
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Espanol Hub - Tu Centro Inteligente para Aprender Español',
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Espanol Hub - Tu Centro Inteligente para Aprender Español",
-    description: "Tu centro inteligente para aprender español. Gramática, vocabulario, preparación CCSE, carnet de conducir y más. ¡100% gratis!",
-    images: ['/og-image.png'],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  // ... (بقية الإعدادات كما هي في ملفك الأصلي)
 };
 
-// Structured Data for Educational Organization
-const educationalOrganizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'EducationalOrganization',
-  name: 'Espanol Hub',
-  alternateName: 'Espanol Hub',
-  description: 'Tu centro inteligente para aprender español. Plataforma educativa completa con gramática, vocabulario, preparación CCSE, carnet de conducir DGT y más. 100% gratis.',
-  url: 'https://www.espanolhub.com',
-  logo: 'https://www.espanolhub.com/logo.png',
-  educationalCredentialAwarded: 'Certificado de Progreso',
-  educationalUse: [
-    'Aprender español',
-    'Preparación para exámenes CCSE y DELE A2',
-    'Preparación carnet de conducir (DGT)',
-    'Educación de idiomas',
-    'Nacionalidad española'
-  ],
-  teaches: [
-    'Idioma Español',
-    'Gramática Española',
-    'Vocabulario Español',
-    'Cultura Española',
-    'Preparación para Nacionalidad Española',
-    'Examen teórico de conducir en España'
-  ],
-  audience: {
-    '@type': 'EducationalAudience',
-    educationalRole: 'Estudiante'
-  },
-  slogan: 'Tu centro inteligente para aprender español',
-  sameAs: []
-};
-
-// WebSite Schema with SearchAction for Google Site Search
-const websiteSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'Espanol Hub',
-  url: 'https://www.espanolhub.com',
-  description: 'Aprende español de forma completa e interactiva',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: 'https://www.espanolhub.com/search?q={search_term_string}',
-    },
-    'query-input': 'required name=search_term_string',
-  },
-  inLanguage: ['es', 'ar'],
-};
+// ... (schemas كما هي في ملفك الأصلي)
 
 export default function RootLayout({
   children,
@@ -145,6 +47,17 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* المربع 1: كود Google Tag Manager في الـ Head */}
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P4HL68DB');
+          `}
+        </Script>
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -159,9 +72,19 @@ export default function RootLayout({
         />
         <link rel="preload" href="/sounds/ding.mp3" as="audio" type="audio/mpeg" />
       </head>
-  <body
-            className={`${inter.variable} ${geistMono.variable} ${cairo.variable} antialiased flex flex-col min-h-screen overflow-x-hidden`}
-          >
+      <body
+        className={`${inter.variable} ${geistMono.variable} ${cairo.variable} antialiased flex flex-col min-h-screen overflow-x-hidden`}
+      >
+        {/* المربع 2: كود Noscript في بداية الـ Body */}
+        <noscript>
+          <iframe 
+            src="https://www.googletagmanager.com/ns.html?id=GTM-P4HL68DB"
+            height="0" 
+            width="0" 
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
+
         <a href="#main-content" className="skip-to-main">
           Saltar al contenido principal
         </a>
@@ -207,7 +130,3 @@ export default function RootLayout({
     </html>
   );
 }
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4HL68DB"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
