@@ -14,14 +14,16 @@ import { GoogleTagManager } from '@next/third-parties/google';
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300","400","600","700"],
+  weight: ["400","700"],
   display: 'swap',
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
   display: 'swap',
+  preload: false,
 });
 
 const cairo = Cairo({

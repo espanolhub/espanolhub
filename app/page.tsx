@@ -67,19 +67,14 @@ export default function Home() {
 	};
 
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 text-slate-900">
-		<a href="#main-content" className="skip-link absolute left-2 top-16 z-50 -translate-y-12 focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-yellow-300 rounded px-3 py-2 bg-white/6 backdrop-blur-sm text-sm">
+		<div className="min-h-screen bg-white text-slate-900">
+		<a href="#main-content" className="skip-link absolute left-2 top-16 z-50 -translate-y-12 focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-yellow-300 rounded px-3 py-2 bg-white text-sm">
 			Ir al contenido
 		</a>
 		{/* Hero */}
-		<header className="relative overflow-hidden">
-			<div className="absolute inset-0 -z-10">
-				<div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)', opacity: 0.1 }} />
-				<div className="mesh pointer-events-none" />
-				</div>
-
+		<header className="relative overflow-hidden bg-gradient-to-br from-blue-50/50 via-white to-purple-50/50">
 			<div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
-				<div className="backdrop-blur-xl bg-white/95 border-2 border-white/30 rounded-3xl p-8 md:p-12 shadow-2xl">
+				<div className="bg-white border border-gray-100 rounded-3xl p-8 md:p-12 shadow-xl">
 					<div className="flex flex-col md:flex-row items-center gap-12">
 						<div className="flex-1 text-center md:text-left">
 							{/* Badge */}
@@ -89,7 +84,7 @@ export default function Home() {
 								<Star className="w-4 h-4 text-amber-500 fill-amber-500" />
 							</div>
 
-					<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+					<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900">
 						Tu futuro en España comienza aquí
 					</h1>
 					<p className="text-lg mb-8 text-gray-700 max-w-2xl mx-auto md:mx-0">
@@ -190,12 +185,9 @@ export default function Home() {
 		</header>
 
 			{/* Aprende Español GRATIS Section */}
-			<section className="py-16 bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-400 relative overflow-hidden">
-				<div className="absolute inset-0 opacity-10">
-					<div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(255,255,255,0.2) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.2) 0%, transparent 50%)' }} />
-				</div>
-				<div className="max-w-7xl mx-auto px-6 relative z-10">
-					<div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-2xl">
+			<section className="py-16 bg-gradient-to-r from-yellow-50 to-orange-50">
+				<div className="max-w-7xl mx-auto px-6">
+					<div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg border border-yellow-100">
 						<div className="flex flex-col md:flex-row items-center gap-8">
 							<div className="flex-1 text-center md:text-left">
 								<div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-100 rounded-full mb-4">
@@ -372,16 +364,11 @@ export default function Home() {
 			</section>
 
 			{/* Why Choose Us */}
-			<section className="py-16 bg-gradient-to-br from-purple-900 via-blue-900 to-purple-900 text-white relative overflow-hidden">
-				{/* Animated background */}
-				<div className="absolute inset-0 opacity-10">
-					<div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%)' }} />
-				</div>
-
-			<div className="max-w-7xl mx-auto px-6 relative z-10">
+			<section className="py-16 bg-gradient-to-br from-purple-900 to-blue-900 text-white">
+			<div className="max-w-7xl mx-auto px-6">
 				<div className="text-center mb-12">
 					<h2 className="text-3xl md:text-4xl font-bold mb-4">
-						¿Por qué <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">Espanol Hub</span>?
+						¿Por qué <span className="text-purple-300">Espanol Hub</span>?
 					</h2>
 					<p className="text-xl text-purple-200">
 						La plataforma integral para tu éxito en España
@@ -434,20 +421,13 @@ export default function Home() {
 			</section>
 
 			{/* Final CTA Section */}
-			<section className="py-16">
+			<section className="py-16 bg-gray-50">
 				<div className="max-w-7xl mx-auto px-6">
-					<div className="relative rounded-3xl bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 p-8 md:p-12 shadow-2xl overflow-hidden">
-						{/* Animated background pattern */}
-						<div className="absolute inset-0 opacity-10">
-							<div className="absolute inset-0" style={{ 
-								backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` 
-							}} />
-						</div>
-
-						<div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+					<div className="relative rounded-3xl bg-gradient-to-r from-purple-600 to-blue-600 p-8 md:p-12 shadow-xl">
+						<div className="flex flex-col md:flex-row items-center justify-between gap-8">
 							{/* Left side */}
 							<div className="flex-1 text-center md:text-left">
-							<div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-4">
+							<div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-full mb-4">
 								<Star className="w-4 h-4 text-yellow-300 fill-yellow-300" />
 								<span className="text-sm font-semibold text-white">Oferta Especial</span>
 							</div>
