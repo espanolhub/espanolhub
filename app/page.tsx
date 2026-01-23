@@ -89,7 +89,7 @@ export default function Home() {
 								<Star className="w-4 h-4 text-amber-500 fill-amber-500" />
 							</div>
 
-					<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+					<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent" style={{ contentVisibility: 'auto' }}>
 						Tu futuro en España comienza aquí
 					</h1>
 					<p className="text-lg mb-8 text-gray-700 max-w-2xl mx-auto md:mx-0">

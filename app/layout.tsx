@@ -32,6 +32,7 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.espanolhub.com'),
   title: "Espanol Hub - Tu Centro Inteligente para Aprender Español",
   description: "Tu centro inteligente para aprender español. Gramática, vocabulario, preparación CCSE, carnet de conducir y más. ¡100% gratis!",
   keywords: ["aprender español", "español gratis", "CCSE", "nacionalidad española", "carnet de conducir", "DGT", "gramática española", "vocabulario español"],
