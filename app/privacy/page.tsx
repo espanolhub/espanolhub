@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Política de Privacidad - Español Educativo',
-  description: 'Política de privacidad de Español Educativo. Información sobre cómo recopilamos, usamos y protegemos tus datos personales.',
+  title: 'Política de Privacidad - Espanol Hub',
+  description: 'Política de privacidad de Espanol Hub. Información sobre cómo recopilamos, usamos y protegemos tus datos personales.',
 };
 
 export default function PrivacyPage() {
@@ -22,7 +22,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">1. Introducción</h2>
               <p>
-                Español Educativo ("nosotros", "nuestro" o "el sitio") se compromete a proteger tu privacidad. 
+                Espanol Hub ("nosotros", "nuestro" o "el sitio") se compromete a proteger tu privacidad. 
                 Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y protegemos tu información 
                 personal cuando utilizas nuestro sitio web.
               </p>

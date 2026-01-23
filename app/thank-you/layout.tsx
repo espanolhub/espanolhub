@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Gracias - Español Educativo',
+  title: 'Gracias - Espanol Hub',
   description: 'Gracias por descargar nuestra guía PDF. Revisa tu correo electrónico y descubre nuestra oferta especial.',
 };
 

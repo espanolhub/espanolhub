@@ -194,7 +194,7 @@ export default function SimulatorPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: 'Usuario Simulador',
-          email: 'simulador@espanol-educativo.com',
+          email: 'simulador@espanolhub.com',
           subject: 'Reporte de Error - Simulador DGT',
           message: `Reporte de error en el Simulador DGT:\n\n${reportMessage}\n\nPregunta actual: ${currentIndex + 1}/${totalQuestions}`,
         }),

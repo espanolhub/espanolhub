@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Aviso Legal - EspañolHub',
-  description: 'Aviso legal e información sobre la responsabilidad de uso de EspañolHub.',
+  title: 'Aviso Legal - Espanol Hub',
+  description: 'Aviso legal e información sobre la responsabilidad de uso de Espanol Hub.',
 };
 
 export default function AvisoLegalPage() {
@@ -23,21 +23,21 @@ export default function AvisoLegalPage() {
               <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">1. Identificación y Titularidad</h2>
               <p>
                 En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad 
-                de la Información y Comercio Electrónico, se informa a los usuarios del sitio web de EspañolHub 
+                de la Información y Comercio Electrónico, se informa a los usuarios del sitio web de Espanol Hub 
                 sobre los datos identificativos de la entidad titular del sitio web:
               </p>
               <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Titular:</strong> EspañolHub</li>
+                <li><strong>Titular:</strong> Espanol Hub</li>
                 <li><strong>Domicilio:</strong> España</li>
                 <li><strong>Correo electrónico:</strong> contacto@espanolhub.com</li>
-                <li><strong>Sitio web:</strong> https://espanol-educativo.com</li>
+                <li><strong>Sitio web:</strong> https://www.espanolhub.com</li>
               </ul>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">2. Objeto</h2>
               <p>
-                Español Educativo es una plataforma educativa en línea cuyo objetivo es proporcionar recursos, 
+                Espanol Hub es una plataforma educativa en línea cuyo objetivo es proporcionar recursos, 
                 herramientas y contenidos para el aprendizaje del idioma español. El sitio ofrece:
               </p>
               <ul className="list-disc pl-6 space-y-2">
@@ -69,7 +69,7 @@ export default function AvisoLegalPage() {
               <p>
                 Todos los contenidos del sitio web, incluyendo pero no limitándose a textos, fotografías, 
                 gráficos, imágenes, iconos, tecnología, software, links y demás contenidos audiovisuales o sonoros, 
-                así como su diseño gráfico y códigos fuente, son propiedad intelectual de Español Educativo 
+                así como su diseño gráfico y códigos fuente, son propiedad intelectual de Espanol Hub 
                 o de terceros, sin que puedan entenderse cedidos al usuario ninguno de los derechos de explotación 
                 reconocidos por la normativa vigente en materia de propiedad intelectual.
               </p>
@@ -82,7 +82,7 @@ export default function AvisoLegalPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">5. Exclusión de Garantías y Responsabilidad</h2>
               <p>
-                Español Educativo no se hace responsable de:
+                Espanol Hub no se hace responsable de:
               </p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>La disponibilidad continua e ininterrumpida del sitio web</li>
@@ -101,7 +101,7 @@ export default function AvisoLegalPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">6. Independencia y No Afiliación</h2>
               <p>
-                Español Educativo es una plataforma educativa <strong>independiente</strong> y NO está afiliada, 
+                Espanol Hub es una plataforma educativa <strong>independiente</strong> y NO está afiliada, 
                 patrocinada ni respaldada por:
               </p>
               <ul className="list-disc pl-6 space-y-2">
@@ -119,7 +119,7 @@ export default function AvisoLegalPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">7. Enlaces a Terceros</h2>
               <p>
-                El sitio web puede contener enlaces a sitios web de terceros. Español Educativo no se hace 
+                El sitio web puede contener enlaces a sitios web de terceros. Espanol Hub no se hace 
                 responsable del contenido, políticas de privacidad o prácticas de estos sitios externos. 
                 El acceso a sitios de terceros se realiza bajo la responsabilidad del usuario.
               </p>
@@ -138,7 +138,7 @@ export default function AvisoLegalPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">9. Modificaciones</h2>
               <p>
-                Español Educativo se reserva el derecho de modificar, actualizar o eliminar la información 
+                Espanol Hub se reserva el derecho de modificar, actualizar o eliminar la información 
                 contenida en el sitio web, así como su configuración, diseño y condiciones de acceso, sin 
                 necesidad de previo aviso.
               </p>
@@ -160,7 +160,7 @@ export default function AvisoLegalPage() {
                 Para cualquier consulta relacionada con este Aviso Legal, puede contactarnos a través de:
               </p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Correo electrónico: contacto@espanol-educativo.com</li>
+                <li>Correo electrónico: contacto@espanolhub.com</li>
                 <li>Formulario de contacto:{' '}
                   <Link href="/contact" className="text-blue-600 hover:underline">
                     /contact

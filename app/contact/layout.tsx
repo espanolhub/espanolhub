@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contacto - Español Educativo',
+  title: 'Contacto - Espanol Hub',
   description: 'Contáctanos para preguntas, sugerencias o comentarios. Estamos aquí para ayudarte en tu aprendizaje del español.',
 };
 

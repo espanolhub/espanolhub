@@ -1,8 +1,12 @@
 import { MetadataRoute } from 'next';
+import juegosData from '@/lib/library/data/juegos.json';
+import lecturaData from '@/lib/library/data/lectura.json';
+import gramaticaData from '@/lib/library/data/gramatica.json';
+import { BASE_URL } from '@/lib/config/seo-config';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // استخدام متغير البيئة أو الرابط الافتراضي
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://espanolhub.com';
+  // استخدام BASE_URL من config
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || BASE_URL;
 
   // Main pages
   const mainPages: MetadataRoute.Sitemap = [
@@ -50,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Games pages
+  // Games pages - Dynamic from juegos.json
   const gamePages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/juegos`,
@@ -58,6 +62,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    // Static game pages
     {
       url: `${baseUrl}/juegos/memory`,
       lastModified: new Date(),
@@ -88,6 +93,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    // Dynamic games from juegos.json
+    ...(Array.isArray(juegosData) ? juegosData.map((game: any) => ({
+      url: `${baseUrl}/juegos/${game.id}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    })) : []),
   ];
 
   // Preparation pages
@@ -190,6 +202,54 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  // Dynamic lesson pages from lectura.json
+  const lecturaPages: MetadataRoute.Sitemap = Array.isArray(lecturaData)
+    ? lecturaData.map((lesson: any) => ({
+        url: `${baseUrl}/lectura/${lesson.id}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+      }))
+    : [];
+
+  // Dynamic grammar pages from gramatica.json
+  const gramaticaPages: MetadataRoute.Sitemap = Array.isArray(gramaticaData)
+    ? gramaticaData.map((lesson: any) => ({
+        url: `${baseUrl}/gramatica/${lesson.id}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+      }))
+    : [];
+
+  // SEO Landing Pages
+  const seoLandingPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/aprender-espanol-gratis`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/gramatica-espanola-completa`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/vocabulario-espanol-por-temas`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+  ];
+
   // Combine all pages
   return [
     ...mainPages,
@@ -198,5 +258,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...coursesAndResources,
     ...infoPages,
     ...legalPages,
+    ...lecturaPages,
+    ...gramaticaPages,
+    ...seoLandingPages,
   ];
 }

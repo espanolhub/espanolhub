@@ -10,17 +10,17 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: 'Preguntas Frecuentes (FAQ) - Español Educativo',
-  description: 'Preguntas frecuentes sobre Español Educativo. Encuentra respuestas a las dudas más comunes sobre nuestro sitio educativo.',
+  title: 'Preguntas Frecuentes (FAQ) - Espanol Hub',
+  description: 'Preguntas frecuentes sobre Espanol Hub. Encuentra respuestas a las dudas más comunes sobre nuestro sitio educativo.',
   openGraph: {
-    title: 'Preguntas Frecuentes (FAQ) - Español Educativo',
-    description: 'Preguntas frecuentes sobre Español Educativo. Encuentra respuestas a las dudas más comunes sobre nuestro sitio educativo.',
+    title: 'Preguntas Frecuentes (FAQ) - Espanol Hub',
+    description: 'Preguntas frecuentes sobre Espanol Hub. Encuentra respuestas a las dudas más comunes sobre nuestro sitio educativo.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Preguntas Frecuentes (FAQ) - Español Educativo',
-    description: 'Preguntas frecuentes sobre Español Educativo. Encuentra respuestas a las dudas más comunes sobre nuestro sitio educativo.',
+    title: 'Preguntas Frecuentes (FAQ) - Espanol Hub',
+    description: 'Preguntas frecuentes sobre Espanol Hub. Encuentra respuestas a las dudas más comunes sobre nuestro sitio educativo.',
   },
 };
 
@@ -33,10 +33,10 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: '¿Es gratuito usar Español Educativo?',
-    questionAr: 'هل استخدام Español Educativo مجاني؟',
-    answer: 'Sí, la mayoría del contenido en Español Educativo es completamente gratuito. Ofrecemos lecciones, ejercicios, juegos, vocabulario y más sin costo alguno. Algunos recursos premium pueden requerir pago, pero todo el contenido educativo principal está disponible de forma gratuita.',
-    answerAr: 'نعم، معظم المحتوى في Español Educativo مجاني تماماً. نقدم الدروس والتمارين والألعاب والمفردات وأكثر بدون أي تكلفة. قد تتطلب بعض الموارد المميزة الدفع، لكن كل المحتوى التعليمي الرئيسي متاح مجاناً.',
+    question: '¿Es gratuito usar Espanol Hub?',
+    questionAr: 'هل استخدام Espanol Hub مجاني؟',
+    answer: 'Sí, la mayoría del contenido en Espanol Hub es completamente gratuito. Ofrecemos lecciones, ejercicios, juegos, vocabulario y más sin costo alguno. Algunos recursos premium pueden requerir pago, pero todo el contenido educativo principal está disponible de forma gratuita.',
+    answerAr: 'نعم، معظم المحتوى في Espanol Hub مجاني تماماً. نقدم الدروس والتمارين والألعاب والمفردات وأكثر بدون أي تكلفة. قد تتطلب بعض الموارد المميزة الدفع، لكن كل المحتوى التعليمي الرئيسي متاح مجاناً.',
   },
   {
     question: '¿Necesito crear una cuenta para usar el sitio?',
@@ -47,8 +47,8 @@ const faqs: FAQItem[] = [
   {
     question: '¿Qué niveles de español cubre el sitio?',
     questionAr: 'ما مستويات الإسبانية التي يغطيها الموقع؟',
-    answer: 'Español Educativo cubre todos los niveles, desde principiante (A1) hasta avanzado (C1). Nuestro contenido está organizado por niveles y puedes filtrar las lecciones, ejercicios y vocabulario según tu nivel actual. También ofrecemos preparación específica para exámenes como CCSE y DELE A2.',
-    answerAr: 'يغطي Español Educativo جميع المستويات، من المبتدئ (A1) إلى المتقدم (C1). محتوانا منظم حسب المستويات ويمكنك تصفية الدروس والتمارين والمفردات حسب مستواك الحالي. نقدم أيضاً تحضيراً خاصاً للامتحانات مثل CCSE و DELE A2.',
+    answer: 'Espanol Hub cubre todos los niveles, desde principiante (A1) hasta avanzado (C1). Nuestro contenido está organizado por niveles y puedes filtrar las lecciones, ejercicios y vocabulario según tu nivel actual. También ofrecemos preparación específica para exámenes como CCSE y DELE A2.',
+    answerAr: 'يغطي Espanol Hub جميع المستويات، من المبتدئ (A1) إلى المتقدم (C1). محتوانا منظم حسب المستويات ويمكنك تصفية الدروس والتمارين والمفردات حسب مستواك الحالي. نقدم أيضاً تحضيراً خاصاً للامتحانات مثل CCSE و DELE A2.',
   },
   {
     question: '¿Cómo funciona el sistema de XP y niveles?',
@@ -107,10 +107,10 @@ export default function FAQPage() {
             Preguntas Frecuentes
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Encuentra respuestas a las preguntas más comunes sobre Español Educativo
+            Encuentra respuestas a las preguntas más comunes sobre Espanol Hub
           </p>
           <p className={`text-lg text-gray-500 mt-2 ${cairo.variable}`} dir="rtl" style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}>
-            ابحث عن إجابات للأسئلة الأكثر شيوعاً حول Español Educativo
+            ابحث عن إجابات للأسئلة الأكثر شيوعاً حول Espanol Hub
           </p>
         </div>
 

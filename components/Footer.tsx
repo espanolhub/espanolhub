@@ -115,7 +115,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <p className="text-sm text-gray-600">© 2026 Todos los derechos reservados. Español Educativo.</p>
+          <p className="text-sm text-gray-600">© 2026 Todos los derechos reservados. Espanol Hub.</p>
         </div>
       </div>
     </footer>

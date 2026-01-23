@@ -53,7 +53,7 @@ export default function ViralShareButton({
   };
 
   const generateShareMessage = (): { title: string; text: string; url: string } => {
-    const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://espanol-educativo.com';
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://www.espanolhub.com';
     const shareUrl = url || `${baseUrl}?ref=${userReferralCode}`;
 
     // Default messages
@@ -65,11 +65,11 @@ export default function ViralShareButton({
         },
         withLevel: {
           title: `¡Nivel ${level} Completado! 🏆`,
-          text: `¡Acabo de completar el nivel ${level} en ${gameName || 'Español Educativo'}! ¿Puedes superar mi puntuación de ${score} puntos? 🎯`,
+          text: `¡Acabo de completar el nivel ${level} en ${gameName || 'Espanol Hub'}! ¿Puedes superar mi puntuación de ${score} puntos? 🎯`,
         },
         withScore: {
           title: '¡Nueva Puntuación! 🌟',
-          text: `¡He conseguido ${score} puntos en ${gameName || 'Español Educativo'}! ¿Puedes vencerme? 💪`,
+          text: `¡He conseguido ${score} puntos en ${gameName || 'Espanol Hub'}! ¿Puedes vencerme? 💪`,
         },
       },
       ar: {
@@ -79,11 +79,11 @@ export default function ViralShareButton({
         },
         withLevel: {
           title: `المستوى ${level} مكتمل! 🏆`,
-          text: `لقد أكملت المستوى ${level} في ${gameName || 'Español Educativo'}! هل يمكنك تجاوز نتيجتي ${score} نقطة؟ 🎯`,
+          text: `لقد أكملت المستوى ${level} في ${gameName || 'Espanol Hub'}! هل يمكنك تجاوز نتيجتي ${score} نقطة؟ 🎯`,
         },
         withScore: {
           title: 'نتيجة جديدة! 🌟',
-          text: `لقد حصلت على ${score} نقطة في ${gameName || 'Español Educativo'}! هل تستطيع التغلب علي؟ 💪`,
+          text: `لقد حصلت على ${score} نقطة في ${gameName || 'Espanol Hub'}! هل تستطيع التغلب علي؟ 💪`,
         },
       },
     };

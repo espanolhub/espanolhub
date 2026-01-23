@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
     try {
       const data = await resend.emails.send({
         from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
-        to: process.env.CONTACT_EMAIL || 'contacto@espanol-educativo.com',
+        to: process.env.CONTACT_EMAIL || 'contacto@espanolhub.com',
         replyTo: email,
         subject: subject ? `Contacto: ${subject}` : 'Nuevo mensaje de contacto',
         html: ContactEmailTemplate({ name, email, subject, message }),

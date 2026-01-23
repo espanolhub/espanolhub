@@ -273,7 +273,7 @@ export default function Home() {
 			<div className="max-w-7xl mx-auto px-6 relative z-10">
 				<div className="text-center mb-12">
 					<h2 className="text-3xl md:text-4xl font-bold mb-4">
-						¿Por qué <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">EspañolHub</span>?
+						¿Por qué <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">Espanol Hub</span>?
 					</h2>
 					<p className="text-xl text-purple-200">
 						La plataforma integral para tu éxito en España

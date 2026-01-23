@@ -69,7 +69,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
         <form onSubmit={handleSearch} className="p-6 md:p-8">
           <div className="mb-6">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
-              Buscar en Español Educativo
+              Buscar en Espanol Hub
             </h2>
             <p className="text-gray-600">
               Encuentra lecciones, ejercicios, vocabulario y más

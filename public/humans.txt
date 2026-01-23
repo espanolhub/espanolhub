@@ -1,0 +1,19 @@
+/* TEAM */
+Espanol Hub Team
+Contact: contacto@espanolhub.com
+Twitter: @espanolhub
+Location: Spain
+
+/* THANKS */
+Next.js - https://nextjs.org/
+React - https://react.dev/
+TypeScript - https://www.typescriptlang.org/
+Tailwind CSS - https://tailwindcss.com/
+Prisma - https://www.prisma.io/
+Vercel - https://vercel.com/
+
+/* SITE */
+Last update: 2025/01/15
+Standards: HTML5, CSS3, JavaScript ES6+
+Components: React 19, Next.js 16
+Language: Spanish, Arabic

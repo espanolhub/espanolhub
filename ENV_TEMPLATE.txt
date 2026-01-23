@@ -1,103 +1,0 @@
-# ============================================
-# 🌐 SITE CONFIGURATION - ESPANOLHUB
-# ============================================
-NEXT_PUBLIC_SITE_URL=https://espanolhub.com
-# أو رابط النطاق الخاص بك / or your custom domain
-
-
-# ============================================
-# 🔑 CLERK AUTHENTICATION
-# ============================================
-# احصل عليها من: https://dashboard.clerk.com
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_...
-CLERK_SECRET_KEY=sk_test_...
-
-# Clerk URLs (حدثها حسب نطاقك)
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/login
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/login
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard
-
-
-# ============================================
-# 💳 PAYPAL INTEGRATION (معطّل حالياً)
-# ============================================
-# احصل عليها من: https://developer.paypal.com
-# NEXT_PUBLIC_PAYPAL_CLIENT_ID=your_paypal_client_id
-# PAYPAL_CLIENT_SECRET=your_paypal_secret
-
-
-# ============================================
-# 📧 RESEND EMAIL (للإشعارات)
-# ============================================
-# احصل عليها من: https://resend.com
-RESEND_API_KEY=re_...
-
-
-# ============================================
-# 📊 ANALYTICS (اختياري)
-# ============================================
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-
-
-# ============================================
-# 🗄️ DATABASE (إذا كنت تستخدم واحدة)
-# ============================================
-# DATABASE_URL=postgresql://...
-# (اختياري - حالياً المشروع يستخدم localStorage)
-
-
-# ============================================
-# 🔐 SECURITY & ENCRYPTION
-# ============================================
-# SESSION_SECRET=your-random-secret-key-here
-# ENCRYPTION_KEY=your-encryption-key-here
-
-
-# ============================================
-# 🌍 LOCALIZATION
-# ============================================
-# DEFAULT_LOCALE=es
-# SUPPORTED_LOCALES=es,ar
-
-
-# ============================================
-# 🎨 FEATURE FLAGS
-# ============================================
-# ENABLE_PAYMENT_SYSTEM=false  # معطّل حالياً
-# ENABLE_ADMIN_PANEL=true
-# ENABLE_ANALYTICS=true
-
-
-# ============================================
-# 📧 EMAIL CONFIGURATION
-# ============================================
-# FROM_EMAIL=noreply@espanolhub.com
-# SUPPORT_EMAIL=contacto@espanolhub.com
-
-
-# ============================================
-# 🔔 MONITORING & LOGGING (اختياري)
-# ============================================
-# SENTRY_DSN=https://...
-# LOG_LEVEL=info
-
-
-# ============================================
-# 🧪 DEVELOPMENT ONLY (لا تضعها في Production)
-# ============================================
-# DEBUG_MODE=false
-# MOCK_PAYMENT=false
-
-
-# ============================================
-# 📝 IMPORTANT NOTES / ملاحظات مهمة
-# ============================================
-# 
-# 1. لا تشارك هذا الملف مع أحد (مدرج في .gitignore)
-# 2. المتغيرات التي تبدأ بـ NEXT_PUBLIC_ فقط تظهر في المتصفح
-# 3. في Vercel، أضف هذه المتغيرات في Project Settings → Environment Variables
-# 4. بعد إضافة المتغيرات، قم بـ Redeploy
-# 5. Domain الافتراضي: espanolhub.com (يتم استخدامه إذا لم تُعيّن NEXT_PUBLIC_SITE_URL)
-#
-# ============================================

@@ -10,6 +10,20 @@ const nextConfig: NextConfig = {
   // Performance optimizations
   compress: true,
   
+  // SWC Minification - Faster and better than Terser
+  swcMinify: true,
+  
+  // React Strict Mode for better development experience
+  reactStrictMode: true,
+  
+  // Optimize production builds
+  productionBrowserSourceMaps: false,
+  
+  // Experimental features for better performance
+  experimental: {
+    optimizeCss: true,
+  },
+  
   // Image optimization
   images: {
     formats: ['image/avif', 'image/webp'],

@@ -293,6 +293,62 @@ section, .section {
   font-weight: 700;
 }
 
+/* Mobile-First Optimizations */
+@media (max-width: 768px) {
+  /* Use rem instead of px for better scaling */
+  html {
+    font-size: 16px; /* Base font size */
+  }
+  
+  /* Reduce animations on mobile for better performance */
+  * {
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
+  }
+  
+  /* Optimize touch targets - ensure minimum 48x48px */
+  button,
+  a[role="button"],
+  input[type="button"],
+  input[type="submit"],
+  .btn {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 0.75rem 1rem;
+  }
+  
+  /* Improve text readability on mobile */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Reduce shadow complexity on mobile */
+  .modern-card,
+  .card-hover-effect {
+    box-shadow: 0 4px 12px rgba(2, 6, 23, 0.08) !important;
+  }
+  
+  /* Optimize images - lazy loading hint */
+  img {
+    loading: lazy;
+    decoding: async;
+  }
+}
+
+/* Performance: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* WordRaceGame animations (replaces framer-motion) */
 @keyframes fadeInScale {
   from {

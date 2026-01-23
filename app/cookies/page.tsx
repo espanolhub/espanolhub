@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { Cookie } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Política de Cookies - EspañolHub',
-  description: 'Información sobre el uso de cookies en EspañolHub y cómo gestionarlas.',
+  title: 'Política de Cookies - Espanol Hub',
+  description: 'Información sobre el uso de cookies en Espanol Hub y cómo gestionarlas.',
 };
 
 export default function CookiesPage() {
@@ -39,7 +39,7 @@ export default function CookiesPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">¿Cómo usamos las cookies?</h2>
               <p>
-                En EspañolHub utilizamos cookies para mejorar tu experiencia de usuario y ofrecer funcionalidades 
+                En Espanol Hub utilizamos cookies para mejorar tu experiencia de usuario y ofrecer funcionalidades 
                 esenciales del sitio. Las cookies nos ayudan a:
               </p>
               <ul className="list-disc pl-6 space-y-2">

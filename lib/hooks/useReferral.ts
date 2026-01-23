@@ -92,7 +92,7 @@ export function useReferral() {
 
   const getReferralUrl = (): string => {
     if (!referralData) return '';
-    const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://espanol-educativo.com';
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://www.espanolhub.com';
     return `${baseUrl}?ref=${referralData.code}`;
   };
 

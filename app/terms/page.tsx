@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Términos de Servicio - Español Educativo',
-  description: 'Términos y condiciones de uso de Español Educativo. Lee nuestros términos de servicio antes de utilizar el sitio.',
+  title: 'Términos de Servicio - Espanol Hub',
+  description: 'Términos y condiciones de uso de Espanol Hub. Lee nuestros términos de servicio antes de utilizar el sitio.',
 };
 
 export default function TermsPage() {
@@ -22,7 +22,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">1. Aceptación de los Términos</h2>
               <p>
-                Al acceder y utilizar el sitio web de Español Educativo ("el sitio", "nosotros", "nuestro"), 
+                Al acceder y utilizar el sitio web de Espanol Hub ("el sitio", "nosotros", "nuestro"), 
                 aceptas cumplir con estos Términos de Servicio y todas las leyes y regulaciones aplicables. 
                 Si no estás de acuerdo con alguno de estos términos, no debes utilizar nuestro sitio.
               </p>
@@ -31,7 +31,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">2. Descripción del Servicio</h2>
               <p>
-                Español Educativo es una plataforma educativa en línea que ofrece recursos, cursos, ejercicios 
+                Espanol Hub es una plataforma educativa en línea que ofrece recursos, cursos, ejercicios 
                 y herramientas para aprender español. Proporcionamos contenido educativo, juegos interactivos, 
                 ejercicios de gramática, vocabulario, lectura y más.
               </p>
@@ -53,7 +53,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">4. Contenido del Usuario</h2>
               <p>
-                Al enviar contenido al sitio (como comentarios, preguntas o respuestas), otorgas a Español Educativo 
+                Al enviar contenido al sitio (como comentarios, preguntas o respuestas), otorgas a Espanol Hub 
                 una licencia no exclusiva, libre de regalías y transferible para usar, reproducir, modificar y 
                 distribuir ese contenido en el sitio.
               </p>
@@ -63,7 +63,7 @@ export default function TermsPage() {
               <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">5. Propiedad Intelectual</h2>
               <p>
                 Todo el contenido del sitio, incluyendo textos, gráficos, logotipos, iconos, imágenes, clips de audio, 
-                descargas digitales y compilaciones de datos, es propiedad de Español Educativo o de sus proveedores 
+                descargas digitales y compilaciones de datos, es propiedad de Espanol Hub o de sus proveedores 
                 de contenido y está protegido por las leyes de derechos de autor.
               </p>
               <p className="mt-4">
@@ -104,7 +104,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">9. Limitación de Responsabilidad</h2>
               <p>
-                En la máxima medida permitida por la ley, Español Educativo no será responsable de ningún daño directo, 
+                En la máxima medida permitida por la ley, Espanol Hub no será responsable de ningún daño directo, 
                 indirecto, incidental, especial, consecuente o punitivo que surja del uso o la imposibilidad de usar 
                 nuestro sitio o su contenido.
               </p>
@@ -113,7 +113,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">10. Indemnización</h2>
               <p>
-                Aceptas indemnizar y eximir de responsabilidad a Español Educativo, sus afiliados, directores, 
+                Aceptas indemnizar y eximir de responsabilidad a Espanol Hub, sus afiliados, directores, 
                 empleados y agentes de cualquier reclamo, daño, obligación, pérdida, responsabilidad, costo o deuda, 
                 y gastos (incluidos los honorarios de abogados) que surjan de tu uso del sitio o violación de estos términos.
               </p>
@@ -138,7 +138,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">13. Ley Aplicable</h2>
               <p>
-                Estos términos se regirán e interpretarán de acuerdo con las leyes del país donde opera Español Educativo, 
+                Estos términos se regirán e interpretarán de acuerdo con las leyes del país donde opera Espanol Hub, 
                 sin tener en cuenta sus disposiciones sobre conflictos de leyes.
               </p>
             </section>

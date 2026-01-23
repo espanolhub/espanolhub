@@ -32,7 +32,7 @@ export function ContactEmailTemplate({ name, email, subject, message }: ContactE
                   📧 Nuevo Mensaje de Contacto
                 </h1>
                 <p style="margin: 10px 0 0 0; color: #e0e7ff; font-size: 14px;">
-                  Español Educativo
+                  Espanol Hub
                 </p>
               </div>
             </td>
@@ -122,7 +122,7 @@ ${escapeHtml(message)}
           <!-- Action Button -->
           <tr>
             <td style="padding: 0 30px 30px 30px; text-align: center;">
-              <a href="mailto:${escapeHtml(email)}?subject=Re: ${escapeHtml(subject || 'Tu mensaje en Español Educativo')}" 
+              <a href="mailto:${escapeHtml(email)}?subject=Re: ${escapeHtml(subject || 'Tu mensaje en Espanol Hub')}" 
                  style="display: inline-block; background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); color: #ffffff; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);">
                 ✉️ Responder Ahora
               </a>
@@ -137,7 +137,7 @@ ${escapeHtml(message)}
                   Este mensaje fue enviado desde el formulario de contacto de
                 </p>
                 <p style="margin: 0; color: #1f2937; font-weight: 600; font-size: 14px;">
-                  📚 Español Educativo
+                  📚 Espanol Hub
                 </p>
                 <p style="margin: 15px 0 0 0; color: #9ca3af; font-size: 12px;">
                   Plataforma educativa de español para arabohablantes

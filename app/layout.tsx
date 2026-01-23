@@ -28,21 +28,21 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: "EspañolHub - Tu Centro Inteligente para Aprender Español",
+  title: "Espanol Hub - Tu Centro Inteligente para Aprender Español",
   description: "Tu centro inteligente para aprender español. Gramática, vocabulario, preparación CCSE, carnet de conducir y más. ¡100% gratis!",
   keywords: ["aprender español", "español gratis", "CCSE", "nacionalidad española", "carnet de conducir", "DGT", "gramática española", "vocabulario español"],
-  authors: [{ name: "EspañolHub Team" }],
+  authors: [{ name: "Espanol Hub Team" }],
   openGraph: {
-    title: "EspañolHub - Tu Centro Inteligente para Aprender Español",
+    title: "Espanol Hub - Tu Centro Inteligente para Aprender Español",
     description: "Tu centro inteligente para aprender español. Gramática, vocabulario, preparación CCSE, carnet de conducir y más. ¡100% gratis!",
     type: "website",
     locale: "es_ES",
-    url: "https://espanolhub.com",
-    siteName: "EspañolHub",
+    url: "https://www.espanolhub.com",
+    siteName: "Espanol Hub",
   },
   twitter: {
     card: "summary_large_image",
-    title: "EspañolHub - Tu Centro Inteligente para Aprender Español",
+    title: "Espanol Hub - Tu Centro Inteligente para Aprender Español",
     description: "Tu centro inteligente para aprender español. Gramática, vocabulario, preparación CCSE, carnet de conducir y más. ¡100% gratis!",
   },
   robots: {
@@ -62,11 +62,11 @@ export const metadata: Metadata = {
 const educationalOrganizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'EducationalOrganization',
-  name: 'EspañolHub',
-  alternateName: 'Español Hub',
+  name: 'Espanol Hub',
+  alternateName: 'Espanol Hub',
   description: 'Tu centro inteligente para aprender español. Plataforma educativa completa con gramática, vocabulario, preparación CCSE, carnet de conducir DGT y más. 100% gratis.',
-  url: 'https://espanolhub.com',
-  logo: 'https://espanolhub.com/logo.png',
+  url: 'https://www.espanolhub.com',
+  logo: 'https://www.espanolhub.com/logo.png',
   educationalCredentialAwarded: 'Certificado de Progreso',
   educationalUse: [
     'Aprender español',
@@ -91,6 +91,24 @@ const educationalOrganizationSchema = {
   sameAs: []
 };
 
+// WebSite Schema with SearchAction for Google Site Search
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Espanol Hub',
+  url: 'https://www.espanolhub.com',
+  description: 'Aprende español de forma completa e interactiva',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://www.espanolhub.com/search?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
+  inLanguage: ['es', 'ar'],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -103,6 +121,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(educationalOrganizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
           }}
         />
         <link rel="preload" href="/sounds/ding.mp3" as="audio" type="audio/mpeg" />

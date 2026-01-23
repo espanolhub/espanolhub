@@ -1,8 +1,8 @@
-# EspañolHub
+# Espanol Hub
 
 Tu centro inteligente para aprender español.
 
-Sitio oficial: https://espanolhub.com
+Sitio oficial: https://www.espanolhub.com
 
 ## Características Principales
 
