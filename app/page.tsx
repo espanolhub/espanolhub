@@ -6,7 +6,8 @@ import {
   Car, Award, FileText, Users, Shield, 
   BookOpen, Globe, Gamepad2, PlayCircle,
   Sparkles, Trophy, Target, Zap, Star,
-  CheckCircle, ArrowRight, GraduationCap, Lock, Clock
+  CheckCircle, ArrowRight, GraduationCap, Lock, Clock,
+  Gift, Book, Languages
 } from 'lucide-react';
 import { useModuleAccess } from '@/components/useModuleAccess';
 import { useAdminSettings } from '@/components/AdminSettingsProvider';
@@ -146,7 +147,18 @@ export default function Home() {
 							</div>
 
 							{/* Quick Access Buttons */}
-							<div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+							<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+							<Link
+								href="/aprender-espanol-gratis"
+								className="group p-4 bg-gradient-to-br from-yellow-50 to-yellow-100 border-2 border-yellow-300 rounded-xl hover:shadow-lg transition-all hover:scale-105 relative overflow-hidden"
+							>
+								<div className="absolute top-1 right-1">
+									<Gift className="w-4 h-4 text-yellow-600" />
+								</div>
+								<Star className="w-6 h-6 text-yellow-600 mb-2 mx-auto" />
+								<div className="text-xs font-bold text-yellow-900 text-center">GRATIS</div>
+							</Link>
+
 							<Link
 								href="/driving-license"
 								className="group p-4 bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 rounded-xl hover:shadow-lg transition-all hover:scale-105"
@@ -178,6 +190,14 @@ export default function Home() {
 								<PlayCircle className="w-6 h-6 text-green-600 mb-2 mx-auto" />
 								<div className="text-sm font-semibold text-green-900 text-center">Simulador</div>
 							</Link>
+
+							<Link
+								href="/blog"
+								className="group p-4 bg-gradient-to-br from-indigo-50 to-indigo-100 border border-indigo-200 rounded-xl hover:shadow-lg transition-all hover:scale-105"
+							>
+								<Book className="w-6 h-6 text-indigo-600 mb-2 mx-auto" />
+								<div className="text-sm font-semibold text-indigo-900 text-center">Blog</div>
+							</Link>
 							</div>
 						</div>
 
@@ -198,6 +218,44 @@ export default function Home() {
 				</div>
 			</div>
 		</header>
+
+			{/* Aprende Español GRATIS Section */}
+			<section className="py-16 bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-400 relative overflow-hidden">
+				<div className="absolute inset-0 opacity-10">
+					<div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(255,255,255,0.2) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.2) 0%, transparent 50%)' }} />
+				</div>
+				<div className="max-w-7xl mx-auto px-6 relative z-10">
+					<div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-2xl">
+						<div className="flex flex-col md:flex-row items-center gap-8">
+							<div className="flex-1 text-center md:text-left">
+								<div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-100 rounded-full mb-4">
+									<Gift className="w-5 h-5 text-yellow-600" />
+									<span className="text-sm font-bold text-yellow-900">100% GRATIS</span>
+								</div>
+								<h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
+									Aprende Español <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-orange-600">GRATIS</span>
+								</h2>
+								<p className="text-lg text-gray-700 mb-6 max-w-2xl">
+									Accede a todo nuestro contenido educativo sin costo. Gramática, vocabulario, juegos interactivos y más. Sin registro, sin tarjeta de crédito.
+								</p>
+								<Link
+									href="/aprender-espanol-gratis"
+									className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105"
+								>
+									<Star className="w-5 h-5" />
+									<span>Empieza Ahora - GRATIS</span>
+									<ArrowRight className="w-5 h-5" />
+								</Link>
+							</div>
+							<div className="flex-shrink-0">
+								<div className="w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-yellow-300 to-orange-300 rounded-full flex items-center justify-center shadow-2xl">
+									<Gift className="w-16 h-16 md:w-20 md:h-20 text-white" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
 			{/* Main Features - Three Pillars */}
 			<section id="main-content" className="py-16 bg-gradient-to-b from-white to-gray-50">
@@ -259,6 +317,86 @@ export default function Home() {
 						<div className="flex justify-center">
 							<PracticeCTA />
 						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Recursos Adicionales Section */}
+			<section className="py-16 bg-white">
+				<div className="max-w-7xl mx-auto px-6">
+					<div className="text-center mb-12">
+						<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 flex items-center justify-center gap-3">
+							<BookOpen className="w-8 h-8 text-blue-600" />
+							<span>Recursos Adicionales</span>
+						</h2>
+						<p className="text-lg text-gray-600 max-w-2xl mx-auto">
+							Explora nuestros recursos educativos completos para aprender español de forma efectiva
+						</p>
+					</div>
+
+					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+						<Link
+							href="/gramatica-espanola-completa"
+							className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-gray-100 hover:border-blue-300"
+						>
+							<div className="flex items-center gap-4 mb-4">
+								<div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white">
+									<GraduationCap className="w-6 h-6" />
+								</div>
+								<h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+									Gramática Completa
+								</h3>
+							</div>
+							<p className="text-gray-600 mb-4">
+								Aprende toda la gramática española desde cero hasta avanzado. Guía completa con ejemplos y ejercicios.
+							</p>
+							<div className="flex items-center text-blue-600 font-semibold">
+								<span>Explorar</span>
+								<ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+							</div>
+						</Link>
+
+						<Link
+							href="/vocabulario-espanol-por-temas"
+							className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-gray-100 hover:border-green-300"
+						>
+							<div className="flex items-center gap-4 mb-4">
+								<div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center text-white">
+									<Languages className="w-6 h-6" />
+								</div>
+								<h3 className="text-xl font-bold text-gray-900 group-hover:text-green-600 transition-colors">
+									Vocabulario por Temas
+								</h3>
+							</div>
+							<p className="text-gray-600 mb-4">
+								Más de 1000 palabras organizadas por temas. Familia, trabajo, comida, viajes y más con pronunciación.
+							</p>
+							<div className="flex items-center text-green-600 font-semibold">
+								<span>Explorar</span>
+								<ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+							</div>
+						</Link>
+
+						<Link
+							href="/blog"
+							className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-gray-100 hover:border-purple-300"
+						>
+							<div className="flex items-center gap-4 mb-4">
+								<div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center text-white">
+									<Book className="w-6 h-6" />
+								</div>
+								<h3 className="text-xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
+									Blog Educativo
+								</h3>
+							</div>
+							<p className="text-gray-600 mb-4">
+								Artículos, guías y consejos para aprender español. Gramática, vocabulario, pronunciación y más.
+							</p>
+							<div className="flex items-center text-purple-600 font-semibold">
+								<span>Leer Artículos</span>
+								<ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+							</div>
+						</Link>
 					</div>
 				</div>
 			</section>

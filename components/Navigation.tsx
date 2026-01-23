@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import React, { useState, useRef, useEffect } from 'react';
 // Clerk hooks removed to avoid SSR issues - Navigation works without auth
 // import { UserButton, SignInButton, SignUpButton, useUser, useAuth, SignedIn, SignedOut } from '@clerk/nextjs';
-import { BookOpen, Gamepad2, GraduationCap, Book, Languages, X, Menu, Shield, Award, Search, ChevronDown, Download, Car } from 'lucide-react';
+import { BookOpen, Gamepad2, GraduationCap, Book, Languages, X, Menu, Shield, Award, Search, ChevronDown, Download, Car, FileText, Star } from 'lucide-react';
 import SearchOverlay from './SearchOverlay';
 // AdminNotificationBadge removed - Navigation works without Clerk hooks
 // import AdminNotificationBadge from './AdminNotificationBadge';
@@ -15,6 +15,8 @@ const aprenderDropdown = {
   icon: BookOpen,
   subtitle: 'Elige tu Lección',
   children: [
+    { href: '/gramatica-espanola-completa', label: 'Gramática Completa', icon: GraduationCap },
+    { href: '/vocabulario-espanol-por-temas', label: 'Vocabulario por Temas', icon: Languages },
     { href: '/gramatica', label: 'Gramática', icon: GraduationCap },
     { href: '/vocabulario', label: 'Vocabulario', icon: Languages },
     { href: '/lectura', label: 'Lectura', icon: Book },
@@ -32,13 +34,17 @@ const practicarDropdown = {
 
 // Mobile menu: card-based items with colored icons (used only on md and below)
 const mobileMenuItems: { href: string; label: string; icon: typeof Shield; bg: string; iconColor: string }[] = [
+  { href: '/aprender-espanol-gratis', label: 'Aprender GRATIS', icon: Star, bg: 'bg-yellow-50', iconColor: 'text-yellow-600' },
   { href: '/nacionalidad', label: 'Nacionalidad ES', icon: Shield, bg: 'bg-blue-50', iconColor: 'text-blue-600' },
   { href: '/driving-license', label: 'Carnet', icon: Car, bg: 'bg-emerald-50', iconColor: 'text-emerald-600' },
   { href: '/tramites', label: 'Guías Legales', icon: Download, bg: 'bg-violet-50', iconColor: 'text-violet-600' },
+  { href: '/gramatica-espanola-completa', label: 'Gramática Completa', icon: GraduationCap, bg: 'bg-blue-50', iconColor: 'text-blue-600' },
+  { href: '/vocabulario-espanol-por-temas', label: 'Vocabulario Temas', icon: Languages, bg: 'bg-green-50', iconColor: 'text-green-600' },
   { href: '/gramatica', label: 'Gramática', icon: GraduationCap, bg: 'bg-amber-50', iconColor: 'text-amber-600' },
   { href: '/vocabulario', label: 'Vocabulario', icon: Languages, bg: 'bg-teal-50', iconColor: 'text-teal-600' },
   { href: '/lectura', label: 'Lectura', icon: Book, bg: 'bg-indigo-50', iconColor: 'text-indigo-600' },
   { href: '/juegos', label: 'Juegos', icon: Gamepad2, bg: 'bg-pink-50', iconColor: 'text-pink-600' },
+  { href: '/blog', label: 'Blog', icon: FileText, bg: 'bg-purple-50', iconColor: 'text-purple-600' },
   { href: '/simulator', label: 'Simulador (DGT)', icon: Car, bg: 'bg-orange-50', iconColor: 'text-orange-600' },
 ];
 
@@ -170,6 +176,17 @@ export default function Navigation() {
                 >
                   <Gamepad2 className={`w-4 h-4 ${pathname === '/juegos' ? '' : 'group-hover:scale-110 transition-transform'}`} />
                   <span>Juegos</span>
+                </Link>
+                <Link
+                  href="/blog"
+                  className={`group flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                    pathname.startsWith('/blog') 
+                      ? 'bg-gradient-to-r from-indigo-600 to-indigo-700 text-white shadow-lg shadow-indigo-200' 
+                      : 'text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 hover:shadow-md'
+                  }`}
+                >
+                  <FileText className={`w-4 h-4 ${pathname.startsWith('/blog') ? '' : 'group-hover:scale-110 transition-transform'}`} />
+                  <span>Blog</span>
                 </Link>
 
                 <div 
