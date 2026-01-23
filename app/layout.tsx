@@ -29,6 +29,7 @@ const cairo = Cairo({
   subsets: ["arabic", "latin"],
   weight: ["400", "600", "700"],
   display: 'swap',
+  preload: true,
 });
 
 export const metadata: Metadata = {
