@@ -116,7 +116,7 @@ export default function NacionalidadPage() {
   const [answers, setAnswers] = useState<Record<string,string>>({});
   const [showResults, setShowResults] = useState(false);
   const [summary, setSummary] = useState<{ passed: boolean; correct: number; total: number } | null>(null);
-  const [activeTab, setActiveTab] = useState<'lesson' | 'questions' | 'pdf'>('lesson');
+  const [activeTab, setActiveTab] = useState<'lesson' | 'questions'>('lesson');
   const [completed, setCompleted] = useState<number[]>([]);
   const [studyTime, setStudyTime] = useState(0);
   const [showStats, setShowStats] = useState(false);
@@ -611,25 +611,6 @@ export default function NacionalidadPage() {
                     return (
                       <div key={lid} className="mb-8">
                     <div className={`relative rounded-xl p-6 ${!showFull ? 'bg-gray-50' : 'bg-gradient-to-br from-white to-gray-50'} border border-gray-100`}>
-                          {/* Download PDF button */}
-                          <div className="absolute top-4 right-4 z-20">
-                            <button
-                              onClick={() => {
-                                try {
-                                  const url = `/api/nacionalidad/${lesson.id}/pdf`;
-                                  if (!showFull) {
-                                    setShowUpgrade(true);
-                                    return;
-                                  }
-                                  window.open(url, '_blank');
-                                } catch (e) {}
-                              }}
-                              title="Descargar PDF / تنزيل PDF"
-                              className={`px-3 py-1 text-sm rounded-full border shadow-sm bg-white hover:bg-gray-100 ${!showFull ? 'opacity-60 cursor-not-allowed' : ''}`}
-                            >
-                              Descargar PDF
-                            </button>
-                          </div>
                           {!showFull && (
                             <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10 rounded-xl flex items-center justify-center">
                               <button 
@@ -650,7 +631,6 @@ export default function NacionalidadPage() {
                                   <div className="mb-4 flex items-center gap-2">
                                     <button onClick={() => setActiveTab('lesson')} className={`px-3 py-1 rounded ${activeTab === 'lesson' ? 'bg-slate-100 font-semibold' : 'text-slate-600'}`}>📖 Lección</button>
                                     <button onClick={() => setActiveTab('questions')} className={`px-3 py-1 rounded ${activeTab === 'questions' ? 'bg-slate-100 font-semibold' : 'text-slate-600'}`}>❓ Preguntas de Práctica</button>
-                                    <button onClick={() => setActiveTab('pdf')} className={`px-3 py-1 rounded ${activeTab === 'pdf' ? 'bg-slate-100 font-semibold' : 'text-slate-600'}`}>📄 Recursos PDF</button>
                                   </div>
 
                                   {activeTab === 'lesson' && (
@@ -689,13 +669,6 @@ export default function NacionalidadPage() {
                                           />
                                         ));
                                       })()}
-                                    </div>
-                                  )}
-
-                                  {activeTab === 'pdf' && (
-                                    <div className="mt-4">
-                                      <p className="text-sm text-gray-600 mb-2">Descarga el resumen del capítulo en PDF</p>
-                                      <button onClick={() => { window.open(`/api/nacionalidad/${lesson.id}/pdf`, '_blank'); }} className="px-4 py-2 bg-blue-600 text-white rounded">Descargar PDF</button>
                                     </div>
                                   )}
                                 </>

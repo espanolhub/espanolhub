@@ -8,6 +8,7 @@ const componentMap: Record<string, () => Promise<{ default: React.ComponentType<
   'exam-simulator': () => import('@/components/ExamSimulator'),
   'laberinto': () => import('@/components/games/LaberintoGame'),
   'multi-stage': () => import('@/components/games/MultiStageGame'),
+  'quick-quiz-verbos': () => import('@/components/games/QuickQuizVerbos'),
 };
 
 export default function GameRenderer({ entry }: { entry: any }) {

@@ -1,5 +1,14 @@
 [
   {
+    "id": "quick-quiz-verbos",
+    "title": "Quick Quiz - Verbos",
+    "level": "intermediate",
+    "summary": "Practica verbos con 150+ preguntas en 3 niveles de dificultad",
+    "excerpt": "Aprende conjugaciones de verbos con frases de la vida diaria. Elige tu nivel: principiante, intermedio o avanzado",
+    "image": "/assets/games/sample2.svg",
+    "content": "{\"gameType\":\"quick-quiz-verbos\"}"
+  },
+  {
     "id": "sample-wordrace-1",
     "title": "Word Race - Carrera de Palabras",
     "level": "intermediate",
@@ -7,15 +16,6 @@
     "excerpt": "Rondas cronometradas para practicar vocabulario y velocidad",
     "image": "/assets/games/sample3.svg",
     "content": "{\"gameType\":\"word-race\",\"config\":{\"rounds\":10,\"timePerQuestion\":5}}"
-  },
-  {
-    "id": "sample-quiz-1",
-    "title": "Quick Quiz - Verbos",
-    "level": "beginner",
-    "summary": "Pequeño cuestionario de verbos comunes",
-    "excerpt": "10 preguntas de opción múltiple para practicar verbos",
-    "image": "/assets/games/sample2.svg",
-    "content": "{\"gameType\":\"exam-simulator\",\"config\":{\"questions\":10,\"seed\":12345}}"
   },
   {
     "id": "laberinto-decisiones",

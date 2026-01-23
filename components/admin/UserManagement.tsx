@@ -1,18 +1,64 @@
 'use client';
 
-import { useState } from 'react';
-import { User, Shield, Mail, Calendar, Edit, Trash2 } from 'lucide-react';
-import { users as initialUsers } from '@/lib/admin-users';
+import { useState, useEffect } from 'react';
+import { User, Shield, Mail, Calendar, Edit, Trash2, Loader2 } from 'lucide-react';
+
+interface UserData {
+  id: string;
+  username: string | null;
+  email: string;
+  role: string;
+  createdAt: string | Date;
+  updatedAt: string | Date;
+}
 
 export default function UserManagement() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [users, setUsers] = useState(initialUsers);
+  const [users, setUsers] = useState<UserData[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [editingId, setEditingId] = useState<string | null>(null);
 
-  const filteredUsers = users.filter(user =>
-    user.username.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    user.email.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // جلب المستخدمين من API
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const response = await fetch('/api/admin/users', {
+          credentials: 'include',
+        });
+
+        if (!response.ok) {
+          if (response.status === 401) {
+            setError('No autorizado. Por favor, inicia sesión.');
+          } else if (response.status === 403) {
+            setError('No tienes permisos para ver los usuarios.');
+          } else {
+            setError('Error al cargar los usuarios.');
+          }
+          return;
+        }
+
+        const data = await response.json();
+        setUsers(data);
+      } catch (err) {
+        console.error('Error fetching users:', err);
+        setError('Error de conexión. Por favor, intenta de nuevo.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
+  const filteredUsers = users.filter(user => {
+    const username = user.username?.toLowerCase() || '';
+    const email = user.email.toLowerCase();
+    const search = searchTerm.toLowerCase();
+    return username.includes(search) || email.includes(search);
+  });
 
   const handleEdit = (id: string) => {
     setEditingId(id);
@@ -38,6 +84,41 @@ export default function UserManagement() {
       setUsers(users.filter(u => u.id !== id));
     }
   };
+
+  if (loading) {
+    return (
+      <div className="space-y-6">
+        <div className="flex justify-between items-center">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Gestión de Usuarios</h2>
+            <p className="text-gray-600">Gestionar cuentas de usuarios y permisos</p>
+          </div>
+        </div>
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-12 flex items-center justify-center">
+          <div className="flex flex-col items-center gap-3">
+            <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+            <p className="text-gray-600">Cargando usuarios...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="space-y-6">
+        <div className="flex justify-between items-center">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Gestión de Usuarios</h2>
+            <p className="text-gray-600">Gestionar cuentas de usuarios y permisos</p>
+          </div>
+        </div>
+        <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+          <p className="text-red-800">{error}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -83,7 +164,14 @@ export default function UserManagement() {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {filteredUsers.map((user) => (
+              {filteredUsers.length === 0 ? (
+                <tr>
+                  <td colSpan={5} className="px-6 py-12 text-center text-gray-500">
+                    {searchTerm ? 'No se encontraron usuarios que coincidan con la búsqueda.' : 'No hay usuarios registrados.'}
+                  </td>
+                </tr>
+              ) : (
+                filteredUsers.map((user) => (
                 <tr key={user.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
@@ -99,7 +187,7 @@ export default function UserManagement() {
                         </div>
                       </div>
                       <div className="ml-4">
-                        <div className="text-sm font-medium text-gray-900">{user.username}</div>
+                        <div className="text-sm font-medium text-gray-900">{user.username || 'Sin nombre'}</div>
                       </div>
                     </div>
                   </td>
@@ -142,7 +230,8 @@ export default function UserManagement() {
                     </button>
                   </td>
                 </tr>
-              ))}
+                ))
+              )}
             </tbody>
           </table>
         </div>

@@ -83,6 +83,23 @@ export async function getUserById(id: string): Promise<User | null> {
 }
 
 /**
+ * الحصول على جميع المستخدمين
+ */
+export async function getAllUsers(): Promise<User[]> {
+  try {
+    const users = await prisma.user.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
+    return users as User[];
+  } catch (error) {
+    console.error('Error getting all users:', error);
+    return [];
+  }
+}
+
+/**
  * التحقق من أن المستخدم هو admin
  */
 export function isAdmin(user: User | null): boolean {

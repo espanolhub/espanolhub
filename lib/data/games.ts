@@ -123,6 +123,13 @@ export const games: Game[] = [
     icon: '⚡',
     questions: [],
   },
+  {
+    id: 'quick-quiz-verbos',
+    name: 'Quick Quiz - Verbos',
+    description: 'Practica verbos y gramática con frases de la vida diaria',
+    icon: '⚡',
+    questions: [],
+  },
 ];
 
 export function getGameById(id: string): Game | undefined {
