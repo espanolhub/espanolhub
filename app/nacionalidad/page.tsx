@@ -117,10 +117,20 @@ export default function NacionalidadPage() {
   const [showResults, setShowResults] = useState(false);
   const [summary, setSummary] = useState<{ passed: boolean; correct: number; total: number } | null>(null);
   const [activeTab, setActiveTab] = useState<'lesson' | 'questions'>('lesson');
+  const [activeLessonIndex, setActiveLessonIndex] = useState(0); // للدرس النشط داخل Chapter
   const [completed, setCompleted] = useState<number[]>([]);
   const [studyTime, setStudyTime] = useState(0);
   const [showStats, setShowStats] = useState(false);
   const totalChapters = chapterMap.length;
+
+  // حساب رقم الدرس الكلي (ترقيم متواصل عبر جميع الفصول)
+  const calculateLessonNumber = (chapterIndex: number, lessonIndexInChapter: number): number => {
+    let totalLessons = 0;
+    for (let i = 0; i < chapterIndex; i++) {
+      totalLessons += chapterMap[i].lessons?.length || 0;
+    }
+    return totalLessons + lessonIndexInChapter + 1;
+  };
 
   // Load completed chapters
   useEffect(() => {
@@ -281,6 +291,7 @@ export default function NacionalidadPage() {
 
   const selectChapter = (index: number) => {
     setCurrent(index);
+    setActiveLessonIndex(0); // Reset to first lesson in new chapter
     setSidebarOpen(false);
     setStudyTime(0); // Reset timer
     const lockedByAdmin = index > 1 && settings.locked_modules.nationality;
@@ -603,14 +614,65 @@ export default function NacionalidadPage() {
               {/* Content */}
               {currentChapter?.type === 'lesson' ? (
                 <>
-                    {(currentChapter?.lessons || []).map((lid) => {
-                    const lesson = getLessonById(lid);
+                  {/* Tabs Navigation - عرض جميع الدروس كـ tabs */}
+                  {currentChapter?.lessons && currentChapter.lessons.length > 0 && (
+                    <div className="mb-6">
+                      <div className="overflow-x-auto">
+                        <div className="flex gap-2 min-w-max p-4 bg-gray-50 rounded-xl border border-gray-200">
+                          {currentChapter.lessons.map((lessonId, index) => {
+                            const lessonNumber = calculateLessonNumber(current, index);
+                            const isActive = index === activeLessonIndex;
+                            const lesson = getLessonById(lessonId);
+                            return (
+                              <button
+                                key={lessonId}
+                                onClick={() => setActiveLessonIndex(index)}
+                                className={`px-4 py-2 rounded-lg font-medium transition-all whitespace-nowrap ${
+                                  isActive
+                                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md transform scale-105'
+                                    : 'bg-white text-gray-700 hover:bg-gray-100 hover:shadow-sm'
+                                }`}
+                                title={lesson?.title || `Lección ${lessonNumber}`}
+                              >
+                                Lección {lessonNumber}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* عرض الدرس النشط فقط */}
+                  {(() => {
+                    const lessonId = currentChapter?.lessons?.[activeLessonIndex];
+                    if (!lessonId) return null;
+                    const lesson = getLessonById(lessonId);
                     if (!lesson) return null;
                     const previewActive = previewExpiry ? Date.now() < previewExpiry : previewMode;
                     const showFull = isProHook || previewActive || current <= 1 || lesson.isFree;
+                    const lessonNumber = calculateLessonNumber(current, activeLessonIndex);
+                    const totalLessonsInChapter = currentChapter?.lessons?.length || 0;
+                    const totalLessons = chapterMap.reduce((sum, ch) => sum + (ch.lessons?.length || 0), 0);
+
                     return (
-                      <div key={lid} className="mb-8">
-                    <div className={`relative rounded-xl p-6 ${!showFull ? 'bg-gray-50' : 'bg-gradient-to-br from-white to-gray-50'} border border-gray-100`}>
+                      <div key={lessonId}>
+                        {/* معلومات الدرس الحالي */}
+                        <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200">
+                          <div className="flex items-center justify-between flex-wrap gap-4">
+                            <div>
+                              <div className="text-sm text-gray-600 mb-1">
+                                Lección {lessonNumber} de {totalLessons} • Capítulo {current + 1}
+                              </div>
+                              <h3 className="text-xl md:text-2xl font-bold text-gray-900">{lesson.title}</h3>
+                            </div>
+                            <div className="text-sm text-gray-600">
+                              {activeLessonIndex + 1} / {totalLessonsInChapter} en este capítulo
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className={`relative rounded-xl p-6 ${!showFull ? 'bg-gray-50' : 'bg-gradient-to-br from-white to-gray-50'} border border-gray-100`}>
                           {!showFull && (
                             <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10 rounded-xl flex items-center justify-center">
                               <button 
@@ -676,12 +738,41 @@ export default function NacionalidadPage() {
                             })()}
                           </div>
                         </div>
+
+                        {/* أزرار التنقل بين الدروس */}
+                        <div className="mt-6 flex items-center justify-between gap-4">
+                          <button
+                            onClick={() => setActiveLessonIndex(prev => Math.max(0, prev - 1))}
+                            disabled={activeLessonIndex === 0}
+                            className={`px-6 py-3 rounded-xl font-medium transition-all flex items-center gap-2 ${
+                              activeLessonIndex === 0
+                                ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                                : 'bg-white text-gray-700 hover:bg-gray-50 shadow-md hover:shadow-lg'
+                            }`}
+                          >
+                            ← Lección Anterior
+                          </button>
+                          <span className="text-sm text-gray-600 font-medium">
+                            Lección {lessonNumber} de {totalLessons}
+                          </span>
+                          <button
+                            onClick={() => setActiveLessonIndex(prev => Math.min(totalLessonsInChapter - 1, prev + 1))}
+                            disabled={activeLessonIndex === totalLessonsInChapter - 1}
+                            className={`px-6 py-3 rounded-xl font-medium transition-all flex items-center gap-2 ${
+                              activeLessonIndex === totalLessonsInChapter - 1
+                                ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                                : 'bg-purple-600 text-white hover:bg-purple-700 shadow-md hover:shadow-lg'
+                            }`}
+                          >
+                            Lección Siguiente →
+                          </button>
+                        </div>
                       </div>
                     );
-                  })}
+                  })()}
 
-                  {/* Chapter 1 Quiz */}
-                  {current <= 1 && (
+                  {/* Chapter 1 Quiz - يظهر فقط في آخر درس من Chapter 1 */}
+                  {current === 0 && activeLessonIndex === (currentChapter?.lessons?.length || 0) - 1 && (
                     <section className="mt-8">
                       <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 mb-6 border border-blue-100">
                         <h3 className="text-xl font-bold text-gray-900 mb-2">Quiz Capítulo 1 (Bilingüe)</h3>
