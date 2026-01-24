@@ -319,7 +319,7 @@ export default function Home() {
 						</Link>
 
 						<Link
-							href="/vocabulario-espanol-por-temas"
+							href="/vocabulario"
 							className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-gray-100 hover:border-green-300"
 						>
 							<div className="flex items-center gap-4 mb-4">

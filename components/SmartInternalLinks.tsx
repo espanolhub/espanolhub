@@ -116,7 +116,7 @@ function getDefaultLinks(currentPath: string, maxLinks: number): InternalLink[] 
       icon: <GraduationCap className="w-6 h-6" />,
     },
     {
-      url: '/vocabulario-espanol-por-temas',
+      url: '/vocabulario',
       anchor: 'Vocabulario por Temas',
       icon: <Languages className="w-6 h-6" />,
     },

@@ -206,7 +206,7 @@ export const PAGE_SEO_CONFIG = {
     h1: 'Gramática Española Completa',
     focusKeyword: 'gramática española',
   },
-  '/vocabulario-espanol-por-temas': {
+  '/vocabulario': {
     primaryKeyword: 'vocabulario español',
     title: 'Vocabulario Español por Temas - 1000+ Palabras Gratis',
     description: 'Aprende vocabulario español organizado por temas. Familia, trabajo, comida, viajes y más. Con pronunciación y ejemplos.',
@@ -229,16 +229,16 @@ export const PAGE_SEO_CONFIG = {
 export const INTERNAL_LINKING = {
   '/aprender-espanol-gratis': [
     { url: '/gramatica-espanola-completa', anchor: 'Gramática Española Completa' },
-    { url: '/vocabulario-espanol-por-temas', anchor: 'Vocabulario por Temas' },
+    { url: '/vocabulario', anchor: 'Vocabulario por Temas' },
     { url: '/juegos', anchor: 'Juegos Educativos' },
     { url: '/lectura', anchor: 'Lecturas en Español' },
   ],
   '/gramatica-espanola-completa': [
-    { url: '/vocabulario-espanol-por-temas', anchor: 'Vocabulario Español' },
+    { url: '/vocabulario', anchor: 'Vocabulario Español' },
     { url: '/juegos', anchor: 'Practica con Juegos' },
     { url: '/lectura', anchor: 'Aplica lo Aprendido' },
   ],
-  '/vocabulario-espanol-por-temas': [
+  '/vocabulario': [
     { url: '/gramatica-espanola-completa', anchor: 'Gramática Española' },
     { url: '/juegos', anchor: 'Juegos de Vocabulario' },
     { url: '/lectura', anchor: 'Lecturas con Vocabulario' },

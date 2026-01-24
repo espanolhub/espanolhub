@@ -109,7 +109,7 @@ function generateBreadcrumbsFromPath(pathname: string): BreadcrumbItem[] {
     'tablas': 'Tablas',
     'aprender-espanol-gratis': 'Aprender Español Gratis',
     'gramatica-espanola-completa': 'Gramática Completa',
-    'vocabulario-espanol-por-temas': 'Vocabulario por Temas',
+    'vocabulario': 'Vocabulario por Temas',
     'about': 'Acerca de',
     'contact': 'Contacto',
     'faq': 'FAQ',

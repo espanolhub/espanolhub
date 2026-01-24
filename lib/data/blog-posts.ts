@@ -74,7 +74,7 @@ No necesitas aprender todas las palabras del diccionario. Los lingüistas han de
 
 ### Estrategia de aprendizaje
 
-En lugar de memorizar palabras aleatorias, aprende primero las palabras que aparecen con más frecuencia. Puedes encontrar listas de "palabras de alta frecuencia" en español online o usar nuestras [guías de vocabulario por temas](/vocabulario-espanol-por-temas).
+En lugar de memorizar palabras aleatorias, aprende primero las palabras que aparecen con más frecuencia. Puedes encontrar listas de "palabras de alta frecuencia" en español online o usar nuestro [sistema de vocabulario](/vocabulario).
 
 **Resultado esperado:** Con 1000 palabras bien aprendidas, podrás entender y participar en la mayoría de conversaciones cotidianas.
 
@@ -468,7 +468,7 @@ No solo leas las palabras - úsalas. Escribe oraciones con cada palabra. Habla c
 
 Una vez que domines estas 100 palabras, estarás listo para expandir tu vocabulario. Te recomendamos:
 
-1. [Explora nuestro sistema de vocabulario por temas](/vocabulario-espanol-por-temas) para aprender palabras relacionadas con temas específicos
+1. [Explora nuestro sistema de vocabulario](/vocabulario) para aprender palabras relacionadas con temas específicos
 2. [Practica con nuestros juegos interactivos](/juegos) para reforzar lo aprendido
 3. [Lee nuestros artículos del blog](/blog) para ver estas palabras en contexto real
 
@@ -1767,7 +1767,7 @@ Nuestra plataforma ofrece contenido completamente gratuito y de alta calidad:
 - Ejercicios interactivos
 
 **Vocabulario por Temas:**
-- [Más de 1000 palabras organizadas por temas](/vocabulario-espanol-por-temas)
+- [Más de 1000 palabras organizadas por temas](/vocabulario)
 - Familia, trabajo, comida, viajes y más
 - Ejemplos de uso en contexto
 
@@ -2391,7 +2391,7 @@ Aprender vocabulario de comida es esencial para cualquier estudiante de español
 
 Este vocabulario de comida es fundamental para comunicarte en español en situaciones cotidianas. Practica estas palabras regularmente y pronto podrás navegar cualquier menú español con confianza.
 
-[Explora más vocabulario por temas](/vocabulario-espanol-por-temas) o practica con nuestros [juegos educativos](/juegos).`,
+[Explora más vocabulario](/vocabulario) o practica con nuestros [juegos educativos](/juegos).`,
     keywords: ['vocabulario comida español', 'palabras comida español', 'vocabulario restaurante español', 'frutas español', 'verduras español'],
     datePublished: '2026-01-22',
     readingTime: 10,

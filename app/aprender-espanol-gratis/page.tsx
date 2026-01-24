@@ -205,7 +205,7 @@ export default function AprenderEspanolGratisPage() {
               {
                 title: 'Vocabulario por Temas',
                 description: 'Más de 1000 palabras organizadas por temas: familia, trabajo, comida, viajes...',
-                link: '/vocabulario-espanol-por-temas',
+                link: '/vocabulario',
               },
               {
                 title: 'Juegos Educativos',
