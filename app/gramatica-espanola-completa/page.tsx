@@ -2,7 +2,10 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { generateLandingMetadata } from '@/lib/utils/dynamic-metadata';
 import { generateHowToSchema, generateLessonSchema } from '@/lib/utils/schemaMarkup';
-import { BookOpen, CheckCircle, Gamepad2, ArrowRight, Book } from 'lucide-react';
+import { BookOpen, CheckCircle, Gamepad2, ArrowRight, Book, GraduationCap } from 'lucide-react';
+import { getAllLessons } from '@/lib/data/grammar-lessons';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import SmartInternalLinks from '@/components/SmartInternalLinks';
 
 export const metadata: Metadata = generateLandingMetadata(
   'gramática española',
@@ -73,80 +76,13 @@ const courseSchema = generateLessonSchema({
 });
 
 export default function GramaticaEspanolaCompletaPage() {
-  const grammarUnits = [
-    {
-      id: 1,
-      title: 'Fundamentos',
-      topics: ['Alfabeto y pronunciación', 'Artículos definidos e indefinidos', 'Género de sustantivos'],
-      level: 'Principiante',
-    },
-    {
-      id: 2,
-      title: 'Sustantivos y Adjetivos',
-      topics: ['Género y número', 'Concordancia', 'Adjetivos posesivos'],
-      level: 'Principiante',
-    },
-    {
-      id: 3,
-      title: 'Ser y Estar',
-      topics: ['Cuándo usar Ser', 'Cuándo usar Estar', 'Diferencias y ejemplos'],
-      level: 'Principiante',
-    },
-    {
-      id: 4,
-      title: 'Presente de Indicativo',
-      topics: ['Verbos regulares (-ar, -er, -ir)', 'Verbos irregulares comunes', 'Usos del presente'],
-      level: 'Principiante',
-    },
-    {
-      id: 5,
-      title: 'Pretérito Perfecto',
-      topics: ['Formación con haber + participio', 'Usos y ejemplos', 'Participios irregulares'],
-      level: 'Intermedio',
-    },
-    {
-      id: 6,
-      title: 'Pretérito Indefinido',
-      topics: ['Conjugación regular', 'Verbos irregulares', 'Cuándo usarlo'],
-      level: 'Intermedio',
-    },
-    {
-      id: 7,
-      title: 'Imperfecto',
-      topics: ['Formación', 'Usos: descripciones, hábitos pasados', 'Ser vs Estar en imperfecto'],
-      level: 'Intermedio',
-    },
-    {
-      id: 8,
-      title: 'Futuro y Condicional',
-      topics: ['Futuro simple', 'Condicional simple', 'Expresar probabilidad'],
-      level: 'Intermedio',
-    },
-    {
-      id: 9,
-      title: 'Subjuntivo Presente',
-      topics: ['Formación', 'Usos principales', 'Expresiones que requieren subjuntivo'],
-      level: 'Avanzado',
-    },
-    {
-      id: 10,
-      title: 'Pronombres',
-      topics: ['Pronombres personales', 'Pronombres de objeto directo/indirecto', 'Pronombres reflexivos'],
-      level: 'Intermedio',
-    },
-    {
-      id: 11,
-      title: 'Preposiciones',
-      topics: ['Por vs Para', 'A, de, en, con', 'Usos comunes'],
-      level: 'Intermedio',
-    },
-    {
-      id: 12,
-      title: 'Oraciones Compuestas',
-      topics: ['Oraciones coordinadas', 'Oraciones subordinadas', 'Conectores'],
-      level: 'Avanzado',
-    },
-  ];
+  // Get actual grammar lessons from data
+  const allLessons = getAllLessons();
+  
+  // Group lessons by level for better organization
+  const beginnerLessons = allLessons.filter(l => l.level === 'beginner');
+  const intermediateLessons = allLessons.filter(l => l.level === 'intermediate');
+  const advancedLessons = allLessons.filter(l => l.level === 'advanced');
 
   return (
     <>
@@ -161,77 +97,220 @@ export default function GramaticaEspanolaCompletaPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
 
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+      <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="container mx-auto px-4 py-16 md:py-24">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Gramática Española <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Completa</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-700 mb-8">
-              Aprende toda la gramática española desde cero hasta avanzado. Guía completa con ejemplos, ejercicios y explicaciones detalladas.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/gramatica"
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold text-lg hover:shadow-xl transition-all transform hover:scale-105"
-              >
-                Empezar a Aprender
-              </Link>
-              <Link
-                href="/juegos"
-                className="px-8 py-4 bg-white border-2 border-blue-600 text-blue-600 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-all"
-              >
-                Practicar con Juegos
-              </Link>
+        <section className="bg-gradient-to-br from-red-50 via-pink-50 to-white py-16 md:py-20">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <Breadcrumbs className="mb-8" />
+            
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full mb-6">
+                <GraduationCap className="w-5 h-5 text-blue-600" />
+                <span className="text-sm font-bold text-blue-900">Curso Completo Gratis</span>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+                Gramática Española <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-pink-600">Completa</span>
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
+                Aprende toda la gramática española desde cero hasta avanzado. Guía completa con ejemplos, ejercicios y explicaciones detalladas en español y árabe.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/gramatica"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+                >
+                  <BookOpen className="w-5 h-5" />
+                  Empezar a Aprender
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="/gramatica/ejercicios"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border-2 border-red-600 text-red-600 font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+                >
+                  <Gamepad2 className="w-5 h-5" />
+                  Practicar con Ejercicios
+                </Link>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Table of Contents */}
-        <section className="container mx-auto px-4 py-16">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-              Contenido del Curso
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {grammarUnits.map((unit) => (
-                <div
-                  key={unit.id}
-                  className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all"
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-                      Unidad {unit.id}
-                    </span>
-                    <span className="text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded">
-                      {unit.level}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{unit.title}</h3>
-                  <ul className="space-y-2 mb-4">
-                    {unit.topics.map((topic, index) => (
-                      <li key={index} className="flex items-start text-gray-700 text-sm">
-                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                        <span>{topic}</span>
-                      </li>
-                    ))}
-                  </ul>
+        {/* Lecciones por Nivel */}
+        <section className="py-16">
+          <div className="container mx-auto px-4 max-w-7xl">
+            
+            {/* Principiante */}
+            <div className="mb-16">
+              <div className="text-center mb-10">
+                <span className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full font-bold text-sm mb-4">
+                  Nivel Principiante
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                  Fundamentos de la Gramática
+                </h2>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  Empieza desde cero con las bases esenciales del español
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {beginnerLessons.map((lesson) => (
                   <Link
-                    href="/gramatica"
-                    className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-blue-700"
+                    key={lesson.id}
+                    href={`/gramatica/${lesson.id}`}
+                    className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-green-300 transform hover:scale-105"
+                    aria-label={`Estudiar ${lesson.title}`}
                   >
-                    Estudiar ahora <ArrowRight className="w-4 h-4 ml-1" />
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <BookOpen className="w-6 h-6 text-white" />
+                      </div>
+                      <span className="px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-bold capitalize">
+                        {lesson.category}
+                      </span>
+                    </div>
+                    
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors">
+                      {lesson.title}
+                    </h3>
+                    
+                    <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                      {lesson.content.substring(0, 100).replace(/[#*]/g, '').trim()}...
+                    </p>
+                    
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                      <span className="text-sm text-gray-500 flex items-center gap-1">
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        {lesson.examples.length} ejemplos
+                      </span>
+                      <span className="text-green-600 font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                        Estudiar
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
                   </Link>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
+
+            {/* Intermedio */}
+            <div className="mb-16">
+              <div className="text-center mb-10">
+                <span className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-bold text-sm mb-4">
+                  Nivel Intermedio
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                  Gramática Intermedia
+                </h2>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  Profundiza tus conocimientos con tiempos verbales y estructuras avanzadas
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {intermediateLessons.map((lesson) => (
+                  <Link
+                    key={lesson.id}
+                    href={`/gramatica/${lesson.id}`}
+                    className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-blue-300 transform hover:scale-105"
+                    aria-label={`Estudiar ${lesson.title}`}
+                  >
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <BookOpen className="w-6 h-6 text-white" />
+                      </div>
+                      <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-bold capitalize">
+                        {lesson.category}
+                      </span>
+                    </div>
+                    
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                      {lesson.title}
+                    </h3>
+                    
+                    <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                      {lesson.content.substring(0, 100).replace(/[#*]/g, '').trim()}...
+                    </p>
+                    
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                      <span className="text-sm text-gray-500 flex items-center gap-1">
+                        <CheckCircle className="w-4 h-4 text-blue-500" />
+                        {lesson.examples.length} ejemplos
+                      </span>
+                      <span className="text-blue-600 font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                        Estudiar
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Avanzado */}
+            {advancedLessons.length > 0 && (
+              <div className="mb-16">
+                <div className="text-center mb-10">
+                  <span className="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full font-bold text-sm mb-4">
+                    Nivel Avanzado
+                  </span>
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                    Gramática Avanzada
+                  </h2>
+                  <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Domina los aspectos más complejos de la gramática española
+                  </p>
+                </div>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {advancedLessons.map((lesson) => (
+                    <Link
+                      key={lesson.id}
+                      href={`/gramatica/${lesson.id}`}
+                      className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-purple-300 transform hover:scale-105"
+                      aria-label={`Estudiar ${lesson.title}`}
+                    >
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                          <BookOpen className="w-6 h-6 text-white" />
+                        </div>
+                        <span className="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-bold capitalize">
+                          {lesson.category}
+                        </span>
+                      </div>
+                      
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">
+                        {lesson.title}
+                      </h3>
+                      
+                      <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                        {lesson.content.substring(0, 100).replace(/[#*]/g, '').trim()}...
+                      </p>
+                      
+                      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <span className="text-sm text-gray-500 flex items-center gap-1">
+                          <CheckCircle className="w-4 h-4 text-purple-500" />
+                          {lesson.examples.length} ejemplos
+                        </span>
+                        <span className="text-purple-600 font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                          Estudiar
+                          <ArrowRight className="w-4 h-4" />
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
         {/* Why Learn Grammar Section */}
-        <section className="container mx-auto px-4 py-16 bg-white">
-          <div className="max-w-4xl mx-auto">
+        <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+          <div className="container mx-auto px-4 max-w-7xl">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
               ¿Por Qué Aprender Gramática?
             </h2>
@@ -271,8 +350,8 @@ export default function GramaticaEspanolaCompletaPage() {
         </section>
 
         {/* How to Use This Guide */}
-        <section className="container mx-auto px-4 py-16">
-          <div className="max-w-3xl mx-auto bg-blue-50 rounded-2xl p-8 md:p-12">
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4 max-w-7xl">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               Cómo Usar Esta Guía
             </h2>
@@ -306,8 +385,8 @@ export default function GramaticaEspanolaCompletaPage() {
         </section>
 
         {/* Common Mistakes Section */}
-        <section className="container mx-auto px-4 py-16 bg-white">
-          <div className="max-w-4xl mx-auto">
+        <section className="py-16 bg-gradient-to-br from-red-50 to-orange-50">
+          <div className="container mx-auto px-4 max-w-7xl">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
               Errores Comunes en Gramática Española
             </h2>
@@ -410,8 +489,8 @@ export default function GramaticaEspanolaCompletaPage() {
         </section>
 
         {/* Practice Exercises Section */}
-        <section className="container mx-auto px-4 py-16 bg-gradient-to-br from-blue-50 to-purple-50">
-          <div className="max-w-4xl mx-auto">
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4 max-w-7xl">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
               Ejercicios Prácticos
             </h2>
@@ -456,9 +535,11 @@ export default function GramaticaEspanolaCompletaPage() {
           </div>
         </section>
 
+          <SmartInternalLinks />
+
         {/* CTA Section */}
-        <section className="container mx-auto px-4 py-16">
-          <div className="max-w-3xl mx-auto text-center bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-white">
+        <section className="py-16">
+          <div className="container mx-auto px-4 max-w-7xl">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               ¿Listo para Dominar la Gramática Española?
             </h2>

@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useMemo, useRef } from 'react';
+import { useState, useMemo, useRef, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { vocabularyCategories } from '@/lib/data/vocabulary';
 import { normalizeArabic } from '@/lib/utils/normalizeArabic';
 import { searchDictionary, getDictionaryByCategory, getDictionaryByWord, getDictionary } from '@/lib/data/dictionary';
@@ -33,7 +34,11 @@ const categoryIcons: Record<string, any> = {
   transporte: Car,
 };
 
-export default function VocabularioPage() {
+function VocabularioContent() {
+  // Get category from URL query params
+  const searchParams = useSearchParams();
+  const categoryFromUrl = searchParams?.get('category');
+  
   // Translation toggle
   const [showTranslations, setShowTranslations] = useTranslations();
   
@@ -42,6 +47,13 @@ export default function VocabularioPage() {
   const [isGeneratingImage, setIsGeneratingImage] = useState(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const cardRef = useRef<HTMLDivElement>(null);
+
+  // Set initial category from URL on mount
+  useEffect(() => {
+    if (categoryFromUrl && vocabularyCategories.includes(categoryFromUrl)) {
+      setSelectedCategory(categoryFromUrl);
+    }
+  }, [categoryFromUrl]);
 
   // Memoize filtered words with search using centralized dictionary
   const words = useMemo(() => {
@@ -328,5 +340,13 @@ export default function VocabularioPage() {
         <div className="ads-container mt-8 mb-4"></div>
       </div>
     </div>
+  );
+}
+
+export default function VocabularioPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-purple-600"></div></div>}>
+      <VocabularioContent />
+    </Suspense>
   );
 }

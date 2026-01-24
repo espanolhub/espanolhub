@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { generateLandingMetadata } from '@/lib/utils/dynamic-metadata';
 import { generateLessonSchema } from '@/lib/utils/schemaMarkup';
-import { BookOpen, CheckCircle, Gamepad2, Volume2, ArrowRight } from 'lucide-react';
+import { BookOpen, CheckCircle, Gamepad2, Volume2, ArrowRight, Languages, GraduationCap, Star } from 'lucide-react';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import SmartInternalLinks from '@/components/SmartInternalLinks';
 
 export const metadata: Metadata = generateLandingMetadata(
   'vocabulario español',
@@ -192,59 +194,101 @@ export default function VocabularioEspanolPorTemasPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
 
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+      <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="container mx-auto px-4 py-16 md:py-24">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Vocabulario Español <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">por Temas</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-700 mb-8">
-              Aprende más de 1000 palabras organizadas por temas. Cada tema incluye pronunciación, ejemplos y ejercicios prácticos.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/vocabulario"
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold text-lg hover:shadow-xl transition-all transform hover:scale-105"
-              >
-                Explorar Vocabulario
-              </Link>
-              <Link
-                href="/juegos"
-                className="px-8 py-4 bg-white border-2 border-blue-600 text-blue-600 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-all"
-              >
-                Practicar con Juegos
-              </Link>
+        <section className="bg-gradient-to-br from-yellow-50 via-orange-50 to-white py-16 md:py-20">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <Breadcrumbs className="mb-8" />
+            
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 rounded-full mb-6">
+                <Languages className="w-5 h-5 text-green-600" />
+                <span className="text-sm font-bold text-green-900">1000+ Palabras Organizadas</span>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+                Vocabulario Español <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-orange-600">por Temas</span>
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
+                Aprende más de 1000 palabras organizadas por temas. Cada tema incluye pronunciación, ejemplos y ejercicios prácticos.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/vocabulario"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-600 to-orange-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+                >
+                  <BookOpen className="w-5 h-5" />
+                  Explorar Vocabulario
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="/juegos"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border-2 border-yellow-600 text-yellow-600 font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+                >
+                  <Gamepad2 className="w-5 h-5" />
+                  Practicar con Juegos
+                </Link>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Vocabulary Themes Grid */}
-        <section className="container mx-auto px-4 py-16">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+        {/* Vocabulary Themes Grid - Redesigned */}
+        <section className="py-16">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
               Temas Disponibles
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <p className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+              Selecciona un tema para empezar a aprender vocabulario nuevo. Cada tema incluye audio, ejemplos y ejercicios.
+            </p>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {vocabularyThemes.map((theme) => (
                 <Link
                   key={theme.id}
-                  href={`/vocabulario/${theme.id}`}
-                  className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all transform hover:scale-105"
+                  href={`/vocabulario?category=${theme.id}`}
+                  className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-yellow-300 transform hover:scale-105 overflow-hidden"
+                  aria-label={`Aprender vocabulario sobre ${theme.title} - ${theme.wordCount} palabras`}
                 >
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-4xl">{theme.icon}</span>
-                    <span className="text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded">
+                  {/* Card Header with Emoji */}
+                  <div className="bg-gradient-to-br from-yellow-50 to-orange-50 p-6 flex items-center justify-between">
+                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-4xl shadow-md group-hover:scale-110 transition-transform">
+                      {theme.icon}
+                    </div>
+                    <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                      theme.level === 'Principiante' 
+                        ? 'bg-green-100 text-green-700' 
+                        : theme.level === 'Intermedio'
+                        ? 'bg-blue-100 text-blue-700'
+                        : 'bg-purple-100 text-purple-700'
+                    }`}>
                       {theme.level}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{theme.title}</h3>
-                  <p className="text-gray-600 text-sm mb-3">{theme.description}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-blue-600 font-semibold">
-                      {theme.wordCount} palabras
-                    </span>
-                    <ArrowRight className="w-5 h-5 text-blue-600" />
+                  
+                  {/* Card Body */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-yellow-600 transition-colors">
+                      {theme.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                      {theme.description}
+                    </p>
+                    
+                    {/* Footer */}
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                      <span className="text-sm font-semibold text-yellow-600 flex items-center gap-1">
+                        <Star className="w-4 h-4" />
+                        {theme.wordCount} palabras
+                      </span>
+                      <span className="text-yellow-600 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 font-semibold text-sm">
+                        Estudiar
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
                   </div>
                 </Link>
               ))}
@@ -253,8 +297,8 @@ export default function VocabularioEspanolPorTemasPage() {
         </section>
 
         {/* Features Section */}
-        <section className="container mx-auto px-4 py-16 bg-white">
-          <div className="max-w-4xl mx-auto">
+        <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+          <div className="container mx-auto px-4 max-w-7xl">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
               ¿Qué Incluye Cada Tema?
             </h2>
@@ -294,8 +338,8 @@ export default function VocabularioEspanolPorTemasPage() {
         </section>
 
         {/* How to Use Section */}
-        <section className="container mx-auto px-4 py-16">
-          <div className="max-w-3xl mx-auto bg-blue-50 rounded-2xl p-8 md:p-12">
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4 max-w-7xl">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               Cómo Aprender Vocabulario Efectivamente
             </h2>
@@ -335,8 +379,8 @@ export default function VocabularioEspanolPorTemasPage() {
         </section>
 
         {/* Useful Phrases Section */}
-        <section className="container mx-auto px-4 py-16 bg-white">
-          <div className="max-w-4xl mx-auto">
+        <section className="py-16 bg-gradient-to-br from-green-50 to-blue-50">
+          <div className="container mx-auto px-4 max-w-7xl">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
               Frases Útiles por Tema
             </h2>
@@ -410,8 +454,8 @@ export default function VocabularioEspanolPorTemasPage() {
         </section>
 
         {/* Memorization Tips Section */}
-        <section className="container mx-auto px-4 py-16">
-          <div className="max-w-4xl mx-auto">
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4 max-w-7xl">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
               Consejos de Memorización por Tema
             </h2>
@@ -452,8 +496,8 @@ export default function VocabularioEspanolPorTemasPage() {
         </section>
 
         {/* Example Usage Section */}
-        <section className="container mx-auto px-4 py-16 bg-gradient-to-br from-green-50 to-blue-50">
-          <div className="max-w-4xl mx-auto">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-pink-50">
+          <div className="container mx-auto px-4 max-w-7xl">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
               Ejemplos de Uso en Contexto
             </h2>
@@ -517,28 +561,32 @@ export default function VocabularioEspanolPorTemasPage() {
           </div>
         </section>
 
+          <SmartInternalLinks />
+
         {/* CTA Section */}
-        <section className="container mx-auto px-4 py-16">
-          <div className="max-w-3xl mx-auto text-center bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              ¿Listo para Expandir tu Vocabulario?
-            </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Accede a más de 1000 palabras organizadas por temas. Todo gratis y disponible ahora.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/vocabulario"
-                className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105"
-              >
-                Ver Vocabulario
-              </Link>
-              <Link
-                href="/juegos"
-                className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold text-lg hover:bg-white/10 transition-all"
-              >
-                Jugar Ahora
-              </Link>
+        <section className="py-16">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <div className="max-w-4xl mx-auto text-center bg-gradient-to-r from-yellow-600 to-orange-600 rounded-2xl p-12 text-white shadow-xl">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                ¿Listo para Expandir tu Vocabulario?
+              </h2>
+              <p className="text-xl mb-8 opacity-90">
+                Accede a más de 1000 palabras organizadas por temas. Todo gratis y disponible ahora.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/vocabulario"
+                  className="px-8 py-4 bg-white text-yellow-600 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+                >
+                  Ver Vocabulario
+                </Link>
+                <Link
+                  href="/juegos"
+                  className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-all shadow-lg"
+                >
+                  Jugar Ahora
+                </Link>
+              </div>
             </div>
           </div>
         </section>
