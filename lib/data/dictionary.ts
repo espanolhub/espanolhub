@@ -1,8 +1,49 @@
 import raw from './dictionary.json';
-import { DictionaryEntry } from '@/lib/types';
+import { vocabulary } from './vocabulary';
+import { DictionaryEntry, VocabularyWord } from '@/lib/types';
 import { normalizeArabic } from '@/lib/utils/normalizeArabic';
 
-const dictionary: DictionaryEntry[] = (raw as unknown) as DictionaryEntry[];
+// Merge sources and remove duplicates
+const mergeSources = (): DictionaryEntry[] => {
+  const baseDictionary = (raw as unknown) as DictionaryEntry[];
+  
+  // Convert VocabularyWord to DictionaryEntry format
+  const extraWords: DictionaryEntry[] = vocabulary.map((v, index) => ({
+    id: `vocab-${v.category}-${index}`,
+    word: v.word,
+    translations: v.translation,
+    category: v.category,
+    pronunciation: v.pronunciation,
+    example: v.example,
+    audio: v.audio,
+  }));
+
+  // Combine and remove duplicates by word
+  const seen = new Set<string>();
+  const combined: DictionaryEntry[] = [];
+
+  // Add base dictionary first
+  baseDictionary.forEach(entry => {
+    const key = entry.word.toLowerCase().trim();
+    if (!seen.has(key)) {
+      seen.add(key);
+      combined.push(entry);
+    }
+  });
+
+  // Add extra words if not already seen
+  extraWords.forEach(entry => {
+    const key = entry.word.toLowerCase().trim();
+    if (!seen.has(key)) {
+      seen.add(key);
+      combined.push(entry);
+    }
+  });
+
+  return combined;
+};
+
+const dictionary: DictionaryEntry[] = mergeSources();
 
 export function getDictionary(): DictionaryEntry[] {
   return dictionary;
