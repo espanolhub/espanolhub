@@ -306,11 +306,11 @@ export default function Home() {
 									<GraduationCap className="w-6 h-6" />
 								</div>
 								<h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-									Gramática Completa
+									Gramática — Fundamentos
 								</h3>
 							</div>
 							<p className="text-gray-600 mb-4">
-								Aprende toda la gramática española desde cero hasta avanzado. Guía completa con ejemplos y ejercicios.
+								Seis lecciones esenciales: Ser/Estar, artículos, verbos y más. 140+ ejercicios y ejemplos en español y árabe.
 							</p>
 							<div className="flex items-center text-blue-600 font-semibold">
 								<span>Explorar</span>
@@ -331,7 +331,7 @@ export default function Home() {
 								</h3>
 							</div>
 							<p className="text-gray-600 mb-4">
-								Más de 1000 palabras organizadas por temas. Familia, trabajo, comida, viajes y más con pronunciación.
+								Diccionario visual por temas. Familia, trabajo, comida, viajes y más con pronunciación. Sin ejercicios interactivos.
 							</p>
 							<div className="flex items-center text-green-600 font-semibold">
 								<span>Explorar</span>
@@ -405,16 +405,16 @@ export default function Home() {
 				{/* Stats Row */}
 				<div className="mt-16 grid grid-cols-3 gap-8 text-center">
 					<div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl">
-						<div className="text-4xl font-bold mb-2">150+</div>
+						<div className="text-4xl font-bold mb-2">100+</div>
 						<div className="text-sm text-purple-200">Lecciones</div>
 					</div>
 					<div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl">
-						<div className="text-4xl font-bold mb-2">2K+</div>
-						<div className="text-sm text-purple-200">Estudiantes</div>
+						<div className="text-lg font-bold mb-2">Global</div>
+						<div className="text-sm text-purple-200">Estudiantes de todo el mundo</div>
 					</div>
 					<div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl">
-						<div className="text-4xl font-bold mb-2">98%</div>
-						<div className="text-sm text-purple-200">Tasa de Éxito</div>
+						<div className="text-lg font-bold mb-2">2026</div>
+						<div className="text-sm text-purple-200">Contenido actualizado</div>
 					</div>
 				</div>
 			</div>

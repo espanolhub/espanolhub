@@ -6,7 +6,7 @@ import SmartInternalLinks from '@/components/SmartInternalLinks';
 
 export const metadata: Metadata = {
   title: "Ejercicios de Español Interactivos Gratis 2026 | Espanol Hub",
-  description: "Practica español con más de 500 ejercicios interactivos gratis. Gramática, vocabulario, verbos y más. Con retroalimentación inmediata. Nivel principiante a avanzado.",
+  description: "Practica español con 140+ ejercicios de gramática, 6 juegos, 40+ lecturas y vocabulario. Retroalimentación inmediata. Nivel principiante a avanzado.",
   keywords: ["ejercicios español", "ejercicios español interactivos", "práctica español", "ejercicios gramática española", "ejercicios vocabulario español", "ejercicios español online"],
   alternates: {
     canonical: "https://www.espanolhub.com/ejercicios-espanol-interactivos",
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "500+ Ejercicios de Español Interactivos Gratis",
-    description: "Practica español con ejercicios interactivos. Gramática, vocabulario, verbos. Retroalimentación inmediata. 100% gratis.",
+    title: "Ejercicios de Español Interactivos Gratis",
+    description: "Practica español con ejercicios de gramática, juegos, lecturas y vocabulario. Retroalimentación inmediata. 100% gratis.",
     type: "website",
     locale: "es_ES",
     url: "https://www.espanolhub.com/ejercicios-espanol-interactivos",
@@ -44,7 +44,7 @@ export default function EjerciciosEspanolPage() {
             </h1>
             
             <p className="text-xl text-gray-700 mb-8">
-              Practica y mejora tu español con más de 500 ejercicios interactivos. Gramática, vocabulario, verbos y más. Todo gratis con retroalimentación inmediata.
+              Practica con 140+ ejercicios de gramática, 6 juegos, 40+ lecturas y vocabulario por temas. Todo gratis con retroalimentación inmediata.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -106,9 +106,12 @@ export default function EjerciciosEspanolPage() {
 
           {/* Por Nivel */}
           <section className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
-              Ejercicios por Nivel
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+              Temas por Nivel
             </h2>
+            <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+              Todos los niveles acceden a Gramática, ejercicios y juegos. Elige tu ruta según el contenido que quieras practicar.
+            </p>
             
             <div className="grid md:grid-cols-3 gap-8">
               {levelCategories.map((level, index) => (
@@ -129,7 +132,7 @@ export default function EjerciciosEspanolPage() {
                     href={level.href}
                     className="mt-6 flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors"
                   >
-                    Ver Ejercicios
+                    Ir a Gramática
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -169,7 +172,7 @@ export default function EjerciciosEspanolPage() {
               Empieza a Practicar Ahora
             </h2>
             <p className="text-xl mb-8 text-green-100">
-              500+ ejercicios interactivos te esperan. 100% gratis.
+              140+ ejercicios de gramática, 6 juegos y 40+ lecturas. 100% gratis.
             </p>
             <Link
               href="/gramatica/ejercicios"
@@ -197,48 +200,48 @@ const exerciseTypes = [
   {
     icon: <GraduationCap className="w-7 h-7 text-white" />,
     title: "Ejercicios de Gramática",
-    description: "Verbos, tiempos, artículos, pronombres y más. 200+ ejercicios.",
-    count: "200+ ejercicios",
+    description: "Verbos, tiempos, artículos, pronombres y más. 140+ ejercicios.",
+    count: "140+ ejercicios",
     href: "/gramatica/ejercicios",
     bgColor: "bg-gradient-to-br from-blue-500 to-blue-600"
   },
   {
     icon: <Languages className="w-7 h-7 text-white" />,
-    title: "Ejercicios de Vocabulario",
-    description: "Aprende y practica palabras por temas. 150+ ejercicios.",
-    count: "150+ ejercicios",
+    title: "Vocabulario por Temas",
+    description: "Diccionario visual y palabras por categorías. Sin registro.",
+    count: "Por categorías",
     href: "/vocabulario",
     bgColor: "bg-gradient-to-br from-green-500 to-green-600"
   },
   {
     icon: <BookOpen className="w-7 h-7 text-white" />,
     title: "Comprensión Lectora",
-    description: "Textos con preguntas de comprensión. 80+ lecturas.",
-    count: "80+ lecturas",
+    description: "Textos con preguntas de comprensión. 40+ lecturas.",
+    count: "40+ lecturas",
     href: "/lectura",
     bgColor: "bg-gradient-to-br from-purple-500 to-purple-600"
   },
   {
     icon: <Gamepad2 className="w-7 h-7 text-white" />,
     title: "Juegos Educativos",
-    description: "Aprende jugando con 15+ juegos interactivos.",
-    count: "15+ juegos",
+    description: "Aprende jugando con 6 juegos interactivos.",
+    count: "6 juegos",
     href: "/juegos",
     bgColor: "bg-gradient-to-br from-pink-500 to-pink-600"
   },
   {
     icon: <Trophy className="w-7 h-7 text-white" />,
-    title: "Tests y Quizzes",
-    description: "Evalúa tu nivel con tests completos. 50+ quizzes.",
-    count: "50+ quizzes",
+    title: "Simulador DGT",
+    description: "Examen oficial de conducir. Preguntas reales DGT.",
+    count: "Simulador oficial",
     href: "/simulator",
     bgColor: "bg-gradient-to-br from-orange-500 to-orange-600"
   },
   {
     icon: <Star className="w-7 h-7 text-white" />,
     title: "Ejercicios de Verbos",
-    description: "Conjugación, tiempos, irregulares. 120+ ejercicios.",
-    count: "120+ ejercicios",
+    description: "Conjugación, tiempos, irregulares. Incluido en Gramática y Quick Quiz.",
+    count: "Gramática + Juegos",
     href: "/gramatica",
     bgColor: "bg-gradient-to-br from-indigo-500 to-indigo-600"
   },

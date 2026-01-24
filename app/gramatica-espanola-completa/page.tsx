@@ -9,8 +9,8 @@ import SmartInternalLinks from '@/components/SmartInternalLinks';
 
 export const metadata: Metadata = generateLandingMetadata(
   'gramática española',
-  'Guía Completa Gratis 2025',
-  'Aprende toda la gramática española gratis. Verbos, tiempos, artículos, pronombres y más. Ejercicios interactivos incluidos.',
+  'Fundamentos Gratis 2025',
+  'Seis lecciones esenciales: Ser/Estar, artículos, presente, pretérito, subjuntivo y por/para. Ejercicios y ejemplos en español y árabe.',
   '/gramatica-espanola-completa'
 );
 
@@ -106,15 +106,15 @@ export default function GramaticaEspanolaCompletaPage() {
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full mb-6">
                 <GraduationCap className="w-5 h-5 text-blue-600" />
-                <span className="text-sm font-bold text-blue-900">Curso Completo Gratis</span>
+                <span className="text-sm font-bold text-blue-900">Fundamentos Gratis</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
-                Gramática Española <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-pink-600">Completa</span>
+                Gramática Española — <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-pink-600">Fundamentos</span>
               </h1>
               
               <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
-                Aprende toda la gramática española desde cero hasta avanzado. Guía completa con ejemplos, ejercicios y explicaciones detalladas en español y árabe.
+                Seis lecciones esenciales: Ser/Estar, artículos, presente, pretérito, subjuntivo y por/para. Ejemplos, ejercicios y explicaciones en español y árabe.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

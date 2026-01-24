@@ -56,18 +56,15 @@ export default function SubscriptionButton({
     }
   };
 
-  // إذا كان نظام الدفع معطل
+  // Sin botón de suscripción cuando los pagos están desactivados
   if (disabled) {
     return (
-      <div className="w-full">
-        <button
-          disabled
-          className="w-full px-8 py-4 bg-gray-300 text-gray-600 rounded-xl font-bold text-lg cursor-not-allowed opacity-60"
-        >
-          Próximamente / قريباً
-        </button>
-        <p className="text-center text-sm text-white/80 mt-2">
-          Todo el contenido es gratis por ahora / كل المحتوى مجاني الآن
+      <div className="w-full rounded-xl bg-white/10 backdrop-blur-sm px-6 py-4 text-center">
+        <p className="text-white font-semibold">
+          Todo el contenido es gratis actualmente
+        </p>
+        <p className="text-sm text-white/80 mt-1" dir="rtl" style={{ fontFamily: 'var(--font-cairo, inherit)' }}>
+          كل المحتوى مجاني الآن
         </p>
       </div>
     );

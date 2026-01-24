@@ -291,7 +291,7 @@ export default function AprenderEspanolGratisPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
               {[
                 { number: '1000+', label: 'Palabras de Vocabulario' },
-                { number: '200+', label: 'Preguntas de Práctica' },
+                { number: '140+', label: 'Ejercicios de Gramática' },
                 { number: '12', label: 'Unidades de Gramática' },
                 { number: '100%', label: 'Gratis Siempre' },
               ].map((stat, index) => (

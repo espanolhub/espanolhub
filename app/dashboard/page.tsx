@@ -175,7 +175,7 @@ export default function DashboardPage() {
                   <h3 className="text-xl font-bold">Actualiza a Premium</h3>
                 </div>
                 <p className="text-purple-100 mb-3">
-                  Accede a 150+ lecciones, simuladores oficiales y certificados
+                  Accede a 100+ lecciones, simuladores oficiales y certificados
                 </p>
                 <ul className="space-y-1 text-sm text-purple-100">
                   <li>✅ Simuladores DGT y CCSE</li>

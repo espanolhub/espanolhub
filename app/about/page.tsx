@@ -6,28 +6,19 @@ import Link from 'next/link';
 import { BookOpen, Users, Target, Award, Globe, Heart, Sparkles, TrendingUp, CheckCircle, Star, Rocket, Zap, Shield, Mail } from 'lucide-react';
 
 export default function AboutPage() {
-  const [counters, setCounters] = useState({ students: 0, lessons: 0, success: 0 });
+  const [counters, setCounters] = useState({ lessons: 0 });
 
-  // Animated counters
+  // Animated counter for lessons only (100+)
   useEffect(() => {
-    const duration = 2000;
-    const steps = 60;
-    const increment = duration / steps;
-
-    const targets = { students: 2000, lessons: 150, success: 98 };
+    const duration = 1500;
+    const steps = 50;
+    const target = 100;
     let step = 0;
-
     const timer = setInterval(() => {
       step++;
-      setCounters({
-        students: Math.floor((targets.students / steps) * step),
-        lessons: Math.floor((targets.lessons / steps) * step),
-        success: Math.floor((targets.success / steps) * step),
-      });
-
+      setCounters({ lessons: Math.floor((target / steps) * step) });
       if (step >= steps) clearInterval(timer);
-    }, increment);
-
+    }, duration / steps);
     return () => clearInterval(timer);
   }, []);
 
@@ -57,16 +48,16 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Animated Stats */}
+        {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           <div className="bg-white rounded-2xl shadow-xl p-8 text-center transform hover:scale-105 transition-all duration-300 border border-blue-100">
             <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               <Users className="w-8 h-8 text-white" />
             </div>
-            <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-              {counters.students.toLocaleString()}+
+            <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+              Global
             </div>
-            <div className="text-gray-600 font-medium">Estudiantes Activos</div>
+            <div className="text-gray-600 font-medium">Estudiantes de todo el mundo</div>
           </div>
 
           <div className="bg-white rounded-2xl shadow-xl p-8 text-center transform hover:scale-105 transition-all duration-300 border border-purple-100">
@@ -83,10 +74,10 @@ export default function AboutPage() {
             <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               <TrendingUp className="w-8 h-8 text-white" />
             </div>
-            <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-2">
-              {counters.success}%
+            <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-2">
+              2026
             </div>
-            <div className="text-gray-600 font-medium">Tasa de Éxito</div>
+            <div className="text-gray-600 font-medium">Contenido actualizado</div>
           </div>
         </div>
 
@@ -289,7 +280,7 @@ export default function AboutPage() {
               </div>
               <div className="flex-1">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">2026 - Actualidad</h3>
-                <p className="text-gray-600">Más de 2000 estudiantes activos, 150+ lecciones, juegos interactivos, sistema de progreso, y contenido constantemente actualizado.</p>
+                <p className="text-gray-600">Estudiantes de todo el mundo, 100+ lecciones, juegos interactivos, sistema de progreso, y contenido constantemente actualizado.</p>
               </div>
             </div>
           </div>

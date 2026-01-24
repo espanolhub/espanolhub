@@ -76,7 +76,7 @@ export default function PricingPage() {
   const proFeatures = [
     { text: 'Acceso completo a todos los cursos', icon: BookOpen },
     { text: 'Simuladores oficiales DGT y CCSE', icon: Target },
-    { text: '150+ lecciones completas', icon: Award },
+    { text: '100+ lecciones completas', icon: Award },
     { text: 'Material descargable en PDF', icon: BookOpen },
     { text: 'Soporte prioritario 24/7', icon: Users },
     { text: 'Actualizaciones constantes 2026', icon: Zap },
@@ -104,10 +104,10 @@ export default function PricingPage() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* PAYMENT DISABLED BANNER */}
           {PAYMENT_DISABLED && (
-            <div className="bg-yellow-50 border-2 border-yellow-300 rounded-xl p-6 mb-8 text-center">
-              <h3 className="text-xl font-bold text-yellow-800 mb-2">🚧 Próximamente / قريباً</h3>
-              <p className="text-yellow-700">El sistema de pagos estará disponible pronto. Mientras tanto, disfruta de todo el contenido gratuito.</p>
-              <p className="text-yellow-600 mt-2" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>نظام الدفع سيكون متاحاً قريباً. في هذه الأثناء، استمتع بكل المحتوى المجاني.</p>
+            <div className="bg-green-50 border-2 border-green-300 rounded-xl p-6 mb-8 text-center">
+              <h3 className="text-xl font-bold text-green-800 mb-2">Todo el contenido es gratis</h3>
+              <p className="text-green-700">Disfruta de 100+ lecciones, simuladores DGT y CCSE, juegos y más. Sin pagos, sin registro.</p>
+              <p className="text-green-600 mt-2" dir="rtl">كل المحتوى مجاني. استمتع بكل الدروس والألعاب والمحاكيات.</p>
             </div>
           )}
           
@@ -123,7 +123,7 @@ export default function PricingPage() {
 				Invierte en tu futuro en España
 			</h1>
 			<p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
-				Accede a todo el contenido premium: simuladores oficiales, 150+ lecciones, material descargable y soporte prioritario.
+				Accede a todo el contenido premium: simuladores oficiales, 100+ lecciones, material descargable y soporte prioritario.
 			</p>
 
             {/* Billing Toggle */}
@@ -280,15 +280,15 @@ export default function PricingPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl md:text-5xl font-extrabold mb-2">2K+</div>
-              <div className="text-purple-200">Estudiantes activos</div>
+              <div className="text-2xl md:text-3xl font-extrabold mb-2">Global</div>
+              <div className="text-purple-200">Estudiantes de todo el mundo</div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-extrabold mb-2">98%</div>
-              <div className="text-purple-200">Tasa de aprobación</div>
+              <div className="text-2xl md:text-3xl font-extrabold mb-2">2026</div>
+              <div className="text-purple-200">Contenido actualizado</div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-extrabold mb-2">150+</div>
+              <div className="text-4xl md:text-5xl font-extrabold mb-2">100+</div>
               <div className="text-purple-200">Lecciones premium</div>
             </div>
             <div>

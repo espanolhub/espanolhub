@@ -8,7 +8,7 @@ export default function Dashboard() {
   const stats = [
     {
       title: 'Contenido Educativo',
-      value: '150+',
+      value: '100+',
       description: 'Lecciones y contenido disponible',
       icon: BookOpen,
       color: 'bg-blue-500',

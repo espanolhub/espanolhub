@@ -15,7 +15,7 @@ const aprenderDropdown = {
   icon: BookOpen,
   subtitle: 'Elige tu Lección',
   children: [
-    { href: '/gramatica-espanola-completa', label: 'Gramática Completa', icon: GraduationCap },
+    { href: '/gramatica-espanola-completa', label: 'Gramática — Fundamentos', icon: GraduationCap },
     { href: '/gramatica', label: 'Gramática', icon: GraduationCap },
     { href: '/vocabulario', label: 'Vocabulario', icon: Languages },
     { href: '/lectura', label: 'Lectura', icon: Book },
@@ -37,7 +37,7 @@ const mobileMenuItems: { href: string; label: string; icon: typeof Shield; bg: s
   { href: '/nacionalidad', label: 'Nacionalidad ES', icon: Shield, bg: 'bg-blue-50', iconColor: 'text-blue-600' },
   { href: '/driving-license', label: 'Carnet', icon: Car, bg: 'bg-emerald-50', iconColor: 'text-emerald-600' },
   { href: '/tramites', label: 'Guías Legales', icon: Download, bg: 'bg-violet-50', iconColor: 'text-violet-600' },
-  { href: '/gramatica-espanola-completa', label: 'Gramática Completa', icon: GraduationCap, bg: 'bg-blue-50', iconColor: 'text-blue-600' },
+  { href: '/gramatica-espanola-completa', label: 'Gramática — Fundamentos', icon: GraduationCap, bg: 'bg-blue-50', iconColor: 'text-blue-600' },
   { href: '/gramatica', label: 'Gramática', icon: GraduationCap, bg: 'bg-amber-50', iconColor: 'text-amber-600' },
   { href: '/vocabulario', label: 'Vocabulario', icon: Languages, bg: 'bg-teal-50', iconColor: 'text-teal-600' },
   { href: '/lectura', label: 'Lectura', icon: Book, bg: 'bg-indigo-50', iconColor: 'text-indigo-600' },

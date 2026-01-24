@@ -98,7 +98,7 @@ export default function CursosPage() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-green-100 rounded-full mb-6">
             <Sparkles className="w-4 h-4 text-blue-600" />
-            <span className="text-sm font-semibold text-blue-900">150+ Cursos Disponibles</span>
+            <span className="text-sm font-semibold text-blue-900">5 Cursos Disponibles</span>
             <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
           </div>
 
@@ -363,12 +363,12 @@ export default function CursosPage() {
                         <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                       </Link>
                     ) : (
-                      <button
-                        disabled
-                        className="w-full px-4 py-3 rounded-xl font-semibold bg-gray-100 text-gray-500 cursor-not-allowed border-2 border-dashed border-gray-300"
+                      <div
+                        className="w-full px-4 py-3 rounded-xl font-medium bg-gray-50 text-gray-500 border-2 border-dashed border-gray-200 text-center"
+                        aria-label="Curso en preparación"
                       >
                         Próximamente
-                      </button>
+                      </div>
                     )}
                   </div>
                 </div>

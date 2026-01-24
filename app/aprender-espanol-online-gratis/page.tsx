@@ -243,7 +243,7 @@ const onlineTools = [
   {
     icon: <BookOpen className="w-7 h-7 text-white" />,
     title: "Lecciones Interactivas",
-    description: "150+ lecciones con explicaciones detalladas y ejemplos",
+    description: "100+ lecciones con explicaciones detalladas y ejemplos",
     href: "/gramatica",
     bgColor: "bg-gradient-to-br from-blue-500 to-blue-600"
   },
@@ -257,7 +257,7 @@ const onlineTools = [
   {
     icon: <Gamepad2 className="w-7 h-7 text-white" />,
     title: "Juegos Educativos",
-    description: "Aprende jugando con 15+ juegos interactivos",
+    description: "Aprende jugando con 6 juegos interactivos",
     href: "/juegos",
     bgColor: "bg-gradient-to-br from-pink-500 to-pink-600"
   },
