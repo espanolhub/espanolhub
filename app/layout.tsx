@@ -36,9 +36,12 @@ const cairo = Cairo({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.espanolhub.com'),
-  title: "Espanol Hub - Tu Centro Inteligente para Aprender Español",
-  description: "Tu centro inteligente para aprender español. Gramática, vocabulario, preparación CCSE, carnet de conducir y más. ¡100% gratis!",
-  keywords: ["aprender español", "español gratis", "CCSE", "nacionalidad española", "carnet de conducir", "DGT", "gramática española", "vocabulario español"],
+  title: {
+    default: "Espanol Hub - Aprende Español GRATIS | Gramática, Vocabulario, Juegos",
+    template: "%s | Espanol Hub"
+  },
+  description: "Aprende español 100% gratis. Gramática, vocabulario, juegos educativos, preparación CCSE y carnet de conducir. La mejor plataforma para aprender español online.",
+  keywords: ["aprender español gratis", "gramática española", "vocabulario español", "juegos educativos español", "curso español online", "aprender español", "español para principiantes", "CCSE", "nacionalidad española", "carnet de conducir", "DGT"],
   authors: [{ name: "Espanol Hub Team" }],
   icons: {
     icon: [
@@ -52,9 +55,16 @@ export const metadata: Metadata = {
     ],
   },
   manifest: '/manifest.json',
+  alternates: {
+    canonical: "https://www.espanolhub.com",
+    languages: {
+      'es': "https://www.espanolhub.com",
+      'ar': "https://www.espanolhub.com/ar",
+    }
+  },
   openGraph: {
-    title: "Espanol Hub - Tu Centro Inteligente para Aprender Español",
-    description: "Tu centro inteligente para aprender español. Gramática, vocabulario, preparación CCSE, carnet de conducir y más. ¡100% gratis!",
+    title: "Espanol Hub - Aprende Español GRATIS | Gramática, Vocabulario, Juegos",
+    description: "Aprende español 100% gratis. Gramática, vocabulario, juegos educativos, preparación CCSE y carnet de conducir. La mejor plataforma para aprender español online.",
     type: "website",
     locale: "es_ES",
     url: "https://www.espanolhub.com",
@@ -70,8 +80,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Espanol Hub - Tu Centro Inteligente para Aprender Español",
-    description: "Tu centro inteligente para aprender español. Gramática, vocabulario, preparación CCSE, carnet de conducir y más. ¡100% gratis!",
+    site: "@espanolhub",
+    creator: "@espanolhub",
+    title: "Espanol Hub - Aprende Español GRATIS | Gramática, Vocabulario, Juegos",
+    description: "Aprende español 100% gratis. Gramática, vocabulario, juegos educativos, preparación CCSE y carnet de conducir. La mejor plataforma para aprender español online.",
     images: ['/og-image.png'],
   },
   robots: {

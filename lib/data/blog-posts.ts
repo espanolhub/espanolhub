@@ -1997,6 +1997,529 @@ Recuerda: el mejor recurso es el que realmente usas. Prueba diferentes opciones 
     readingTime: 14,
     author: 'Espanol Hub Team',
   },
+  {
+    slug: 'preterito-vs-imperfecto-guia-completa',
+    title: 'Pretérito vs Imperfecto: Guía Completa con Ejemplos',
+    excerpt: 'Domina la diferencia entre pretérito e imperfecto en español. Explicación clara, ejemplos prácticos y ejercicios para nunca confundirlos.',
+    content: `# Pretérito vs Imperfecto: Guía Completa con Ejemplos
+
+Una de las mayores dificultades para estudiantes de español es entender cuándo usar pretérito (perfecto simple) y cuándo usar imperfecto. Ambos tiempos se refieren al pasado, pero expresan ideas diferentes. En esta guía completa, te explicamos las diferencias de forma clara con muchos ejemplos prácticos.
+
+## ¿Qué es el Pretérito?
+
+El pretérito perfecto simple (o indefinido) se usa para acciones completadas en el pasado. Son acciones que tienen un principio y un fin definidos.
+
+**Ejemplos:**
+- Ayer **comí** pizza. (acción completada)
+- El año pasado **viajé** a Madrid. (acción terminada)
+- **Estudié** tres horas anoche. (duración específica y terminada)
+
+## ¿Qué es el Imperfecto?
+
+El imperfecto se usa para acciones habituales en el pasado, descripciones, o acciones sin un final claro.
+
+**Ejemplos:**
+- De niño **comía** pizza todos los viernes. (acción habitual)
+- La ciudad **era** hermosa. (descripción)
+- **Estudiaba** cuando me llamaste. (acción en progreso)
+
+## Usos del Pretérito
+
+### 1. Acciones Completadas
+El pretérito indica que la acción terminó completamente.
+
+**Ejemplos:**
+- **Terminé** el proyecto ayer.
+- María **llegó** a las 8 pm.
+- **Compramos** una casa nueva.
+
+### 2. Secuencia de Acciones
+Cuando narras eventos que ocurrieron uno después del otro.
+
+**Ejemplo:**
+- Me **levanté**, **desayuné** y **salí** de casa.
+
+### 3. Cambio de Estado
+Para expresar el momento exacto de un cambio.
+
+**Ejemplos:**
+- **Supe** la verdad ayer. (momento específico)
+- De repente **entendí** el problema. (cambio instantáneo)
+
+## Usos del Imperfecto
+
+### 1. Acciones Habituales
+Para expresar lo que hacías regularmente en el pasado.
+
+**Ejemplos:**
+- **Iba** al gimnasio todos los días.
+- Siempre **comíamos** juntos los domingos.
+
+### 2. Descripciones
+Para describir cómo eran las cosas en el pasado.
+
+**Ejemplos:**
+- La casa **era** grande y **tenía** jardín.
+- **Hacía** frío y **llovía**.
+
+### 3. Acciones en Progreso
+Para acciones que estaban ocurriendo (sin mencionar cuándo terminaron).
+
+**Ejemplos:**
+- **Leía** un libro cuando sonó el teléfono.
+- ¿Qué **hacías** a las 5?
+
+## Contraste Directo
+
+| Pretérito | Imperfecto |
+|-----------|------------|
+| Acción completada | Acción habitual o en progreso |
+| Evento puntual | Descripción o contexto |
+| Cambio de estado | Estado sin cambio |
+| Secuencia de eventos | Situación de fondo |
+
+**Ejemplos comparativos:**
+
+1. **Viví** en Madrid por 3 años. (terminado, ya no vivo allí)
+   **Vivía** en Madrid. (situación pasada, sin mencionar cuándo terminó)
+
+2. **Fue** un día especial. (ese día específico)
+   **Era** un día especial. (descripción del día)
+
+3. **Tuve** miedo. (momento específico de sentir miedo)
+   **Tenía** miedo. (estado continuo de tener miedo)
+
+## Palabras Clave
+
+### Con Pretérito
+- Ayer, anoche, el año pasado
+- De repente, inmediatamente
+- Una vez, dos veces
+- Finalmente, por fin
+
+### Con Imperfecto
+- Siempre, nunca, a menudo
+- Todos los días, cada semana
+- Mientras, cuando (para acciones simultáneas)
+- De niño, de joven
+
+## Ejercicios Prácticos
+
+Completa con pretérito o imperfecto:
+
+1. Cuando (ser) _____ niño, (jugar) _____ mucho fútbol.
+2. Ayer (ir) _____ al cine y (ver) _____ una película interesante.
+3. Mientras (estudiar) _____, mi hermano (escuchar) _____ música.
+
+**Respuestas:**
+1. era, jugaba (habitual en el pasado)
+2. fui, vi (acciones completadas)
+3. estudiaba, escuchaba (acciones simultáneas en progreso)
+
+## Conclusión
+
+La diferencia principal: **Pretérito = acción terminada**, **Imperfecto = contexto, hábito o progreso**. Con práctica constante, elegir entre estos tiempos se vuelve natural.
+
+[Practica más con nuestros ejercicios de gramática](/gramatica/ejercicios) o explora más temas en nuestro [blog](/blog).`,
+    keywords: ['pretérito vs imperfecto', 'diferencia pretérito imperfecto', 'pasado español', 'gramática española'],
+    datePublished: '2026-01-20',
+    readingTime: 12,
+    author: 'Espanol Hub Team',
+  },
+  {
+    slug: 'subjuntivo-espanol-guia-completa',
+    title: 'Subjuntivo Español: Cuándo y Cómo Usarlo - Guía Completa',
+    excerpt: 'Aprende a usar el subjuntivo en español. Explicación clara de cuándo usarlo, conjugaciones y más de 50 ejemplos prácticos.',
+    content: `# Subjuntivo Español: Cuándo y Cómo Usarlo
+
+El subjuntivo es uno de los aspectos más desafiantes del español para estudiantes extranjeros. Sin embargo, con esta guía completa y práctica, dominarás cuándo y cómo usar el subjuntivo correctamente.
+
+## ¿Qué es el Subjuntivo?
+
+El subjuntivo es un modo verbal que expresa **duda, deseo, emoción, o acciones hipotéticas**. A diferencia del indicativo (que expresa hechos), el subjuntivo expresa subjetividad.
+
+**Comparación:**
+- **Indicativo:** Sé que Juan **viene**. (hecho confirmado)
+- **Subjuntivo:** Espero que Juan **venga**. (deseo, no confirmado)
+
+## Conjugaciones del Presente de Subjuntivo
+
+### Verbos -AR (hablar)
+- yo hable
+- tú hables
+- él/ella hable
+- nosotros hablemos
+- ellos hablen
+
+### Verbos -ER (comer)
+- yo coma
+- tú comas
+- él/ella coma
+- nosotros comamos
+- ellos coman
+
+### Verbos -IR (vivir)
+- yo viva
+- tú vivas
+- él/ella viva
+- nosotros vivamos
+- ellos vivan
+
+## Cuándo Usar el Subjuntivo
+
+### 1. Deseos y Esperanzas
+
+Después de verbos como: querer, esperar, desear, preferir.
+
+**Ejemplos:**
+- **Quiero** que tú **vengas** a mi fiesta.
+- **Espero** que **haga** buen tiempo mañana.
+- **Deseo** que **tengas** suerte.
+
+### 2. Emociones y Sentimientos
+
+Después de: me alegra, me molesta, me sorprende, temo, es triste.
+
+**Ejemplos:**
+- **Me alegra** que **estés** aquí.
+- **Es triste** que no **puedas** venir.
+- **Temo** que **sea** tarde.
+
+### 3. Duda y Negación
+
+Con: no creo, dudo, no pienso, no es cierto.
+
+**Ejemplos:**
+- **No creo** que **llueva** hoy.
+- **Dudo** que él **sepa** la respuesta.
+- **No es cierto** que **sea** fácil.
+
+### 4. Mandatos Indirectos
+
+Después de que con un verbo de mandato.
+
+**Ejemplos:**
+- **Dile** que **venga** temprano.
+- **Pídele** que te **ayude**.
+
+### 5. Expresiones Impersonales
+
+Es necesario, es importante, es posible, es imposible.
+
+**Ejemplos:**
+- **Es necesario** que **estudies** más.
+- **Es importante** que **llegues** a tiempo.
+- **Es posible** que **nieve** mañana.
+
+### 6. Después de "Cuando" (Futuro)
+
+Para eventos futuros inciertos.
+
+**Ejemplos:**
+- **Cuando** **llegues**, llámame. (futuro)
+- Te llamaré **cuando** **termine**. (futuro)
+
+Pero: Te llamé cuando **llegaste**. (pasado = indicativo)
+
+## Verbos Irregulares Importantes
+
+### SER
+- sea, seas, sea, seamos, sean
+
+### ESTAR
+- esté, estés, esté, estemos, estén
+
+### HABER
+- haya, hayas, haya, hayamos, hayan
+
+### IR
+- vaya, vayas, vaya, vayamos, vayan
+
+### SABER
+- sepa, sepas, sepa, sepamos, sepan
+
+### DAR
+- dé, des, dé, demos, den
+
+## Subjuntivo vs Indicativo
+
+| Situación | Indicativo | Subjuntivo |
+|-----------|------------|------------|
+| Certeza | Sé que viene | Dudo que venga |
+| Opinión positiva | Creo que es fácil | No creo que sea fácil |
+| Hecho | Es verdad que estudia | Es posible que estudie |
+
+## Errores Comunes
+
+### ❌ Error: Quiero que vienes.
+**✓ Correcto:** Quiero que **vengas**.
+
+### ❌ Error: Espero que vas a venir.
+**✓ Correcto:** Espero que **vengas**.
+
+### ❌ Error: Es importante que tú estudiar.
+**✓ Correcto:** Es importante que tú **estudies**.
+
+## Práctica
+
+Completa con indicativo o subjuntivo:
+
+1. Sé que él (venir) _____ mañana.
+2. Espero que (hacer) _____ buen tiempo.
+3. Creo que (ser) _____ una buena idea.
+4. No creo que (ser) _____ difícil.
+
+**Respuestas:**
+1. viene (indicativo - certeza)
+2. haga (subjuntivo - deseo)
+3. es (indicativo - opinión positiva)
+4. sea (subjuntivo - duda/negación)
+
+## Conclusión
+
+El subjuntivo se usa principalmente para expresar **deseos, dudas y emociones**. Con práctica regular, se vuelve natural. La clave es reconocer las frases trigger que requieren subjuntivo.
+
+[Practica con ejercicios interactivos](/gramatica/ejercicios) o lee más en nuestro [blog](/blog).`,
+    keywords: ['subjuntivo español', 'cómo usar subjuntivo', 'presente subjuntivo', 'gramática española avanzada'],
+    datePublished: '2026-01-21',
+    readingTime: 14,
+    author: 'Espanol Hub Team',
+  },
+  {
+    slug: 'vocabulario-comida-espanol-lista-completa',
+    title: 'Vocabulario de Comida en Español: Lista Completa con 200+ Palabras',
+    excerpt: 'Aprende todo el vocabulario de comida en español. Frutas, verduras, carnes, bebidas y más. Con audio y ejemplos de uso.',
+    content: `# Vocabulario de Comida en Español: Lista Completa
+
+Aprender vocabulario de comida es esencial para cualquier estudiante de español. Ya sea que estés viajando, viviendo en un país hispanohablante, o simplemente quieras pedir en un restaurante, necesitas conocer estas palabras. Aquí está la lista completa con más de 200 palabras organizadas por categorías.
+
+## Frutas (Las Frutas)
+
+### Frutas Comunes
+- **Manzana** - Apple
+- **Naranja** - Orange
+- **Plátano/Banana** - Banana
+- **Pera** - Pear
+- **Uva** - Grape
+- **Fresa/Frutilla** - Strawberry
+- **Limón** - Lemon
+- **Sandía** - Watermelon
+- **Melón** - Melon
+- **Piña** - Pineapple
+
+### Frutas Tropicales
+- **Mango** - Mango
+- **Papaya** - Papaya
+- **Coco** - Coconut
+- **Maracuyá** - Passion fruit
+- **Guayaba** - Guava
+
+## Verduras (Las Verduras)
+
+### Verduras Básicas
+- **Tomate** - Tomato
+- **Lechuga** - Lettuce
+- **Cebolla** - Onion
+- **Zanahoria** - Carrot
+- **Patata/Papa** - Potato
+- **Pimiento** - Bell pepper
+- **Pepino** - Cucumber
+- **Calabacín/Zucchini** - Zucchini
+
+### Verduras de Hoja
+- **Espinaca** - Spinach
+- **Acelga** - Chard
+- **Col/Repollo** - Cabbage
+- **Brócoli** - Broccoli
+
+## Carnes (Las Carnes)
+
+- **Pollo** - Chicken
+- **Carne de res/Ternera** - Beef
+- **Cerdo/Puerco** - Pork
+- **Cordero** - Lamb
+- **Pescado** - Fish
+- **Salmón** - Salmon
+- **Atún** - Tuna
+- **Camarones** - Shrimp
+- **Mariscos** - Seafood
+
+## Lácteos (Los Lácteos)
+
+- **Leche** - Milk
+- **Queso** - Cheese
+- **Yogur** - Yogurt
+- **Mantequilla** - Butter
+- **Nata/Crema** - Cream
+- **Helado** - Ice cream
+
+## Bebidas (Las Bebidas)
+
+### Bebidas Calientes
+- **Café** - Coffee
+- **Té** - Tea
+- **Chocolate caliente** - Hot chocolate
+
+### Bebidas Frías
+- **Agua** - Water
+- **Jugo/Zumo** - Juice
+- **Refresco/Gaseosa** - Soda
+- **Cerveza** - Beer
+- **Vino** - Wine
+
+## Carbohidratos y Cereales
+
+- **Pan** - Bread
+- **Arroz** - Rice
+- **Pasta** - Pasta
+- **Cereal** - Cereal
+- **Harina** - Flour
+
+## Frases Útiles en el Restaurante
+
+### Para Pedir
+- "**Quisiera** un café, por favor." - I would like a coffee, please.
+- "**Me trae** la cuenta, por favor?" - Can you bring me the check?
+- "**Qué me recomienda**?" - What do you recommend?
+
+### Preguntas Comunes
+- "**Tiene** opciones vegetarianas?" - Do you have vegetarian options?
+- "**Cuánto cuesta**?" - How much does it cost?
+- "**Está incluida** la propina?" - Is the tip included?
+
+## Conclusión
+
+Este vocabulario de comida es fundamental para comunicarte en español en situaciones cotidianas. Practica estas palabras regularmente y pronto podrás navegar cualquier menú español con confianza.
+
+[Explora más vocabulario por temas](/vocabulario-espanol-por-temas) o practica con nuestros [juegos educativos](/juegos).`,
+    keywords: ['vocabulario comida español', 'palabras comida español', 'vocabulario restaurante español', 'frutas español', 'verduras español'],
+    datePublished: '2026-01-22',
+    readingTime: 10,
+    author: 'Espanol Hub Team',
+  },
+  {
+    slug: 'colores-en-espanol-lista-completa',
+    title: 'Colores en Español: Lista Completa con Pronunciación',
+    excerpt: 'Aprende todos los colores en español con ejemplos, pronunciación y frases útiles. Desde colores básicos hasta tonalidades.',
+    content: `# Colores en Español: Lista Completa
+
+Los colores son vocabulario esencial en cualquier idioma. En este artículo aprenderás todos los colores en español, cómo usarlos correctamente, y frases útiles para descripciones.
+
+## Colores Básicos
+
+### Los 11 Colores Principales
+
+1. **Rojo** - Red
+2. **Azul** - Blue
+3. **Amarillo** - Yellow
+4. **Verde** - Green
+5. **Negro** - Black
+6. **Blanco** - White
+7. **Gris** - Gray
+8. **Naranja/Anaranjado** - Orange
+9. **Morado/Púrpura** - Purple
+10. **Rosa/Rosado** - Pink
+11. **Marrón/Café** - Brown
+
+## Tonalidades y Variaciones
+
+### Tonos de Azul
+- **Azul claro** - Light blue
+- **Azul oscuro** - Dark blue
+- **Azul marino** - Navy blue
+- **Azul cielo** - Sky blue
+- **Turquesa** - Turquoise
+
+### Tonos de Rojo
+- **Rojo claro** - Light red
+- **Rojo oscuro** - Dark red
+- **Escarlata** - Scarlet
+- **Carmesí** - Crimson
+- **Burdeos** - Burgundy
+
+### Tonos de Verde
+- **Verde claro** - Light green
+- **Verde oscuro** - Dark green
+- **Verde lima** - Lime green
+- **Verde oliva** - Olive green
+- **Esmeralda** - Emerald
+
+## Reglas Gramaticales
+
+### Concordancia de Género y Número
+
+Los colores en español concuerdan con el sustantivo que describen.
+
+**Ejemplos:**
+- Un coche **rojo** (masculino singular)
+- Una casa **roja** (femenino singular)
+- Coches **rojos** (masculino plural)
+- Casas **rojas** (femenino plural)
+
+### Colores Invariables
+
+Algunos colores NO cambian con el género:
+
+- **Naranja:** Un coche naranja, una casa naranja
+- **Rosa:** Un vestido rosa, una camisa rosa
+- **Violeta:** Un libro violeta, una flor violeta
+
+## Frases Útiles con Colores
+
+### Describir Ropa
+- "Llevo una **camisa azul**." - I'm wearing a blue shirt.
+- "Me gusta el **vestido rojo**." - I like the red dress.
+- "¿Tienes estos zapatos en **negro**?" - Do you have these shoes in black?
+
+### Describir Objetos
+- "Mi coche es **verde**." - My car is green.
+- "La pared es **blanca**." - The wall is white.
+- "Prefiero el **gris**." - I prefer gray.
+
+### Preguntar por Colores
+- "**¿De qué color** es?" - What color is it?
+- "**¿Qué color** prefieres?" - What color do you prefer?
+- "¿Lo tienen en **otro color**?" - Do you have it in another color?
+
+## Expresiones con Colores
+
+### Expresiones Idiomáticas
+- "Estar **en blanco**" - To draw a blank
+- "Ver todo **negro**" - To see everything pessimistically
+- "Ponerse **rojo**" - To blush
+- "Estar **verde** de envidia" - To be green with envy
+
+## Colores Metálicos y Especiales
+
+- **Dorado** - Golden
+- **Plateado** - Silver
+- **Bronce** - Bronze
+- **Beige** - Beige
+- **Crema** - Cream
+
+## Práctica
+
+Completa las frases con el color correcto:
+
+1. El cielo es _____ (azul/azula).
+2. Las nubes son _____ (blanco/blancas).
+3. Tengo una mochila _____ (verde/verda).
+
+**Respuestas:**
+1. azul (invariable para género)
+2. blancas (plural femenino)
+3. verde (invariable para género)
+
+## Conclusión
+
+Los colores son vocabulario fundamental que usarás diariamente. Practica descripciones de objetos a tu alrededor para dominar este vocabulario.
+
+[Practica más vocabulario](/vocabulario) o explora [juegos educativos](/juegos).`,
+    keywords: ['colores español', 'colores en español lista', 'aprender colores español', 'vocabulario colores'],
+    datePublished: '2026-01-23',
+    readingTime: 8,
+    author: 'Espanol Hub Team',
+  },
 ];
 
 /**
