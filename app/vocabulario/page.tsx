@@ -32,6 +32,12 @@ const categoryIcons: Record<string, any> = {
   emociones: Smile,
   lugares: MapPin,
   transporte: Car,
+  trabajo: Building,
+  numeros: BookOpen,
+  tecnologia: Share2,
+  educacion: GraduationCap,
+  tiendas: Building,
+  naturaleza: Heart,
 };
 
 function VocabularioContent() {
@@ -154,18 +160,19 @@ function VocabularioContent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-orange-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-orange-50 to-white py-8 md:py-12">
       <div className="w-full max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+        {/* Header Section */}
+        <div className="text-center mb-8 md:mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
             Vocabulario Español
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Amplía tu vocabulario con categorías temáticas, imágenes y pronunciación.
+          <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Amplía tu vocabulario con más de {getDictionary().length} palabras organizadas en {vocabularyCategories.length} categorías temáticas
           </p>
           
           {/* Translation Toggle Button */}
-          <div className="mt-6">
+          <div className="mt-4 md:mt-6">
             <TranslationToggleButton
               showTranslations={showTranslations}
               onClick={() => setShowTranslations(!showTranslations)}
@@ -174,7 +181,7 @@ function VocabularioContent() {
         </div>
 
         {/* Search Bar */}
-        <div className="mb-6 max-w-2xl mx-auto">
+        <div className="mb-6 md:mb-8 max-w-2xl mx-auto">
           <div className="relative">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
@@ -182,14 +189,14 @@ function VocabularioContent() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={`Buscar palabra en español${showTranslations ? ' o árabe' : ''}...${showTranslations ? ' / ابحث عن كلمة بالإسبانية أو العربية...' : ''}`}
-              className="w-full pl-12 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:border-yellow-500 focus:outline-none text-lg"
+              className="w-full pl-12 pr-4 py-3 md:py-4 border-2 border-gray-300 rounded-xl focus:border-yellow-500 focus:outline-none text-base md:text-lg shadow-sm hover:shadow-md transition-shadow"
               dir="auto"
             />
           </div>
         </div>
 
-        {/* Category Selector */}
-        <div className="flex flex-wrap justify-center gap-4 mb-8" role="tablist" aria-label="Categorías de vocabulario">
+        {/* Category Selector - Improved Responsive Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4 mb-8 md:mb-10" role="tablist" aria-label="Categorías de vocabulario">
           {vocabularyCategories.map((category) => {
             const Icon = categoryIcons[category] || BookOpen;
             return (
@@ -201,23 +208,23 @@ function VocabularioContent() {
                   setSelectedWord(null);
                   setSearchQuery('');
                 }}
-                className={`px-6 py-3 rounded-lg font-semibold transition-all capitalize flex items-center gap-2 ${
+                className={`px-3 md:px-4 py-3 md:py-3.5 rounded-xl font-semibold transition-all capitalize flex items-center justify-center gap-2 text-sm md:text-base ${
                   selectedCategory === category
-                    ? 'bg-yellow-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                    ? 'bg-gradient-to-r from-yellow-600 to-orange-600 text-white shadow-lg scale-105'
+                    : 'bg-white text-gray-700 hover:bg-gray-50 shadow-md hover:shadow-lg hover:scale-105'
                 }`}
                 role="tab"
                 aria-selected={selectedCategory === category}
                 aria-label={`Categoría ${category}`}
               >
-                <Icon className="w-5 h-5" />
-                {category}
+                <Icon className="w-4 h-4 md:w-5 md:h-5" />
+                <span className="hidden sm:inline">{category}</span>
               </button>
             );
           })}
         </div>
 
-        {/* Words Grid */}
+        {/* Words Grid - Improved Responsive */}
         {words.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-xl text-gray-600">No se encontraron palabras con "{searchQuery}"</p>
@@ -246,7 +253,7 @@ function VocabularioContent() {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6 mb-12">
             {words.map((word, index) => (
               <div
                 key={index}
@@ -264,8 +271,8 @@ function VocabularioContent() {
                     }
                   }
                 }}
-                className={`bg-white rounded-xl shadow-lg p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 text-left w-full ${
-                  selectedWord === word.word ? 'ring-4 ring-yellow-500' : ''
+                className={`bg-white rounded-xl shadow-md hover:shadow-2xl p-4 md:p-5 lg:p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 text-left w-full border-2 ${
+                  selectedWord === word.word ? 'ring-4 ring-yellow-500 border-yellow-400' : 'border-transparent'
                 }`}
                 role="button"
                 tabIndex={0}
@@ -278,12 +285,14 @@ function VocabularioContent() {
                 aria-label={`Palabra: ${word.word} - ${Array.isArray(word.translation) ? word.translation.join(', ') : word.translation}`}
                 aria-pressed={selectedWord === word.word}
               >
-                <div className="text-center mb-4">
-                  <div className="flex justify-center mb-2">
-                    <CategoryIcon className="w-8 h-8 text-yellow-600" />
+                <div className="text-center">
+                  <div className="flex justify-center mb-3">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-yellow-100 to-orange-100 rounded-full flex items-center justify-center">
+                      <CategoryIcon className="w-6 h-6 md:w-7 md:h-7 text-yellow-600" />
+                    </div>
                   </div>
                   <div 
-                    className="text-2xl font-bold text-yellow-600 mb-2 cursor-pointer hover:text-yellow-700 transition-colors"
+                    className="text-xl md:text-2xl font-bold text-yellow-600 mb-2 cursor-pointer hover:text-yellow-700 transition-colors break-words"
                     onClick={(e) => {
                       e.stopPropagation();
                       pronounceWord(word.word);
@@ -292,7 +301,7 @@ function VocabularioContent() {
                   >
                     {word.word}
                   </div>
-                  <div className="text-lg text-gray-800 font-semibold mb-1">
+                  <div className="text-base md:text-lg text-gray-800 font-semibold mb-1 break-words">
                     {Array.isArray(word.translation) ? word.translation.join(' / ') : word.translation}
                   </div>
                   <div className="text-sm text-gray-500 italic mb-3">
@@ -318,20 +327,20 @@ function VocabularioContent() {
         })()}
 
         {/* Statistics */}
-        <div className="mt-12 bg-gradient-to-r from-yellow-600 to-orange-600 text-white rounded-xl p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">Estadísticas</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-              <div className="text-4xl font-bold">{getDictionary().length}</div>
-              <div className="text-lg">Palabras Totales</div>
+        <div className="mt-12 bg-gradient-to-r from-yellow-600 to-orange-600 text-white rounded-2xl p-6 md:p-8 text-center shadow-xl">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Estadísticas</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
+            <div className="bg-white/10 rounded-xl p-4 md:p-6 backdrop-blur-sm">
+              <div className="text-4xl md:text-5xl font-bold mb-2">{getDictionary().length}</div>
+              <div className="text-base md:text-lg font-semibold">Palabras Totales</div>
             </div>
-            <div>
-              <div className="text-4xl font-bold">{vocabularyCategories.length}</div>
-              <div className="text-lg">Categorías</div>
+            <div className="bg-white/10 rounded-xl p-4 md:p-6 backdrop-blur-sm">
+              <div className="text-4xl md:text-5xl font-bold mb-2">{vocabularyCategories.length}</div>
+              <div className="text-base md:text-lg font-semibold">Categorías</div>
             </div>
-            <div>
-              <div className="text-4xl font-bold">{words.length}</div>
-              <div className="text-lg">{searchQuery ? 'Resultados' : 'En esta Categoría'}</div>
+            <div className="bg-white/10 rounded-xl p-4 md:p-6 backdrop-blur-sm">
+              <div className="text-4xl md:text-5xl font-bold mb-2">{words.length}</div>
+              <div className="text-base md:text-lg font-semibold">{searchQuery ? 'Resultados' : 'En esta Categoría'}</div>
             </div>
           </div>
         </div>
