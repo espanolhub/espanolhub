@@ -130,10 +130,10 @@ export default function Navigation() {
             </Link>
 
             <div className="hidden md:flex items-center justify-between flex-1 max-w-4xl mx-8">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-3">
                 <Link
                   href="/nacionalidad"
-                  className={`group flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 border ${
+                  className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[160px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
                     pathname === '/nacionalidad' 
                       ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300' 
                       : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
@@ -144,7 +144,7 @@ export default function Navigation() {
                 </Link>
                 <Link
                   href="/driving-license"
-                  className={`group flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 border ${
+                  className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[160px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
                     pathname === '/driving-license' 
                       ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300' 
                       : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
@@ -155,7 +155,7 @@ export default function Navigation() {
                 </Link>
                 <Link
                   href="/tramites"
-                  className={`group flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 border ${
+                  className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[160px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
                     pathname === '/tramites' 
                       ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300' 
                       : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
@@ -166,10 +166,10 @@ export default function Navigation() {
                 </Link>
                 <Link
                   href="/juegos"
-                  className={`group flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 border ${
+                  className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[160px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
                     pathname === '/juegos' 
-                      ? 'bg-gray-900 text-white border-gray-900' 
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
+                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300' 
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
                   }`}
                 >
                   <Gamepad2 className={`w-6 h-6 ${pathname === '/juegos' ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
@@ -177,7 +177,7 @@ export default function Navigation() {
                 </Link>
                 <Link
                   href="/blog"
-                  className={`group flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 border ${
+                  className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[160px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
                     pathname.startsWith('/blog') 
                       ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300' 
                       : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
@@ -195,20 +195,15 @@ export default function Navigation() {
                 >
                   <button
                     onClick={() => setDropdownOpen(dropdownOpen === 'curso' ? null : 'curso')}
-                    className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 focus:outline-none border ${
+                    className={`flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[180px] rounded-xl text-sm font-semibold transition-all duration-200 focus:outline-none border ${
                       dropdownOpen === 'curso' || pathname.startsWith('/cursos') || pathname.startsWith('/gramatica') || pathname.startsWith('/vocabulario') || pathname.startsWith('/lectura')
                         ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300'
                         : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
                     }`}
                     aria-expanded={dropdownOpen === 'curso'}
                   >
-                    <BookOpen className={`w-5 h-5 ${dropdownOpen === 'curso' || pathname.startsWith('/cursos') || pathname.startsWith('/gramatica') || pathname.startsWith('/vocabulario') || pathname.startsWith('/lectura') ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
-                    <div className="flex flex-col leading-tight text-left">
-                      <span className="text-sm font-semibold">Curso de Español</span>
-                      <span className={`text-xs font-medium ${dropdownOpen === 'curso' || pathname.startsWith('/cursos') || pathname.startsWith('/gramatica') || pathname.startsWith('/vocabulario') || pathname.startsWith('/lectura') ? 'text-gray-300' : 'text-gray-600'}`}>
-                        {aprenderDropdown.subtitle}
-                      </span>
-                    </div>
+                    <BookOpen className={`w-6 h-6 flex-shrink-0 ${dropdownOpen === 'curso' || pathname.startsWith('/cursos') || pathname.startsWith('/gramatica') || pathname.startsWith('/vocabulario') || pathname.startsWith('/lectura') ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
+                    <span>Curso de Español</span>
                     <ChevronDown className={`w-5 h-5 transition-transform ${dropdownOpen === 'curso' ? 'rotate-180 text-white' : 'text-gray-700'}`} aria-hidden="true" />
                   </button>
                   <div
