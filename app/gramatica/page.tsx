@@ -367,13 +367,13 @@ export default function GramaticaPage() {
               setActiveTab('learn');
               resetExercises();
             }}
-            className={`flex items-center gap-2 px-8 py-3 rounded-lg font-semibold transition-all ${
+            className={`flex items-center gap-2 px-8 py-3 rounded-lg font-semibold transition-all border ${
               activeTab === 'learn'
-                ? 'bg-red-600 text-white shadow-lg'
-                : 'bg-white text-gray-900 hover:bg-gray-50 border border-gray-200'
+                ? 'bg-gray-900 text-white border-gray-900'
+                : 'bg-white text-gray-900 hover:bg-gray-50 border-gray-200'
             }`}
           >
-            <BookOpen className="w-5 h-5" />
+            <BookOpen className={`w-5 h-5 ${activeTab === 'learn' ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
             Aprender
           </button>
           <button
@@ -381,13 +381,13 @@ export default function GramaticaPage() {
               // navigate to the dedicated ejercicios page (randomized quiz)
               router.push('/gramatica/ejercicios');
             }}
-            className={`flex items-center gap-2 px-8 py-3 rounded-lg font-semibold transition-all ${
+            className={`flex items-center gap-2 px-8 py-3 rounded-lg font-semibold transition-all border ${
               activeTab === 'exercises'
-                ? 'bg-red-600 text-white shadow-lg'
-                : 'bg-white text-gray-900 hover:bg-gray-50 border border-gray-200'
+                ? 'bg-gray-900 text-white border-gray-900'
+                : 'bg-white text-gray-900 hover:bg-gray-50 border-gray-200'
             }`}
           >
-            <PenTool className="w-5 h-5" />
+            <PenTool className={`w-5 h-5 ${activeTab === 'exercises' ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
             Ejercicios
           </button>
         </div>
@@ -462,7 +462,7 @@ export default function GramaticaPage() {
                         <h4 className="text-xl font-bold text-gray-900 mb-2">{cat.label}</h4>
                         <p className="text-sm text-gray-700 font-medium">{cat.verbs.length} verbos disponibles</p>
                         <div className="text-xs text-gray-600 mt-2 flex items-center gap-2">
-                          <Clock className="w-4 h-4 text-red-400" />
+                          <Clock className="w-5 h-5 text-gray-700" aria-hidden="true" />
                           <span>Actualizado hoy</span>
                         </div>
                       </div>
@@ -506,7 +506,7 @@ export default function GramaticaPage() {
                         }}
                         className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 border border-gray-800"
                       >
-                        <List className="w-4 h-4" />
+                        <List className="w-5 h-5 text-white" aria-hidden="true" />
                         Ver todos los verbos ({cat.verbs.length})
                       </button>
                       <button
@@ -515,9 +515,9 @@ export default function GramaticaPage() {
                         }}
                         className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 border border-gray-800"
                       >
-                        <PlayCircle className="w-4 h-4" />
+                        <PlayCircle className="w-5 h-5 text-white" aria-hidden="true" />
                         Ejercicios
-                        <ArrowRight className="w-4 h-4" />
+                        <ArrowRight className="w-5 h-5 text-white" aria-hidden="true" />
                       </button>
                     </div>
                   </div>
@@ -573,7 +573,7 @@ export default function GramaticaPage() {
               <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
                 Tablas de Gramática Española
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
                 {grammarTables.map((table) => (
                   <button
                     key={table.id}
@@ -678,7 +678,7 @@ export default function GramaticaPage() {
                           onClick={() => toggleHint(exercise.id)}
                           className="ml-4 flex-shrink-0 px-3 py-1.5 bg-amber-100 hover:bg-amber-200 text-amber-700 rounded-lg font-medium text-sm transition-colors flex items-center gap-2 border border-amber-300"
                         >
-                          <Lightbulb className="w-4 h-4" />
+                          <Lightbulb className="w-5 h-5 text-gray-700" aria-hidden="true" />
                           <span>Pista{showTranslations && ' / نصيحة'}</span>
                         </button>
                       )}
@@ -687,8 +687,8 @@ export default function GramaticaPage() {
                     {showHints[exercise.id] && !showResults && showTranslations && (
                       <div className="mb-4 p-4 bg-gradient-to-r from-amber-50 to-yellow-50 border-r-4 border-amber-400 rounded-xl shadow-md" dir="rtl">
                         <div className="flex items-start gap-2">
-                          <Lightbulb className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
-                          <p className="text-sm font-medium text-amber-900" style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}>
+                          <Lightbulb className="w-5 h-5 text-gray-700 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                          <p className="text-sm font-medium text-gray-900" style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}>
                             {getArabicHint(exercise)}
                           </p>
                         </div>
@@ -720,8 +720,8 @@ export default function GramaticaPage() {
                             >
                               <div className="flex items-center justify-between">
                                 <span className="text-lg font-semibold text-gray-800">{option}</span>
-                                {showCorrect && <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />}
-                                {showIncorrect && <XCircle className="w-6 h-6 text-red-500 flex-shrink-0" />}
+                                {showCorrect && <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0" aria-hidden="true" />}
+                                {showIncorrect && <XCircle className="w-6 h-6 text-red-600 flex-shrink-0" aria-hidden="true" />}
                               </div>
                             </button>
                           );
@@ -796,7 +796,7 @@ export default function GramaticaPage() {
                 className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors z-10 bg-white shadow-md"
                 aria-label="Cerrar"
               >
-                <X className="w-6 h-6 text-gray-600" />
+                <X className="w-6 h-6 text-gray-600" aria-hidden="true" />
               </button>
               <div className="p-4 sm:p-6 md:p-8 border-t-4 border-red-500">
               {(() => {
@@ -914,7 +914,7 @@ export default function GramaticaPage() {
                 className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors z-10 bg-white shadow-md"
                 aria-label="Cerrar"
               >
-                <X className="w-6 h-6 text-gray-600" />
+                <X className="w-6 h-6 text-gray-600" aria-hidden="true" />
               </button>
               <div className="p-4 sm:p-6 md:p-8 border-t-4 border-red-500">
               {(() => {
@@ -948,14 +948,14 @@ export default function GramaticaPage() {
                                       aria-label="Escuchar"
                                       className="p-2 rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-100"
                                     >
-                                      <Volume2 className="w-4 h-4" />
+                                      <Volume2 className="w-5 h-5 text-gray-700" aria-hidden="true" />
                                     </button>
                                     <button
                                       onClick={() => copyToClipboard(`${gender === 'masculine' ? 'Masculino' : 'Femenino'}: singular ${data.singular}, plural ${data.plural}`)}
                                       aria-label="Copiar"
                                       className="p-2 rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-100"
                                     >
-                                      <Copy className="w-4 h-4" />
+                                      <Copy className="w-5 h-5 text-gray-700" aria-hidden="true" />
                                     </button>
                                   </div>
                                 </div>
@@ -987,14 +987,14 @@ export default function GramaticaPage() {
                                 aria-label="Escuchar"
                                 className="p-2 rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-100"
                               >
-                                <Volume2 className="w-4 h-4" />
+                                <Volume2 className="w-5 h-5 text-gray-700" aria-hidden="true" />
                               </button>
                               <button
                                 onClick={() => copyToClipboard('Pronombres sujetos')}
                                 aria-label="Copiar"
                                 className="p-2 rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-100"
                               >
-                                <Copy className="w-4 h-4" />
+                                <Copy className="w-5 h-5 text-gray-700" aria-hidden="true" />
                               </button>
                             </div>
                           </div>
@@ -1017,14 +1017,14 @@ export default function GramaticaPage() {
                                 aria-label="Escuchar"
                                 className="p-2 rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-100"
                               >
-                                <Volume2 className="w-4 h-4" />
+                                <Volume2 className="w-5 h-5 text-gray-700" aria-hidden="true" />
                               </button>
                               <button
                                 onClick={() => copyToClipboard('Pronombres de objeto')}
                                 aria-label="Copiar"
                                 className="p-2 rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-100"
                               >
-                                <Copy className="w-4 h-4" />
+                                <Copy className="w-5 h-5 text-gray-700" aria-hidden="true" />
                               </button>
                             </div>
                           </div>

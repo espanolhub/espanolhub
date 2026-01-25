@@ -79,9 +79,9 @@ export default function Home() {
 						<div className="flex-1 text-center md:text-left">
 							{/* Badge */}
 							<div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6 border border-gray-200">
-								<Sparkles className="w-4 h-4 text-gray-700" />
+								<Sparkles className="w-5 h-5 text-gray-700" aria-hidden="true" />
 								<span className="text-sm font-semibold text-gray-900">Plataforma Educativa #1</span>
-								<Star className="w-4 h-4 text-gray-700" />
+								<Star className="w-5 h-5 text-gray-700" aria-hidden="true" />
 							</div>
 
 					<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900">
@@ -97,16 +97,16 @@ export default function Home() {
 									href="/cursos"
 									className="group relative px-8 py-4 bg-gray-900 text-white font-bold rounded-lg shadow-sm hover:bg-gray-800 transition-all duration-200 flex items-center justify-center gap-2"
 								>
-									<GraduationCap className="w-5 h-5" />
+									<GraduationCap className="w-5 h-5 text-white" aria-hidden="true" />
 									<span>Ver Cursos</span>
-									<ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+									<ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" aria-hidden="true" />
 								</Link>
 
 								<Link
 									href="/juegos"
 									className="px-8 py-4 bg-white border-2 border-gray-900 text-gray-900 font-bold rounded-lg shadow-sm hover:bg-gray-50 transition-all duration-200 flex items-center justify-center gap-2"
 								>
-									<Gamepad2 className="w-5 h-5" />
+									<Gamepad2 className="w-5 h-5 text-gray-900" aria-hidden="true" />
 									<span>Jugar Ahora</span>
 								</Link>
 							</div>
@@ -115,12 +115,12 @@ export default function Home() {
 							<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
 							<Link
 								href="/aprender-espanol-gratis"
-								className="group p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all"
+								className="group relative p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all"
 							>
 								<div className="absolute top-1 right-1">
-									<Gift className="w-4 h-4 text-gray-700" />
+									<Gift className="w-5 h-5 text-gray-700" aria-hidden="true" />
 								</div>
-								<Star className="w-6 h-6 text-gray-700 mb-2 mx-auto" />
+								<Star className="w-6 h-6 text-gray-700 mb-2 mx-auto" aria-hidden="true" />
 								<div className="text-xs font-bold text-gray-900 text-center">GRATIS</div>
 							</Link>
 
@@ -128,7 +128,7 @@ export default function Home() {
 								href="/driving-license"
 								className="group p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all"
 							>
-								<Car className="w-6 h-6 text-gray-700 mb-2 mx-auto" />
+								<Car className="w-6 h-6 text-gray-700 mb-2 mx-auto" aria-hidden="true" />
 								<div className="text-sm font-semibold text-gray-900 text-center">Carnet de Conducir</div>
 							</Link>
 
@@ -136,7 +136,7 @@ export default function Home() {
 								href="/nacionalidad"
 								className="group p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all"
 							>
-								<Award className="w-6 h-6 text-gray-700 mb-2 mx-auto" />
+								<Award className="w-6 h-6 text-gray-700 mb-2 mx-auto" aria-hidden="true" />
 								<div className="text-sm font-semibold text-gray-900 text-center">CCSE</div>
 							</Link>
 
@@ -144,7 +144,7 @@ export default function Home() {
 								href="/juegos"
 								className="group p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all"
 							>
-								<Gamepad2 className="w-6 h-6 text-gray-700 mb-2 mx-auto" />
+								<Gamepad2 className="w-6 h-6 text-gray-700 mb-2 mx-auto" aria-hidden="true" />
 								<div className="text-sm font-semibold text-gray-900 text-center">Juegos</div>
 							</Link>
 
@@ -152,7 +152,7 @@ export default function Home() {
 								href="/simulator"
 								className="group p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all"
 							>
-								<PlayCircle className="w-6 h-6 text-gray-700 mb-2 mx-auto" />
+								<PlayCircle className="w-6 h-6 text-gray-700 mb-2 mx-auto" aria-hidden="true" />
 								<div className="text-sm font-semibold text-gray-900 text-center">Simulador</div>
 							</Link>
 
@@ -160,7 +160,7 @@ export default function Home() {
 								href="/blog"
 								className="group p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all"
 							>
-								<Book className="w-6 h-6 text-gray-700 mb-2 mx-auto" />
+								<Book className="w-6 h-6 text-gray-700 mb-2 mx-auto" aria-hidden="true" />
 								<div className="text-sm font-semibold text-gray-900 text-center">Blog</div>
 							</Link>
 							</div>
@@ -191,7 +191,7 @@ export default function Home() {
 						<div className="flex flex-col md:flex-row items-center gap-8">
 							<div className="flex-1 text-center md:text-left">
 								<div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-4 border border-gray-200">
-									<Gift className="w-5 h-5 text-gray-700" />
+									<Gift className="w-5 h-5 text-gray-700" aria-hidden="true" />
 									<span className="text-sm font-bold text-gray-900">100% GRATIS</span>
 								</div>
 								<h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
@@ -204,14 +204,14 @@ export default function Home() {
 									href="/aprender-espanol-gratis"
 									className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white font-bold rounded-lg shadow-sm hover:bg-gray-800 transition-all"
 								>
-									<Star className="w-5 h-5" />
+									<Star className="w-5 h-5 text-white" aria-hidden="true" />
 									<span>Empieza Ahora - GRATIS</span>
-									<ArrowRight className="w-5 h-5" />
+									<ArrowRight className="w-5 h-5 text-white" aria-hidden="true" />
 								</Link>
 							</div>
 							<div className="flex-shrink-0">
 								<div className="w-32 h-32 md:w-40 md:h-40 bg-gray-100 rounded-full flex items-center justify-center border border-gray-200">
-									<Gift className="w-16 h-16 md:w-20 md:h-20 text-gray-700" />
+									<Gift className="w-16 h-16 md:w-20 md:h-20 text-gray-700" aria-hidden="true" />
 								</div>
 							</div>
 						</div>
@@ -225,14 +225,14 @@ export default function Home() {
 					{/* Section Header */}
 				<div className="text-center mb-12">
 					<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 flex items-center justify-center gap-3">
-						<Zap className="w-8 h-8 text-gray-700" />
+						<Zap className="w-8 h-8 text-gray-700" aria-hidden="true" />
 						Nuestros Programas Principales
 					</h2>
 				</div>
 
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 					<ModernCard 
-						icon={<Car className="w-8 h-8" />}
+						icon={<Car className="w-8 h-8 text-white" aria-hidden="true" />}
 						gradient="from-orange-500 via-red-500 to-pink-500"
 						title="Carnet de Conducir"
 						description="18 capítulos completos + Simulador oficial DGT"
@@ -242,7 +242,7 @@ export default function Home() {
 					/>
 					
 					<ModernCard 
-						icon={<Award className="w-8 h-8" />}
+						icon={<Award className="w-8 h-8 text-white" aria-hidden="true" />}
 						gradient="from-blue-500 via-purple-500 to-pink-500"
 						title="Nacionalidad Española"
 						description="Preparación completa para el examen CCSE oficial"
@@ -270,7 +270,7 @@ export default function Home() {
 				<div className="max-w-7xl mx-auto px-6">
 					<div className="text-center mb-8">
 						<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-3">
-							<Gamepad2 className="w-8 h-8 text-gray-700" />
+							<Gamepad2 className="w-8 h-8 text-gray-700" aria-hidden="true" />
 							<span>Aprende Practicando</span>
 						</h2>
 						<p className="text-lg text-gray-700 max-w-2xl mx-auto mb-6">
@@ -288,7 +288,7 @@ export default function Home() {
 				<div className="max-w-7xl mx-auto px-6">
 					<div className="text-center mb-12">
 						<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 flex items-center justify-center gap-3">
-							<BookOpen className="w-8 h-8 text-gray-700" />
+							<BookOpen className="w-8 h-8 text-gray-700" aria-hidden="true" />
 							<span>Recursos Adicionales</span>
 						</h2>
 						<p className="text-lg text-gray-700 max-w-2xl mx-auto">
@@ -324,7 +324,7 @@ export default function Home() {
 						>
 							<div className="flex items-center gap-4 mb-4">
 								<div className="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center text-white border border-gray-800">
-									<Languages className="w-6 h-6" />
+									<Languages className="w-6 h-6 text-white" aria-hidden="true" />
 								</div>
 								<h3 className="text-xl font-bold text-gray-900">
 									Vocabulario por Temas
@@ -335,7 +335,7 @@ export default function Home() {
 							</p>
 							<div className="flex items-center text-gray-900 font-semibold">
 								<span>Explorar</span>
-								<ArrowRight className="w-4 h-4 ml-2" />
+								<ArrowRight className="w-5 h-5 ml-2 text-gray-900" aria-hidden="true" />
 							</div>
 						</Link>
 
@@ -345,7 +345,7 @@ export default function Home() {
 						>
 							<div className="flex items-center gap-4 mb-4">
 								<div className="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center text-white border border-gray-800">
-									<Book className="w-6 h-6" />
+									<Book className="w-6 h-6 text-white" aria-hidden="true" />
 								</div>
 								<h3 className="text-xl font-bold text-gray-900">
 									Blog Educativo
@@ -356,7 +356,7 @@ export default function Home() {
 							</p>
 							<div className="flex items-center text-gray-900 font-semibold">
 								<span>Leer Artículos</span>
-								<ArrowRight className="w-4 h-4 ml-2" />
+								<ArrowRight className="w-5 h-5 ml-2 text-gray-900" aria-hidden="true" />
 							</div>
 						</Link>
 					</div>
@@ -428,7 +428,7 @@ export default function Home() {
 							{/* Left side */}
 							<div className="flex-1 text-center md:text-left">
 							<div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-full mb-4 border border-gray-700">
-								<Star className="w-4 h-4 text-white" />
+								<Star className="w-5 h-5 text-white" aria-hidden="true" />
 								<span className="text-sm font-semibold text-white">Oferta Especial</span>
 							</div>
 							<h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
@@ -437,7 +437,7 @@ export default function Home() {
 								
 								{settings.is_sale_active && saleEndsAt && (
 									<div className="inline-flex items-center gap-3 px-6 py-3 bg-gray-800 rounded-lg border border-gray-700">
-										<Clock className="w-5 h-5 text-white" />
+										<Clock className="w-5 h-5 text-white" aria-hidden="true" />
 										<div>
 											<div className="text-sm font-semibold text-white">Oferta termina en:</div>
 											<div className="text-lg text-white font-mono font-bold">{formatTimeLeft(timeLeft)}</div>
@@ -448,15 +448,15 @@ export default function Home() {
 								{/* Features list */}
 								<div className="mt-6 space-y-2">
 									<div className="flex items-center gap-2 text-white">
-										<CheckCircle className="w-5 h-5 text-white" />
+										<CheckCircle className="w-5 h-5 text-white" aria-hidden="true" />
 										<span className="text-sm">Acceso completo a todos los cursos</span>
 									</div>
 									<div className="flex items-center gap-2 text-white">
-										<CheckCircle className="w-5 h-5 text-white" />
+										<CheckCircle className="w-5 h-5 text-white" aria-hidden="true" />
 										<span className="text-sm">Simuladores oficiales DGT y CCSE</span>
 									</div>
 									<div className="flex items-center gap-2 text-white">
-										<CheckCircle className="w-5 h-5 text-white" />
+										<CheckCircle className="w-5 h-5 text-white" aria-hidden="true" />
 										<span className="text-sm">Soporte en español y árabe</span>
 									</div>
 								</div>
@@ -478,7 +478,7 @@ export default function Home() {
 								<SubscriptionButton />
 
 								<div className="mt-4 flex items-center justify-center gap-2 text-xs text-gray-600">
-									<Shield className="w-4 h-4" />
+									<Shield className="w-5 h-5 text-gray-600" aria-hidden="true" />
 									<span>Pago seguro 100%</span>
 								</div>
 							</div>
@@ -542,7 +542,7 @@ function ModernCard({
 				<ul className="space-y-2 mb-6">
 					{features.map((feature, idx) => (
 						<li key={idx} className="flex items-center gap-2 text-sm text-gray-700">
-							<CheckCircle className="w-4 h-4 text-gray-700 flex-shrink-0" />
+							<CheckCircle className="w-5 h-5 text-gray-700 flex-shrink-0" aria-hidden="true" />
 							<span>{feature}</span>
 						</li>
 					))}
@@ -552,16 +552,16 @@ function ModernCard({
 				<div className="flex items-center justify-between">
 					<span className="text-gray-900 font-semibold flex items-center gap-2">
 						Ver más
-						<ArrowRight className="w-4 h-4" />
+						<ArrowRight className="w-5 h-5 text-gray-900" aria-hidden="true" />
 					</span>
 					{locked ? (
 						<span className="text-xs px-3 py-1 bg-gray-100 text-gray-700 rounded-full font-medium border border-gray-200">
-							<Lock className="w-3 h-3 inline mr-1" />
+							<Lock className="w-4 h-4 inline mr-1 text-gray-700" aria-hidden="true" />
 							Bloqueado
 						</span>
 					) : (
 						<span className="text-xs px-3 py-1 bg-gray-100 text-gray-700 rounded-full font-medium border border-gray-200">
-							<CheckCircle className="w-3 h-3 inline mr-1" />
+							<CheckCircle className="w-4 h-4 inline mr-1 text-gray-700" aria-hidden="true" />
 							Disponible
 						</span>
 					)}

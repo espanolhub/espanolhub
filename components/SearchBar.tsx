@@ -68,7 +68,7 @@ export default function SearchBar() {
   return (
     <div ref={searchRef} className="relative w-full max-w-2xl mx-auto">
       <div className="relative">
-        <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+        <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" aria-hidden="true" />
         <input
           type="text"
           value={query}
@@ -102,7 +102,7 @@ export default function SearchBar() {
                 className="w-full text-left p-4 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0"
               >
                 <div className="flex items-start gap-3">
-                  <Icon className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <Icon className="w-5 h-5 text-gray-700 flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
                       <span className="font-semibold text-gray-900">{result.title}</span>

@@ -53,7 +53,7 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
           className="flex items-center gap-1 text-gray-600 hover:text-purple-600 transition-colors"
           aria-label="Ir a la página principal"
         >
-          <Home className="w-4 h-4" />
+          <Home className="w-4 h-4 text-gray-600" aria-hidden="true" />
           <span className="hidden sm:inline">Inicio</span>
         </Link>
 
@@ -62,7 +62,7 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
           
           return (
             <div key={item.href} className="flex items-center gap-2">
-              <ChevronRight className="w-4 h-4 text-gray-400" aria-hidden="true" />
+              <ChevronRight className="w-4 h-4 text-gray-500" aria-hidden="true" />
               {isLast ? (
                 <span className="text-gray-900 font-medium" aria-current="page">
                   {item.label}
@@ -70,7 +70,7 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
               ) : (
                 <Link
                   href={item.href}
-                  className="text-gray-600 hover:text-purple-600 transition-colors"
+                  className="text-gray-700 hover:text-gray-900 transition-colors"
                 >
                   {item.label}
                 </Link>

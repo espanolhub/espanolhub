@@ -385,45 +385,45 @@ export default function NacionalidadPage() {
             </div>
           </div>
 
-          {/* Stats Bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-            <div className="bg-gray-900 text-white p-6 rounded-lg border border-gray-800 hover:shadow-md transition-all">
+          {/* Stats Bar - Elegant and Compact */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+            <div className="bg-white text-gray-900 p-3 rounded-lg border border-gray-200 hover:shadow-md transition-all modern-card">
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-3xl font-bold">{progressPercent}%</div>
-                  <div className="text-sm font-medium text-gray-300">Progreso / التقدم</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xl font-bold text-gray-900">{progressPercent}%</div>
+                  <div className="text-xs font-medium text-gray-600 mt-0.5">Progreso / التقدم</div>
                 </div>
-                <div style={{ fontSize: '40px', lineHeight: 1 }}>🏆</div>
+                <Trophy className="w-6 h-6 text-gray-700 flex-shrink-0 ml-2" aria-hidden="true" />
               </div>
             </div>
             
-            <div className="bg-gray-900 text-white p-6 rounded-lg border border-gray-800 hover:shadow-md transition-all">
+            <div className="bg-white text-gray-900 p-3 rounded-lg border border-gray-200 hover:shadow-md transition-all modern-card">
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-3xl font-bold">{completed.length}/{totalChapters}</div>
-                  <div className="text-sm font-medium text-gray-300">Completado / مكتمل</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xl font-bold text-gray-900">{completed.length}/{totalChapters}</div>
+                  <div className="text-xs font-medium text-gray-600 mt-0.5">Completado / مكتمل</div>
                 </div>
-                <div style={{ fontSize: '40px', lineHeight: 1 }}>✅</div>
+                <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 ml-2" aria-hidden="true" />
               </div>
             </div>
             
-            <div className="bg-gray-900 text-white p-6 rounded-lg border border-gray-800 hover:shadow-md transition-all">
+            <div className="bg-white text-gray-900 p-3 rounded-lg border border-gray-200 hover:shadow-md transition-all modern-card">
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-3xl font-bold">{formatTime(studyTime)}</div>
-                  <div className="text-sm font-medium text-gray-300">Tiempo / الوقت</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xl font-bold text-gray-900">{formatTime(studyTime)}</div>
+                  <div className="text-xs font-medium text-gray-600 mt-0.5">Tiempo / الوقت</div>
                 </div>
-                <div style={{ fontSize: '40px', lineHeight: 1 }}>⏰</div>
+                <Clock className="w-6 h-6 text-gray-700 flex-shrink-0 ml-2" aria-hidden="true" />
               </div>
             </div>
             
-            <div className="bg-gray-900 text-white p-6 rounded-lg border border-gray-800 cursor-pointer hover:shadow-md transition-all" onClick={() => setShowStats(!showStats)}>
+            <div className="bg-white text-gray-900 p-3 rounded-lg border border-gray-200 cursor-pointer hover:shadow-md transition-all modern-card" onClick={() => setShowStats(!showStats)}>
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-3xl font-bold">{totalChapters - completed.length}</div>
-                  <div className="text-sm font-medium text-gray-300">Restantes / متبقي</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xl font-bold text-gray-900">{totalChapters - completed.length}</div>
+                  <div className="text-xs font-medium text-gray-600 mt-0.5">Restantes / متبقي</div>
                 </div>
-                <div style={{ fontSize: '40px', lineHeight: 1 }}>🎯</div>
+                <Target className="w-6 h-6 text-gray-700 flex-shrink-0 ml-2" aria-hidden="true" />
               </div>
             </div>
           </div>
@@ -975,7 +975,7 @@ export default function NacionalidadPage() {
                                       <div className="flex items-center justify-between">
                                         <span>{opt}</span>
                                         {showResults && isOptCorrect && (
-                                          <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                                          <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" aria-hidden="true" />
                                         )}
                                       </div>
                                     </button>
@@ -1018,7 +1018,7 @@ export default function NacionalidadPage() {
                           {summary.passed ? (
                             <>
                               <div className="flex items-center gap-3 mb-3">
-                                <Award className="w-8 h-8 text-green-600" />
+                                <Award className="w-8 h-8 text-green-600" aria-hidden="true" />
                                 <div className="font-bold text-lg text-green-900">¡Felicidades! Has pasado el quiz de Capítulo 1.</div>
                               </div>
                               <div className="text-sm text-green-800 mb-3" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
@@ -1119,7 +1119,7 @@ export default function NacionalidadPage() {
         <div className="mt-8">
           <div className="modern-card bg-white p-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <BookOpen className="w-6 h-6 text-purple-600" />
+              <BookOpen className="w-6 h-6 text-gray-700" aria-hidden="true" />
               Biblioteca de Exámenes / مكتبة الامتحانات
             </h2>
             <ExamLibrary />

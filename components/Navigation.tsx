@@ -133,57 +133,57 @@ export default function Navigation() {
               <div className="flex items-center gap-2">
                 <Link
                   href="/nacionalidad"
-                  className={`group flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 border ${
+                  className={`group flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 border ${
                     pathname === '/nacionalidad' 
-                      ? 'bg-gray-900 text-white border-gray-900' 
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
+                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300' 
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
                   }`}
                 >
-                  <Shield className="w-4 h-4" />
+                  <Shield className={`w-6 h-6 ${pathname === '/nacionalidad' ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
                   <span>Nacionalidad ES</span>
                 </Link>
                 <Link
                   href="/driving-license"
-                  className={`group flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 border ${
+                  className={`group flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 border ${
                     pathname === '/driving-license' 
-                      ? 'bg-gray-900 text-white border-gray-900' 
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
+                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300' 
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
                   }`}
                 >
-                  <Car className="w-4 h-4" />
+                  <Car className={`w-6 h-6 ${pathname === '/driving-license' ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
                   <span>Carnet de Conducir</span>
                 </Link>
                 <Link
                   href="/tramites"
-                  className={`group flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 border ${
+                  className={`group flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 border ${
                     pathname === '/tramites' 
-                      ? 'bg-gray-900 text-white border-gray-900' 
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
+                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300' 
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
                   }`}
                 >
-                  <Download className="w-4 h-4" />
+                  <Download className={`w-6 h-6 ${pathname === '/tramites' ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
                   <span>Guías Legales</span>
                 </Link>
                 <Link
                   href="/juegos"
-                  className={`group flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 border ${
+                  className={`group flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 border ${
                     pathname === '/juegos' 
                       ? 'bg-gray-900 text-white border-gray-900' 
                       : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
                   }`}
                 >
-                  <Gamepad2 className="w-4 h-4" />
+                  <Gamepad2 className={`w-6 h-6 ${pathname === '/juegos' ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
                   <span>Juegos</span>
                 </Link>
                 <Link
                   href="/blog"
-                  className={`group flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 border ${
+                  className={`group flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 border ${
                     pathname.startsWith('/blog') 
-                      ? 'bg-gray-900 text-white border-gray-900' 
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
+                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300' 
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
                   }`}
                 >
-                  <FileText className="w-4 h-4" />
+                  <FileText className={`w-6 h-6 ${pathname.startsWith('/blog') ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
                   <span>Blog</span>
                 </Link>
 
@@ -195,21 +195,21 @@ export default function Navigation() {
                 >
                   <button
                     onClick={() => setDropdownOpen(dropdownOpen === 'curso' ? null : 'curso')}
-                    className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 focus:outline-none border ${
+                    className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 focus:outline-none border ${
                       dropdownOpen === 'curso' || pathname.startsWith('/cursos') || pathname.startsWith('/gramatica') || pathname.startsWith('/vocabulario') || pathname.startsWith('/lectura')
-                        ? 'bg-gray-900 text-white border-gray-900'
-                        : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
+                        ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300'
+                        : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
                     }`}
                     aria-expanded={dropdownOpen === 'curso'}
                   >
-                    <BookOpen className="w-4 h-4" />
+                    <BookOpen className={`w-5 h-5 ${dropdownOpen === 'curso' || pathname.startsWith('/cursos') || pathname.startsWith('/gramatica') || pathname.startsWith('/vocabulario') || pathname.startsWith('/lectura') ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
                     <div className="flex flex-col leading-tight text-left">
                       <span className="text-sm font-semibold">Curso de Español</span>
                       <span className={`text-xs font-medium ${dropdownOpen === 'curso' || pathname.startsWith('/cursos') || pathname.startsWith('/gramatica') || pathname.startsWith('/vocabulario') || pathname.startsWith('/lectura') ? 'text-gray-300' : 'text-gray-600'}`}>
                         {aprenderDropdown.subtitle}
                       </span>
                     </div>
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdownOpen === 'curso' ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-5 h-5 transition-transform ${dropdownOpen === 'curso' ? 'rotate-180 text-white' : 'text-gray-700'}`} aria-hidden="true" />
                   </button>
                   <div
                     className={`absolute top-full left-0 mt-2 w-60 rounded-lg shadow-lg border border-gray-200 bg-white overflow-hidden z-50 ${dropdownOpen === 'curso' ? 'block' : 'hidden group-hover:block'}`}
@@ -236,7 +236,7 @@ export default function Navigation() {
                             }`}
                           >
                             <div className={`rounded-lg p-2 ${isChildActive ? 'bg-gray-200' : 'bg-gray-100 group-hover:bg-gray-200'}`}>
-                              <ChildIcon className={`w-4 h-4 ${isChildActive ? 'text-gray-900' : 'text-gray-700'}`} />
+                              <ChildIcon className={`w-6 h-6 ${isChildActive ? 'text-gray-900' : 'text-gray-700'}`} aria-hidden="true" />
                             </div>
                             <span>{child.label}</span>
                           </Link>
@@ -248,30 +248,34 @@ export default function Navigation() {
               </div>
             </div>
 
-            <div className="hidden md:flex items-center space-x-1 flex-shrink-0">
+            {/* Settings Row - Elegant and Professional */}
+            <div className="hidden md:flex items-center gap-2 flex-shrink-0">
               {mounted && isSignedIn && isAdmin && (
                 <Link
                   href="/admin"
-                  className={`flex items-center space-x-1 px-2.5 md:px-3 py-1.5 md:py-2 rounded-lg text-sm transition-colors border-2 border-yellow-300 ${isAdmin ? 'ring-2 ring-yellow-100' : ''} ${
+                  className={`group flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 border ${
                     pathname === '/admin'
-                      ? 'bg-yellow-50 text-[#0f172a] border-yellow-400'
-                      : 'bg-white text-[#0f172a] border-yellow-300 hover:bg-yellow-50'
+                      ? 'bg-gray-900 text-white border-gray-900 shadow-md'
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:shadow-sm hover:border-gray-300'
                   }`}
                   aria-label="Panel de Control"
                 >
-                  <Shield className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                  <Shield className={`w-6 h-6 ${pathname === '/admin' ? 'text-white' : 'text-gray-700'} transition-colors`} aria-hidden="true" />
                   <span className="hidden lg:inline">Panel de Control</span>
                   <span className="lg:hidden">Admin</span>
-                  <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-50 text-yellow-800">Admin</span>
+                  {pathname === '/admin' && (
+                    <span className="ml-1 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-white/20 text-white">Admin</span>
+                  )}
                 </Link>
               )}
 
               <button
                 onClick={() => setSearchOverlayOpen(true)}
-                className="ml-2 flex items-center justify-center w-9 h-9 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 transition-all duration-200 text-gray-900"
+                className="group relative flex items-center justify-center w-11 h-11 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-lg transition-all duration-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95"
                 aria-label="Buscar"
               >
-                <Search className="w-5 h-5" />
+                <Search className="w-6 h-6 text-gray-700 group-hover:text-gray-900 transition-colors" aria-hidden="true" />
+                <span className="absolute -top-1 -right-1 w-2 h-2 bg-gray-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
               </button>
 
               {/* Clerk auth buttons - temporarily disabled */}
@@ -313,13 +317,18 @@ export default function Navigation() {
               )}
             </div>
 
+            {/* Mobile Menu Button - Enhanced */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-gray-900 hover:bg-gray-100 border border-gray-200"
+              className="md:hidden group relative flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md transition-all duration-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
               aria-label={mobileMenuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
               aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5 text-gray-700 group-hover:text-gray-900 transition-colors" aria-hidden="true" />
+              ) : (
+                <Menu className="w-5 h-5 text-gray-700 group-hover:text-gray-900 transition-colors" aria-hidden="true" />
+              )}
             </button>
           </div>
 
@@ -334,12 +343,20 @@ export default function Navigation() {
                       key={item.href}
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`flex items-center gap-3 p-4 rounded-lg border transition-all active:scale-[0.98] min-h-[56px] ${
-                        isActive ? 'bg-gray-900 text-white border-gray-900' : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
+                      className={`group mobile-menu-item flex items-center gap-3 p-4 rounded-lg border transition-all active:scale-[0.98] min-h-[56px] ${
+                        isActive 
+                          ? 'bg-gray-900 text-white border-gray-900 shadow-md' 
+                          : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:shadow-sm'
                       }`}
                     >
-                      <div className={`flex-shrink-0 w-11 h-11 rounded-lg flex items-center justify-center ${isActive ? 'bg-gray-800' : 'bg-gray-100'}`}>
-                        <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-gray-700'}`} />
+                      <div className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-200 ${
+                        isActive 
+                          ? 'bg-gray-800 shadow-md' 
+                          : `${item.bg} shadow-sm group-hover:shadow-md`
+                      }`}>
+                        <Icon className={`w-6 h-6 transition-colors ${
+                          isActive ? 'text-white' : item.iconColor
+                        }`} aria-hidden="true" />
                       </div>
                       <span className={`text-sm font-semibold truncate ${isActive ? 'text-white' : 'text-gray-900'}`}>{item.label}</span>
                     </Link>

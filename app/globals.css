@@ -13,6 +13,19 @@
   --success: #059669;
   --error: #DC2626;
   
+  /* Accent colors - subtle and elegant */
+  --accent-blue: #EFF6FF;
+  --accent-purple: #F5F3FF;
+  --accent-green: #F0FDF4;
+  --accent-amber: #FFFBEB;
+  --accent-rose: #FFF1F2;
+  
+  /* Enhanced shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
   /* Legacy support */
   --background: #FFFFFF;
   --foreground: #1A1A1A;
@@ -360,16 +373,17 @@ span a {
   background: var(--accent-hover);
 }
 
-/* Modern card global style - Simple and Clean */
+/* Modern card global style - Elegant and Refined */
 .modern-card {
-  border-radius: 0.75rem;
+  border-radius: 0.875rem;
   border: 1px solid var(--border-color);
   background: var(--bg-primary);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  transition: box-shadow 200ms ease-in-out;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
 }
 .modern-card:hover {
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
 }
 
 /* Global clickable transition for micro-interactions */
@@ -377,21 +391,57 @@ button, a, .card-hover-effect, .modern-card {
   transition: all 200ms ease-in-out;
 }
 
-/* Increase default spacing between grids and sections */
-.container > .grid, .grid.gap-4 {
-  gap: 1.25rem; /* increase gap */
+/* Consistent spacing between grids and sections */
+.container > .grid, .grid.gap-4, .grid.gap-6 {
+  gap: 1.5rem; /* 24px consistent gap */
 }
+
+@media (max-width: 768px) {
+  .container > .grid, .grid.gap-4, .grid.gap-6 {
+    gap: 1rem; /* 16px on mobile */
+  }
+}
+
 section, .section {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
 
-/* Mobile: two columns for card grids by default */
-@media (max-width: 767px) {
-  .grid.grid-cols-1 {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
+/* Visual Hierarchy - Headings */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
 }
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+/* Icon with text alignment - Standard */
+.icon-text-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* 12px */
+}
+
+/* Responsive Grid System - Clean and Consistent */
+/* Mobile: 1 column, Tablet: 2 columns, Desktop: 3-4 columns */
+/* Grid columns are now handled by Tailwind classes directly */
 
 /* Ripple animation used by createRipple */
 .ripple-element {
@@ -420,18 +470,16 @@ section, .section {
 }
 
 /* Simple card style */
-.modern-card, .bg-white.rounded-xl, .rounded-xl {
+/* Additional rounded elements use consistent styling */
+.bg-white.rounded-xl, .rounded-xl {
   border-radius: 0.75rem;
   border: 1px solid var(--border-color);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-sm);
 }
 
-/* Mobile grid: default two columns for card grids */
-@media (max-width: 767px) {
-  .grid.grid-cols-1 {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
+/* Responsive Grid System - Clean and Consistent */
+/* Mobile: 1 column, Tablet: 2 columns, Desktop: 3-4 columns */
+/* Remove conflicting mobile grid rules - let Tailwind handle it */
 
 /* Simple button styles */
 .btn-glow {
@@ -783,4 +831,93 @@ section, .section {
 /* Removed shimmer effect for simplicity */
 .feature-shimmer::before {
   display: none;
+}
+
+/* Icon utilities - consistent sizing and colors */
+/* Standard icon size: 24px (w-6 h-6) for all icons */
+.icon-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon-md {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.icon-lg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon-xl {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Standard icon size - 24px (w-6 h-6) */
+.icon-standard {
+  width: 1.5rem; /* 24px */
+  height: 1.5rem; /* 24px */
+}
+
+/* Icon alignment utilities */
+.icon-with-text {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* 12px */
+}
+
+.icon-primary {
+  color: var(--text-primary);
+}
+
+.icon-secondary {
+  color: var(--text-secondary);
+}
+
+.icon-accent {
+  color: var(--accent-primary);
+}
+
+/* Enhanced Navigation Buttons */
+.nav-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.nav-button:hover::before {
+  left: 100%;
+}
+
+/* Mobile Menu Button Enhancements */
+.mobile-menu-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-menu-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  transition: width 0.3s ease;
+}
+
+.mobile-menu-item:hover::after {
+  width: 100%;
 }

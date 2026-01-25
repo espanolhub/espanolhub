@@ -183,7 +183,7 @@ function VocabularioContent() {
         {/* Search Bar */}
         <div className="mb-6 md:mb-8 max-w-2xl mx-auto">
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" aria-hidden="true" />
             <input
               type="text"
               value={searchQuery}
@@ -208,16 +208,16 @@ function VocabularioContent() {
                   setSelectedWord(null);
                   setSearchQuery('');
                 }}
-                className={`px-3 md:px-4 py-3 md:py-3.5 rounded-xl font-semibold transition-all capitalize flex items-center justify-center gap-2 text-sm md:text-base ${
+                className={`px-3 md:px-4 py-3 md:py-3.5 rounded-lg font-semibold transition-all capitalize flex items-center justify-center gap-2 text-sm md:text-base border ${
                   selectedCategory === category
-                    ? 'bg-gradient-to-r from-yellow-600 to-orange-600 text-white shadow-lg scale-105'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 shadow-md hover:shadow-lg hover:scale-105'
+                    ? 'bg-gray-900 text-white border-gray-900'
+                    : 'bg-white text-gray-700 hover:bg-gray-50 border-gray-200'
                 }`}
                 role="tab"
                 aria-selected={selectedCategory === category}
                 aria-label={`Categoría ${category}`}
               >
-                <Icon className="w-4 h-4 md:w-5 md:h-5" />
+                <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
                 <span className="hidden sm:inline">{category}</span>
               </button>
             );
@@ -288,7 +288,7 @@ function VocabularioContent() {
                 <div className="text-center">
                   <div className="flex justify-center mb-3">
                     <div className="w-12 h-12 md:w-14 md:h-14 bg-gray-900 rounded-full flex items-center justify-center border border-gray-800">
-                      <CategoryIcon className="w-6 h-6 md:w-7 md:h-7 text-yellow-600" />
+                      <CategoryIcon className="w-6 h-6 md:w-7 md:h-7 text-white" aria-hidden="true" />
                     </div>
                   </div>
                   <div 

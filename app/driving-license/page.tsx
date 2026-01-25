@@ -153,8 +153,8 @@ export default function DrivingLicensePage() {
     if (index === current) return <Play className="w-5 h-5 text-blue-600" />;
     // All chapters are now unlocked, but premium content requires Pro
     const isFree = ch.isFree;
-    if (!isFree && !isProHook) return <Lock className="w-5 h-5 text-gray-400" />;
-    return <Play className="w-5 h-5 text-gray-400" />;
+    if (!isFree && !isProHook) return <Lock className="w-5 h-5 text-gray-500" aria-hidden="true" />;
+    return <Play className="w-5 h-5 text-gray-500" aria-hidden="true" />;
   };
 
 
@@ -179,45 +179,45 @@ export default function DrivingLicensePage() {
             </div>
           </div>
 
-          {/* Stats Bar */}
+          {/* Stats Bar - Elegant and Compact */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-            <div className="modern-card bg-gray-900 text-white p-4 border border-gray-800">
+            <div className="modern-card bg-white text-gray-900 p-3 border border-gray-200">
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-2xl font-bold">{progressPercent}%</div>
-                  <div className="text-xs text-gray-300">Progreso</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xl font-bold text-gray-900">{progressPercent}%</div>
+                  <div className="text-xs font-medium text-gray-600 mt-0.5">Progreso</div>
                 </div>
-                <Trophy className="w-8 h-8 text-white" />
+                <Trophy className="w-6 h-6 text-gray-700 flex-shrink-0 ml-2" aria-hidden="true" />
               </div>
             </div>
             
-            <div className="modern-card bg-gray-900 text-white p-4 border border-gray-800">
+            <div className="modern-card bg-white text-gray-900 p-3 border border-gray-200">
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-2xl font-bold">{completed.length}/{chapters.length}</div>
-                  <div className="text-xs text-gray-300">Completados</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xl font-bold text-gray-900">{completed.length}/{chapters.length}</div>
+                  <div className="text-xs font-medium text-gray-600 mt-0.5">Completados</div>
                 </div>
-                <CheckCircle className="w-8 h-8 text-white" />
+                <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 ml-2" aria-hidden="true" />
               </div>
             </div>
             
-            <div className="modern-card bg-gray-900 text-white p-4 border border-gray-800">
+            <div className="modern-card bg-white text-gray-900 p-3 border border-gray-200">
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-2xl font-bold">{formatTime(studyTime)}</div>
-                  <div className="text-xs text-gray-300">Tiempo</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xl font-bold text-gray-900">{formatTime(studyTime)}</div>
+                  <div className="text-xs font-medium text-gray-600 mt-0.5">Tiempo</div>
                 </div>
-                <Clock className="w-8 h-8 text-white" />
+                <Clock className="w-6 h-6 text-gray-700 flex-shrink-0 ml-2" aria-hidden="true" />
               </div>
             </div>
             
-            <div className="modern-card bg-gray-900 text-white p-4 cursor-pointer hover:shadow-md transition-shadow border border-gray-800" onClick={() => setShowStats(!showStats)}>
+            <div className="modern-card bg-white text-gray-900 p-3 cursor-pointer hover:shadow-md transition-all border border-gray-200" onClick={() => setShowStats(!showStats)}>
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-2xl font-bold">{chapters.length - completed.length}</div>
-                  <div className="text-xs text-gray-300">Restantes</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xl font-bold text-gray-900">{chapters.length - completed.length}</div>
+                  <div className="text-xs font-medium text-gray-600 mt-0.5">Restantes</div>
                 </div>
-                <Target className="w-8 h-8 text-white" />
+                <Target className="w-6 h-6 text-gray-700 flex-shrink-0 ml-2" aria-hidden="true" />
               </div>
             </div>
           </div>
@@ -245,7 +245,7 @@ export default function DrivingLicensePage() {
               {/* Quick Actions */}
               <div className="modern-card bg-white border border-gray-200 p-4">
                 <h3 className="font-bold mb-2 flex items-center gap-2 text-gray-900">
-                  <Zap className="w-5 h-5 text-gray-700" />
+                  <Zap className="w-5 h-5 text-gray-700" aria-hidden="true" />
                   Acceso Rápido / وصول سريع
                 </h3>
                 <div className="space-y-2">
@@ -290,7 +290,7 @@ export default function DrivingLicensePage() {
                         <div className={`text-xs flex items-center gap-2 ${i === current ? 'text-gray-300' : 'text-gray-600'}`}>
                           {completed.includes(i) ? (
                             <span className="flex items-center gap-1">
-                              <CheckCircle className="w-3 h-3" /> Completado
+                              <CheckCircle className="w-4 h-4 text-gray-700" aria-hidden="true" /> Completado
                             </span>
                           ) : (
                             <span>✨ Gratis</span>
@@ -319,7 +319,7 @@ export default function DrivingLicensePage() {
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-lg font-semibold">Contenido</h2>
                   <button onClick={() => setSidebarOpen(false)} aria-label="Cerrar">
-                    <X className="w-5 h-5 text-gray-700" />
+                    <X className="w-5 h-5 text-gray-700" aria-hidden="true" />
                   </button>
                 </div>
               <nav className="space-y-2">
@@ -362,19 +362,19 @@ export default function DrivingLicensePage() {
                   </div>
                   <div>
                     {/* All content is free now */}
-                    <span className="px-4 py-2 bg-green-500 rounded-full text-white text-sm font-medium flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4" /> Todo Gratis
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-900 text-sm font-medium flex items-center gap-2 border border-gray-200">
+                      <CheckCircle className="w-5 h-5 text-gray-700" aria-hidden="true" /> Todo Gratis
                     </span>
                   </div>
                 </div>
 
                 {/* Progress Bar for current chapter */}
                 <div className="flex items-center gap-3 text-sm text-gray-700 font-semibold">
-                  <Clock className="w-4 h-4 text-gray-700" />
+                  <Clock className="w-5 h-5 text-gray-700" aria-hidden="true" />
                   <span>Tiempo de estudio: {formatTime(studyTime)}</span>
                   {completed.includes(current) && (
                     <span className="ml-auto flex items-center gap-1 bg-gray-100 px-3 py-1 rounded-full border border-gray-200">
-                      <Award className="w-4 h-4 text-gray-700" /> <span className="text-gray-900">Completado</span>
+                      <Award className="w-5 h-5 text-gray-700" aria-hidden="true" /> <span className="text-gray-900">Completado</span>
                     </span>
                   )}
                 </div>
@@ -385,7 +385,7 @@ export default function DrivingLicensePage() {
                 <div className="border-b bg-gray-50 px-6 py-4">
                   <div className="flex flex-wrap items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
-                      <Brain className="w-5 h-5 text-blue-600" />
+                      <Brain className="w-5 h-5 text-gray-700" aria-hidden="true" />
                       <span className="text-sm font-semibold text-gray-700">Herramientas de Estudio / أدوات الدراسة</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
@@ -404,7 +404,7 @@ export default function DrivingLicensePage() {
                             : 'bg-gray-900 hover:bg-gray-800 text-white border-gray-900'
                         }`}
                       >
-                        <CheckCircle className="w-4 h-4" />
+                        <CheckCircle className="w-5 h-5" aria-hidden="true" />
                         {completed.includes(current) ? 'Completado' : 'Marcar Completo'}
                       </button>
                     </div>
@@ -485,7 +485,7 @@ export default function DrivingLicensePage() {
                       {/* Learning Objectives */}
                       <div className="mb-6 p-6 bg-gray-50 rounded-lg border-l-4 border-gray-900">
                         <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-                          <Target className="w-5 h-5 text-blue-600" />
+                          <Target className="w-5 h-5 text-gray-700" aria-hidden="true" />
                           Objetivos de Aprendizaje
                           {showTranslations && <span> / أهداف التعلم</span>}
                         </h3>
@@ -514,7 +514,7 @@ export default function DrivingLicensePage() {
                       {lesson.resumenClave && (
                         <div className="mt-8 p-6 bg-gray-50 rounded-lg border-l-4 border-gray-900">
                           <h4 className="font-bold text-lg mb-3 flex items-center gap-2 text-gray-900">
-                            <BookOpen className="w-5 h-5 text-green-600" />
+                            <BookOpen className="w-5 h-5 text-gray-700" aria-hidden="true" />
                             Resumen Clave
                             {showTranslations && <span> / الملخص الأساسي</span>}
                           </h4>
@@ -531,7 +531,7 @@ export default function DrivingLicensePage() {
                       {lesson.erroresComunes && lesson.erroresComunes.length > 0 && (
                         <div className="mt-6 p-6 bg-gray-50 rounded-lg border-l-4 border-gray-900">
                           <h4 className="font-bold text-lg mb-3 flex items-center gap-2 text-gray-900">
-                            <AlertCircle className="w-5 h-5 text-amber-600" />
+                            <AlertCircle className="w-5 h-5 text-gray-700" aria-hidden="true" />
                             Errores Comunes a Evitar
                             {showTranslations && <span> / الأخطاء الشائعة</span>}
                           </h4>
@@ -551,21 +551,21 @@ export default function DrivingLicensePage() {
                       {/* Practice Tips */}
                       <div className="mt-6 p-6 bg-gray-50 rounded-lg border-l-4 border-gray-900">
                         <h4 className="font-bold text-lg mb-3 flex items-center gap-2 text-gray-900">
-                          <Star className="w-5 h-5 text-purple-600" />
+                          <Star className="w-5 h-5 text-gray-700" aria-hidden="true" />
                           Consejos para Practicar
                           {showTranslations && <span> / نصائح للتدريب</span>}
                         </h4>
                         <ul className="space-y-2 text-gray-700">
                           <li className="flex items-center gap-2">
-                            <CheckCircle className="w-4 h-4 text-green-600" />
+                            <CheckCircle className="w-5 h-5 text-gray-700" aria-hidden="true" />
                             Repasa este capítulo varias veces antes del examen
                           </li>
                           <li className="flex items-center gap-2">
-                            <CheckCircle className="w-4 h-4 text-green-600" />
+                            <CheckCircle className="w-5 h-5 text-gray-700" aria-hidden="true" />
                             Practica con el simulador después de estudiar
                           </li>
                           <li className="flex items-center gap-2">
-                            <CheckCircle className="w-4 h-4 text-green-600" />
+                            <CheckCircle className="w-5 h-5 text-gray-700" aria-hidden="true" />
                             Toma notas de los puntos clave
                           </li>
                         </ul>

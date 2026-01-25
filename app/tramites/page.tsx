@@ -375,9 +375,9 @@ export default function TramitesPage() {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6 border border-gray-200">
-            <Sparkles className="w-4 h-4 text-gray-700" />
+            <Sparkles className="w-5 h-5 text-gray-700" aria-hidden="true" />
             <span className="text-sm font-semibold text-gray-900">{guides.length} Guías Completas</span>
-            <Star className="w-4 h-4 text-gray-700" />
+            <Star className="w-5 h-5 text-gray-700" aria-hidden="true" />
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-gray-900">
@@ -391,7 +391,7 @@ export default function TramitesPage() {
         {/* Search Bar */}
         <div className="mb-8 max-w-2xl mx-auto">
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" aria-hidden="true" />
             <input
               type="text"
               value={searchQuery}
@@ -405,7 +405,7 @@ export default function TramitesPage() {
         {/* Categories Filter */}
         <div className="mb-12">
           <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-            <FileText className="w-5 h-5 text-green-600" />
+            <FileText className="w-5 h-5 text-gray-700" aria-hidden="true" />
             Categorías
           </h3>
           <div className="flex flex-wrap gap-3">
@@ -422,7 +422,7 @@ export default function TramitesPage() {
                       : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
                   <span>{cat.label}</span>
                 </button>
               );
@@ -433,22 +433,22 @@ export default function TramitesPage() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           <div className="bg-gray-900 rounded-lg p-6 text-white border border-gray-800">
-            <FileText className="w-8 h-8 mb-2 text-white" />
+            <FileText className="w-8 h-8 mb-2 text-white" aria-hidden="true" />
             <div className="text-3xl font-bold mb-1 text-white">{guides.length}</div>
             <div className="text-sm text-gray-300">Guías Totales</div>
           </div>
           <div className="bg-gray-900 rounded-lg p-6 text-white border border-gray-800">
-            <CheckCircle className="w-8 h-8 mb-2 text-white" />
+            <CheckCircle className="w-8 h-8 mb-2 text-white" aria-hidden="true" />
             <div className="text-3xl font-bold mb-1 text-white">{filteredGuides.length}</div>
             <div className="text-sm text-gray-300">Resultados</div>
           </div>
           <div className="bg-gray-900 rounded-lg p-6 text-white border border-gray-800">
-            <Shield className="w-8 h-8 mb-2 text-white" />
+            <Shield className="w-8 h-8 mb-2 text-white" aria-hidden="true" />
             <div className="text-3xl font-bold mb-1 text-white">100%</div>
             <div className="text-sm text-gray-300">Oficial</div>
           </div>
           <div className="bg-gray-900 rounded-lg p-6 text-white border border-gray-800">
-            <Clock className="w-8 h-8 mb-2 text-white" />
+            <Clock className="w-8 h-8 mb-2 text-white" aria-hidden="true" />
             <div className="text-3xl font-bold mb-1 text-white">2026</div>
             <div className="text-sm text-gray-300">Actualizado</div>
           </div>
@@ -472,7 +472,7 @@ export default function TramitesPage() {
                   <div className="p-6">
                     <div className="flex items-start gap-4 mb-4">
                       <div className="w-16 h-16 rounded-lg bg-gray-900 flex items-center justify-center flex-shrink-0 border border-gray-800">
-                        <Icon className="w-8 h-8 text-white" />
+                        <Icon className="w-8 h-8 text-white" aria-hidden="true" />
                       </div>
                       
                       <div className="flex-1">
@@ -487,8 +487,8 @@ export default function TramitesPage() {
                             <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getDifficultyColor(guide.difficulty || 'medio')}`}>
                               {guide.difficulty || 'medio'}
                             </span>
-                            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-700 flex items-center gap-1">
-                              <Clock className="w-3 h-3" />
+                            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 flex items-center gap-1 border border-gray-200">
+                              <Clock className="w-4 h-4 text-gray-700" aria-hidden="true" />
                               {guide.duration}
                             </span>
                             {(guide as any).cost && (
@@ -510,15 +510,15 @@ export default function TramitesPage() {
                     {/* Quick Info */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
                       <div className="flex items-center gap-2 text-sm">
-                        <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-gray-700 flex-shrink-0" aria-hidden="true" />
                         <span className="text-gray-700"><strong>{guide.requirements.length}</strong> requisitos</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm">
-                        <AlertCircle className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                        <AlertCircle className="w-5 h-5 text-gray-700 flex-shrink-0" aria-hidden="true" />
                         <span className="text-gray-700"><strong>{guide.steps.length}</strong> pasos</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm">
-                        <ExternalLink className="w-4 h-4 text-purple-600 flex-shrink-0" />
+                        <ExternalLink className="w-5 h-5 text-gray-700 flex-shrink-0" aria-hidden="true" />
                         <span className="text-gray-700"><strong>{guide.links.length}</strong> enlaces oficiales</span>
                       </div>
                     </div>
@@ -552,7 +552,7 @@ export default function TramitesPage() {
                       {/* Requirements */}
                       <div className="mb-8">
                         <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                          <CheckCircle className="w-6 h-6 text-green-600" />
+                          <CheckCircle className="w-6 h-6 text-gray-700" aria-hidden="true" />
                           Requisitos Necesarios
                         </h4>
                         <div className="bg-white rounded-xl p-5 shadow-md">
@@ -572,7 +572,7 @@ export default function TramitesPage() {
                       {/* Steps */}
                       <div className="mb-8">
                         <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                          <AlertCircle className="w-6 h-6 text-blue-600" />
+                          <AlertCircle className="w-6 h-6 text-gray-700" aria-hidden="true" />
                           Pasos a Seguir
                         </h4>
                         <div className="space-y-4">
@@ -598,7 +598,7 @@ export default function TramitesPage() {
                             <ul className="space-y-3">
                               {(guide as any).tips.map((tip: any, i: number) => (
                                 <li key={i} className="flex items-start gap-3">
-                                  <Star className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                                  <Star className="w-5 h-5 text-gray-700 flex-shrink-0 mt-0.5" aria-hidden="true" />
                                   <p className="text-gray-900 font-medium">{tip.es}</p>
                                 </li>
                               ))}
@@ -625,7 +625,7 @@ export default function TramitesPage() {
                               <p className="font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">
                                 {link.label_es}
                               </p>
-                              <ExternalLink className="w-5 h-5 text-purple-600 group-hover:translate-x-1 transition-transform" />
+                              <ExternalLink className="w-5 h-5 text-gray-700 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                             </a>
                           ))}
                         </div>
@@ -663,7 +663,7 @@ export default function TramitesPage() {
         <div className="mt-12 bg-gray-50 rounded-lg p-6 md:p-8 border border-gray-200">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0 border border-gray-800">
-              <AlertCircle className="w-6 h-6 text-white" />
+              <AlertCircle className="w-6 h-6 text-white" aria-hidden="true" />
             </div>
             <div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">

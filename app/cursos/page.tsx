@@ -97,9 +97,9 @@ export default function CursosPage() {
         <div className="text-center mb-12">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6 border border-gray-200">
-            <Sparkles className="w-4 h-4 text-gray-700" />
+            <Sparkles className="w-6 h-6 text-gray-700" aria-hidden="true" />
             <span className="text-sm font-semibold text-gray-900">5 Cursos Disponibles</span>
-            <Star className="w-4 h-4 text-gray-700" />
+            <Star className="w-6 h-6 text-gray-700" aria-hidden="true" />
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-gray-900">
@@ -139,17 +139,17 @@ export default function CursosPage() {
             <div className="text-sm text-gray-300">En Progreso</div>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-6 text-white shadow-lg">
+          <div className="bg-gray-900 rounded-lg p-6 text-white border border-gray-800">
             <div className="flex items-center justify-between mb-2">
-              <Target className="w-8 h-8" />
-              <Users className="w-5 h-5 text-white/70" />
+              <Target className="w-8 h-8 text-white" aria-hidden="true" />
+              <Users className="w-5 h-5 text-white" aria-hidden="true" />
             </div>
-            <div className="text-3xl font-bold mb-1">
+            <div className="text-3xl font-bold mb-1 text-white">
               {courseProgress.length > 0 
                 ? Math.round(courseProgress.reduce((acc, p) => acc + p.progressPercent, 0) / courseProgress.length)
                 : 0}%
             </div>
-            <div className="text-sm text-white/90">Progreso Total</div>
+            <div className="text-sm text-gray-300">Progreso Total</div>
           </div>
         </div>
 
@@ -159,7 +159,7 @@ export default function CursosPage() {
             <div>
               <h2 className="text-3xl font-bold text-gray-900">Rutas de Aprendizaje</h2>
             </div>
-            <BookMarked className="w-8 h-8 text-blue-600" />
+            <BookMarked className="w-8 h-8 text-gray-700" aria-hidden="true" />
           </div>
           <div className="flex gap-6 overflow-x-auto pb-4">
             {learningPaths.map((path) => {
@@ -178,11 +178,11 @@ export default function CursosPage() {
                   
                   <div className="flex items-center justify-between text-sm text-gray-900 mb-3 font-medium">
                     <div className="flex items-center gap-2">
-                      <BookOpen className="w-4 h-4 text-blue-600" />
+                      <BookOpen className="w-5 h-5 text-gray-700" aria-hidden="true" />
                       <span>{pathCourses.length} Cursos</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Clock className="w-4 h-4 text-green-600" />
+                      <Clock className="w-5 h-5 text-gray-700" aria-hidden="true" />
                       <span>{Math.round(path.estimatedTotalDuration / 60)} hrs</span>
                     </div>
                   </div>
@@ -194,15 +194,15 @@ export default function CursosPage() {
                     </div>
                     <div className="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
                       <div 
-                        className="h-3 rounded-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-500" 
+                        className="h-3 rounded-full bg-gray-900 transition-all duration-500" 
                         style={{ width: `${progressPercent}%` }} 
                       />
                     </div>
                   </div>
 
                   {progressPercent > 0 && (
-                    <div className="flex items-center gap-2 text-xs text-green-600 font-semibold">
-                      <CheckCircle className="w-4 h-4" />
+                    <div className="flex items-center gap-2 text-xs text-gray-700 font-semibold">
+                      <CheckCircle className="w-6 h-6 text-gray-700" aria-hidden="true" />
                       <span>{completedCount} de {pathCourses.length} completados</span>
                     </div>
                   )}
@@ -215,7 +215,7 @@ export default function CursosPage() {
         {/* Level Filter - Enhanced */}
         <div className="mb-8">
           <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-            <Target className="w-5 h-5 text-blue-600" />
+            <Target className="w-5 h-5 text-gray-700" aria-hidden="true" />
             Filtrar por Nivel
           </h3>
           <nav aria-label="Filtrar por nivel" className="flex flex-wrap gap-4">
@@ -239,13 +239,13 @@ export default function CursosPage() {
                     try { router.replace(`/cursos?level=${level}`); } catch (err) {}
                   }}
                   aria-pressed={isActive}
-                  className={`group px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 ${
+                  className={`group px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center gap-3 border ${
                     isActive
-                      ? `bg-gradient-to-r ${label.color} text-white shadow-lg scale-105`
-                      : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-blue-300 hover:shadow-md'
+                      ? 'bg-gray-900 text-white border-gray-900'
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
                   }`}
                 >
-                  <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-gray-600 group-hover:text-blue-600'}`} />
+                  <Icon className={`w-6 h-6 ${isActive ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
                   <span>{label.es}</span>
                 </button>
               );
@@ -256,10 +256,10 @@ export default function CursosPage() {
         {/* Courses Grid - Enhanced */}
         <div>
           <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-            <BookOpen className="w-6 h-6 text-blue-600" />
+            <BookOpen className="w-6 h-6 text-gray-700" aria-hidden="true" />
             Todos los Cursos ({filteredCourses.length})
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
             {filteredCourses.map((course) => {
               const progress = courseProgress.find(p => p.courseId === course.id);
               const isCompleted = completedCourseIds.includes(course.id);
@@ -280,20 +280,20 @@ export default function CursosPage() {
                   <div className="absolute top-4 right-4 flex flex-col gap-2 items-end">
                     {!isAvailable && (
                       <div className="flex items-center gap-1 px-3 py-1 bg-gray-100 text-gray-900 rounded-full text-xs font-semibold">
-                        <Lock className="w-3 h-3" />
+                        <Lock className="w-4 h-4 text-gray-700" aria-hidden="true" />
                         Bloqueado
                       </div>
                     )}
                     {/* PRO Badge hidden - all content is free */}
                     {isCompleted && (
-                      <div className="flex items-center gap-1 px-3 py-1 bg-green-500 text-white rounded-full text-xs font-semibold">
-                        <CheckCircle className="w-3 h-3" />
+                      <div className="flex items-center gap-1 px-3 py-1 bg-gray-100 text-gray-900 rounded-full text-xs font-semibold border border-gray-200">
+                        <CheckCircle className="w-6 h-6 text-gray-700" aria-hidden="true" />
                         Completado
                       </div>
                     )}
                     {!isCompleted && isInProgress && (
-                      <div className="flex items-center gap-1 px-3 py-1 bg-blue-500 text-white rounded-full text-xs font-semibold">
-                        <Clock className="w-3 h-3" />
+                      <div className="flex items-center gap-1 px-3 py-1 bg-gray-100 text-gray-900 rounded-full text-xs font-semibold border border-gray-200">
+                        <Clock className="w-6 h-6 text-gray-700" aria-hidden="true" />
                         En curso
                       </div>
                     )}
@@ -301,7 +301,7 @@ export default function CursosPage() {
 
                   {/* Icon & Title */}
                   <div className="mb-4">
-                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-100 to-green-100 mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                    <div className="w-16 h-16 rounded-lg flex items-center justify-center bg-gray-900 mb-4 border border-gray-800 group-hover:scale-110 transition-transform">
                       <span className="text-4xl">{course.icon}</span>
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
@@ -316,11 +316,11 @@ export default function CursosPage() {
                   {/* Meta Info */}
                   <div className="flex items-center justify-between text-sm text-gray-900 mb-4 pb-4 border-b border-gray-200">
                     <div className="flex items-center gap-1">
-                      <BookOpen className="w-4 h-4 text-blue-600" />
+                      <BookOpen className="w-6 h-6 text-gray-700" aria-hidden="true" />
                       <span className="font-medium">{course.lessons.length} Lecciones</span>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-4 h-4 text-green-600" />
+                    <div className="flex items-center gap-3">
+                      <Clock className="w-6 h-6 text-gray-700" aria-hidden="true" />
                       <span className="font-medium">{Math.round(course.estimatedDuration / 60)} min</span>
                     </div>
                   </div>
@@ -333,11 +333,7 @@ export default function CursosPage() {
                     </div>
                     <div className="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
                       <div 
-                        className={`h-3 rounded-full transition-all duration-500 ${
-                          isCompleted 
-                            ? 'bg-gradient-to-r from-green-500 to-emerald-500' 
-                            : 'bg-gradient-to-r from-blue-500 to-blue-600'
-                        }`}
+                        className="h-3 rounded-full bg-gray-900 transition-all duration-500"
                         style={{ width: `${progressPercent}%` }} 
                       />
                     </div>
@@ -349,18 +345,12 @@ export default function CursosPage() {
                       <Link
                         href={targetHref}
                         onMouseDown={(e) => createRipple(e)}
-                        className={`group/btn flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg ${
-                          isCompleted
-                            ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white'
-                            : isInProgress
-                            ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white'
-                            : 'bg-gradient-to-r from-purple-500 to-blue-600 text-white'
-                        }`}
+                        className="group/btn flex items-center justify-center gap-3 w-full px-4 py-3 rounded-lg font-semibold transition-all bg-gray-900 text-white hover:bg-gray-800 border border-gray-800"
                       >
                         <span>
                           {isInProgress ? 'Continuar Curso' : isCompleted ? 'Revisar Curso' : 'Empezar Ahora'}
                         </span>
-                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-6 h-6 text-white group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />
                       </Link>
                     ) : (
                       <div
@@ -401,9 +391,9 @@ export default function CursosPage() {
                 {!currentCourseProgress && (
                   <button
                     onClick={() => handleStartCourse(currentCourse.id)}
-                    className="w-full mb-6 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                    className="w-full mb-6 px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-all flex items-center justify-center gap-3 border border-gray-800"
                   >
-                    <Play className="w-5 h-5" />
+                    <Play className="w-5 h-5 text-white" aria-hidden="true" />
                     Comenzar Curso
                   </button>
                 )}
@@ -412,7 +402,7 @@ export default function CursosPage() {
                   <div className="mb-6">
                     <div className="w-full bg-gray-100 rounded-full h-3 mb-2">
                       <div
-                        className="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all"
+                        className="bg-gray-900 h-3 rounded-full transition-all"
                         style={{ width: `${currentCourseProgress.progressPercent}%` }}
                       ></div>
                     </div>
@@ -454,14 +444,14 @@ export default function CursosPage() {
                             </div>
                           </div>
                           <div className="flex items-center gap-2">
-                            {isCompleted && <CheckCircle className="w-5 h-5 text-green-500" />}
+                            {isCompleted && <CheckCircle className="w-5 h-5 text-gray-700" aria-hidden="true" />}
                             {!isCompleted && (
                               <>
                                 <button
                                   onClick={() => handleStartLesson(currentCourse.id, lesson.id)}
-                                  className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors flex items-center gap-2"
+                                  className="px-4 py-2 bg-gray-900 text-white rounded-lg text-sm font-semibold hover:bg-gray-800 transition-colors flex items-center gap-2 border border-gray-800"
                                 >
-                                  <Play className="w-4 h-4" />
+                                  <Play className="w-5 h-5 text-white" aria-hidden="true" />
                                   Iniciar
                                 </button>
                                 <button

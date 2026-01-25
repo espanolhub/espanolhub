@@ -50,17 +50,17 @@ export default function ProgressDisplay() {
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-3 md:p-4 mb-2 md:mb-3">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 mb-2 md:mb-3">
         <div className="flex items-center gap-2">
-          <Trophy className="w-4 h-4 md:w-5 md:h-5 text-yellow-500" />
+          <Trophy className="w-5 h-5 text-gray-700" aria-hidden="true" />
           <span className="text-sm md:text-base font-semibold text-gray-900">Nivel {progress.level}</span>
         </div>
         <div className="flex items-center gap-3 md:gap-4">
           <div className="flex items-center gap-1">
-            <Zap className="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-500" />
+            <Zap className="w-5 h-5 text-gray-700" aria-hidden="true" />
             <span className="text-xs md:text-sm font-medium text-gray-700">{progress.totalXP.toLocaleString()} XP</span>
           </div>
           {progress.studyStreak.current > 0 && (
             <div className="flex items-center gap-1">
-              <span className="text-lg md:text-xl">🔥</span>
+              <span className="text-lg md:text-xl" aria-hidden="true">🔥</span>
               <span className="text-xs md:text-sm font-medium text-gray-700">{progress.studyStreak.current}</span>
             </div>
           )}
@@ -83,7 +83,7 @@ export default function ProgressDisplay() {
       {progress.achievements.length > 0 && (
         <div className="mt-2 md:mt-3 pt-2 md:pt-3 border-t border-gray-200">
           <div className="flex items-center gap-1 mb-1.5 md:mb-2">
-            <Award className="w-3 h-3 md:w-4 md:h-4 text-purple-500" />
+            <Award className="w-5 h-5 text-gray-700" aria-hidden="true" />
             <span className="text-[10px] md:text-xs font-medium text-gray-600">
               {progress.achievements.length} Logro{progress.achievements.length !== 1 ? 's' : ''}
             </span>

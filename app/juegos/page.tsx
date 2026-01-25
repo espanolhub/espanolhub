@@ -278,7 +278,7 @@ export default function JuegosPage() {
               onClick={() => setSelectedEntry(null)} 
               className="mb-6 flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 rounded-xl hover:from-gray-200 hover:to-gray-300 transition-all font-semibold shadow-md hover:shadow-lg"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <ArrowLeft className="w-5 h-5 text-gray-900" aria-hidden="true" />
               Volver a Juegos
             </button>
             {/* render playable library entry */}
@@ -287,29 +287,29 @@ export default function JuegosPage() {
           </div>
         ) : !selectedGame ? (
           <>
-            {/* Tabs Navigation */}
+            {/* Tabs Navigation - Enhanced */}
             <div className="flex justify-center mb-8 overflow-x-auto">
-              <div className="inline-flex flex-nowrap bg-white rounded-2xl shadow-xl p-2 border-2 border-gray-100 min-w-0">
+              <div className="inline-flex flex-nowrap items-center gap-2 bg-white rounded-xl shadow-md p-2 border border-gray-200 min-w-0">
                 <button
                   onClick={() => setActiveTab('principales')}
-                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold transition-all duration-200 transform flex-shrink-0 border ${
+                  className={`flex items-center gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold transition-all duration-200 border ${
                     activeTab === 'principales'
-                      ? 'bg-gray-900 text-white border-gray-900'
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
+                      ? 'bg-gray-900 text-white border-gray-900 shadow-md'
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:shadow-sm'
                   }`}
                 >
-                  <Gamepad2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <Gamepad2 className={`w-6 h-6 ${activeTab === 'principales' ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
                   <span className="text-sm sm:text-base">Principales</span>
                 </button>
                 <button
                   onClick={() => setActiveTab('biblioteca')}
-                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold transition-all duration-200 transform flex-shrink-0 border ${
+                  className={`flex items-center gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold transition-all duration-200 border ${
                     activeTab === 'biblioteca'
-                      ? 'bg-gray-900 text-white border-gray-900'
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
+                      ? 'bg-gray-900 text-white border-gray-900 shadow-md'
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:shadow-sm'
                   }`}
                 >
-                  <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <BookOpen className={`w-6 h-6 ${activeTab === 'biblioteca' ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
                   <span className="text-sm sm:text-base">Biblioteca</span>
                   {libraryTitles.length > 0 && (
                     <span className={`text-xs px-2 py-0.5 rounded-full ${
@@ -321,13 +321,13 @@ export default function JuegosPage() {
                 </button>
                 <button
                   onClick={() => setActiveTab('todos')}
-                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold transition-all duration-200 transform flex-shrink-0 border ${
+                  className={`flex items-center gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold transition-all duration-200 border ${
                     activeTab === 'todos'
-                      ? 'bg-gray-900 text-white border-gray-900'
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
+                      ? 'bg-gray-900 text-white border-gray-900 shadow-md'
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:shadow-sm'
                   }`}
                 >
-                  <Grid3x3 className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <Grid3x3 className={`w-6 h-6 ${activeTab === 'todos' ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
                   <span className="text-sm sm:text-base">Todos</span>
                 </button>
               </div>
@@ -340,7 +340,7 @@ export default function JuegosPage() {
                 <span className="text-4xl">🎯</span>
                 Juegos Principales
               </h2>
-              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                 {games.map((gameItem) => {
                   const gradient = gameGradients[gameItem.id] || 'from-gray-500 to-gray-600';
                   return (
@@ -384,7 +384,7 @@ export default function JuegosPage() {
                     </span>
                   )}
                 </h2>
-                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                   {libraryTitles.map((g) => (
                     <div
                       key={g.id}
@@ -432,7 +432,7 @@ export default function JuegosPage() {
               onClick={handleReset}
               className="mb-6 flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-all font-semibold text-gray-900"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <ArrowLeft className="w-5 h-5 text-gray-900" aria-hidden="true" />
               Volver a Juegos
             </button>
             <WordRaceGame onBack={handleReset} />
@@ -443,7 +443,7 @@ export default function JuegosPage() {
               onClick={handleReset}
               className="mb-6 flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 rounded-xl hover:from-gray-200 hover:to-gray-300 transition-all font-semibold shadow-md hover:shadow-lg"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <ArrowLeft className="w-5 h-5 text-gray-900" aria-hidden="true" />
               Volver a Juegos
             </button>
 
@@ -505,8 +505,8 @@ export default function JuegosPage() {
                   </div>
                 )}
                 <div className="bg-pink-100 rounded-lg px-4 py-2">
-                  <Trophy className="w-5 h-5 inline mr-2 text-pink-600" />
-                  <span className="font-bold text-pink-600">{score} puntos</span>
+                  <Trophy className="w-5 h-5 inline mr-2 text-gray-700" aria-hidden="true" />
+                  <span className="font-bold text-gray-900">{score} puntos</span>
                 </div>
               </div>
             </div>
@@ -549,8 +549,8 @@ export default function JuegosPage() {
                           >
                             <div className="flex items-center justify-between">
                               <span className="text-lg">{option}</span>
-                              {showCorrect && <CheckCircle className="w-6 h-6 text-green-500" />}
-                              {showIncorrect && <XCircle className="w-6 h-6 text-red-500" />}
+                              {showCorrect && <CheckCircle className="w-6 h-6 text-green-600" aria-hidden="true" />}
+                              {showIncorrect && <XCircle className="w-6 h-6 text-red-600" aria-hidden="true" />}
                             </div>
                           </button>
                         );
@@ -809,7 +809,7 @@ export default function JuegosPage() {
               </>
             ) : (
               <div className="text-center">
-                <Trophy className="w-20 h-20 text-yellow-500 mx-auto mb-4" />
+                <Trophy className="w-20 h-20 text-gray-700 mx-auto mb-4" aria-hidden="true" />
                 <h2 className="text-4xl font-bold text-gray-800 mb-4">
                   ¡Juego Completado!
                 </h2>
@@ -824,7 +824,7 @@ export default function JuegosPage() {
                     onClick={handleReset}
                     className="px-8 py-3 bg-white border border-gray-200 text-gray-900 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center"
                   >
-                    <RotateCcw className="w-5 h-5 mr-2" />
+                    <RotateCcw className="w-5 h-5 mr-2 text-gray-900" aria-hidden="true" />
                     Volver a los Juegos
                   </button>
                   {(selectedGame === 'memory' || selectedGame === 'fill-blank') && (
@@ -832,7 +832,7 @@ export default function JuegosPage() {
                       onClick={() => handleStartGame(selectedGame!)}
                       className="px-8 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors flex items-center border border-gray-800"
                     >
-                      <Gamepad2 className="w-5 h-5 mr-2" />
+                      <Gamepad2 className="w-5 h-5 mr-2 text-white" aria-hidden="true" />
                       Jugar de nuevo
                     </button>
                   )}
