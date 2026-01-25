@@ -12,8 +12,7 @@ export const metadata: Metadata = {
     canonical: "https://www.espanolhub.com/espanol-para-arabes",
     languages: {
       'es': "https://www.espanolhub.com/espanol-para-arabes",
-      'ar': "https://www.espanolhub.com/ar/espanol-para-arabes",
-    }
+    },
   },
 };
 

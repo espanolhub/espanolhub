@@ -5,7 +5,7 @@ import { ArrowLeft, CheckCircle, BookOpen, Lightbulb, ArrowRight } from 'lucide-
 import { getLessonById, getAllLessons } from '@/lib/data/grammar-lessons';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import SmartInternalLinks from '@/components/SmartInternalLinks';
-import ReactMarkdown from 'react-markdown';
+import MarkdownRenderer from '@/components/MarkdownRenderer';
 
 interface GrammarLessonPageProps {
   params: Promise<{
@@ -34,8 +34,7 @@ export async function generateMetadata({ params }: GrammarLessonPageProps): Prom
       canonical: `https://www.espanolhub.com/gramatica/${id}`,
       languages: {
         'es': `https://www.espanolhub.com/gramatica/${id}`,
-        'ar': `https://www.espanolhub.com/ar/gramatica/${id}`,
-      }
+      },
     },
     openGraph: {
       title,
@@ -70,7 +69,7 @@ export default async function GrammarLessonPage({ params }: GrammarLessonPagePro
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[var(--bg-base)]">
       <div className="bg-gradient-to-br from-red-50 to-pink-50 py-8">
         <div className="container mx-auto px-4 max-w-5xl">
           <Breadcrumbs className="mb-6" />
@@ -95,7 +94,7 @@ export default async function GrammarLessonPage({ params }: GrammarLessonPagePro
                 }`}>
                   {lesson.level === 'beginner' ? 'Principiante' : lesson.level === 'intermediate' ? 'Intermedio' : 'Avanzado'}
                 </span>
-                <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-semibold capitalize">
+                <span className="px-3 py-1 bg-gray-100 text-gray-900 rounded-full text-sm font-semibold capitalize">
                   {lesson.category}
                 </span>
               </div>
@@ -113,23 +112,10 @@ export default async function GrammarLessonPage({ params }: GrammarLessonPagePro
           {/* Spanish Content */}
           <section className="mb-12">
             <div className="prose prose-lg max-w-none">
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-gray-100">
-                <ReactMarkdown
-                  components={{
-                    h1: ({node, ...props}) => <h2 className="text-3xl font-bold text-gray-900 mb-4 mt-6" {...props} />,
-                    h2: ({node, ...props}) => <h3 className="text-2xl font-bold text-gray-900 mb-3 mt-5" {...props} />,
-                    h3: ({node, ...props}) => <h4 className="text-xl font-bold text-gray-900 mb-2 mt-4" {...props} />,
-                    p: ({node, ...props}) => <p className="text-gray-700 mb-4 leading-relaxed" {...props} />,
-                    ul: ({node, ...props}) => <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2" {...props} />,
-                    li: ({node, ...props}) => <li className="ml-4" {...props} />,
-                    table: ({node, ...props}) => <div className="overflow-x-auto mb-6"><table className="w-full border-collapse" {...props} /></div>,
-                    thead: ({node, ...props}) => <thead className="bg-red-50" {...props} />,
-                    th: ({node, ...props}) => <th className="border border-gray-300 px-4 py-2 text-left font-bold text-gray-800" {...props} />,
-                    td: ({node, ...props}) => <td className="border border-gray-300 px-4 py-2 text-gray-700" {...props} />,
-                  }}
-                >
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-gray-200">
+                <MarkdownRenderer>
                   {lesson.content}
-                </ReactMarkdown>
+                </MarkdownRenderer>
               </div>
             </div>
           </section>
@@ -147,11 +133,11 @@ export default async function GrammarLessonPage({ params }: GrammarLessonPagePro
                     <div className="text-lg font-bold text-red-600 mb-2">
                       {example.spanish}
                     </div>
-                    <div className="text-gray-700 mb-1" dir="rtl">
+                    <div className="text-gray-900 mb-1" dir="rtl">
                       {example.arabic}
                     </div>
                     {example.english && (
-                      <div className="text-sm text-gray-500 italic">
+                      <div className="text-sm text-gray-600 italic">
                         {example.english}
                       </div>
                     )}
@@ -173,7 +159,7 @@ export default async function GrammarLessonPage({ params }: GrammarLessonPagePro
                   {lesson.tips.map((tip, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-800">{tip}</span>
+                      <span className="text-gray-900">{tip}</span>
                     </li>
                   ))}
                 </ul>
@@ -186,7 +172,7 @@ export default async function GrammarLessonPage({ params }: GrammarLessonPagePro
                   {lesson.tipsAr.map((tip, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-800">{tip}</span>
+                      <span className="text-gray-900">{tip}</span>
                     </li>
                   ))}
                 </ul>
@@ -199,7 +185,7 @@ export default async function GrammarLessonPage({ params }: GrammarLessonPagePro
             <h2 className="text-2xl font-bold mb-4">
               ¿Listo para Practicar?
             </h2>
-            <p className="text-lg mb-6 text-red-100">
+            <p className="text-lg mb-6 text-white/90">
               Refuerza lo aprendido con ejercicios interactivos
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -1,107 +1,57 @@
 import { Metadata } from 'next';
-import { generateGameSchema, generateBreadcrumbSchema, generateSoftwareApplicationSchema } from '@/lib/utils/schemaMarkup';
-import juegosData from '@/lib/library/data/juegos.json';
+import { generateBreadcrumbSchema } from '@/lib/utils/schemaMarkup';
+import { BASE_URL, getCanonicalUrl } from '@/lib/config/seo-config';
 
 export const metadata: Metadata = {
   title: 'Juegos Educativos - Aprende Español Jugando | Espanol Hub',
   description: 'Juegos interactivos para aprender español: memoria, preguntas múltiples, completar espacios en blanco, ordenar palabras y más. Aprende divirtiéndote.',
-  keywords: 'juegos español, aprender español jugando, juegos educativos, juegos interactivos, español online',
+  keywords: ['juegos español', 'aprender español jugando', 'juegos educativos', 'juegos interactivos', 'español online', 'juegos gratis español'],
+  alternates: {
+    canonical: getCanonicalUrl('/juegos'),
+    languages: {
+      'es': getCanonicalUrl('/juegos'),
+      'ar': getCanonicalUrl('/juegos'),
+    },
+  },
   openGraph: {
     title: 'Juegos Educativos - Aprende Español Jugando',
     description: 'Juegos interactivos para aprender español de forma divertida y efectiva.',
     type: 'website',
     locale: 'es_ES',
-    url: 'https://www.espanolhub.com/juegos',
+    url: getCanonicalUrl('/juegos'),
+    siteName: 'Espanol Hub',
+    images: [{
+      url: `${BASE_URL}/og-image.png`,
+      width: 1200,
+      height: 630,
+      alt: 'Juegos Educativos',
+    }],
   },
-  alternates: {
-    canonical: 'https://www.espanolhub.com/juegos',
+  twitter: {
+    card: 'summary_large_image',
+    site: '@espanolhub',
+    creator: '@espanolhub',
+    title: 'Juegos Educativos - Aprende Español Jugando',
+    description: 'Juegos interactivos para aprender español de forma divertida y efectiva.',
+    images: [`${BASE_URL}/og-image.png`],
   },
-};
-
-// Schema Markup for Games Collection
-const gamesCollectionSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'Juegos Educativos de Español',
-  description: 'Colección de juegos interactivos para aprender español',
-  numberOfItems: 5,
-  itemListElement: [
-    {
-      '@type': 'Game',
-      name: 'Juego de Memoria',
-      description: 'Encuentra las parejas de palabras en español',
-      position: 1,
-      url: 'https://www.espanolhub.com/juegos/memory',
-      gamePlatform: ['Web Browser', 'Mobile'],
-      genre: 'Educational',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
-    {
-      '@type': 'Game',
-      name: 'Opción Múltiple',
-      description: 'Responde preguntas de español con múltiples opciones',
-      position: 2,
-      url: 'https://www.espanolhub.com/juegos/multiple-choice',
-      gamePlatform: ['Web Browser', 'Mobile'],
-      genre: 'Educational',
-    },
-    {
-      '@type': 'Game',
-      name: 'Completar Espacios',
-      description: 'Completa las oraciones en español correctamente',
-      position: 3,
-      url: 'https://www.espanolhub.com/juegos/fill-blank',
-      gamePlatform: ['Web Browser', 'Mobile'],
-      genre: 'Educational',
-    },
-    {
-      '@type': 'Game',
-      name: 'Ordenar Palabras',
-      description: 'Ordena las palabras para formar oraciones correctas',
-      position: 4,
-      url: 'https://www.espanolhub.com/juegos/order',
-      gamePlatform: ['Web Browser', 'Mobile'],
-      genre: 'Educational',
-    },
-    {
-      '@type': 'Game',
-      name: 'Carrera de Palabras',
-      description: 'Juego de velocidad para escribir palabras en español',
-      position: 5,
-      url: 'https://www.espanolhub.com/juegos/word-race',
-      gamePlatform: ['Web Browser', 'Mobile'],
-      genre: 'Educational',
-    },
-  ],
+  },
 };
 
 const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Inicio', url: 'https://www.espanolhub.com' },
-  { name: 'Juegos', url: 'https://www.espanolhub.com/juegos' },
+  { name: 'Inicio', url: BASE_URL },
+  { name: 'Juegos', url: `${BASE_URL}/juegos` },
 ]);
-
-// Generate SoftwareApplication schemas for each game
-const gameSchemas = Array.isArray(juegosData)
-  ? juegosData.map((game: any) =>
-      generateSoftwareApplicationSchema({
-        name: game.title,
-        description: game.summary || game.excerpt,
-        url: `https://www.espanolhub.com/juegos/${game.id}`,
-        image: game.image ? `https://www.espanolhub.com${game.image}` : undefined,
-        applicationCategory: 'EducationalApplication',
-        operatingSystem: 'Web Browser, iOS, Android',
-        offers: {
-          price: '0',
-          priceCurrency: 'EUR',
-        },
-        featureList: [
-          'Aprendizaje interactivo',
-          'Múltiples niveles de dificultad',
-          'Retroalimentación inmediata',
-          'Seguimiento de progreso',
-        ],
-      })
-    )
-  : [];
 
 export default function JuegosLayout({
   children,
@@ -113,24 +63,9 @@ export default function JuegosLayout({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(gamesCollectionSchema),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbSchema),
         }}
       />
-      {gameSchemas.map((schema, index) => (
-        <script
-          key={index}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schema),
-          }}
-        />
-      ))}
       {children}
     </>
   );

@@ -10,9 +10,6 @@ const nextConfig: NextConfig = {
   // Performance optimizations
   compress: true,
   
-  // SWC Minification - Faster and better than Terser
-  swcMinify: true,
-  
   // React Strict Mode for better development experience
   reactStrictMode: true,
   
@@ -23,6 +20,9 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizeCss: true,
   },
+  
+  // Output for Vercel deployment (optional, but good practice)
+  output: 'standalone', // Enables standalone output for Docker/container deployments
   
   // Image optimization
   images: {
@@ -79,23 +79,21 @@ const nextConfig: NextConfig = {
             key: 'Strict-Transport-Security',
             value: 'max-age=63072000; includeSubDomains; preload'
           },
-          // Content Security Policy - Prevent XSS attacks
+          // Content Security Policy - Prevent XSS attacks (Relaxed for development)
           {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://accounts.google.com https://js.stripe.com https://*.clerk.accounts.dev https://challenges.cloudflare.com",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "img-src 'self' data: https: blob:",
-              "font-src 'self' data: https://fonts.gstatic.com",
-              "connect-src 'self' https://api.stripe.com https://*.clerk.accounts.dev https://vitals.vercel-insights.com https://generativelanguage.googleapis.com",
-              "frame-src 'self' https://accounts.google.com https://js.stripe.com https://*.clerk.accounts.dev https://challenges.cloudflare.com",
-              "media-src 'self' data: blob:",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https: http:",
+              "style-src 'self' 'unsafe-inline' https:",
+              "img-src 'self' data: https: http: blob:",
+              "font-src 'self' data: https: http:",
+              "connect-src 'self' https: http: ws: wss:",
+              "frame-src 'self' https: http:",
+              "media-src 'self' data: blob: https: http:",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
-              "frame-ancestors 'self'",
-              "upgrade-insecure-requests"
             ].join('; ')
           },
         ],

@@ -662,17 +662,60 @@ export function generateLevelQuestions(level: number, count: number = 30): MCQQu
 }
 
 /**
- * Get questions for a specific level
+ * Preguntas circulares: la respuesta es la misma palabra que aparece en la pregunta
+ * (ej. "¿Cómo se dice \"casa\" en español?" → casa). Excluir para no aburrir.
+ */
+function isCircularQuestion(q: MCQQuestion): boolean {
+  return q.question.includes(`"${q.correctAnswer}"`);
+}
+
+function shuffleMcq<T>(arr: T[]): T[] {
+  const out = [...arr];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
+
+/**
+ * Get questions for a specific level.
+ * Level 1: exclude circular questions ("X en español?" / "¿Qué significa X?" where answer = X).
+ * Prefer "Completa", articles, etc.; pad with L2 grammar if needed.
  */
 export function getQuestionsForLevel(level: number): MCQQuestion[] {
+  let pool: MCQQuestion[];
+
+  if (level === 1) {
+    const l1 = multipleChoiceQuestions.filter(q => q.level === 1 && !isCircularQuestion(q));
+    const l2Grammar = shuffleMcq(
+      multipleChoiceQuestions.filter(
+        q => q.level === 2 && (q.category === 'grammar' || q.question.startsWith('Completa') || q.question.includes('artículo'))
+      )
+    );
+    const seen = new Set(l1.map(q => q.id));
+    pool = [...l1];
+    for (const q of l2Grammar) {
+      if (pool.length >= 30) break;
+      if (!seen.has(q.id)) {
+        seen.add(q.id);
+        pool.push(q);
+      }
+    }
+    if (pool.length < 30) {
+      const more = generateLevelQuestions(2, 30 - pool.length);
+      pool = [...pool, ...more];
+    }
+    return shuffleMcq(pool).slice(0, 30);
+  }
+
   const existing = multipleChoiceQuestions.filter(q => q.level === level);
   if (existing.length >= 30) {
-    return existing.slice(0, 30);
+    return shuffleMcq(existing).slice(0, 30);
   }
-  
-  // Generate more if needed
+
   const generated = generateLevelQuestions(level, 30 - existing.length);
-  return [...existing, ...generated];
+  return shuffleMcq([...existing, ...generated]);
 }
 
 /**

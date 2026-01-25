@@ -29,6 +29,9 @@ export default function JuegosPage() {
   const [currentLevel, setCurrentLevel] = useState(1);
   const [maxLevel] = useState(9999);
   const [levelLoading, setLevelLoading] = useState(false);
+  const [levelSelectActive, setLevelSelectActive] = useState(false);
+  const [showLevelUp, setShowLevelUp] = useState(false);
+  const [levelUpTo, setLevelUpTo] = useState(0);
 
   const baseGame = selectedGame ? getGameById(selectedGame) : null;
   
@@ -44,7 +47,15 @@ export default function JuegosPage() {
 
   const currentQuestion = game?.questions[currentQuestionIndex];
 
-  const handleStartGame = async (gameId: string) => {
+  const fetchOrderOrMcq = async (gameId: string, level: number) => {
+    const apiPath = gameId === 'order' ? '/api/games/order' : '/api/games/multiple-choice';
+    const res = await fetch(`${apiPath}?level=${level}`);
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.questions ?? [];
+  };
+
+  const handleStartGame = async (gameId: string, chosenLevel?: number) => {
     setSelectedGame(gameId);
     setCurrentQuestionIndex(0);
     setScore(0);
@@ -52,43 +63,63 @@ export default function JuegosPage() {
     setShowResult(false);
     setGameFinished(false);
     setOrderWords([]);
-    setCurrentLevel(1);
+    setShowLevelUp(false);
+    setLevelUpTo(0);
+    setCurrentLevel(chosenLevel ?? 1);
 
     const baseGameData = getGameById(gameId);
-    
-    // Special handling for order game and multiple-choice - load from API
-    if (gameId === 'order') {
-      try {
-        const response = await fetch(`/api/games/order?level=1`);
-        if (response.ok) {
-          const data = await response.json();
-          setSelectedQuestions(data.questions);
-          setCurrentLevel(1);
-        } else {
+
+    if (gameId === 'order' || gameId === 'multiple-choice') {
+      if (chosenLevel != null) {
+        setLevelSelectActive(false);
+        setLevelLoading(true);
+        try {
+          const qs = await fetchOrderOrMcq(gameId, chosenLevel);
+          setSelectedQuestions(qs);
+          setCurrentLevel(chosenLevel);
+        } catch (e) {
+          console.error('Error loading game:', e);
           setSelectedQuestions([]);
+        } finally {
+          setLevelLoading(false);
         }
-      } catch (error) {
-        console.error('Error loading order game:', error);
+        return;
+      }
+      setLevelSelectActive(true);
+      setSelectedQuestions([]);
+      return;
+    }
+
+    if (gameId === 'memory') {
+      try {
+        const res = await fetch('/api/games/match');
+        if (res.ok) {
+          const data = await res.json();
+          const qs = (data.questions ?? []).slice(0, 21);
+          setSelectedQuestions(qs);
+        } else setSelectedQuestions([]);
+      } catch (e) {
+        console.error('Error loading match game:', e);
         setSelectedQuestions([]);
       }
-    } else if (gameId === 'multiple-choice') {
+      return;
+    }
+    if (gameId === 'fill-blank') {
       try {
-        const response = await fetch(`/api/games/multiple-choice?level=1`);
-        if (response.ok) {
-          const data = await response.json();
-          setSelectedQuestions(data.questions);
-          setCurrentLevel(1);
-        } else {
-          setSelectedQuestions([]);
-        }
-      } catch (error) {
-        console.error('Error loading multiple-choice game:', error);
+        const res = await fetch('/api/games/fill-blank?level=1');
+        if (res.ok) {
+          const data = await res.json();
+          const qs = (data.questions ?? []).slice(0, 21);
+          setSelectedQuestions(qs);
+        } else setSelectedQuestions([]);
+      } catch (e) {
+        console.error('Error loading fill-blank game:', e);
         setSelectedQuestions([]);
       }
-    } else if (baseGameData && baseGameData.id !== 'word-race' && baseGameData.questions.length > 0) {
-      // Select 20 random questions for other games
-      const randomQuestions = getRandomQuestions(baseGameData.questions, 20);
-      setSelectedQuestions(randomQuestions);
+      return;
+    }
+    if (baseGameData && baseGameData.id !== 'word-race' && baseGameData.questions.length > 0) {
+      setSelectedQuestions(getRandomQuestions(baseGameData.questions, 20));
     } else {
       setSelectedQuestions([]);
     }
@@ -152,32 +183,14 @@ export default function JuegosPage() {
       setShowResult(false);
       setOrderWords([]);
     } else if (game) {
-      // Check if it's order game or multiple-choice and should continue to next level
       if ((game.id === 'order' || game.id === 'multiple-choice') && currentLevel < maxLevel) {
-        // Load next level
-        setLevelLoading(true);
-        try {
-          const nextLevel = currentLevel + 1;
-          const apiPath = game.id === 'order' ? '/api/games/order' : '/api/games/multiple-choice';
-          const response = await fetch(`${apiPath}?level=${nextLevel}`);
-          if (response.ok) {
-            const data = await response.json();
-            setSelectedQuestions(data.questions);
-            setCurrentLevel(nextLevel);
-            setCurrentQuestionIndex(0);
-            setSelectedAnswer(null);
-            setShowResult(false);
-            setOrderWords([]);
-          } else {
-            // If can't load next level, finish game
-            setGameFinished(true);
-          }
-        } catch (error) {
-          console.error('Error loading next level:', error);
-          setGameFinished(true);
-        } finally {
-          setLevelLoading(false);
-        }
+        const next = currentLevel + 1;
+        setShowLevelUp(true);
+        setLevelUpTo(next);
+        setSelectedAnswer(null);
+        setShowResult(false);
+        setOrderWords([]);
+        return;
       } else {
         // Finish game for non-order games or if max level reached
         setGameFinished(true);
@@ -215,6 +228,27 @@ export default function JuegosPage() {
     setSelectedAnswer(null);
     setShowResult(false);
     setGameFinished(false);
+    setLevelSelectActive(false);
+    setShowLevelUp(false);
+    setLevelUpTo(0);
+  };
+
+  const handleLevelUpContinue = async () => {
+    if (!selectedGame || (selectedGame !== 'order' && selectedGame !== 'multiple-choice')) return;
+    setLevelLoading(true);
+    setShowLevelUp(false);
+    try {
+      const qs = await fetchOrderOrMcq(selectedGame, levelUpTo);
+      setSelectedQuestions(qs);
+      setCurrentLevel(levelUpTo);
+      setCurrentQuestionIndex(0);
+      setLevelUpTo(0);
+    } catch (e) {
+      console.error('Error loading next level:', e);
+      setGameFinished(true);
+    } finally {
+      setLevelLoading(false);
+    }
   };
 
   // Define gradient colors for each game
@@ -227,10 +261,10 @@ export default function JuegosPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12">
+    <div className="min-h-screen bg-white py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             🎮 Juegos Educativos
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -258,10 +292,10 @@ export default function JuegosPage() {
               <div className="inline-flex flex-nowrap bg-white rounded-2xl shadow-xl p-2 border-2 border-gray-100 min-w-0">
                 <button
                   onClick={() => setActiveTab('principales')}
-                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold transition-all duration-200 transform flex-shrink-0 ${
+                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold transition-all duration-200 transform flex-shrink-0 border ${
                     activeTab === 'principales'
-                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg scale-105'
-                      : 'bg-transparent text-gray-700 hover:bg-gray-100 hover:scale-105'
+                      ? 'bg-gray-900 text-white border-gray-900'
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
                   }`}
                 >
                   <Gamepad2 className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -269,10 +303,10 @@ export default function JuegosPage() {
                 </button>
                 <button
                   onClick={() => setActiveTab('biblioteca')}
-                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold transition-all duration-200 transform flex-shrink-0 ${
+                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold transition-all duration-200 transform flex-shrink-0 border ${
                     activeTab === 'biblioteca'
-                      ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg scale-105'
-                      : 'bg-transparent text-gray-700 hover:bg-gray-100 hover:scale-105'
+                      ? 'bg-gray-900 text-white border-gray-900'
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
                   }`}
                 >
                   <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -287,10 +321,10 @@ export default function JuegosPage() {
                 </button>
                 <button
                   onClick={() => setActiveTab('todos')}
-                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold transition-all duration-200 transform flex-shrink-0 ${
+                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold transition-all duration-200 transform flex-shrink-0 border ${
                     activeTab === 'todos'
-                      ? 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-lg scale-105'
-                      : 'bg-transparent text-gray-700 hover:bg-gray-100 hover:scale-105'
+                      ? 'bg-gray-900 text-white border-gray-900'
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
                   }`}
                 >
                   <Grid3x3 className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -313,16 +347,13 @@ export default function JuegosPage() {
                     <div
                       key={gameItem.id}
                       onClick={() => handleStartGame(gameItem.id)}
-                      className="group bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl p-4 sm:p-6 md:p-8 cursor-pointer transform transition-all duration-300 hover:scale-105 border-2 border-transparent hover:border-blue-200 relative overflow-hidden"
+                      className="group bg-white rounded-lg border border-gray-200 hover:shadow-md p-4 sm:p-6 md:p-8 cursor-pointer transition-all duration-200"
                     >
-                      {/* Gradient overlay on hover */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                      
                       <div className="text-center relative z-10">
-                        <div className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl sm:rounded-2xl bg-gradient-to-br ${gradient} mb-2 sm:mb-4 transform group-hover:scale-110 transition-transform shadow-lg`}>
-                          <span className="text-2xl sm:text-3xl md:text-4xl">{gameItem.icon}</span>
+                        <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg bg-gray-900 mb-2 sm:mb-4 border border-gray-800">
+                          <span className="text-2xl sm:text-3xl md:text-4xl text-white">{gameItem.icon}</span>
                         </div>
-                        <h2 className="text-sm sm:text-lg md:text-2xl font-bold text-gray-800 mb-1 sm:mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                        <h2 className="text-sm sm:text-lg md:text-2xl font-bold text-gray-900 mb-1 sm:mb-3 line-clamp-2">
                           {gameItem.name}
                         </h2>
                         <p className="text-gray-600 mb-2 sm:mb-4 min-h-[36px] sm:min-h-[48px] text-xs sm:text-base line-clamp-2 hidden sm:block">
@@ -364,10 +395,8 @@ export default function JuegosPage() {
                           setSelectedEntry(entry);
                         }
                       }}
-                      className="group bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl p-4 sm:p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 border-2 border-transparent hover:border-purple-200 relative overflow-hidden"
+                      className="group bg-white rounded-lg border border-gray-200 hover:shadow-md p-4 sm:p-6 cursor-pointer transition-all duration-200"
                     >
-                      {/* Gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
                       
                       <div className="relative z-10">
                         {g.image && (
@@ -401,7 +430,7 @@ export default function JuegosPage() {
           <div className="bg-white rounded-xl shadow-2xl p-8 max-w-3xl mx-auto">
             <button 
               onClick={handleReset}
-              className="mb-6 flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 rounded-xl hover:from-gray-200 hover:to-gray-300 transition-all font-semibold shadow-md hover:shadow-lg"
+              className="mb-6 flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-all font-semibold text-gray-900"
             >
               <ArrowLeft className="w-5 h-5" />
               Volver a Juegos
@@ -410,7 +439,6 @@ export default function JuegosPage() {
           </div>
         ) : game && (
           <div className="bg-white rounded-xl shadow-2xl p-8 max-w-3xl mx-auto relative">
-            {/* Back button to return to games list */}
             <button
               onClick={handleReset}
               className="mb-6 flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 rounded-xl hover:from-gray-200 hover:to-gray-300 transition-all font-semibold shadow-md hover:shadow-lg"
@@ -418,6 +446,35 @@ export default function JuegosPage() {
               <ArrowLeft className="w-5 h-5" />
               Volver a Juegos
             </button>
+
+            {levelSelectActive && (selectedGame === 'order' || selectedGame === 'multiple-choice') ? (
+              <div className="text-center py-8">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">Elige tu nivel</h3>
+                <div className="flex flex-wrap justify-center gap-4">
+                  {[1, 2, 3].map((l) => (
+                    <button
+                      key={l}
+                      onClick={() => handleStartGame(selectedGame!, l)}
+                      className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl font-bold hover:shadow-lg transform hover:scale-105 transition-all"
+                    >
+                      Nivel {l}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : showLevelUp ? (
+              <div className="text-center py-12">
+                <div className="text-4xl font-bold text-green-600 mb-4">¡Subiste de nivel!</div>
+                <p className="text-xl text-gray-700 mb-6">Nivel {levelUpTo}</p>
+                <button
+                  onClick={handleLevelUpContinue}
+                  className="px-8 py-4 bg-gray-900 text-white rounded-lg font-bold hover:bg-gray-800 transition-all border border-gray-800"
+                >
+                  Continuar
+                </button>
+              </div>
+            ) : (
+            <>
             {/* Game Header */}
             <div className="text-center mb-8">
               <div className="text-5xl mb-4">{game.icon}</div>
@@ -436,6 +493,14 @@ export default function JuegosPage() {
                     <span className="text-sm text-gray-600">Nivel </span>
                     <span className="font-bold text-blue-800">
                       {currentLevel}
+                    </span>
+                  </div>
+                )}
+                {(selectedGame === 'memory' || selectedGame === 'fill-blank') && (
+                  <div className="bg-amber-100 rounded-lg px-4 py-2">
+                    <span className="text-sm text-gray-600">Ronda </span>
+                    <span className="font-bold text-amber-800">
+                      {Math.min(3, Math.floor(currentQuestionIndex / 7) + 1)} / 3
                     </span>
                   </div>
                 )}
@@ -529,51 +594,94 @@ export default function JuegosPage() {
                     </div>
                   )}
 
-                  {/* Match */}
+                  {/* Match — opciones múltiples (API) o input legacy */}
                   {currentQuestion.type === 'match' && (
                     <div className="space-y-4">
                       <p className="text-lg text-gray-700 mb-4">
-                        Empareja la palabra con su traducción:
+                        {currentQuestion.options?.length
+                          ? 'Elige la traducción correcta:'
+                          : 'Empareja la palabra con su traducción:'}
                       </p>
                       <div className="bg-blue-50 p-6 rounded-lg text-center">
                         <p className="text-2xl font-bold text-blue-600 mb-4">
-                          {currentQuestion.question.split(':')[1]?.trim()}
+                          {currentQuestion.options?.length
+                            ? currentQuestion.question
+                            : currentQuestion.question.split(':')[1]?.trim()}
                         </p>
-                        <input
-                          type="text"
-                          value={typeof selectedAnswer === 'string' ? selectedAnswer : ''}
-                          onChange={(e) => !showResult && setSelectedAnswer(e.target.value)}
-                          onKeyPress={(e) => {
-                            if (e.key === 'Enter' && selectedAnswer && !showResult) {
-                              handleAnswer(selectedAnswer);
-                            }
-                          }}
-                          disabled={showResult}
-                          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-lg focus:border-pink-500 focus:outline-none"
-                          placeholder="Escribe la traducción..."
-                        />
-                        {showResult && (() => {
-                          const isCorrect = typeof selectedAnswer === 'string'
-                            ? compareArabic(selectedAnswer, currentQuestion.correctAnswer)
-                            : selectedAnswer === currentQuestion.correctAnswer;
-                          const correctDisplay = Array.isArray(currentQuestion.correctAnswer)
-                            ? currentQuestion.correctAnswer.join(' / ')
-                            : currentQuestion.correctAnswer;
-                          return (
-                            <div className={`mt-4 p-4 rounded-lg ${
-                              isCorrect
-                                ? 'bg-green-50 border-2 border-green-500'
-                                : 'bg-red-50 border-2 border-red-500'
-                            }`}>
-                              <p className="font-semibold">
-                                {isCorrect ? '✓ Correcto!' : '✗ Incorrecto'}
-                              </p>
-                              <p className="text-gray-700 mt-2">
-                                La respuesta correcta es: <strong>{correctDisplay}</strong>
-                              </p>
+                        {currentQuestion.options?.length ? (
+                          <>
+                            <div className="space-y-3">
+                              {currentQuestion.options.map((option) => {
+                                const isSelected = selectedAnswer === option;
+                                const correctAns = Array.isArray(currentQuestion.correctAnswer) ? currentQuestion.correctAnswer[0] : currentQuestion.correctAnswer;
+                                const isCorrect = option === correctAns;
+                                const showCorrect = showResult && isCorrect;
+                                const showIncorrect = showResult && isSelected && !isCorrect;
+                                return (
+                                  <button
+                                    key={option}
+                                    onClick={() => !showResult && handleAnswer(option)}
+                                    disabled={showResult}
+                                    className={`w-full px-4 py-3 rounded-xl font-semibold text-left transition-all border-2 ${
+                                      showCorrect
+                                        ? 'bg-green-100 border-green-500 text-green-900'
+                                        : showIncorrect
+                                          ? 'bg-red-100 border-red-500 text-red-900'
+                                          : isSelected
+                                            ? 'bg-blue-100 border-blue-500 text-blue-900'
+                                            : 'bg-white border-gray-200 hover:border-blue-400 hover:bg-blue-50'
+                                    }`}
+                                  >
+                                    {option}
+                                  </button>
+                                );
+                              })}
                             </div>
-                          );
-                        })()}
+                            {showResult && selectedAnswer !== (Array.isArray(currentQuestion.correctAnswer) ? currentQuestion.correctAnswer[0] : currentQuestion.correctAnswer) && (
+                              <p className="mt-4 text-gray-700">
+                                La respuesta correcta es: <strong>{Array.isArray(currentQuestion.correctAnswer) ? currentQuestion.correctAnswer[0] : currentQuestion.correctAnswer}</strong>
+                              </p>
+                            )}
+                          </>
+                        ) : (
+                          <>
+                            <input
+                              type="text"
+                              value={typeof selectedAnswer === 'string' ? selectedAnswer : ''}
+                              onChange={(e) => !showResult && setSelectedAnswer(e.target.value)}
+                              onKeyPress={(e) => {
+                                if (e.key === 'Enter' && selectedAnswer && !showResult) {
+                                  handleAnswer(selectedAnswer);
+                                }
+                              }}
+                              disabled={showResult}
+                              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-lg focus:border-pink-500 focus:outline-none"
+                              placeholder="Escribe la traducción..."
+                            />
+                            {showResult && (() => {
+                              const isCorrect = typeof selectedAnswer === 'string'
+                                ? compareArabic(selectedAnswer, currentQuestion.correctAnswer)
+                                : selectedAnswer === currentQuestion.correctAnswer;
+                              const correctDisplay = Array.isArray(currentQuestion.correctAnswer)
+                                ? currentQuestion.correctAnswer.join(' / ')
+                                : currentQuestion.correctAnswer;
+                              return (
+                                <div className={`mt-4 p-4 rounded-lg ${
+                                  isCorrect
+                                    ? 'bg-green-50 border-2 border-green-500'
+                                    : 'bg-red-50 border-2 border-red-500'
+                                }`}>
+                                  <p className="font-semibold">
+                                    {isCorrect ? '✓ Correcto!' : '✗ Incorrecto'}
+                                  </p>
+                                  <p className="text-gray-700 mt-2">
+                                    La respuesta correcta es: <strong>{correctDisplay}</strong>
+                                  </p>
+                                </div>
+                              );
+                            })()}
+                          </>
+                        )}
                       </div>
                     </div>
                   )}
@@ -711,14 +819,27 @@ export default function JuegosPage() {
                 <div className="text-xl text-gray-600 mb-8">
                   De {game.questions.reduce((sum, q) => sum + q.points, 0)} puntos posibles
                 </div>
-                <button
-                  onClick={handleReset}
-                  className="px-8 py-3 bg-gray-600 text-white rounded-lg font-semibold hover:bg-gray-700 transition-colors flex items-center mx-auto"
-                >
-                  <RotateCcw className="w-5 h-5 mr-2" />
-                  Volver a los Juegos
-                </button>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <button
+                    onClick={handleReset}
+                    className="px-8 py-3 bg-white border border-gray-200 text-gray-900 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center"
+                  >
+                    <RotateCcw className="w-5 h-5 mr-2" />
+                    Volver a los Juegos
+                  </button>
+                  {(selectedGame === 'memory' || selectedGame === 'fill-blank') && (
+                    <button
+                      onClick={() => handleStartGame(selectedGame!)}
+                      className="px-8 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors flex items-center border border-gray-800"
+                    >
+                      <Gamepad2 className="w-5 h-5 mr-2" />
+                      Jugar de nuevo
+                    </button>
+                  )}
+                </div>
               </div>
+            )}
+            </>
             )}
             {/* Result modal */}
             {game && (

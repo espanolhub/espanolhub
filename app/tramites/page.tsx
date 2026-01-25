@@ -370,17 +370,17 @@ export default function TramitesPage() {
   };
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 py-12 ${cairo.variable}`}>
+    <div className={`min-h-screen bg-white py-12 ${cairo.variable}`}>
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Hero Section */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-100 to-blue-100 rounded-full mb-6">
-            <Sparkles className="w-4 h-4 text-green-600" />
-            <span className="text-sm font-semibold text-green-900">{guides.length} Guías Completas</span>
-            <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6 border border-gray-200">
+            <Sparkles className="w-4 h-4 text-gray-700" />
+            <span className="text-sm font-semibold text-gray-900">{guides.length} Guías Completas</span>
+            <Star className="w-4 h-4 text-gray-700" />
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 bg-gradient-to-r from-green-600 via-blue-600 to-green-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-gray-900">
             Trámites & Documentación
           </h1>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
@@ -432,25 +432,25 @@ export default function TramitesPage() {
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 text-white shadow-lg">
-            <FileText className="w-8 h-8 mb-2" />
-            <div className="text-3xl font-bold mb-1">{guides.length}</div>
-            <div className="text-sm text-green-100">Guías Totales</div>
+          <div className="bg-gray-900 rounded-lg p-6 text-white border border-gray-800">
+            <FileText className="w-8 h-8 mb-2 text-white" />
+            <div className="text-3xl font-bold mb-1 text-white">{guides.length}</div>
+            <div className="text-sm text-gray-300">Guías Totales</div>
           </div>
-          <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 text-white shadow-lg">
-            <CheckCircle className="w-8 h-8 mb-2" />
-            <div className="text-3xl font-bold mb-1">{filteredGuides.length}</div>
-            <div className="text-sm text-blue-100">Resultados</div>
+          <div className="bg-gray-900 rounded-lg p-6 text-white border border-gray-800">
+            <CheckCircle className="w-8 h-8 mb-2 text-white" />
+            <div className="text-3xl font-bold mb-1 text-white">{filteredGuides.length}</div>
+            <div className="text-sm text-gray-300">Resultados</div>
           </div>
-          <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-6 text-white shadow-lg">
-            <Shield className="w-8 h-8 mb-2" />
-            <div className="text-3xl font-bold mb-1">100%</div>
-            <div className="text-sm text-purple-100">Oficial</div>
+          <div className="bg-gray-900 rounded-lg p-6 text-white border border-gray-800">
+            <Shield className="w-8 h-8 mb-2 text-white" />
+            <div className="text-3xl font-bold mb-1 text-white">100%</div>
+            <div className="text-sm text-gray-300">Oficial</div>
           </div>
-          <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl p-6 text-white shadow-lg">
-            <Clock className="w-8 h-8 mb-2" />
-            <div className="text-3xl font-bold mb-1">2026</div>
-            <div className="text-sm text-amber-100">Actualizado</div>
+          <div className="bg-gray-900 rounded-lg p-6 text-white border border-gray-800">
+            <Clock className="w-8 h-8 mb-2 text-white" />
+            <div className="text-3xl font-bold mb-1 text-white">2026</div>
+            <div className="text-sm text-gray-300">Actualizado</div>
           </div>
         </div>
 
@@ -471,8 +471,8 @@ export default function TramitesPage() {
                   {/* Card Header - Always Visible */}
                   <div className="p-6">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-8 h-8 text-green-600" />
+                      <div className="w-16 h-16 rounded-lg bg-gray-900 flex items-center justify-center flex-shrink-0 border border-gray-800">
+                        <Icon className="w-8 h-8 text-white" />
                       </div>
                       
                       <div className="flex-1">
@@ -526,7 +526,7 @@ export default function TramitesPage() {
                     {/* Expand Button */}
                     <button
                       onClick={() => setExpandedGuide(isExpanded ? null : guide.id)}
-                      className="w-full px-6 py-3 bg-gradient-to-r from-green-500 to-blue-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                      className="w-full px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-all flex items-center justify-center gap-2 border border-gray-800"
                     >
                       {isExpanded ? (
                         <>
@@ -548,7 +548,7 @@ export default function TramitesPage() {
 
                   {/* Expanded Content */}
                   {isExpanded && (
-                    <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 border-t-2 border-gray-200">
+                    <div className="bg-gray-50 p-6 border-t border-gray-200">
                       {/* Requirements */}
                       <div className="mb-8">
                         <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
@@ -578,7 +578,7 @@ export default function TramitesPage() {
                         <div className="space-y-4">
                           {guide.steps.map((step, i) => (
                             <div key={i} className="bg-white rounded-xl p-5 shadow-md flex gap-4">
-                              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-white flex items-center justify-center font-bold text-lg flex-shrink-0">
+                              <div className="w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-lg flex-shrink-0 border border-gray-800">
                                 {i + 1}
                               </div>
                               <p className="text-gray-900 font-semibold">{step.es}</p>
@@ -660,10 +660,10 @@ export default function TramitesPage() {
         )}
 
         {/* Important Notice */}
-        <div className="mt-12 bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-6 md:p-8 border-2 border-amber-200">
+        <div className="mt-12 bg-gray-50 rounded-lg p-6 md:p-8 border border-gray-200">
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
-              <AlertCircle className="w-6 h-6 text-amber-600" />
+            <div className="w-12 h-12 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0 border border-gray-800">
+              <AlertCircle className="w-6 h-6 text-white" />
             </div>
             <div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">
@@ -682,26 +682,26 @@ export default function TramitesPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-12 bg-gradient-to-r from-green-600 via-blue-600 to-green-600 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <div className="mt-12 bg-gray-900 rounded-lg p-8 md:p-12 text-center text-white border border-gray-800">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             ¿Tienes dudas sobre algún trámite?
           </h2>
-          <p className="text-xl mb-6 text-green-100">
+          <p className="text-xl mb-6 text-gray-300">
             Toda la información actualizada y 100% gratis
           </p>
-          <p className="text-lg mb-8 text-green-100" style={{ fontFamily: 'var(--font-cairo)' }} dir="rtl">
+          <p className="text-lg mb-8 text-gray-300" style={{ fontFamily: 'var(--font-cairo)' }} dir="rtl">
             لديك أسئلة حول أي إجراء؟ جميع المعلومات محدثة ومجانية 100%
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="px-8 py-4 bg-white text-green-600 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all hover:scale-105 shadow-lg"
+              className="px-8 py-4 bg-white text-gray-900 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all border border-gray-200"
             >
               📧 Contactar Soporte
             </Link>
             <Link
               href="/faq"
-              className="px-8 py-4 bg-green-700 text-white rounded-xl font-bold text-lg hover:bg-green-800 transition-all hover:scale-105 shadow-lg"
+              className="px-8 py-4 bg-gray-800 text-white rounded-lg font-bold text-lg hover:bg-gray-700 transition-all border border-gray-700"
             >
               ❓ Ver Preguntas Frecuentes
             </Link>

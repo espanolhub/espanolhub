@@ -334,15 +334,15 @@ export default function GramaticaPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 to-pink-50 py-12">
+    <div className="min-h-screen bg-white py-12">
       <div className="w-full max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Gramática Española
           </h1>
           <div className="flex items-center justify-center gap-3">
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Aprende la conjugación de verbos, cambios de género y número con tablas completas y ejercicios interactivos.
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+              Aprende la conjugación de verbos, cambios de género y número con tablas completas y ejercicios interactivos para hispanohablantes y estudiantes.
             </p>
             {/* Badges: Pro and Admin (preview-mode as proxy for admin) */}
             <div className="flex items-center gap-2">
@@ -370,7 +370,7 @@ export default function GramaticaPage() {
             className={`flex items-center gap-2 px-8 py-3 rounded-lg font-semibold transition-all ${
               activeTab === 'learn'
                 ? 'bg-red-600 text-white shadow-lg'
-                : 'bg-white text-gray-700 hover:bg-gray-100'
+                : 'bg-white text-gray-900 hover:bg-gray-50 border border-gray-200'
             }`}
           >
             <BookOpen className="w-5 h-5" />
@@ -384,7 +384,7 @@ export default function GramaticaPage() {
             className={`flex items-center gap-2 px-8 py-3 rounded-lg font-semibold transition-all ${
               activeTab === 'exercises'
                 ? 'bg-red-600 text-white shadow-lg'
-                : 'bg-white text-gray-700 hover:bg-gray-100'
+                : 'bg-white text-gray-900 hover:bg-gray-50 border border-gray-200'
             }`}
           >
             <PenTool className="w-5 h-5" />
@@ -397,8 +397,8 @@ export default function GramaticaPage() {
           <>
             {/* Verb Conjugations Section */}
             <section className="mb-16">
-              <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
-                Conjugación de Verbos
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+                Conjugación de Verbos para la Gramática Española
               </h2>
               
               {/* Tense Selector */}
@@ -416,7 +416,7 @@ export default function GramaticaPage() {
                         className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
                           selectedTense === tense
                             ? 'bg-red-600 text-white shadow-lg ring-4 ring-red-300'
-                            : 'bg-gray-100 text-gray-700 shadow-md hover:bg-red-50'
+                            : 'bg-white text-gray-900 shadow-md hover:bg-gray-50 border border-gray-200'
                         }`}
                       >
                         <div className="text-lg">{info.name}</div>
@@ -425,7 +425,7 @@ export default function GramaticaPage() {
                   })}
                 </div>
                 <div className="text-center">
-                  <p className="text-gray-600 text-sm bg-gray-50 rounded-lg py-2 px-4 inline-block">
+                  <p className="text-gray-700 text-sm bg-gray-100 rounded-lg py-2 px-4 inline-block">
                     {tenseInfo[selectedTense].description}
                   </p>
                 </div>
@@ -444,7 +444,7 @@ export default function GramaticaPage() {
                   {verbSearch && (
                     <button
                       onClick={() => setVerbSearch('')}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-2xl font-bold"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-900 text-2xl font-bold"
                       aria-label="Limpiar búsqueda"
                     >
                       ×
@@ -456,19 +456,19 @@ export default function GramaticaPage() {
               {/* Category Cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 {categories.map(cat => (
-                  <div key={cat.id} className="bg-gradient-to-br from-white to-red-50 rounded-2xl p-6 shadow-xl border-2 border-red-100 hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02]">
+                  <div key={cat.id} className="bg-white rounded-2xl p-6 shadow-xl border-2 border-gray-200 hover:border-[var(--brand-primary)] hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02]">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
-                        <h4 className="text-xl font-bold text-gray-800 mb-2">{cat.label}</h4>
-                        <p className="text-sm text-gray-600 font-medium">{cat.verbs.length} verbos disponibles</p>
-                        <div className="text-xs text-gray-500 mt-2 flex items-center gap-2">
+                        <h4 className="text-xl font-bold text-gray-900 mb-2">{cat.label}</h4>
+                        <p className="text-sm text-gray-700 font-medium">{cat.verbs.length} verbos disponibles</p>
+                        <div className="text-xs text-gray-600 mt-2 flex items-center gap-2">
                           <Clock className="w-4 h-4 text-red-400" />
                           <span>Actualizado hoy</span>
                         </div>
                       </div>
                       <div>
                         {showBadges && completedBadges[cat.id] ? (
-                          <div className="text-xs font-semibold px-3 py-1.5 rounded-full bg-gradient-to-r from-emerald-50 to-green-50 text-emerald-700 border border-emerald-300 shadow-sm">
+                          <div className="text-xs font-semibold px-3 py-1.5 rounded-full bg-gray-100 text-gray-900 border border-gray-200">
                             ✓ Completado
                           </div>
                         ) : (
@@ -485,7 +485,7 @@ export default function GramaticaPage() {
                         <button
                           key={v}
                           onClick={() => handleOpenModal('verb', v)}
-                          className="p-3 bg-gradient-to-br from-white to-red-50 rounded-lg text-center text-sm font-semibold text-red-600 shadow-md hover:shadow-lg hover:scale-105 hover:bg-gradient-to-br hover:from-red-50 hover:to-red-100 transition-all duration-200 border border-red-200 hover:border-red-300"
+                          className="p-3 bg-white rounded-lg text-center text-sm font-semibold text-[var(--brand-primary)] shadow-md hover:shadow-lg hover:scale-105 hover:bg-gray-50 transition-all duration-200 border border-gray-200 hover:border-[var(--brand-primary)]"
                         >
                           {v}
                         </button>
@@ -504,7 +504,7 @@ export default function GramaticaPage() {
                             }
                           }, 100);
                         }}
-                        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl hover:from-red-600 hover:to-red-700 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+                        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 border border-gray-800"
                       >
                         <List className="w-4 h-4" />
                         Ver todos los verbos ({cat.verbs.length})
@@ -513,7 +513,7 @@ export default function GramaticaPage() {
                         onClick={() => {
                           router.push('/gramatica/ejercicios');
                         }}
-                        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl hover:from-purple-600 hover:to-pink-700 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+                        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-all duration-200 border border-gray-800"
                       >
                         <PlayCircle className="w-4 h-4" />
                         Ejercicios
@@ -564,14 +564,14 @@ export default function GramaticaPage() {
               )}
 
               {verbSearch && filteredVerbs.length === 0 && (
-                <p className="text-center text-gray-600 mb-8">No se encontraron verbos</p>
+                <p className="text-center text-gray-700 mb-8">No se encontraron verbos</p>
               )}
             </section>
 
             {/* Grammar Tables Section */}
             <section className="border-t-2 border-gray-200 pt-16">
               <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-                Tablas Gramaticales
+                Tablas de Gramática Española
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                 {grammarTables.map((table) => (
@@ -602,7 +602,7 @@ export default function GramaticaPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Category Selector */}
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
                     Categoría
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -619,7 +619,7 @@ export default function GramaticaPage() {
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                           selectedCategory === category
                             ? 'bg-red-600 text-white'
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            : 'bg-gray-100 text-gray-900 hover:bg-gray-50'
                         }`}
                       >
                         {category === 'all' ? 'Todas' : category === 'verbs' ? 'Verbos' : category === 'articles' ? 'Artículos' : category === 'pronouns' ? 'Pronombres' : 'Adjetivos'}
@@ -630,7 +630,7 @@ export default function GramaticaPage() {
 
                 {/* Level Selector */}
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
                     Nivel
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -647,7 +647,7 @@ export default function GramaticaPage() {
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all capitalize ${
                           selectedLevel === level
                             ? 'bg-red-600 text-white'
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            : 'bg-gray-100 text-gray-900 hover:bg-gray-50'
                         }`}
                       >
                         {level === 'beginner' ? 'Principiante' : level === 'intermediate' ? 'Intermedio' : 'Avanzado'}
@@ -661,16 +661,16 @@ export default function GramaticaPage() {
             {/* Exercises List */}
             {filteredExercises.length > 0 ? (
               <div className="bg-white rounded-xl modern-card shadow-lg p-8">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
                   Ejercicios de Gramática
                 </h2>
                 {filteredExercises.map((exercise, index) => (
                   <div 
                     key={exercise.id} 
-                    className="mb-8 p-6 bg-gradient-to-br from-white to-red-50 rounded-2xl shadow-xl border border-red-100 hover:shadow-2xl transition-all duration-300"
+                    className="mb-8 p-6 bg-white rounded-2xl shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300"
                   >
                     <div className="flex items-start justify-between mb-4">
-                      <p className="font-bold text-lg text-gray-800 flex-1">
+                      <p className="font-bold text-lg text-gray-900 flex-1">
                         {index + 1}. {exercise.question}
                       </p>
                       {!showResults && (

@@ -17,6 +17,7 @@ const inter = Inter({
   weight: ["400","700"],
   display: 'swap',
   preload: true,
+  fallback: ['system-ui', 'sans-serif'],
 });
 
 const geistMono = Geist_Mono({
@@ -24,6 +25,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
   display: 'swap',
   preload: false,
+  fallback: ['monospace'],
 });
 
 const cairo = Cairo({
@@ -32,6 +34,7 @@ const cairo = Cairo({
   weight: ["400", "600", "700"],
   display: 'swap',
   preload: true,
+  fallback: ['Tahoma', 'sans-serif'],
 });
 
 export const metadata: Metadata = {
@@ -59,8 +62,7 @@ export const metadata: Metadata = {
     canonical: "https://www.espanolhub.com",
     languages: {
       'es': "https://www.espanolhub.com",
-      'ar': "https://www.espanolhub.com/ar",
-    }
+    },
   },
   openGraph: {
     title: "Espanol Hub - Aprende Español GRATIS | Gramática, Vocabulario, Juegos",
@@ -162,6 +164,46 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="//vitals.vercel-insights.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        
+        
+        {/* Critical CSS inline for faster rendering */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            body { font-family: var(--font-inter), system-ui, sans-serif; margin: 0; padding: 0; }
+            .skip-to-main { position: absolute; left: -9999px; }
+            .skip-to-main:focus { left: 50%; transform: translateX(-50%); }
+            .min-h-screen { min-height: 100vh; }
+            .bg-white { background-color: white; }
+            .text-slate-900 { color: #0f172a; }
+            .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+            .flex { display: flex; }
+            .items-center { align-items: center; }
+            .gap-4 { gap: 1rem; }
+            .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+            .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+            .font-bold { font-weight: 700; }
+            .mb-6 { margin-bottom: 1.5rem; }
+            .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+            .text-gray-700 { color: #374151; }
+            .max-w-2xl { max-width: 42rem; }
+            .mx-auto { margin-left: auto; margin-right: auto; }
+            .bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops)); }
+            .from-purple-600 { --tw-gradient-from: #9333ea; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(147 51 234 / 0)); }
+            .to-blue-600 { --tw-gradient-to: #2563eb; }
+            .text-white { color: white; }
+            .rounded-2xl { border-radius: 1rem; }
+            .shadow-lg { box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05); }
+            .hover\\:shadow-xl:hover { box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+            .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; }
+            .transform { transform: translate(var(--tw-translate-x, 0), var(--tw-translate-y, 0)) rotate(var(--tw-rotate, 0)) skewX(var(--tw-skew-x, 0)) skewY(var(--tw-skew-y, 0)) scaleX(var(--tw-scale-x, 1)) scaleY(var(--tw-scale-y, 1)); }
+            .hover\\:scale-105:hover { --tw-scale-x: 1.05; --tw-scale-y: 1.05; }
+          `
+        }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

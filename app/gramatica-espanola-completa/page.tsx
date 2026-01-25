@@ -149,10 +149,10 @@ export default function GramaticaEspanolaCompletaPage() {
                   Nivel Principiante
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-                  Fundamentos de la Gramática
+                  Fundamentos de la Gramática Española
                 </h2>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Empieza desde cero con las bases esenciales del español
+                  Empieza desde cero con las bases esenciales de la gramática española para principiantes
                 </p>
               </div>
               
@@ -258,7 +258,7 @@ export default function GramaticaEspanolaCompletaPage() {
                     Nivel Avanzado
                   </span>
                   <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-                    Gramática Avanzada
+                    Gramática Española Avanzada
                   </h2>
                   <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                     Domina los aspectos más complejos de la gramática española
@@ -312,7 +312,7 @@ export default function GramaticaEspanolaCompletaPage() {
         <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
           <div className="container mx-auto px-4 max-w-7xl">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-              ¿Por Qué Aprender Gramática?
+              ¿Por Qué Aprender Gramática Española?
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
               {[

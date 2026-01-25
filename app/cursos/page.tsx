@@ -91,18 +91,18 @@ export default function CursosPage() {
   };
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 py-12 ${cairo.variable}`}>
+    <div className={`min-h-screen bg-white py-12 ${cairo.variable}`}>
       <div className="w-full max-w-7xl mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-12">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-green-100 rounded-full mb-6">
-            <Sparkles className="w-4 h-4 text-blue-600" />
-            <span className="text-sm font-semibold text-blue-900">5 Cursos Disponibles</span>
-            <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6 border border-gray-200">
+            <Sparkles className="w-4 h-4 text-gray-700" />
+            <span className="text-sm font-semibold text-gray-900">5 Cursos Disponibles</span>
+            <Star className="w-4 h-4 text-gray-700" />
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 via-green-600 to-blue-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-gray-900">
             Cursos y Rutas de Aprendizaje
           </h1>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
@@ -112,44 +112,44 @@ export default function CursosPage() {
 
         {/* Stats Bar */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 text-white shadow-lg">
+          <div className="bg-gray-900 rounded-lg p-6 text-white border border-gray-800">
             <div className="flex items-center justify-between mb-2">
-              <BookOpen className="w-8 h-8" />
-              <TrendingUp className="w-5 h-5 text-blue-200" />
+              <BookOpen className="w-8 h-8 text-white" />
+              <TrendingUp className="w-5 h-5 text-white" />
             </div>
-            <div className="text-3xl font-bold mb-1">{courses.length}</div>
-            <div className="text-sm text-blue-100">Cursos Totales</div>
+            <div className="text-3xl font-bold mb-1 text-white">{courses.length}</div>
+            <div className="text-sm text-gray-300">Cursos Totales</div>
           </div>
 
-          <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 text-white shadow-lg">
+          <div className="bg-gray-900 rounded-lg p-6 text-white border border-gray-800">
             <div className="flex items-center justify-between mb-2">
-              <Trophy className="w-8 h-8" />
-              <CheckCircle className="w-5 h-5 text-green-200" />
+              <Trophy className="w-8 h-8 text-white" />
+              <CheckCircle className="w-5 h-5 text-white" />
             </div>
-            <div className="text-3xl font-bold mb-1">{completedCourseIds.length}</div>
-            <div className="text-sm text-green-100">Completados</div>
+            <div className="text-3xl font-bold mb-1 text-white">{completedCourseIds.length}</div>
+            <div className="text-sm text-gray-300">Completados</div>
           </div>
 
-          <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl p-6 text-white shadow-lg">
+          <div className="bg-gray-900 rounded-lg p-6 text-white border border-gray-800">
             <div className="flex items-center justify-between mb-2">
-              <Zap className="w-8 h-8" />
-              <Clock className="w-5 h-5 text-amber-200" />
+              <Zap className="w-8 h-8 text-white" />
+              <Clock className="w-5 h-5 text-white" />
             </div>
-            <div className="text-3xl font-bold mb-1">{inProgressCourseIds.length}</div>
-            <div className="text-sm text-amber-100">En Progreso</div>
+            <div className="text-3xl font-bold mb-1 text-white">{inProgressCourseIds.length}</div>
+            <div className="text-sm text-gray-300">En Progreso</div>
           </div>
 
           <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-6 text-white shadow-lg">
             <div className="flex items-center justify-between mb-2">
               <Target className="w-8 h-8" />
-              <Users className="w-5 h-5 text-purple-200" />
+              <Users className="w-5 h-5 text-white/70" />
             </div>
             <div className="text-3xl font-bold mb-1">
               {courseProgress.length > 0 
                 ? Math.round(courseProgress.reduce((acc, p) => acc + p.progressPercent, 0) / courseProgress.length)
                 : 0}%
             </div>
-            <div className="text-sm text-purple-100">Progreso Total</div>
+            <div className="text-sm text-white/90">Progreso Total</div>
           </div>
         </div>
 
@@ -169,14 +169,14 @@ export default function CursosPage() {
               const progressPercent = (completedCount / Math.max(1, pathCourses.length)) * 100;
               
               return (
-                <div key={path.id} className="min-w-[320px] bg-white rounded-2xl shadow-xl p-6 flex-shrink-0 border-2 border-gray-100 hover:border-blue-300 transition-all hover:shadow-2xl hover:scale-105">
+                <div key={path.id} className="min-w-[320px] bg-white rounded-2xl shadow-xl p-6 flex-shrink-0 border-2 border-gray-200 hover:border-blue-300 transition-all hover:shadow-2xl hover:scale-105">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-xl font-bold text-gray-900">{path.title}</h3>
                     <div className={`w-4 h-4 rounded-full ${path.color || 'bg-blue-500'} shadow-lg`} />
                   </div>
-                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">{path.description}</p>
+                  <p className="text-sm text-gray-700 mb-4 line-clamp-2">{path.description}</p>
                   
-                  <div className="flex items-center justify-between text-sm text-gray-700 mb-3 font-medium">
+                  <div className="flex items-center justify-between text-sm text-gray-900 mb-3 font-medium">
                     <div className="flex items-center gap-2">
                       <BookOpen className="w-4 h-4 text-blue-600" />
                       <span>{pathCourses.length} Cursos</span>
@@ -188,11 +188,11 @@ export default function CursosPage() {
                   </div>
                   
                   <div className="mb-3">
-                    <div className="flex items-center justify-between text-xs text-gray-600 mb-1">
+                    <div className="flex items-center justify-between text-xs text-gray-700 mb-1">
                       <span>Progreso</span>
                       <span className="font-semibold">{Math.round(progressPercent)}%</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                    <div className="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
                       <div 
                         className="h-3 rounded-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-500" 
                         style={{ width: `${progressPercent}%` }} 
@@ -242,10 +242,10 @@ export default function CursosPage() {
                   className={`group px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 ${
                     isActive
                       ? `bg-gradient-to-r ${label.color} text-white shadow-lg scale-105`
-                      : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-blue-300 hover:shadow-md'
+                      : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-blue-300 hover:shadow-md'
                   }`}
                 >
-                  <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-gray-500 group-hover:text-blue-600'}`} />
+                  <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-gray-600 group-hover:text-blue-600'}`} />
                   <span>{label.es}</span>
                 </button>
               );
@@ -273,13 +273,13 @@ export default function CursosPage() {
                 <div
                   key={course.id}
                   className={`group relative bg-white rounded-3xl shadow-xl p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border-2 ${
-                    !isAvailable ? 'opacity-60 border-gray-200' : isCompleted ? 'border-green-400' : isInProgress ? 'border-blue-400' : 'border-gray-100'
+                    !isAvailable ? 'opacity-60 border-gray-200' : isCompleted ? 'border-green-400' : isInProgress ? 'border-blue-400' : 'border-gray-200'
                   }`}
                 >
                   {/* Status Badge */}
                   <div className="absolute top-4 right-4 flex flex-col gap-2 items-end">
                     {!isAvailable && (
-                      <div className="flex items-center gap-1 px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-xs font-semibold">
+                      <div className="flex items-center gap-1 px-3 py-1 bg-gray-100 text-gray-900 rounded-full text-xs font-semibold">
                         <Lock className="w-3 h-3" />
                         Bloqueado
                       </div>
@@ -307,14 +307,14 @@ export default function CursosPage() {
                     <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                       {course.title}
                     </h3>
-                    <p className="text-sm text-gray-600 line-clamp-1">{course.subtitle || ''}</p>
+                    <p className="text-sm text-gray-700 line-clamp-1">{course.subtitle || ''}</p>
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm text-gray-600 mb-4 line-clamp-2 min-h-[40px]">{course.description}</p>
+                  <p className="text-sm text-gray-700 mb-4 line-clamp-2 min-h-[40px]">{course.description}</p>
 
                   {/* Meta Info */}
-                  <div className="flex items-center justify-between text-sm text-gray-700 mb-4 pb-4 border-b border-gray-200">
+                  <div className="flex items-center justify-between text-sm text-gray-900 mb-4 pb-4 border-b border-gray-200">
                     <div className="flex items-center gap-1">
                       <BookOpen className="w-4 h-4 text-blue-600" />
                       <span className="font-medium">{course.lessons.length} Lecciones</span>
@@ -327,11 +327,11 @@ export default function CursosPage() {
 
                   {/* Progress Bar */}
                   <div className="mb-4">
-                    <div className="flex items-center justify-between text-xs text-gray-600 mb-2">
+                    <div className="flex items-center justify-between text-xs text-gray-700 mb-2">
                       <span className="font-semibold">Progreso</span>
                       <span className="font-bold">{Math.round(progressPercent)}%</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                    <div className="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
                       <div 
                         className={`h-3 rounded-full transition-all duration-500 ${
                           isCompleted 
@@ -364,7 +364,7 @@ export default function CursosPage() {
                       </Link>
                     ) : (
                       <div
-                        className="w-full px-4 py-3 rounded-xl font-medium bg-gray-50 text-gray-500 border-2 border-dashed border-gray-200 text-center"
+                        className="w-full px-4 py-3 rounded-xl font-medium bg-gray-100 text-gray-700 border-2 border-dashed border-gray-200 text-center"
                         aria-label="Curso en preparación"
                       >
                         Próximamente
@@ -386,13 +386,13 @@ export default function CursosPage() {
                   <div className="flex items-center gap-4">
                     <div className="text-5xl">{currentCourse.icon}</div>
                     <div>
-                      <h2 className="text-3xl font-bold text-gray-800">{currentCourse.title}</h2>
-                      <p className="text-gray-600">{currentCourse.description}</p>
+                      <h2 className="text-3xl font-bold text-gray-900">{currentCourse.title}</h2>
+                      <p className="text-gray-700">{currentCourse.description}</p>
                     </div>
                   </div>
                   <button
                     onClick={() => setSelectedCourse(null)}
-                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    className="p-2 hover:bg-gray-50 rounded-full transition-colors"
                   >
                     ✕
                   </button>
@@ -410,20 +410,20 @@ export default function CursosPage() {
 
                 {currentCourseProgress && (
                   <div className="mb-6">
-                    <div className="w-full bg-gray-200 rounded-full h-3 mb-2">
+                    <div className="w-full bg-gray-100 rounded-full h-3 mb-2">
                       <div
                         className="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all"
                         style={{ width: `${currentCourseProgress.progressPercent}%` }}
                       ></div>
                     </div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-gray-700">
                       {currentCourseProgress.progressPercent}% completado
                     </div>
                   </div>
                 )}
 
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-gray-800">Lecciones</h3>
+                  <h3 className="text-xl font-bold text-gray-900">Lecciones</h3>
                   {currentCourse.lessons.map((lesson, index) => {
                     const isCompleted = currentCourseProgress?.completedLessons.includes(lesson.id) || false;
                     const isCurrent = currentCourseProgress?.currentLessonId === lesson.id;

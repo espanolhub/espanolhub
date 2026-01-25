@@ -12,8 +12,7 @@ export const metadata: Metadata = {
     canonical: "https://www.espanolhub.com/ejercicios-espanol-interactivos",
     languages: {
       'es': "https://www.espanolhub.com/ejercicios-espanol-interactivos",
-      'ar': "https://www.espanolhub.com/ar/ejercicios-espanol-interactivos",
-    }
+    },
   },
   openGraph: {
     title: "Ejercicios de Español Interactivos Gratis",
@@ -44,7 +43,7 @@ export default function EjerciciosEspanolPage() {
             </h1>
             
             <p className="text-xl text-gray-700 mb-8">
-              Practica con 140+ ejercicios de gramática, 6 juegos, 40+ lecturas y vocabulario por temas. Todo gratis con retroalimentación inmediata.
+              Practica con 140+ ejercicios de gramática, 6 juegos, 40+ lecturas y vocabulario por temas para todos los niveles. Todo gratis con retroalimentación inmediata.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -75,7 +74,7 @@ export default function EjerciciosEspanolPage() {
           {/* Tipos de Ejercicios */}
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-              Tipos de Ejercicios Disponibles
+              Tipos de Ejercicios de Gramática para Aprender Español
             </h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -200,7 +199,7 @@ const exerciseTypes = [
   {
     icon: <GraduationCap className="w-7 h-7 text-white" />,
     title: "Ejercicios de Gramática",
-    description: "Verbos, tiempos, artículos, pronombres y más. 140+ ejercicios.",
+    description: "Verbos, tiempos, artículos, pronombres y más. 140+ ejercicios para mejorar la gramática española.",
     count: "140+ ejercicios",
     href: "/gramatica/ejercicios",
     bgColor: "bg-gradient-to-br from-blue-500 to-blue-600"

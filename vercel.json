@@ -6,7 +6,14 @@
   "regions": ["iad1"],
   "crons": [],
   "rewrites": [],
-  "redirects": [],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "espanolhub.com" }],
+      "destination": "https://www.espanolhub.com/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [],
   "trailingSlash": false,
   "cleanUrls": true,

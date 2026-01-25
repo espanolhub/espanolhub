@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next';
+import { BASE_URL } from '@/lib/config/seo-config';
 
 export default function robots(): MetadataRoute.Robots {
-  // استخدام متغير البيئة أو الرابط الافتراضي
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://espanolhub.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || BASE_URL;
 
   return {
     rules: [

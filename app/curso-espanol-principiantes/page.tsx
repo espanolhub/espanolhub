@@ -12,8 +12,7 @@ export const metadata: Metadata = {
     canonical: "https://www.espanolhub.com/curso-espanol-principiantes",
     languages: {
       'es': "https://www.espanolhub.com/curso-espanol-principiantes",
-      'ar': "https://www.espanolhub.com/ar/curso-espanol-principiantes",
-    }
+    },
   },
   openGraph: {
     title: "Curso de Español para Principiantes GRATIS 2026",

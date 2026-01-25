@@ -45,8 +45,15 @@ const AdminSettingsContext = createContext<AdminContextValue | null>(null);
 export function AdminSettingsProvider({ children }: { children: React.ReactNode }) {
   const [settings, setSettingsState] = useState<AdminSettings>(DEFAULT_SETTINGS);
   const [previewMode, setPreviewMode] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    
     try {
       const raw = localStorage.getItem('admin_settings_v1');
       if (raw) {
@@ -55,19 +62,30 @@ export function AdminSettingsProvider({ children }: { children: React.ReactNode 
         localStorage.setItem('admin_settings_v1', JSON.stringify(DEFAULT_SETTINGS));
       }
     } catch (e) {
-      // ignore
+      console.warn('Failed to load admin settings:', e);
     }
-  }, []);
+  }, [mounted]);
 
   const setSettings = (s: AdminSettings) => {
     setSettingsState(s);
-    try { localStorage.setItem('admin_settings_v1', JSON.stringify(s)); } catch (e) {}
+    if (!mounted) return;
+    try { 
+      localStorage.setItem('admin_settings_v1', JSON.stringify(s)); 
+    } catch (e) {
+      console.warn('Failed to save admin settings:', e);
+    }
   };
 
   const updateSettings = (patch: Partial<AdminSettings>) => {
     setSettingsState(prev => {
       const next = { ...prev, ...patch, locked_modules: { ...prev.locked_modules, ...(patch.locked_modules || {}) } };
-      try { localStorage.setItem('admin_settings_v1', JSON.stringify(next)); } catch (e) {}
+      if (mounted) {
+        try { 
+          localStorage.setItem('admin_settings_v1', JSON.stringify(next)); 
+        } catch (e) {
+          console.warn('Failed to update admin settings:', e);
+        }
+      }
       return next;
     });
   };
@@ -81,7 +99,17 @@ export function AdminSettingsProvider({ children }: { children: React.ReactNode 
 
 export function useAdminSettings() {
   const ctx = useContext(AdminSettingsContext);
-  if (!ctx) throw new Error('useAdminSettings must be used within AdminSettingsProvider');
+  if (!ctx) {
+    console.error('useAdminSettings must be used within AdminSettingsProvider');
+    // Return default values instead of throwing to prevent crashes
+    return {
+      settings: DEFAULT_SETTINGS,
+      setSettings: () => {},
+      updateSettings: () => {},
+      previewMode: false,
+      setPreviewMode: () => {},
+    };
+  }
   return ctx;
 }
 

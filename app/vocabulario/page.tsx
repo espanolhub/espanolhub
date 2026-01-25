@@ -160,7 +160,7 @@ function VocabularioContent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-orange-50 to-white py-8 md:py-12">
+    <div className="min-h-screen bg-white py-8 md:py-12">
       <div className="w-full max-w-7xl mx-auto px-4">
         {/* Header Section */}
         <div className="text-center mb-8 md:mb-12">
@@ -287,7 +287,7 @@ function VocabularioContent() {
               >
                 <div className="text-center">
                   <div className="flex justify-center mb-3">
-                    <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-yellow-100 to-orange-100 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-gray-900 rounded-full flex items-center justify-center border border-gray-800">
                       <CategoryIcon className="w-6 h-6 md:w-7 md:h-7 text-yellow-600" />
                     </div>
                   </div>
@@ -327,7 +327,7 @@ function VocabularioContent() {
         })()}
 
         {/* Statistics */}
-        <div className="mt-12 bg-gradient-to-r from-yellow-600 to-orange-600 text-white rounded-2xl p-6 md:p-8 text-center shadow-xl">
+        <div className="mt-12 bg-gray-900 text-white rounded-lg p-6 md:p-8 text-center border border-gray-800">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Estadísticas</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
             <div className="bg-white/10 rounded-xl p-4 md:p-6 backdrop-blur-sm">

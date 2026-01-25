@@ -159,7 +159,7 @@ export default function DrivingLicensePage() {
 
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 ${cairo.variable} font-sans`}>
+    <div className={`min-h-screen bg-white ${cairo.variable} font-sans`}>
       <div className="container mx-auto px-4 max-w-7xl py-8">
         {/* Header Section */}
         <div className="mb-8">
@@ -181,43 +181,43 @@ export default function DrivingLicensePage() {
 
           {/* Stats Bar */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-            <div className="modern-card bg-gradient-to-br from-blue-500 to-blue-600 text-white p-4">
+            <div className="modern-card bg-gray-900 text-white p-4 border border-gray-800">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-2xl font-bold">{progressPercent}%</div>
-                  <div className="text-xs opacity-90">Progreso</div>
+                  <div className="text-xs text-gray-300">Progreso</div>
                 </div>
-                <Trophy className="w-8 h-8 opacity-80" />
+                <Trophy className="w-8 h-8 text-white" />
               </div>
             </div>
             
-            <div className="modern-card bg-gradient-to-br from-green-500 to-green-600 text-white p-4">
+            <div className="modern-card bg-gray-900 text-white p-4 border border-gray-800">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-2xl font-bold">{completed.length}/{chapters.length}</div>
-                  <div className="text-xs opacity-90">Completados</div>
+                  <div className="text-xs text-gray-300">Completados</div>
                 </div>
-                <CheckCircle className="w-8 h-8 opacity-80" />
+                <CheckCircle className="w-8 h-8 text-white" />
               </div>
             </div>
             
-            <div className="modern-card bg-gradient-to-br from-purple-500 to-purple-600 text-white p-4">
+            <div className="modern-card bg-gray-900 text-white p-4 border border-gray-800">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-2xl font-bold">{formatTime(studyTime)}</div>
-                  <div className="text-xs opacity-90">Tiempo</div>
+                  <div className="text-xs text-gray-300">Tiempo</div>
                 </div>
-                <Clock className="w-8 h-8 opacity-80" />
+                <Clock className="w-8 h-8 text-white" />
               </div>
             </div>
             
-            <div className="modern-card bg-gradient-to-br from-amber-500 to-amber-600 text-white p-4 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setShowStats(!showStats)}>
+            <div className="modern-card bg-gray-900 text-white p-4 cursor-pointer hover:shadow-md transition-shadow border border-gray-800" onClick={() => setShowStats(!showStats)}>
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-2xl font-bold">{chapters.length - completed.length}</div>
-                  <div className="text-xs opacity-90">Restantes</div>
+                  <div className="text-xs text-gray-300">Restantes</div>
                 </div>
-                <Target className="w-8 h-8 opacity-80" />
+                <Target className="w-8 h-8 text-white" />
               </div>
             </div>
           </div>
@@ -231,7 +231,7 @@ export default function DrivingLicensePage() {
                 placeholder="🔍 Buscar capítulo (ej. Multas, Señales, Prioridad)... ابحث عن فصل" 
                 className="w-full px-4 py-3 pl-12 border-2 border-gray-200 rounded-xl text-sm bg-white shadow-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
               />
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600">
                 🔍
               </div>
             </div>
@@ -243,21 +243,21 @@ export default function DrivingLicensePage() {
           <aside className="hidden md:block w-80">
             <div className="sticky top-4 space-y-4">
               {/* Quick Actions */}
-              <div className="modern-card bg-gradient-to-br from-indigo-500 to-purple-600 text-white p-4">
-                <h3 className="font-bold mb-2 flex items-center gap-2">
-                  <Zap className="w-5 h-5" />
+              <div className="modern-card bg-white border border-gray-200 p-4">
+                <h3 className="font-bold mb-2 flex items-center gap-2 text-gray-900">
+                  <Zap className="w-5 h-5 text-gray-700" />
                   Acceso Rápido / وصول سريع
                 </h3>
                 <div className="space-y-2">
                   <button 
                     onClick={() => { setCurrent(-1); setSidebarOpen(false); }} 
-                    className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-lg p-2 text-sm font-medium transition-all"
+                    className="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2 text-sm font-medium transition-all text-gray-900"
                   >
                     📝 Simulador de Examen
                   </button>
                   <button 
                     onClick={() => setShowTranslations(!showTranslations)}
-                    className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-lg p-2 text-sm font-medium transition-all"
+                    className="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2 text-sm font-medium transition-all text-gray-900"
                   >
                     🌐 {showTranslations ? 'Ocultar' : 'Mostrar'} Árabe
                   </button>
@@ -265,7 +265,7 @@ export default function DrivingLicensePage() {
               </div>
 
               {/* Chapter List */}
-              <div className="modern-card bg-white p-4 max-h-[600px] overflow-y-auto">
+              <div className="modern-card bg-white border border-gray-200 p-4 max-h-[600px] overflow-y-auto">
                 <h3 className="font-bold mb-3 text-gray-900">Contenido del Curso</h3>
                 <nav className="space-y-2">
                   {chapters.filter(ch => {
@@ -276,24 +276,24 @@ export default function DrivingLicensePage() {
                     <button
                       key={chap.id}
                       onClick={() => selectChapter(i)}
-                      className={`w-full flex items-center gap-3 p-3 rounded-lg transition-all ${
+                      className={`w-full flex items-center gap-3 p-3 rounded-lg transition-all border ${
                         i === current 
-                          ? 'bg-gradient-to-r from-blue-50 to-blue-100 ring-2 ring-blue-400 shadow-md' 
-                          : 'hover:bg-gray-50 hover:shadow-sm'
+                          ? 'bg-gray-900 text-white border-gray-900' 
+                          : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
                       }`}
                     >
                       <div className="flex-shrink-0">
                         <ChapterStatusIcon index={i} />
                       </div>
                       <div className="text-left flex-1">
-                        <div className="text-sm font-semibold text-gray-900">{chap.title}</div>
-                        <div className="text-xs text-gray-500 flex items-center gap-2">
+                        <div className={`text-sm font-semibold ${i === current ? 'text-white' : 'text-gray-900'}`}>{chap.title}</div>
+                        <div className={`text-xs flex items-center gap-2 ${i === current ? 'text-gray-300' : 'text-gray-600'}`}>
                           {completed.includes(i) ? (
-                            <span className="text-green-600 flex items-center gap-1">
+                            <span className="flex items-center gap-1">
                               <CheckCircle className="w-3 h-3" /> Completado
                             </span>
                           ) : (
-                            <span className="text-blue-600">✨ Gratis</span>
+                            <span>✨ Gratis</span>
                           )}
                         </div>
                       </div>
@@ -350,13 +350,13 @@ export default function DrivingLicensePage() {
 
           {/* Main content */}
           <main className="flex-1">
-            <div className="modern-card bg-white shadow-lg">
+            <div className="modern-card bg-white border border-gray-200">
               {/* Chapter Header */}
-              <div className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-6 rounded-t-xl">
+              <div className="bg-gray-50 border-b border-gray-200 p-6 rounded-t-lg">
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <div className="flex-1">
-                    <h2 className="text-2xl md:text-3xl font-bold mb-2">{chapters[current].title}</h2>
-                    <p className="text-blue-100 text-sm">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-2 text-gray-900">{chapters[current].title}</h2>
+                    <p className="text-gray-700 text-sm font-semibold">
                       Lección detallada con explicación completa / درس مفصل مع شرح كامل
                     </p>
                   </div>
@@ -369,12 +369,12 @@ export default function DrivingLicensePage() {
                 </div>
 
                 {/* Progress Bar for current chapter */}
-                <div className="flex items-center gap-3 text-sm">
-                  <Clock className="w-4 h-4" />
+                <div className="flex items-center gap-3 text-sm text-gray-700 font-semibold">
+                  <Clock className="w-4 h-4 text-gray-700" />
                   <span>Tiempo de estudio: {formatTime(studyTime)}</span>
                   {completed.includes(current) && (
-                    <span className="ml-auto flex items-center gap-1 bg-green-500/30 px-3 py-1 rounded-full">
-                      <Award className="w-4 h-4" /> Completado
+                    <span className="ml-auto flex items-center gap-1 bg-gray-100 px-3 py-1 rounded-full border border-gray-200">
+                      <Award className="w-4 h-4 text-gray-700" /> <span className="text-gray-900">Completado</span>
                     </span>
                   )}
                 </div>
@@ -391,17 +391,17 @@ export default function DrivingLicensePage() {
                     <div className="flex flex-wrap gap-2">
                       <button 
                         onClick={() => setShowTranslations(!showTranslations)}
-                        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex items-center gap-2 text-sm font-medium transition-colors shadow-sm hover:shadow-md"
+                        className="px-4 py-2 bg-white border border-gray-200 hover:bg-gray-50 text-gray-900 rounded-lg flex items-center gap-2 text-sm font-medium transition-colors"
                       >
                         🌐 {showTranslations ? 'Ocultar' : 'Mostrar'} Árabe
                       </button>
                       <button 
                         onClick={markAsCompleted}
                         disabled={completed.includes(current)}
-                        className={`px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium transition-all ${
+                        className={`px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium transition-all border ${
                           completed.includes(current)
-                            ? 'bg-green-100 text-green-700 cursor-not-allowed'
-                            : 'bg-green-600 hover:bg-green-700 text-white shadow-sm hover:shadow-md'
+                            ? 'bg-gray-100 text-gray-600 cursor-not-allowed border-gray-200'
+                            : 'bg-gray-900 hover:bg-gray-800 text-white border-gray-900'
                         }`}
                       >
                         <CheckCircle className="w-4 h-4" />
@@ -418,7 +418,7 @@ export default function DrivingLicensePage() {
               {current === -1 ? (
                 // Exam Simulator
                 <div>
-                  <div className="mb-6 p-6 bg-gradient-to-r from-amber-50 to-yellow-50 border-2 border-amber-200 rounded-xl">
+                  <div className="mb-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
                         <AlertCircle className="w-6 h-6 text-white" />
@@ -483,7 +483,7 @@ export default function DrivingLicensePage() {
                     {/* Lock overlay removed - all content is free */}
                     <div>
                       {/* Learning Objectives */}
-                      <div className="mb-6 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-l-4 border-blue-500">
+                      <div className="mb-6 p-6 bg-gray-50 rounded-lg border-l-4 border-gray-900">
                         <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                           <Target className="w-5 h-5 text-blue-600" />
                           Objetivos de Aprendizaje
@@ -512,7 +512,7 @@ export default function DrivingLicensePage() {
 
                       {/* Key Summary */}
                       {lesson.resumenClave && (
-                        <div className="mt-8 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-l-4 border-green-500 shadow-sm">
+                        <div className="mt-8 p-6 bg-gray-50 rounded-lg border-l-4 border-gray-900">
                           <h4 className="font-bold text-lg mb-3 flex items-center gap-2 text-gray-900">
                             <BookOpen className="w-5 h-5 text-green-600" />
                             Resumen Clave
@@ -529,7 +529,7 @@ export default function DrivingLicensePage() {
 
                       {/* Common Mistakes */}
                       {lesson.erroresComunes && lesson.erroresComunes.length > 0 && (
-                        <div className="mt-6 p-6 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border-l-4 border-amber-500 shadow-sm">
+                        <div className="mt-6 p-6 bg-gray-50 rounded-lg border-l-4 border-gray-900">
                           <h4 className="font-bold text-lg mb-3 flex items-center gap-2 text-gray-900">
                             <AlertCircle className="w-5 h-5 text-amber-600" />
                             Errores Comunes a Evitar
@@ -549,7 +549,7 @@ export default function DrivingLicensePage() {
                       )}
 
                       {/* Practice Tips */}
-                      <div className="mt-6 p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border-l-4 border-purple-500 shadow-sm">
+                      <div className="mt-6 p-6 bg-gray-50 rounded-lg border-l-4 border-gray-900">
                         <h4 className="font-bold text-lg mb-3 flex items-center gap-2 text-gray-900">
                           <Star className="w-5 h-5 text-purple-600" />
                           Consejos para Practicar
@@ -583,10 +583,10 @@ export default function DrivingLicensePage() {
                 <button
                   onClick={() => current > 0 && selectChapter(current - 1)}
                   disabled={current === 0}
-                  className={`px-6 py-3 rounded-xl font-medium transition-all flex items-center gap-2 ${
+                  className={`px-6 py-3 rounded-lg font-medium transition-all flex items-center gap-2 border ${
                     current === 0
-                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 shadow-md hover:shadow-lg'
+                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed border-gray-200'
+                      : 'bg-white text-gray-900 hover:bg-gray-50 border-gray-200'
                   }`}
                 >
                   ← Anterior
@@ -594,10 +594,10 @@ export default function DrivingLicensePage() {
                 <button
                   onClick={() => current < chapters.length - 1 && selectChapter(current + 1)}
                   disabled={current === chapters.length - 1}
-                  className={`px-6 py-3 rounded-xl font-medium transition-all flex items-center gap-2 ${
+                  className={`px-6 py-3 rounded-lg font-medium transition-all flex items-center gap-2 border ${
                     current === chapters.length - 1
-                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                      : 'bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg'
+                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed border-gray-200'
+                      : 'bg-gray-900 text-white hover:bg-gray-800 border-gray-900'
                   }`}
                 >
                   Siguiente →

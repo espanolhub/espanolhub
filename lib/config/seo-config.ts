@@ -67,6 +67,18 @@ export const SECONDARY_KEYWORDS = {
     intent: 'informational',
     priority: 2,
   },
+  'contenido educativo español': {
+    searchVolume: 900, // Estimado
+    difficulty: 'medium',
+    intent: 'informational',
+    priority: 2,
+  },
+  'guías de español': {
+    searchVolume: 700, // Estimado
+    difficulty: 'low',
+    intent: 'informational',
+    priority: 2,
+  },
 };
 
 /**
@@ -111,9 +123,9 @@ export const LONG_TAIL_KEYWORDS = {
  */
 export const META_TEMPLATES = {
   home: {
-    title: 'Espanol Hub - Aprende Español GRATIS | Gramática, Vocabulario, Juegos',
-    description: 'Aprende español 100% gratis. Gramática, vocabulario, juegos educativos, preparación CCSE y carnet de conducir. La mejor plataforma para aprender español online.',
-    keywords: ['aprender español gratis', 'gramática española', 'vocabulario español', 'juegos educativos español'],
+    title: 'Espanol Hub - Aprende Español GRATIS | Gramática, Vocabulario, Juegos, Guías',
+    description: 'Aprende español 100% gratis. Contenido educativo, guías de gramática, vocabulario, juegos educativos, preparación CCSE y carnet de conducir. La mejor plataforma para aprender español online.',
+    keywords: ['aprender español gratis', 'gramática española', 'vocabulario español', 'juegos educativos español', 'contenido educativo español', 'guías de español'],
   },
   game: {
     titleTemplate: '{gameName} - Juego Educativo Gratis | Espanol Hub',
@@ -121,7 +133,7 @@ export const META_TEMPLATES = {
   },
   lesson: {
     titleTemplate: '{lessonName} - Lección Gratis | Espanol Hub',
-    descriptionTemplate: 'Aprende {lessonName} gratis. {lessonDescription} Incluye ejemplos, ejercicios y explicaciones detalladas.',
+    descriptionTemplate: 'Aprende {lessonName} gratis. {lessonDescription} Incluye conceptos de gramática, ejemplos, ejercicios y explicaciones detalladas.',
   },
   blog: {
     titleTemplate: '{postTitle} | Blog Espanol Hub',
@@ -215,8 +227,8 @@ export const PAGE_SEO_CONFIG = {
   },
   '/blog': {
     primaryKeyword: 'aprender español',
-    title: 'Blog - Consejos y Recursos para Aprender Español',
-    description: 'Artículos, guías y consejos para aprender español. Gramática, vocabulario, pronunciación y más. Actualizado semanalmente.',
+    title: 'Blog - Guías, Consejos y Recursos para Aprender Español',
+    description: 'Artículos, guías y consejos para aprender español. Contenido de gramática, vocabulario, pronunciación y más. Actualizado semanalmente.',
     h1: 'Blog de Espanol Hub',
     focusKeyword: 'aprender español',
   },

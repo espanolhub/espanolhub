@@ -12,8 +12,7 @@ export const metadata: Metadata = {
     canonical: "https://www.espanolhub.com/aprender-espanol-online-gratis",
     languages: {
       'es': "https://www.espanolhub.com/aprender-espanol-online-gratis",
-      'ar': "https://www.espanolhub.com/ar/aprender-espanol-online-gratis",
-    }
+    },
   },
   openGraph: {
     title: "Aprender Español Online Gratis 2026 - Plataforma Completa",

@@ -5,7 +5,7 @@ import {
   CheckCircle, XCircle, Trophy, RotateCcw, Clock, Star, 
   Target, Zap, Award, ArrowRight, BookOpen, Brain 
 } from 'lucide-react';
-import { getRandomQuestions, VerbQuizQuestion } from '@/lib/data/verb-quiz-questions';
+import { getRandomQuestions, getExplanationEs, VerbQuizQuestion } from '@/lib/data/verb-quiz-questions';
 
 type Level = 'beginner' | 'intermediate' | 'advanced';
 
@@ -332,8 +332,8 @@ export default function QuickQuizVerbos() {
                   <h4 className="text-lg font-bold text-red-800 mb-2">
                     Incorrecto
                   </h4>
-                  <p className="text-red-700 mb-3" dir="rtl" style={{ fontFamily: 'var(--font-cairo, sans-serif)' }}>
-                    {currentQuestion.explanation}
+                  <p className="text-red-700 mb-3">
+                    {currentQuestion.explanation_es ?? getExplanationEs(currentQuestion)}
                   </p>
                   <div className="bg-white rounded-lg p-3 border border-red-200">
                     <p className="text-sm text-gray-600 mb-1">

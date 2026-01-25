@@ -1,0 +1,5 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" rx="8" fill="#F3F4F6"/>
+  <rect x="20" y="40" width="80" height="40" rx="4" fill="#E5E7EB"/>
+  <text x="60" y="65" text-anchor="middle" fill="#6B7280" font-family="Arial" font-size="14">Señal</text>
+</svg>

@@ -22,8 +22,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
       canonical: `https://www.espanolhub.com/cursos/${params.id}`,
       languages: {
         'es': `https://www.espanolhub.com/cursos/${params.id}`,
-        'ar': `https://www.espanolhub.com/ar/cursos/${params.id}`,
-      }
+      },
     },
     openGraph: {
       title,

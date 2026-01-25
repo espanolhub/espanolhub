@@ -6,14 +6,15 @@
 
 export interface VerbQuizQuestion {
   id: string;
-  question: string; // بالإسبانية فقط
+  question: string;
   options: string[];
   correctAnswer: string;
-  explanation: string; // بالعربية - يظهر عند الخطأ فقط
-  exampleSentence: string; // جملة من الحياة اليومية
+  explanation: string;
+  explanation_es?: string; // Explicación en español (se usa en la UI)
+  exampleSentence: string;
   level: 'beginner' | 'intermediate' | 'advanced';
   category: 'presente' | 'preterito' | 'futuro' | 'imperfecto' | 'condicional' | 'reflexivos' | 'irregulares';
-  verb: string; // الفعل الأساسي
+  verb: string;
   points: number;
 }
 
@@ -1916,4 +1917,34 @@ export function getRandomQuestions(count: number, level?: 'beginner' | 'intermed
 
 export function getAllQuestions(): VerbQuizQuestion[] {
   return verbQuizQuestions;
+}
+
+/** Genera explicación en español para mostrar en la UI cuando falta explanation_es */
+export function getExplanationEs(q: VerbQuizQuestion): string {
+  const cat = q.category;
+  const v = q.verb;
+  const a = q.correctAnswer;
+  const ex = q.exampleSentence;
+  if (cat === 'presente') {
+    return `El verbo "${v}" en presente: "${a}". Ejemplo: ${ex}`;
+  }
+  if (cat === 'preterito') {
+    return `En pretérito, "${v}" → "${a}". Ejemplo: ${ex}`;
+  }
+  if (cat === 'futuro') {
+    return `En futuro, "${v}" → "${a}". Ejemplo: ${ex}`;
+  }
+  if (cat === 'imperfecto') {
+    return `En imperfecto, "${v}" → "${a}". Ejemplo: ${ex}`;
+  }
+  if (cat === 'condicional') {
+    return `En condicional, "${v}" → "${a}". Ejemplo: ${ex}`;
+  }
+  if (cat === 'reflexivos') {
+    return `Verbo reflexivo "${v}": "${a}". Ejemplo: ${ex}`;
+  }
+  if (cat === 'irregulares') {
+    return `Verbo irregular "${v}": "${a}". Ejemplo: ${ex}`;
+  }
+  return `Respuesta correcta: "${a}". Ejemplo: ${ex}`;
 }
