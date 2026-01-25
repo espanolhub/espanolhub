@@ -45,7 +45,7 @@ export default function DailyChallenge() {
           </div>
           <div className="w-48">
             <div className="w-full bg-gray-200 rounded-full h-2">
-              <div className="h-2 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full transition-all" style={{ width: `${Math.min(progressPercentage, 100)}%` }} />
+              <div className="h-2 bg-gray-900 rounded-full transition-all" style={{ width: `${Math.min(progressPercentage, 100)}%` }} />
             </div>
           </div>
           <div className="text-sm text-gray-700 font-medium">{challenge.progress}/{challenge.target}</div>

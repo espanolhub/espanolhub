@@ -416,10 +416,10 @@ export default function TramitesPage() {
                 <button
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-xl font-semibold transition-all ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all border ${
                     isActive
-                      ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-lg scale-105'
-                      : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-green-300 hover:shadow-md'
+                      ? 'bg-gray-900 text-white border-gray-900'
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
                   }`}
                 >
                   <Icon className="w-4 h-4" />

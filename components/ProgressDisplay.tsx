@@ -70,7 +70,7 @@ export default function ProgressDisplay() {
       {/* Barra de progreso */}
       <div className="w-full bg-gray-200 rounded-full h-1.5 md:h-2 mb-1.5 md:mb-2">
         <div
-          className={`xp-progress-bar bg-gradient-to-r from-blue-500 to-purple-500 h-1.5 md:h-2 rounded-full transition-all duration-800 ${glow ? 'shadow-[0_0_12px_rgba(99,102,241,0.6)]' : ''}`}
+          className={`xp-progress-bar bg-gray-900 h-1.5 md:h-2 rounded-full transition-all duration-800 ${glow ? 'shadow-[0_0_12px_rgba(17,24,39,0.6)]' : ''}`}
           style={{ width: `${Math.min(animatedPercent ?? progressPercent, 100)}%` }}
         ></div>
       </div>

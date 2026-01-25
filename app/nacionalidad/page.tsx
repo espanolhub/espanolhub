@@ -438,21 +438,21 @@ export default function NacionalidadPage() {
           <aside className="hidden md:block w-80">
             <div className="sticky top-4 space-y-4">
               {/* Quick Actions */}
-              <div className="modern-card bg-gradient-to-br from-purple-500 to-pink-600 text-white p-4">
-                <h3 className="font-bold mb-2 flex items-center gap-2">
+              <div className="modern-card bg-white border border-gray-200 p-4">
+                <h3 className="font-bold mb-2 flex items-center gap-2 text-gray-900">
                   <span style={{ fontSize: '16px', lineHeight: 1 }}>⚡</span>
                   Acceso Rápido / وصول سريع
                 </h3>
                 <div className="space-y-2">
                   <button 
                     onClick={() => selectChapter(4)}
-                    className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-lg p-2 text-sm font-medium transition-all"
+                    className="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2 text-sm font-medium transition-all text-gray-900"
                   >
                     📝 Simulador CCSE
                   </button>
                   <button 
                     onClick={() => setShowTranslations(!showTranslations)}
-                    className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-lg p-2 text-sm font-medium transition-all"
+                    className="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2 text-sm font-medium transition-all text-gray-900"
                   >
                     🌐 {showTranslations ? 'Ocultar' : 'Mostrar'} Árabe
                   </button>
