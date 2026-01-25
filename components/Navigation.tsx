@@ -328,7 +328,7 @@ export default function Navigation() {
           </div>
 
           {mobileMenuOpen && (
-            <div className="md:hidden border-t border-gray-200 pt-5 pb-6 px-2">
+            <div className="md:hidden border-t border-gray-200 pt-5 pb-6 px-3">
               <div className="grid grid-cols-2 gap-3">
                 {mobileMenuItems.map((item) => {
                   const Icon = item.icon;
@@ -338,22 +338,24 @@ export default function Navigation() {
                       key={item.href}
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`group mobile-menu-item flex items-center gap-3 p-4 rounded-lg border transition-all active:scale-[0.98] min-h-[56px] ${
+                      className={`group mobile-menu-item flex flex-col items-center justify-center gap-3 p-4 rounded-xl border transition-all duration-200 active:scale-[0.98] h-[120px] ${
                         isActive 
-                          ? 'bg-gray-900 text-white border-gray-900 shadow-md' 
-                          : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:shadow-sm'
+                          ? 'bg-gray-900 text-white border-gray-900 shadow-lg' 
+                          : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:shadow-md hover:border-gray-300'
                       }`}
                     >
-                      <div className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-200 ${
+                      <div className={`flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-200 ${
                         isActive 
                           ? 'bg-gray-800 shadow-md' 
                           : `${item.bg} shadow-sm group-hover:shadow-md`
                       }`}>
-                        <Icon className={`w-6 h-6 transition-colors ${
+                        <Icon className={`w-7 h-7 transition-colors ${
                           isActive ? 'text-white' : item.iconColor
                         }`} aria-hidden="true" />
                       </div>
-                      <span className={`text-sm font-semibold truncate ${isActive ? 'text-white' : 'text-gray-900'}`}>{item.label}</span>
+                      <span className={`text-xs font-semibold text-center leading-tight line-clamp-2 ${isActive ? 'text-white' : 'text-gray-900'}`}>
+                        {item.label}
+                      </span>
                     </Link>
                   );
                 })}
