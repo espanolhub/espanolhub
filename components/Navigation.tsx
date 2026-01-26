@@ -77,94 +77,94 @@ export default function Navigation() {
               </div>
             </Link>
 
-            <div className="hidden md:flex items-center justify-between flex-1 max-w-4xl mx-8">
-              <div className="flex items-center gap-3">
+            <div className="hidden md:flex items-center flex-1 mx-8 overflow-x-auto">
+              <div className="flex items-center justify-start gap-3 min-w-max">
                 <Link
                   href="/nacionalidad"
-                  className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[160px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
+                  className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname === '/nacionalidad' 
-                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300' 
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
+                      : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
                   }`}
                 >
-                  <Shield className={`w-6 h-6 ${pathname === '/nacionalidad' ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
+                  <Shield className={`w-5 h-5 flex-shrink-0 ${pathname === '/nacionalidad' ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
                   <span>Nacionalidad ES</span>
                 </Link>
                 <Link
                   href="/driving-license"
-                  className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[160px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
+                  className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname === '/driving-license' 
-                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300' 
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
+                      : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
                   }`}
                 >
-                  <Car className={`w-6 h-6 ${pathname === '/driving-license' ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
+                  <Car className={`w-5 h-5 flex-shrink-0 ${pathname === '/driving-license' ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
                   <span>Carnet de Conducir</span>
                 </Link>
                 <Link
                   href="/tramites"
-                  className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[160px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
+                  className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname === '/tramites' 
-                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300' 
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
+                      : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
                   }`}
                 >
-                  <Download className={`w-6 h-6 ${pathname === '/tramites' ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
+                  <Download className={`w-5 h-5 flex-shrink-0 ${pathname === '/tramites' ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
                   <span>Guías Legales</span>
                 </Link>
                 <Link
                   href="/gramatica"
-                  className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[140px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
+                  className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname.startsWith('/gramatica')
-                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300'
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
+                      : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
                   }`}
                 >
-                  <GraduationCap className={`w-6 h-6 ${pathname.startsWith('/gramatica') ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
+                  <GraduationCap className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/gramatica') ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
                   <span>Gramática</span>
                 </Link>
                 <Link
                   href="/vocabulario"
-                  className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[140px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
+                  className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname.startsWith('/vocabulario')
-                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300'
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
+                      : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
                   }`}
                 >
-                  <Languages className={`w-6 h-6 ${pathname.startsWith('/vocabulario') ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
+                  <Languages className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/vocabulario') ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
                   <span>Vocabulario</span>
                 </Link>
                 <Link
                   href="/lectura"
-                  className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[140px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
+                  className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname.startsWith('/lectura')
-                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300'
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
+                      : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
                   }`}
                 >
-                  <Book className={`w-6 h-6 ${pathname.startsWith('/lectura') ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
+                  <Book className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/lectura') ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
                   <span>Lectura</span>
                 </Link>
                 <Link
                   href="/juegos"
-                  className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[160px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
+                  className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname === '/juegos' 
-                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300' 
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
+                      : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
                   }`}
                 >
-                  <Gamepad2 className={`w-6 h-6 ${pathname === '/juegos' ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
+                  <Gamepad2 className={`w-5 h-5 flex-shrink-0 ${pathname === '/juegos' ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
                   <span>Juegos</span>
                 </Link>
                 <Link
                   href="/blog"
-                  className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[160px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
+                  className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname.startsWith('/blog') 
-                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300' 
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
+                      : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
                   }`}
                 >
-                  <FileText className={`w-6 h-6 ${pathname.startsWith('/blog') ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
+                  <FileText className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/blog') ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
                   <span>Blog</span>
                 </Link>
               </div>
