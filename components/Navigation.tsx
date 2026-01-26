@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 // Clerk hooks removed to avoid SSR issues - Navigation works without auth
 // import { UserButton, SignInButton, SignUpButton, useUser, useAuth, SignedIn, SignedOut } from '@clerk/nextjs';
-import { Gamepad2, GraduationCap, Book, Languages, X, Menu, Shield, Award, Search, Download, Car, FileText, Star } from 'lucide-react';
+import { Gamepad2, GraduationCap, Book, Languages, X, Menu, Shield, Award, Search, Download, Car, FileText, Star, User } from 'lucide-react';
 import SearchOverlay from './SearchOverlay';
 // AdminNotificationBadge removed - Navigation works without Clerk hooks
 // import AdminNotificationBadge from './AdminNotificationBadge';
@@ -53,11 +53,13 @@ export default function Navigation() {
   return (
     <>
       <SearchOverlay isOpen={searchOverlayOpen} onClose={() => setSearchOverlayOpen(false)} />
-      <nav className={`sticky top-0 z-40 w-full transition-all duration-300 bg-white border-b border-gray-200 ${
+      <nav className={`sticky top-0 z-40 w-full bg-white transition-all duration-300 ${
         scrolled ? 'shadow-sm' : ''
       }`}>
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+          {/* Row 1: Top Bar */}
+          <div className="flex items-center justify-between h-16 border-b border-gray-200">
+            {/* Left: Logo and Name */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0 group" aria-label="Espanol Hub - Ir a la página principal">
               <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center font-bold text-white text-lg border border-gray-800 group-hover:bg-gray-800 transition-all">
                 <GraduationCap className="w-6 h-6 text-white" aria-hidden="true" />
@@ -77,11 +79,80 @@ export default function Navigation() {
               </div>
             </Link>
 
-            <div className="hidden md:flex items-center flex-1 mx-8 overflow-x-auto">
-              <div className="flex items-center justify-start gap-3 min-w-max">
+            {/* Center: Prominent Search Bar */}
+            <div className="hidden md:flex flex-1 max-w-2xl mx-8">
+              <button
+                onClick={() => setSearchOverlayOpen(true)}
+                className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200 hover:bg-gray-100 hover:border-gray-300 transition-all duration-200 text-left focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
+                aria-label="Buscar"
+              >
+                <Search className="w-5 h-5 text-gray-500 flex-shrink-0" aria-hidden="true" />
+                <span className="text-sm text-gray-500">Buscar...</span>
+              </button>
+            </div>
+
+            {/* Right: Login/Profile and Mobile Menu */}
+            <div className="flex items-center gap-2 flex-shrink-0">
+              {/* Admin Link */}
+              {mounted && isSignedIn && isAdmin && (
+                <Link
+                  href="/admin"
+                  className={`hidden md:flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 border ${
+                    pathname === '/admin'
+                      ? 'bg-gray-900 text-white border-gray-900 shadow-md'
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:shadow-sm hover:border-gray-300'
+                  }`}
+                  aria-label="Panel de Control"
+                >
+                  <Shield className={`w-5 h-5 ${pathname === '/admin' ? 'text-white' : 'text-gray-700'} transition-colors`} aria-hidden="true" />
+                  <span className="hidden lg:inline">Panel de Control</span>
+                  <span className="lg:hidden">Admin</span>
+                </Link>
+              )}
+
+              {/* Login/Profile Button */}
+              <button
+                className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200"
+                aria-label="Iniciar Sesión"
+              >
+                <User className="w-5 h-5" aria-hidden="true" />
+                <span className="hidden lg:inline">Iniciar Sesión</span>
+                <span className="lg:hidden">Login</span>
+              </button>
+
+              {/* Mobile Search Button */}
+              <button
+                onClick={() => setSearchOverlayOpen(true)}
+                className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
+                aria-label="Buscar"
+              >
+                <Search className="w-5 h-5 text-gray-700" aria-hidden="true" />
+              </button>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md transition-all duration-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
+                aria-label={mobileMenuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+                aria-expanded={mobileMenuOpen}
+              >
+                {mobileMenuOpen ? (
+                  <X className="w-5 h-5 text-gray-700" aria-hidden="true" />
+                ) : (
+                  <Menu className="w-5 h-5 text-gray-700" aria-hidden="true" />
+                )}
+              </button>
+            </div>
+          </div>
+
+          {/* Row 2: Navigation Bar */}
+          <div className="hidden md:flex items-center py-3 border-b border-gray-200">
+            <div className="flex items-center flex-wrap gap-3 w-full">
+              {/* Group 2: Main Tools */}
+              <div className="flex items-center gap-3">
                 <Link
                   href="/nacionalidad"
-                  className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
+                  className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname === '/nacionalidad' 
                       ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
                       : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
@@ -92,7 +163,7 @@ export default function Navigation() {
                 </Link>
                 <Link
                   href="/driving-license"
-                  className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
+                  className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname === '/driving-license' 
                       ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
                       : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
@@ -101,20 +172,16 @@ export default function Navigation() {
                   <Car className={`w-5 h-5 flex-shrink-0 ${pathname === '/driving-license' ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
                   <span>Carnet de Conducir</span>
                 </Link>
-                <Link
-                  href="/tramites"
-                  className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
-                    pathname === '/tramites' 
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
-                      : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
-                  }`}
-                >
-                  <Download className={`w-5 h-5 flex-shrink-0 ${pathname === '/tramites' ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
-                  <span>Guías Legales</span>
-                </Link>
+              </div>
+
+              {/* Divider */}
+              <div className="w-px h-6 bg-gray-300"></div>
+
+              {/* Group 1: Learning Categories */}
+              <div className="flex items-center gap-3">
                 <Link
                   href="/gramatica"
-                  className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
+                  className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname.startsWith('/gramatica')
                       ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
                       : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
@@ -125,7 +192,7 @@ export default function Navigation() {
                 </Link>
                 <Link
                   href="/vocabulario"
-                  className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
+                  className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname.startsWith('/vocabulario')
                       ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
                       : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
@@ -136,7 +203,7 @@ export default function Navigation() {
                 </Link>
                 <Link
                   href="/lectura"
-                  className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
+                  className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname.startsWith('/lectura')
                       ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
                       : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
@@ -145,113 +212,8 @@ export default function Navigation() {
                   <Book className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/lectura') ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
                   <span>Lectura</span>
                 </Link>
-                <Link
-                  href="/juegos"
-                  className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
-                    pathname === '/juegos' 
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
-                      : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
-                  }`}
-                >
-                  <Gamepad2 className={`w-5 h-5 flex-shrink-0 ${pathname === '/juegos' ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
-                  <span>Juegos</span>
-                </Link>
-                <Link
-                  href="/blog"
-                  className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
-                    pathname.startsWith('/blog') 
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
-                      : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
-                  }`}
-                >
-                  <FileText className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/blog') ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
-                  <span>Blog</span>
-                </Link>
               </div>
             </div>
-
-            {/* Settings Row - Elegant and Professional */}
-            <div className="hidden md:flex items-center gap-2 flex-shrink-0">
-              {mounted && isSignedIn && isAdmin && (
-                <Link
-                  href="/admin"
-                  className={`group flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 border ${
-                    pathname === '/admin'
-                      ? 'bg-gray-900 text-white border-gray-900 shadow-md'
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:shadow-sm hover:border-gray-300'
-                  }`}
-                  aria-label="Panel de Control"
-                >
-                  <Shield className={`w-6 h-6 ${pathname === '/admin' ? 'text-white' : 'text-gray-700'} transition-colors`} aria-hidden="true" />
-                  <span className="hidden lg:inline">Panel de Control</span>
-                  <span className="lg:hidden">Admin</span>
-                  {pathname === '/admin' && (
-                    <span className="ml-1 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-white/20 text-white">Admin</span>
-                  )}
-                </Link>
-              )}
-
-              <button
-                onClick={() => setSearchOverlayOpen(true)}
-                className="group relative flex items-center justify-center w-11 h-11 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-lg transition-all duration-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95"
-                aria-label="Buscar"
-              >
-                <Search className="w-6 h-6 text-gray-700 group-hover:text-gray-900 transition-colors" aria-hidden="true" />
-                <span className="absolute -top-1 -right-1 w-2 h-2 bg-gray-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-              </button>
-
-              {/* Clerk auth buttons - temporarily disabled */}
-              {false && (
-                <>
-                  <SignedIn>
-                    <div className="flex items-center gap-3">
-                      <AdminNotificationBadge />
-                      <UserButton 
-                        appearance={{
-                          elements: {
-                            avatarBox: 'w-8 h-8',
-                            userButtonPopoverCard: 'shadow-xl',
-                            userButtonPopoverActionButton: 'text-[#0f172a] hover:bg-gray-50',
-                          }
-                        }}
-                        afterSignOutUrl="/"
-                      />
-                      <span className="hidden lg:inline text-sm text-[#0f172a] font-medium">
-                        {user?.firstName || (user?.primaryEmailAddress && user.primaryEmailAddress.emailAddress) || ''}
-                      </span>
-                    </div>
-                  </SignedIn>
-                  <SignedOut>
-                    <div className="flex items-center gap-2">
-                      <SignInButton mode="modal">
-                        <button className="px-4 py-2 text-sm font-medium text-[#0f172a] hover:bg-gray-50 rounded-lg transition-colors">
-                          Iniciar Sesión
-                        </button>
-                      </SignInButton>
-                      <SignUpButton mode="modal">
-                        <button className="px-4 py-2 text-sm font-semibold bg-[#1e40af] text-white rounded-lg hover:bg-[#1e3a8a] transition-colors">
-                          Registrarse
-                        </button>
-                      </SignUpButton>
-                    </div>
-                  </SignedOut>
-                </>
-              )}
-            </div>
-
-            {/* Mobile Menu Button - Enhanced */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden group relative flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md transition-all duration-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
-              aria-label={mobileMenuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
-              aria-expanded={mobileMenuOpen}
-            >
-              {mobileMenuOpen ? (
-                <X className="w-5 h-5 text-gray-700 group-hover:text-gray-900 transition-colors" aria-hidden="true" />
-              ) : (
-                <Menu className="w-5 h-5 text-gray-700 group-hover:text-gray-900 transition-colors" aria-hidden="true" />
-              )}
-            </button>
           </div>
 
           {mobileMenuOpen && (
