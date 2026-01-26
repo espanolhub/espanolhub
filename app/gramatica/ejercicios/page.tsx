@@ -202,7 +202,7 @@ export default function GramEjerciciosPage() {
         <h1 className="text-3xl font-bold mb-4">Ejercicios de Gramática</h1>
         <div className="mb-4 flex gap-2">
           {(['all','verbs','articles','pronouns','adjectives'] as any[]).map(c => (
-            <button key={c} onClick={() => setCategory(c)} className={`px-3 py-2 rounded ${category===c ? 'bg-red-600 text-white' : 'bg-white'}`}>{c==='all' ? 'Todas' : c}</button>
+            <button key={c} onClick={() => setCategory(c)} className={`px-3 py-2 rounded ${category===c ? 'bg-red-600 text-white' : 'bg-white text-gray-900'}`}>{c==='all' ? 'Todas' : c}</button>
           ))}
           <div className="ml-auto text-sm text-gray-500">PRO: {isPro ? 'Sí' : 'No'}</div>
         </div>

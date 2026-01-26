@@ -76,10 +76,10 @@ export default function Chapter3Signs({ isProUser, onRequestPro }: { isProUser: 
 
       {/* Tabs */}
       <div className="flex gap-2 flex-wrap">
-        <button onClick={()=>setTab('warning')} className={`px-3 py-2 rounded-lg ${tab==='warning'?'bg-purple-600 text-white':'bg-white'}`}>⚠️ Advertencia</button>
-        <button onClick={()=>setTab('prohibitory')} className={`px-3 py-2 rounded-lg ${tab==='prohibitory'?'bg-purple-600 text-white':'bg-white'}`}>🚫 Prohibición</button>
-        <button onClick={()=>setTab('mandatory')} className={`px-3 py-2 rounded-lg ${tab==='mandatory'?'bg-purple-600 text-white':'bg-white'}`}>🔵 Obligación</button>
-        <button onClick={()=>setTab('info')} className={`px-3 py-2 rounded-lg ${tab==='info'?'bg-purple-600 text-white':'bg-white'}`}>🟦 Información</button>
+        <button onClick={()=>setTab('warning')} className={`px-3 py-2 rounded-lg ${tab==='warning'?'bg-purple-600 text-white':'bg-white text-gray-900'}`}>⚠️ Advertencia</button>
+        <button onClick={()=>setTab('prohibitory')} className={`px-3 py-2 rounded-lg ${tab==='prohibitory'?'bg-purple-600 text-white':'bg-white text-gray-900'}`}>🚫 Prohibición</button>
+        <button onClick={()=>setTab('mandatory')} className={`px-3 py-2 rounded-lg ${tab==='mandatory'?'bg-purple-600 text-white':'bg-white text-gray-900'}`}>🔵 Obligación</button>
+        <button onClick={()=>setTab('info')} className={`px-3 py-2 rounded-lg ${tab==='info'?'bg-purple-600 text-white':'bg-white text-gray-900'}`}>🟦 Información</button>
       </div>
 
       {/* Grid of signs */}

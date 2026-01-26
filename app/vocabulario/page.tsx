@@ -63,36 +63,41 @@ function VocabularioContent() {
 
   // Memoize filtered words with search using centralized dictionary
   const words = useMemo(() => {
-    const q = searchQuery.trim();
+    try {
+      const q = searchQuery.trim();
 
-    if (!q) {
-      // Use dictionary by category
-      const list = getDictionaryByCategory(selectedCategory);
-      return list.map(d => ({
-        word: d.word,
+      if (!q) {
+        // Use dictionary by category
+        const list = getDictionaryByCategory(selectedCategory) || [];
+        return list.map(d => ({
+          word: d.word || '',
+          translation: d.translations || [],
+          pronunciation: d.pronunciation || '',
+          example: d.example || '',
+          audio: d.audio || undefined,
+          category: d.category || selectedCategory,
+        }));
+      }
+
+      const results = searchDictionary(q) || [];
+      // If searching within a category, filter results to that category
+      const filtered = results.filter(r => {
+        if (!r || !r.category) return true;
+        return r.category.toLowerCase() === selectedCategory.toLowerCase();
+      });
+
+      return filtered.map(d => ({
+        word: d.word || '',
         translation: d.translations || [],
         pronunciation: d.pronunciation || '',
         example: d.example || '',
         audio: d.audio || undefined,
         category: d.category || selectedCategory,
       }));
+    } catch (error) {
+      console.error('Error loading vocabulary:', error);
+      return [];
     }
-
-    const results = searchDictionary(q);
-    // If searching within a category, filter results to that category
-    const filtered = results.filter(r => {
-      if (!r.category) return true;
-      return r.category.toLowerCase() === selectedCategory.toLowerCase();
-    });
-
-    return filtered.map(d => ({
-      word: d.word,
-      translation: d.translations || [],
-      pronunciation: d.pronunciation || '',
-      example: d.example || '',
-      audio: d.audio || undefined,
-      category: d.category || selectedCategory,
-    }));
   }, [selectedCategory, searchQuery]);
   
   const CategoryIcon = categoryIcons[selectedCategory] || BookOpen;
@@ -168,7 +173,7 @@ function VocabularioContent() {
             Vocabulario Español
           </h1>
           <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Amplía tu vocabulario con más de {getDictionary().length} palabras organizadas en {vocabularyCategories.length} categorías temáticas
+            Amplía tu vocabulario con más de {(getDictionary()?.length ?? 0)} palabras organizadas en {vocabularyCategories.length} categorías temáticas
           </p>
           
           {/* Translation Toggle Button */}
@@ -316,14 +321,20 @@ function VocabularioContent() {
 
         {/* Selected Word Modal */}
         {selectedWord && (() => {
-          const entry = getDictionaryByWord(selectedWord);
-          return (
-            <DictionaryModal
-              open={!!entry}
-              entry={entry}
-              onClose={() => setSelectedWord(null)}
-            />
-          );
+          try {
+            const entry = getDictionaryByWord(selectedWord);
+            if (!entry) return null;
+            return (
+              <DictionaryModal
+                open={true}
+                entry={entry}
+                onClose={() => setSelectedWord(null)}
+              />
+            );
+          } catch (error) {
+            console.error('Error loading word details:', error);
+            return null;
+          }
         })()}
 
         {/* Statistics */}
@@ -331,16 +342,16 @@ function VocabularioContent() {
           <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Estadísticas</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
             <div className="bg-white/10 rounded-xl p-4 md:p-6 backdrop-blur-sm">
-              <div className="text-4xl md:text-5xl font-bold mb-2">{getDictionary().length}</div>
-              <div className="text-base md:text-lg font-semibold">Palabras Totales</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2 text-white">{(getDictionary()?.length ?? 0)}</div>
+              <div className="text-base md:text-lg font-semibold text-white">Palabras Totales</div>
             </div>
             <div className="bg-white/10 rounded-xl p-4 md:p-6 backdrop-blur-sm">
-              <div className="text-4xl md:text-5xl font-bold mb-2">{vocabularyCategories.length}</div>
-              <div className="text-base md:text-lg font-semibold">Categorías</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2 text-white">{vocabularyCategories.length}</div>
+              <div className="text-base md:text-lg font-semibold text-white">Categorías</div>
             </div>
             <div className="bg-white/10 rounded-xl p-4 md:p-6 backdrop-blur-sm">
-              <div className="text-4xl md:text-5xl font-bold mb-2">{words.length}</div>
-              <div className="text-base md:text-lg font-semibold">{searchQuery ? 'Resultados' : 'En esta Categoría'}</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2 text-white">{words.length}</div>
+              <div className="text-base md:text-lg font-semibold text-white">{searchQuery ? 'Resultados' : 'En esta Categoría'}</div>
             </div>
           </div>
         </div>

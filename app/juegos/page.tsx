@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { games, getGameById } from '@/lib/data/games';
 import { CheckCircle, XCircle, Trophy, RotateCcw, Gamepad2, BookOpen, Grid3x3, ArrowLeft } from 'lucide-react';
 import GameResultModal from '@/components/GameResultModal';
@@ -14,7 +15,8 @@ import type { GameQuestion } from '@/lib/types';
 
 type TabType = 'principales' | 'biblioteca' | 'todos';
 
-export default function JuegosPage() {
+function JuegosContent() {
+  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<TabType>('principales');
   const [selectedGame, setSelectedGame] = useState<string | null>(null);
   const [libraryTitles, setLibraryTitles] = useState<any[]>([]);
@@ -32,6 +34,7 @@ export default function JuegosPage() {
   const [levelSelectActive, setLevelSelectActive] = useState(false);
   const [showLevelUp, setShowLevelUp] = useState(false);
   const [levelUpTo, setLevelUpTo] = useState(0);
+  const urlGameInitialized = useRef(false);
 
   const baseGame = selectedGame ? getGameById(selectedGame) : null;
   
@@ -124,6 +127,17 @@ export default function JuegosPage() {
       setSelectedQuestions([]);
     }
   };
+
+  // Read game from URL params and auto-select (only once on mount)
+  useEffect(() => {
+    if (urlGameInitialized.current) return;
+    const gameParam = searchParams?.get('game');
+    if (gameParam && ['quick-quiz-verbos', 'order', 'word-race', 'multiple-choice', 'memory', 'fill-blank'].includes(gameParam)) {
+      urlGameInitialized.current = true;
+      handleStartGame(gameParam);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   useEffect(() => {
     let mounted = true;
@@ -854,5 +868,13 @@ export default function JuegosPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function JuegosPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-purple-600"></div></div>}>
+      <JuegosContent />
+    </Suspense>
   );
 }
