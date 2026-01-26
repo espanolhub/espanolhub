@@ -1,53 +1,57 @@
 import type { Metadata } from 'next';
-import { getCourseById } from '@/lib/data/courses';
-import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const course = getCourseById(params.id);
+  const { id } = params;
   
-  if (!course) {
-    return {
-      title: 'Curso no encontrado | Espanol Hub',
-    };
-  }
-
-  const title = `${course.title} - Curso Gratis | Espanol Hub`;
-  const description = `${course.description}. Aprende gratis con lecciones estructuradas y ejercicios prácticos.`;
-  
+  // Basic metadata that works for all courses
   return {
-    title,
-    description,
-    keywords: ['curso español', course.title, 'aprender español', course.category, 'español gratis'],
+    title: `Curso de Español - ${id} | Espanol Hub`,
+    description: "Aprende español con nuestros cursos completos. Lecciones estructuradas, ejercicios interactivos y contenido de calidad para todos los niveles.",
+    keywords: ["curso español", "aprender español", "lecciones español", "español online", "curso español gratis"],
     alternates: {
-      canonical: `https://www.espanolhub.com/cursos/${params.id}`,
-      languages: {
-        'es': `https://www.espanolhub.com/cursos/${params.id}`,
-      },
+      canonical: `https://www.espanolhub.com/cursos/${id}`,
+      languages: { 'es': `https://www.espanolhub.com/cursos/${id}` }
     },
     openGraph: {
-      title,
-      description,
-      type: 'website',
+      title: `Curso de Español - ${id}`,
+      description: "Aprende español con nuestros cursos completos. Lecciones estructuradas, ejercicios interactivos y contenido de calidad.",
+      url: `https://www.espanolhub.com/cursos/${id}`,
+      siteName: "Espanol Hub",
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: 'Curso de Español - Espanol Hub',
+        },
+      ],
       locale: 'es_ES',
-      url: `https://www.espanolhub.com/cursos/${params.id}`,
-      siteName: 'Espanol Hub',
-      images: [{
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: course.title,
-      }],
+      type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@espanolhub',
-      title,
-      description,
+      title: `Curso de Español - ${id}`,
+      description: "Aprende español con nuestros cursos completos. Lecciones estructuradas y contenido de calidad.",
       images: ['/og-image.png'],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   };
 }
 
-export default function CourseLayout({ children }: { children: React.ReactNode }) {
+export default function CourseLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }

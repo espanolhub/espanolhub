@@ -76,6 +76,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const seoLandingPages: MetadataRoute.Sitemap = [
     { url: `${baseUrl}/aprender-espanol-gratis`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
     { url: `${baseUrl}/gramatica-espanola-completa`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/curso-espanol-principiantes`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/aprender-espanol-online-gratis`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/ejercicios-espanol-interactivos`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/conjugador-verbos`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/examenes-espanol-gratis`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/diccionario-espanol-visual`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/frases-espanol-conversacion`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/pronunciacion-espanol-guia`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/verbos-irregulares-espanol-lista`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/espanol-para-arabes`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+  ];
+
+  // Tools and Simulators
+  const toolPages: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/simulator`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   ];
 
   return [
@@ -88,5 +103,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...gramaticaPages,
     ...blogPages,
     ...seoLandingPages,
+    ...toolPages,
   ];
 }

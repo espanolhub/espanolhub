@@ -12,6 +12,28 @@ export const metadata: Metadata = {
     canonical: "https://www.espanolhub.com/examenes-espanol-gratis",
     languages: { 'es': "https://www.espanolhub.com/examenes-espanol-gratis" }
   },
+  openGraph: {
+    title: "Exámenes de Español Gratis - Tests y Evaluaciones 2026",
+    description: "Evalúa tu nivel de español con exámenes y tests gratuitos. A1 a C2. Simuladores oficiales con resultados instantáneos.",
+    url: "https://www.espanolhub.com/examenes-espanol-gratis",
+    siteName: "Espanol Hub",
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Exámenes de Español - Espanol Hub',
+      },
+    ],
+    locale: 'es_ES',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Exámenes de Español Gratis - Tests y Evaluaciones 2026",
+    description: "Evalúa tu nivel de español con exámenes y tests gratuitos. Resultados instantáneos.",
+    images: ['/og-image.png'],
+  },
 };
 
 export default function ExamenesEspanolPage() {
@@ -57,9 +79,63 @@ export default function ExamenesEspanolPage() {
               ))}
             </div>
           </section>
+
+          <section className="mb-16 bg-amber-50 rounded-3xl p-8 md:p-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">¿Por qué hacer exámenes de español?</h2>
+            <div className="bg-white rounded-xl p-8 shadow-md">
+              <div className="prose max-w-none">
+                <p className="text-gray-700 mb-4">
+                  Los exámenes de español son una herramienta fundamental para evaluar tu progreso y conocer tu nivel real del idioma. Ya sea que estés aprendiendo español por primera vez, preparándote para un examen oficial como el DELE o SIELE, o simplemente quieras medir tu avance, nuestros tests gratuitos te proporcionan una evaluación precisa y detallada.
+                </p>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Beneficios de nuestros exámenes:</h3>
+                <ul className="space-y-2 mb-6">
+                  <li className="text-gray-700">✓ Evaluación completa de gramática, vocabulario y comprensión</li>
+                  <li className="text-gray-700">✓ Resultados instantáneos con explicaciones detalladas</li>
+                  <li className="text-gray-700">✓ Exámenes adaptados a todos los niveles (A1, A2, B1, B2, C1, C2)</li>
+                  <li className="text-gray-700">✓ Simuladores de exámenes oficiales DELE, SIELE y CCSE</li>
+                  <li className="text-gray-700">✓ Identificación de áreas de mejora</li>
+                  <li className="text-gray-700">✓ Seguimiento de tu progreso a lo largo del tiempo</li>
+                </ul>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Tipos de evaluación:</h3>
+                <p className="text-gray-700 mb-4">
+                  <strong>Test de Nivel General:</strong> Evalúa tu conocimiento global del español en todas las áreas: gramática, vocabulario, comprensión lectora y expresión escrita. Ideal para conocer tu nivel según el Marco Común Europeo de Referencia (MCER).
+                </p>
+                <p className="text-gray-700 mb-4">
+                  <strong>Examen de Gramática:</strong> Enfocado específicamente en las reglas gramaticales del español. Incluye tiempos verbales, concordancia, preposiciones, pronombres y estructuras sintácticas.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  <strong>Test de Vocabulario:</strong> Mide tu conocimiento léxico en diferentes contextos: familia, trabajo, viajes, salud, educación, tecnología y más. Incluye sinónimos, antónimos y expresiones idiomáticas.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  <strong>Simulador DELE:</strong> Preparación completa para el Diploma de Español como Lengua Extranjera. Incluye todas las secciones del examen oficial: comprensión lectora, comprensión auditiva, expresión e interacción escritas, y expresión e interacción orales.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  <strong>Examen CCSE:</strong> Preparación específica para la prueba de Conocimientos Constitucionales y Socioculturales de España, necesaria para obtener la nacionalidad española.
+                </p>
+              </div>
+            </div>
+          </section>
+          
           <SmartInternalLinks />
         </div>
       </main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Exámenes de Español Gratis",
+            "description": "Tests y evaluaciones gratuitas de español para todos los niveles",
+            "itemListElement": examTypes.map((exam, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "name": exam.title,
+              "description": exam.description
+            }))
+          }),
+        }}
+      />
     </div>
   );
 }

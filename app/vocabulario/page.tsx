@@ -217,7 +217,7 @@ function VocabularioContent() {
                 aria-selected={selectedCategory === category}
                 aria-label={`Categoría ${category}`}
               >
-                <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
+                <Icon className={`w-5 h-5 ${selectedCategory === category ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
                 <span className="hidden sm:inline">{category}</span>
               </button>
             );

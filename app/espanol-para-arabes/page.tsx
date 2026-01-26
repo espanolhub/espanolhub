@@ -14,6 +14,28 @@ export const metadata: Metadata = {
       'es': "https://www.espanolhub.com/espanol-para-arabes",
     },
   },
+  openGraph: {
+    title: "تعلم الإسبانية للعرب 2026 - دورة كاملة مجانية",
+    description: "تعلم اللغة الإسبانية من الصفر للناطقين بالعربية. دروس، قواعد، مفردات مع شرح بالعربية.",
+    url: "https://www.espanolhub.com/espanol-para-arabes",
+    siteName: "Espanol Hub",
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Español Para Árabes - Espanol Hub',
+      },
+    ],
+    locale: 'es_ES',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "تعلم الإسبانية للعرب 2026 - دورة كاملة مجانية",
+    description: "تعلم اللغة الإسبانية من الصفر للناطقين بالعربية. 100% مجاني.",
+    images: ['/og-image.png'],
+  },
 };
 
 export default function EspanolParaArabesPage() {
@@ -63,9 +85,90 @@ export default function EspanolParaArabesPage() {
               ))}
             </div>
           </section>
+
+          <section className="mb-16 bg-gradient-to-br from-green-50 to-blue-50 rounded-3xl p-8 md:p-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">Contenido del Curso</h2>
+            <h3 className="text-2xl font-bold text-gray-700 mb-8 text-center" dir="rtl">محتوى الدورة</h3>
+            <div className="bg-white rounded-xl p-8 shadow-md">
+              <div className="prose max-w-none">
+                <p className="text-gray-700 mb-4">
+                  Este curso de español está diseñado específicamente para estudiantes árabes que quieren aprender español desde cero o mejorar su nivel actual. Todas las lecciones incluyen explicaciones en árabe y español para facilitar la comprensión.
+                </p>
+                <p className="text-gray-600 mb-6" dir="rtl">
+                  هذه الدورة مصممة خصيصاً للطلاب العرب الذين يريدون تعلم الإسبانية من الصفر أو تحسين مستواهم الحالي. جميع الدروس تتضمن شروحات بالعربية والإسبانية لتسهيل الفهم.
+                </p>
+                
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Módulos del Curso / وحدات الدورة:</h3>
+                <ul className="space-y-3 mb-6">
+                  <li className="text-gray-700">
+                    <strong>1. Alfabeto y Pronunciación / الأبجدية والنطق:</strong> Aprende las letras españolas y su pronunciación correcta. Comparación con sonidos árabes.
+                  </li>
+                  <li className="text-gray-700">
+                    <strong>2. Gramática Básica / القواعد الأساسية:</strong> Verbos ser/estar, artículos, género y número, presente de indicativo, verbos regulares e irregulares.
+                  </li>
+                  <li className="text-gray-700">
+                    <strong>3. Vocabulario Temático / المفردات حسب المواضيع:</strong> Familia, trabajo, comida, viajes, salud, educación, tecnología y más.
+                  </li>
+                  <li className="text-gray-700">
+                    <strong>4. Conversación Práctica / المحادثة العملية:</strong> Frases útiles para situaciones cotidianas: presentarse, pedir información, ir de compras, en el médico, etc.
+                  </li>
+                  <li className="text-gray-700">
+                    <strong>5. Preparación CCSE / التحضير لامتحان CCSE:</strong> Contenido completo para el examen de nacionalidad española con explicaciones en árabe.
+                  </li>
+                  <li className="text-gray-700">
+                    <strong>6. Cultura Española / الثقافة الإسبانية:</strong> Aprende sobre costumbres, tradiciones y aspectos culturales importantes de España.
+                  </li>
+                </ul>
+
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Metodología / المنهجية:</h3>
+                <p className="text-gray-700 mb-4">
+                  Nuestro método de enseñanza combina explicaciones teóricas con práctica intensiva. Cada lección incluye:
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="text-gray-700">✓ Explicación del concepto en español y árabe</li>
+                  <li className="text-gray-700">✓ Ejemplos prácticos con traducción</li>
+                  <li className="text-gray-700">✓ Ejercicios interactivos</li>
+                  <li className="text-gray-700">✓ Audio para practicar pronunciación</li>
+                  <li className="text-gray-700">✓ Juegos educativos para reforzar el aprendizaje</li>
+                </ul>
+
+                <h3 className="text-xl font-bold text-gray-900 mb-3">¿Por qué los árabes necesitan español? / لماذا يحتاج العرب للإسبانية؟</h3>
+                <p className="text-gray-700 mb-4">
+                  España es uno de los destinos más populares para la comunidad árabe en Europa. Ya sea para estudiar, trabajar, obtener la nacionalidad o simplemente vivir, dominar el español es esencial para integrarse exitosamente en la sociedad española. Además, el español es el segundo idioma más hablado del mundo con más de 500 millones de hablantes, lo que abre muchas oportunidades laborales y educativas.
+                </p>
+                <p className="text-gray-600 mb-4" dir="rtl">
+                  إسبانيا هي واحدة من الوجهات الأكثر شعبية للمجتمع العربي في أوروبا. سواء للدراسة أو العمل أو الحصول على الجنسية أو مجرد العيش، فإن إتقان اللغة الإسبانية ضروري للاندماج بنجاح في المجتمع الإسباني. بالإضافة إلى ذلك، الإسبانية هي ثاني أكثر لغة تحدثاً في العالم مع أكثر من 500 مليون متحدث، مما يفتح العديد من الفرص الوظيفية والتعليمية.
+                </p>
+              </div>
+            </div>
+          </section>
+          
           <SmartInternalLinks />
         </div>
       </main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Course",
+            "name": "Español Para Árabes - تعلم الإسبانية للعرب",
+            "description": "Curso completo de español diseñado específicamente para estudiantes árabes. Explicaciones en árabe y español.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Espanol Hub",
+              "url": "https://www.espanolhub.com"
+            },
+            "inLanguage": ["es", "ar"],
+            "educationalLevel": "Beginner to Advanced",
+            "teaches": "Spanish Language",
+            "audience": {
+              "@type": "EducationalAudience",
+              "educationalRole": "Student"
+            }
+          }),
+        }}
+      />
     </div>
   );
 }
