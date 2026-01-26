@@ -118,11 +118,11 @@ export default function CursosPage() {
                   onClick={() => setSelectedLevel(level)}
                   className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-bold transition-all border ${
                     isActive 
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-lg scale-105' 
-                      : 'bg-white text-slate-600 border-slate-200 hover:border-slate-400 hover:bg-slate-50'
+                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg scale-105' 
+                      : 'bg-white text-slate-900 border-slate-200 hover:border-slate-400 hover:bg-slate-50'
                   }`}
                 >
-                  <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-slate-500'}`} />
+                  <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-slate-900'}`} />
                   {label.es}
                 </button>
               );
@@ -190,12 +190,12 @@ export default function CursosPage() {
                     href={`/cursos/${course.id}`}
                     className={`flex items-center justify-center gap-2 w-full py-4 rounded-xl font-black transition-all ${
                       isCompleted 
-                        ? 'bg-slate-100 text-slate-800 hover:bg-slate-200' 
+                        ? 'bg-slate-100 text-slate-900 hover:bg-slate-200' 
                         : 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-100'
                     }`}
                   >
                     {isCompleted ? 'Revisar Curso' : isInProgress ? 'Continuar' : 'Empezar ahora'}
-                    <ArrowRight className="w-5 h-5" />
+                    <ArrowRight className={`w-5 h-5 ${isCompleted ? 'text-slate-900' : 'text-white'}`} />
                   </Link>
                 </div>
               </div>
@@ -233,7 +233,7 @@ export default function CursosPage() {
                       </div>
                       <button 
                         onClick={() => handleStartLesson(currentCourse.id, lesson.id)}
-                        className={`px-5 py-2 rounded-xl font-bold transition-all ${isDone ? 'text-green-600 hover:bg-white' : 'bg-slate-900 text-white hover:bg-slate-800'}`}
+                        className={`px-5 py-2 rounded-xl font-bold transition-all ${isDone ? 'bg-white text-green-700 border-2 border-green-200 hover:bg-green-50' : 'bg-gray-900 text-white hover:bg-gray-800'}`}
                       >
                         {isDone ? 'Repasar' : 'Iniciar'}
                       </button>
