@@ -147,15 +147,15 @@ export default function Navigation() {
 
           {/* Row 2: Navigation Bar */}
           <div className="hidden md:flex items-center py-3 border-b border-gray-200">
-            <div className="flex items-center flex-wrap gap-3 w-full">
+            <div className="flex items-center flex-wrap gap-x-4 gap-y-2 w-full">
               {/* Group 2: Main Tools */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-x-4 gap-y-2 flex-wrap">
                 <Link
                   href="/nacionalidad"
                   className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname === '/nacionalidad' 
                       ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
-                      : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
+                      : 'bg-white text-slate-900 hover:bg-slate-100'
                   }`}
                 >
                   <Shield className={`w-5 h-5 flex-shrink-0 ${pathname === '/nacionalidad' ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
@@ -166,7 +166,7 @@ export default function Navigation() {
                   className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname === '/driving-license' 
                       ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
-                      : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
+                      : 'bg-white text-slate-900 hover:bg-slate-100'
                   }`}
                 >
                   <Car className={`w-5 h-5 flex-shrink-0 ${pathname === '/driving-license' ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
@@ -178,13 +178,13 @@ export default function Navigation() {
               <div className="w-px h-6 bg-gray-300"></div>
 
               {/* Group 1: Learning Categories */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-x-4 gap-y-2 flex-wrap">
                 <Link
                   href="/gramatica"
                   className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname.startsWith('/gramatica')
                       ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                      : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
+                      : 'bg-white text-slate-900 hover:bg-slate-100'
                   }`}
                 >
                   <GraduationCap className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/gramatica') ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
@@ -195,7 +195,7 @@ export default function Navigation() {
                   className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname.startsWith('/vocabulario')
                       ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                      : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
+                      : 'bg-white text-slate-900 hover:bg-slate-100'
                   }`}
                 >
                   <Languages className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/vocabulario') ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
@@ -206,11 +206,33 @@ export default function Navigation() {
                   className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
                     pathname.startsWith('/lectura')
                       ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                      : 'bg-white text-slate-800 hover:bg-slate-50 hover:shadow-sm'
+                      : 'bg-white text-slate-900 hover:bg-slate-100'
                   }`}
                 >
                   <Book className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/lectura') ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
                   <span>Lectura</span>
+                </Link>
+                <Link
+                  href="/juegos"
+                  className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
+                    pathname === '/juegos' 
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
+                      : 'bg-white text-slate-900 hover:bg-slate-100'
+                  }`}
+                >
+                  <Gamepad2 className={`w-5 h-5 flex-shrink-0 ${pathname === '/juegos' ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
+                  <span>Juegos</span>
+                </Link>
+                <Link
+                  href="/blog"
+                  className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
+                    pathname.startsWith('/blog') 
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
+                      : 'bg-white text-slate-900 hover:bg-slate-100'
+                  }`}
+                >
+                  <FileText className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/blog') ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
+                  <span>Blog</span>
                 </Link>
               </div>
             </div>

@@ -385,9 +385,9 @@ export default function AprenderEspanolGratisPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               ¿Listo para Aprender Español GRATIS?
             </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Empieza ahora. No necesitas registrarte. Todo está disponible de inmediato.
-            </p>
+            <p className="text-xl mb-8 text-slate-900 font-bold">
+  Empieza ahora. No necesitas registrarte. Todo está disponible de inmediato.
+</p>
             <Link
               href="/juegos"
               className="inline-block px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105"
