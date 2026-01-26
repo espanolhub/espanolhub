@@ -309,10 +309,10 @@ function JuegosContent() {
                   className={`flex items-center justify-center gap-2 px-6 py-3 h-12 min-w-[140px] rounded-lg font-semibold transition-all duration-200 border ${
                     activeTab === 'principales'
                       ? 'bg-slate-900 text-white border-slate-900 shadow-md'
-                      : 'bg-white text-slate-600 border-slate-200 hover:bg-gray-50 hover:shadow-sm'
+                      : 'bg-white text-slate-900 border-slate-200 hover:bg-gray-50 hover:shadow-sm'
                   }`}
                 >
-                  <Gamepad2 className={`w-5 h-5 flex-shrink-0 ${activeTab === 'principales' ? 'text-white' : 'text-slate-600'}`} aria-hidden="true" />
+                  <Gamepad2 className={`w-5 h-5 flex-shrink-0 ${activeTab === 'principales' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span className="text-sm sm:text-base whitespace-nowrap">Principales</span>
                 </button>
                 <button
@@ -320,10 +320,10 @@ function JuegosContent() {
                   className={`flex items-center justify-center gap-2 px-6 py-3 h-12 min-w-[140px] rounded-lg font-semibold transition-all duration-200 border ${
                     activeTab === 'biblioteca'
                       ? 'bg-slate-900 text-white border-slate-900 shadow-md'
-                      : 'bg-white text-slate-600 border-slate-200 hover:bg-gray-50 hover:shadow-sm'
+                      : 'bg-white text-slate-900 border-slate-200 hover:bg-gray-50 hover:shadow-sm'
                   }`}
                 >
-                  <BookOpen className={`w-5 h-5 flex-shrink-0 ${activeTab === 'biblioteca' ? 'text-white' : 'text-slate-600'}`} aria-hidden="true" />
+                  <BookOpen className={`w-5 h-5 flex-shrink-0 ${activeTab === 'biblioteca' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span className="text-sm sm:text-base whitespace-nowrap">Biblioteca</span>
                   {libraryTitles.length > 0 && (
                     <span className={`text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ${
@@ -340,10 +340,10 @@ function JuegosContent() {
                   className={`flex items-center justify-center gap-2 px-6 py-3 h-12 min-w-[140px] rounded-lg font-semibold transition-all duration-200 border ${
                     activeTab === 'todos'
                       ? 'bg-slate-900 text-white border-slate-900 shadow-md'
-                      : 'bg-white text-slate-600 border-slate-200 hover:bg-gray-50 hover:shadow-sm'
+                      : 'bg-white text-slate-900 border-slate-200 hover:bg-gray-50 hover:shadow-sm'
                   }`}
                 >
-                  <Grid3x3 className={`w-5 h-5 flex-shrink-0 ${activeTab === 'todos' ? 'text-white' : 'text-slate-600'}`} aria-hidden="true" />
+                  <Grid3x3 className={`w-5 h-5 flex-shrink-0 ${activeTab === 'todos' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span className="text-sm sm:text-base whitespace-nowrap">Todos</span>
                 </button>
               </div>
@@ -446,9 +446,9 @@ function JuegosContent() {
           <div className="bg-white rounded-xl shadow-2xl p-8 max-w-3xl mx-auto">
             <button 
               onClick={handleReset}
-              className="mb-6 flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-all font-semibold text-gray-900"
+              className="mb-6 flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-all font-semibold text-slate-900"
             >
-              <ArrowLeft className="w-5 h-5 text-gray-900" aria-hidden="true" />
+              <ArrowLeft className="w-5 h-5 text-slate-900" aria-hidden="true" />
               Volver a Juegos
             </button>
             <WordRaceGame onBack={handleReset} />
@@ -457,9 +457,9 @@ function JuegosContent() {
           <div className="bg-white rounded-xl shadow-2xl p-8 max-w-3xl mx-auto relative">
             <button
               onClick={handleReset}
-              className="mb-6 flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 rounded-xl hover:from-gray-200 hover:to-gray-300 transition-all font-semibold shadow-md hover:shadow-lg"
+              className="mb-6 flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 rounded-xl hover:from-gray-200 hover:to-gray-300 transition-all font-semibold shadow-md hover:shadow-lg text-slate-900"
             >
-              <ArrowLeft className="w-5 h-5 text-gray-900" aria-hidden="true" />
+              <ArrowLeft className="w-5 h-5 text-slate-900" aria-hidden="true" />
               Volver a Juegos
             </button>
 
@@ -838,9 +838,9 @@ function JuegosContent() {
                 <div className="flex flex-wrap justify-center gap-4">
                   <button
                     onClick={handleReset}
-                    className="px-8 py-3 bg-white border border-gray-200 text-gray-900 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center"
+                    className="px-8 py-3 bg-white border border-gray-200 text-slate-900 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center"
                   >
-                    <RotateCcw className="w-5 h-5 mr-2 text-gray-900" aria-hidden="true" />
+                    <RotateCcw className="w-5 h-5 mr-2 text-slate-900" aria-hidden="true" />
                     Volver a los Juegos
                   </button>
                   {(selectedGame === 'memory' || selectedGame === 'fill-blank') && (

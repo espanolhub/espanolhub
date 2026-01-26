@@ -104,7 +104,7 @@ export default function Navigation() {
                   }`}
                   aria-label="Panel de Control"
                 >
-                  <Shield className={`w-5 h-5 ${pathname === '/admin' ? 'text-white' : 'text-gray-700'} transition-colors`} aria-hidden="true" />
+                  <Shield className={`w-5 h-5 ${pathname === '/admin' ? 'text-white' : 'text-slate-900'} transition-colors`} aria-hidden="true" />
                   <span className="hidden lg:inline">Panel de Control</span>
                   <span className="lg:hidden">Admin</span>
                 </Link>
@@ -112,7 +112,7 @@ export default function Navigation() {
 
               {/* Login/Profile Button */}
               <button
-                className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200"
+                className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-slate-900 bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200"
                 aria-label="Iniciar Sesión"
               >
                 <User className="w-5 h-5" aria-hidden="true" />
@@ -126,7 +126,7 @@ export default function Navigation() {
                 className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
                 aria-label="Buscar"
               >
-                <Search className="w-5 h-5 text-gray-700" aria-hidden="true" />
+                <Search className="w-5 h-5 text-slate-900" aria-hidden="true" />
               </button>
 
               {/* Mobile Menu Button */}
@@ -137,9 +137,9 @@ export default function Navigation() {
                 aria-expanded={mobileMenuOpen}
               >
                 {mobileMenuOpen ? (
-                  <X className="w-5 h-5 text-gray-700" aria-hidden="true" />
-                ) : (
-                  <Menu className="w-5 h-5 text-gray-700" aria-hidden="true" />
+                  <X className="w-5 h-5 text-slate-900" aria-hidden="true" />
+              ) : (
+                  <Menu className="w-5 h-5 text-slate-900" aria-hidden="true" />
                 )}
               </button>
             </div>
@@ -158,7 +158,7 @@ export default function Navigation() {
                       : 'bg-white text-slate-900 hover:bg-slate-100'
                   }`}
                 >
-                  <Shield className={`w-5 h-5 flex-shrink-0 ${pathname === '/nacionalidad' ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
+                  <Shield className={`w-5 h-5 flex-shrink-0 ${pathname === '/nacionalidad' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span>Nacionalidad ES</span>
                 </Link>
                 <Link
@@ -169,7 +169,7 @@ export default function Navigation() {
                       : 'bg-white text-slate-900 hover:bg-slate-100'
                   }`}
                 >
-                  <Car className={`w-5 h-5 flex-shrink-0 ${pathname === '/driving-license' ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
+                  <Car className={`w-5 h-5 flex-shrink-0 ${pathname === '/driving-license' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span>Carnet de Conducir</span>
                 </Link>
               </div>
@@ -187,7 +187,7 @@ export default function Navigation() {
                       : 'bg-white text-slate-900 hover:bg-slate-100'
                   }`}
                 >
-                  <GraduationCap className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/gramatica') ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
+                  <GraduationCap className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/gramatica') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span>Gramática</span>
                 </Link>
                 <Link
@@ -198,7 +198,7 @@ export default function Navigation() {
                       : 'bg-white text-slate-900 hover:bg-slate-100'
                   }`}
                 >
-                  <Languages className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/vocabulario') ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
+                  <Languages className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/vocabulario') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span>Vocabulario</span>
                 </Link>
                 <Link
@@ -209,7 +209,7 @@ export default function Navigation() {
                       : 'bg-white text-slate-900 hover:bg-slate-100'
                   }`}
                 >
-                  <Book className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/lectura') ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
+                  <Book className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/lectura') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span>Lectura</span>
                 </Link>
                 <Link
@@ -220,7 +220,7 @@ export default function Navigation() {
                       : 'bg-white text-slate-900 hover:bg-slate-100'
                   }`}
                 >
-                  <Gamepad2 className={`w-5 h-5 flex-shrink-0 ${pathname === '/juegos' ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
+                  <Gamepad2 className={`w-5 h-5 flex-shrink-0 ${pathname === '/juegos' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span>Juegos</span>
                 </Link>
                 <Link
@@ -231,7 +231,7 @@ export default function Navigation() {
                       : 'bg-white text-slate-900 hover:bg-slate-100'
                   }`}
                 >
-                  <FileText className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/blog') ? 'text-white' : 'text-slate-700'}`} aria-hidden="true" />
+                  <FileText className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/blog') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span>Blog</span>
                 </Link>
               </div>
@@ -251,8 +251,8 @@ export default function Navigation() {
                       onClick={() => setMobileMenuOpen(false)}
                       className={`group mobile-menu-item flex flex-col items-center justify-center gap-3 p-4 rounded-xl border transition-all duration-200 active:scale-[0.98] h-[120px] ${
                         isActive 
-                          ? 'bg-gray-900 text-white border-gray-900 shadow-lg' 
-                          : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:shadow-md hover:border-gray-300'
+                          ? 'bg-slate-900 text-white border-slate-900 shadow-lg' 
+                          : 'bg-white text-slate-900 border-gray-200 hover:bg-gray-50 hover:shadow-md hover:border-gray-300'
                       }`}
                     >
                       <div className={`flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-200 ${
@@ -264,7 +264,7 @@ export default function Navigation() {
                           isActive ? 'text-white' : item.iconColor
                         }`} aria-hidden="true" />
                       </div>
-                      <span className={`text-xs font-semibold text-center leading-tight line-clamp-2 ${isActive ? 'text-white' : 'text-gray-900'}`}>
+                      <span className={`text-xs font-semibold text-center leading-tight line-clamp-2 ${isActive ? 'text-white' : 'text-slate-900'}`}>
                         {item.label}
                       </span>
                     </Link>
