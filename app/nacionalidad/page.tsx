@@ -451,12 +451,11 @@ export default function NacionalidadPage() {
                     📝 Simulador CCSE
                   </button>
                   <button 
-  onClick={() => setShowTranslations(!showTranslations)}
-  className="w-full flex items-center justify-center gap-2 bg-white hover:bg-slate-50 border border-slate-200 rounded-lg p-2 text-sm font-medium transition-all text-slate-900 shadow-sm"
->
-  <Languages className="w-4 h-4 text-blue-500" />
-  <span>{showTranslations ? 'Ocultar' : 'Mostrar'} Árabe</span>
-</button>
+                    onClick={() => setShowTranslations(!showTranslations)}
+                    className="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2 text-sm font-medium transition-all text-gray-900"
+                  >
+                    🌐 {showTranslations ? 'Ocultar' : 'Mostrar'} Árabe
+                  </button>
                 </div>
               </div>
 

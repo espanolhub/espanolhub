@@ -471,7 +471,7 @@ function JuegosContent() {
                     <button
                       key={l}
                       onClick={() => handleStartGame(selectedGame!, l)}
-                      className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl font-bold hover:shadow-lg transform hover:scale-105 transition-all"
+                      className="px-8 py-4 h-12 min-w-[120px] bg-white text-slate-900 border-2 border-slate-300 rounded-xl font-bold hover:bg-slate-100 hover:border-slate-400 hover:shadow-md transition-all duration-200"
                     >
                       Nivel {l}
                     </button>
