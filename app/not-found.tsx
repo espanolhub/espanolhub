@@ -36,18 +36,14 @@ export default function NotFound() {
 
         {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl"
-          >
-          <Link 
-            href="/" 
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white border border-slate-200 text-slate-900 rounded-lg hover:bg-slate-50 transition-all font-medium shadow-sm"
-          >
-            <Home className="w-5 h-5" />
-            <span>Ir al Inicio</span>
-          </Link>
-    
+        <Link 
+  href="/" 
+  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white border border-slate-200 text-slate-900 rounded-lg hover:bg-slate-50 transition-all font-medium shadow-sm"
+>
+  <Home className="w-5 h-5" />
+  <span>Ir al Inicio</span>
+</Link>
+          
           <button
             onClick={() => window.history.back()}
             className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-700 rounded-xl font-semibold hover:bg-gray-100 transition-colors border border-gray-300 shadow-md"
