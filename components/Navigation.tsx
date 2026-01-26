@@ -2,34 +2,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 // Clerk hooks removed to avoid SSR issues - Navigation works without auth
 // import { UserButton, SignInButton, SignUpButton, useUser, useAuth, SignedIn, SignedOut } from '@clerk/nextjs';
-import { BookOpen, Gamepad2, GraduationCap, Book, Languages, X, Menu, Shield, Award, Search, ChevronDown, Download, Car, FileText, Star } from 'lucide-react';
+import { Gamepad2, GraduationCap, Book, Languages, X, Menu, Shield, Award, Search, Download, Car, FileText, Star } from 'lucide-react';
 import SearchOverlay from './SearchOverlay';
 // AdminNotificationBadge removed - Navigation works without Clerk hooks
 // import AdminNotificationBadge from './AdminNotificationBadge';
-
-const aprenderDropdown = {
-  label: 'Aprender',
-  icon: BookOpen,
-  subtitle: 'Elige tu Lección',
-  children: [
-    { href: '/gramatica-espanola-completa', label: 'Gramática — Fundamentos', icon: GraduationCap },
-    { href: '/gramatica', label: 'Gramática', icon: GraduationCap },
-    { href: '/vocabulario', label: 'Vocabulario', icon: Languages },
-    { href: '/lectura', label: 'Lectura', icon: Book },
-  ],
-};
-
-const practicarDropdown = {
-  label: 'Practicar',
-  icon: Gamepad2,
-  children: [
-    { href: '/juegos', label: 'Juegos', icon: Gamepad2 },
-    { href: '/simulator', label: 'Simulador (DGT)', icon: Car },
-  ],
-};
 
 // Mobile menu: card-based items with colored icons (used only on md and below)
 const mobileMenuItems: { href: string; label: string; icon: typeof Shield; bg: string; iconColor: string }[] = [
@@ -50,8 +29,6 @@ export default function Navigation() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOverlayOpen, setSearchOverlayOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
-  const courseRef = useRef<HTMLDivElement>(null);
   
   // Clerk hooks removed to avoid SSR/prerendering issues
   // Admin link is hidden - users can access /admin directly if they have access
@@ -61,23 +38,6 @@ export default function Navigation() {
   
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const closeTimeoutRef = useRef<number | null>(null);
-
-  const handleOpenDropdown = (key: string) => {
-    if (closeTimeoutRef.current) {
-      window.clearTimeout(closeTimeoutRef.current);
-      closeTimeoutRef.current = null;
-    }
-    setDropdownOpen(key);
-  };
-
-  const handleCloseDropdownDebounced = (delay = 150) => {
-    if (closeTimeoutRef.current) window.clearTimeout(closeTimeoutRef.current);
-    closeTimeoutRef.current = window.setTimeout(() => {
-      setDropdownOpen(null);
-      closeTimeoutRef.current = null;
-    }, delay);
-  };
 
   useEffect(() => {
     setMounted(true);
@@ -89,18 +49,6 @@ export default function Navigation() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const t = event.target as Node;
-      if (courseRef.current?.contains(t)) return;
-      setDropdownOpen(null);
-    };
-    if (dropdownOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [dropdownOpen]);
 
   return (
     <>
@@ -165,6 +113,39 @@ export default function Navigation() {
                   <span>Guías Legales</span>
                 </Link>
                 <Link
+                  href="/gramatica"
+                  className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[140px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
+                    pathname.startsWith('/gramatica')
+                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300'
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
+                  }`}
+                >
+                  <GraduationCap className={`w-6 h-6 ${pathname.startsWith('/gramatica') ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
+                  <span>Gramática</span>
+                </Link>
+                <Link
+                  href="/vocabulario"
+                  className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[140px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
+                    pathname.startsWith('/vocabulario')
+                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300'
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
+                  }`}
+                >
+                  <Languages className={`w-6 h-6 ${pathname.startsWith('/vocabulario') ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
+                  <span>Vocabulario</span>
+                </Link>
+                <Link
+                  href="/lectura"
+                  className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[140px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
+                    pathname.startsWith('/lectura')
+                      ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300'
+                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
+                  }`}
+                >
+                  <Book className={`w-6 h-6 ${pathname.startsWith('/lectura') ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
+                  <span>Lectura</span>
+                </Link>
+                <Link
                   href="/juegos"
                   className={`group flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[160px] rounded-xl text-sm font-semibold transition-all duration-200 border ${
                     pathname === '/juegos' 
@@ -186,60 +167,6 @@ export default function Navigation() {
                   <FileText className={`w-6 h-6 ${pathname.startsWith('/blog') ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
                   <span>Blog</span>
                 </Link>
-
-                <div 
-                  ref={courseRef} 
-                  className="relative group"
-                  onMouseEnter={() => handleOpenDropdown('curso')}
-                  onMouseLeave={() => handleCloseDropdownDebounced(200)}
-                >
-                  <button
-                    onClick={() => setDropdownOpen(dropdownOpen === 'curso' ? null : 'curso')}
-                    className={`flex items-center justify-center gap-3 px-4 py-3 h-11 min-w-[180px] rounded-xl text-sm font-semibold transition-all duration-200 focus:outline-none border ${
-                      dropdownOpen === 'curso' || pathname.startsWith('/cursos') || pathname.startsWith('/gramatica') || pathname.startsWith('/vocabulario') || pathname.startsWith('/lectura')
-                        ? 'bg-gray-900 text-white border-gray-900 shadow-lg ring-2 ring-gray-300'
-                        : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:scale-[1.02]'
-                    }`}
-                    aria-expanded={dropdownOpen === 'curso'}
-                  >
-                    <BookOpen className={`w-6 h-6 flex-shrink-0 ${dropdownOpen === 'curso' || pathname.startsWith('/cursos') || pathname.startsWith('/gramatica') || pathname.startsWith('/vocabulario') || pathname.startsWith('/lectura') ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
-                    <span>Curso de Español</span>
-                    <ChevronDown className={`w-5 h-5 transition-transform ${dropdownOpen === 'curso' ? 'rotate-180 text-white' : 'text-gray-700'}`} aria-hidden="true" />
-                  </button>
-                  <div
-                    className={`absolute top-full left-0 mt-2 w-60 rounded-lg shadow-lg border border-gray-200 bg-white overflow-hidden z-50 ${dropdownOpen === 'curso' ? 'block' : 'hidden group-hover:block'}`}
-                    onMouseEnter={() => handleOpenDropdown('curso')}
-                    onMouseLeave={() => handleCloseDropdownDebounced(200)}
-                  >
-                    <div className="absolute -top-3 left-0 right-0 h-3 pointer-events-auto" />
-                    <div className="bg-gray-50 border-b border-gray-200 px-4 py-3">
-                      <div className="text-gray-900 font-bold text-sm">Elige tu Lección</div>
-                    </div>
-                    <div className="p-2">
-                      {aprenderDropdown.children.map((child) => {
-                        const ChildIcon = child.icon;
-                        const isChildActive = pathname === child.href;
-                        return (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            onClick={() => setDropdownOpen(null)}
-                            className={`group flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition-all ${
-                              isChildActive 
-                                ? 'bg-gray-100 text-gray-900' 
-                                : 'text-gray-700 hover:bg-gray-50'
-                            }`}
-                          >
-                            <div className={`rounded-lg p-2 ${isChildActive ? 'bg-gray-200' : 'bg-gray-100 group-hover:bg-gray-200'}`}>
-                              <ChildIcon className={`w-6 h-6 ${isChildActive ? 'text-gray-900' : 'text-gray-700'}`} aria-hidden="true" />
-                            </div>
-                            <span>{child.label}</span>
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
