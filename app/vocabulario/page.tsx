@@ -211,14 +211,14 @@ function VocabularioContent() {
                 className={`px-3 md:px-4 py-3 md:py-3.5 rounded-lg font-semibold transition-all capitalize flex items-center justify-center gap-2 text-sm md:text-base border ${
                   selectedCategory === category
                     ? 'bg-gray-900 text-white border-gray-900'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 border-gray-200'
+                    : 'bg-white text-gray-900 hover:bg-gray-50 border-gray-200'
                 }`}
                 role="tab"
                 aria-selected={selectedCategory === category}
                 aria-label={`Categoría ${category}`}
               >
-                <Icon className={`w-5 h-5 ${selectedCategory === category ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
-                <span className="hidden sm:inline">{category}</span>
+                <Icon className={`w-5 h-5 ${selectedCategory === category ? 'text-white' : 'text-gray-900'}`} aria-hidden="true" />
+                <span className={`hidden sm:inline ${selectedCategory === category ? 'text-white' : 'text-gray-900'}`}>{category}</span>
               </button>
             );
           })}
