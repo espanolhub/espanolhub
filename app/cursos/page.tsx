@@ -61,7 +61,6 @@ export default function CursosPage() {
 
   const handleStartLesson = (courseId: string, lessonId: string) => {
     setCurrentLesson(courseId, lessonId);
-    // Navigate to the appropriate section based on lesson type
     const course = getCourseById(courseId);
     const lesson = course?.lessons.find(l => l.id === lessonId);
     if (lesson) {
@@ -95,7 +94,6 @@ export default function CursosPage() {
       <div className="w-full max-w-7xl mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-12">
-          {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6 border border-gray-200">
             <Sparkles className="w-6 h-6 text-gray-700" aria-hidden="true" />
             <span className="text-sm font-semibold text-gray-900">5 Cursos Disponibles</span>
@@ -153,7 +151,7 @@ export default function CursosPage() {
           </div>
         </div>
 
-        {/* Learning Paths - horizontal scroll */}
+        {/* Learning Paths */}
         <div className="mb-12">
           <div className="flex items-center justify-between mb-6">
             <div>
@@ -163,7 +161,6 @@ export default function CursosPage() {
           </div>
           <div className="flex gap-6 overflow-x-auto pb-4">
             {learningPaths.map((path) => {
-              const accent = path.accent || 'bg-blue-100';
               const pathCourses = path.courses.map(id => getCourseById(id)).filter(Boolean);
               const completedCount = pathCourses.filter(c => completedCourseIds.includes(c!.id)).length;
               const progressPercent = (completedCount / Math.max(1, pathCourses.length)) * 100;
@@ -212,7 +209,7 @@ export default function CursosPage() {
           </div>
         </div>
 
-        {/* Level Filter - Enhanced */}
+        {/* Level Filter */}
         <div className="mb-8">
           <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
             <Target className="w-5 h-5 text-gray-700" aria-hidden="true" />
@@ -221,10 +218,10 @@ export default function CursosPage() {
           <nav aria-label="Filtrar por nivel" className="flex flex-wrap gap-4">
             {(['all', 'beginner', 'intermediate', 'advanced'] as const).map((level) => {
               const labels = {
-                all: { es: 'Todos', icon: BookOpen, color: 'from-gray-500 to-gray-600' },
-                beginner: { es: 'Principiante', icon: Star, color: 'from-green-500 to-green-600' },
-                intermediate: { es: 'Intermedio', icon: Award, color: 'from-blue-500 to-blue-600' },
-                advanced: { es: 'Avanzado', icon: Trophy, color: 'from-purple-500 to-purple-600' }
+                all: { es: 'Todos', icon: BookOpen },
+                beginner: { es: 'Principiante', icon: Star },
+                intermediate: { es: 'Intermedio', icon: Award },
+                advanced: { es: 'Avanzado', icon: Trophy }
               };
               const label = labels[level];
               const Icon = label.icon;
@@ -253,7 +250,7 @@ export default function CursosPage() {
           </nav>
         </div>
 
-        {/* Courses Grid - Enhanced */}
+        {/* Courses Grid */}
         <div>
           <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
             <BookOpen className="w-6 h-6 text-gray-700" aria-hidden="true" />
@@ -276,7 +273,6 @@ export default function CursosPage() {
                     !isAvailable ? 'opacity-60 border-gray-200' : isCompleted ? 'border-green-400' : isInProgress ? 'border-blue-400' : 'border-gray-200'
                   }`}
                 >
-                  {/* Status Badge */}
                   <div className="absolute top-4 right-4 flex flex-col gap-2 items-end">
                     {!isAvailable && (
                       <div className="flex items-center gap-1 px-3 py-1 bg-gray-100 text-gray-900 rounded-full text-xs font-semibold">
@@ -284,7 +280,6 @@ export default function CursosPage() {
                         Bloqueado
                       </div>
                     )}
-                    {/* PRO Badge hidden - all content is free */}
                     {isCompleted && (
                       <div className="flex items-center gap-1 px-3 py-1 bg-gray-100 text-gray-900 rounded-full text-xs font-semibold border border-gray-200">
                         <CheckCircle className="w-6 h-6 text-gray-700" aria-hidden="true" />
@@ -299,7 +294,6 @@ export default function CursosPage() {
                     )}
                   </div>
 
-                  {/* Icon & Title */}
                   <div className="mb-4">
                     <div className="w-16 h-16 rounded-lg flex items-center justify-center bg-gray-900 mb-4 border border-gray-800 group-hover:scale-110 transition-transform">
                       <span className="text-4xl">{course.icon}</span>
@@ -310,10 +304,8 @@ export default function CursosPage() {
                     <p className="text-sm text-gray-700 line-clamp-1">{course.subtitle || ''}</p>
                   </div>
 
-                  {/* Description */}
                   <p className="text-sm text-gray-700 mb-4 line-clamp-2 min-h-[40px]">{course.description}</p>
 
-                  {/* Meta Info */}
                   <div className="flex items-center justify-between text-sm text-gray-900 mb-4 pb-4 border-b border-gray-200">
                     <div className="flex items-center gap-1">
                       <BookOpen className="w-6 h-6 text-gray-700" aria-hidden="true" />
@@ -325,7 +317,6 @@ export default function CursosPage() {
                     </div>
                   </div>
 
-                  {/* Progress Bar */}
                   <div className="mb-4">
                     <div className="flex items-center justify-between text-xs text-gray-700 mb-2">
                       <span className="font-semibold">Progreso</span>
@@ -339,7 +330,6 @@ export default function CursosPage() {
                     </div>
                   </div>
 
-                  {/* Action Button */}
                   <div className="mt-4">
                     {hasLessons ? (
                       <Link
@@ -468,7 +458,6 @@ export default function CursosPage() {
                     );
                   })}
                 </div>
-                {/* Bottom lesson controls */}
                 <div className="mt-6 flex items-center justify-between">
                   <button
                     onClick={() => setSelectedCourse(null)}
@@ -478,7 +467,6 @@ export default function CursosPage() {
                   </button>
                   <button
                     onClick={() => {
-                      // go to next uncompleted lesson if any
                       const lessons = currentCourse.lessons;
                       const completed = currentCourseProgress?.completedLessons || [];
                       const next = lessons.find(l => !completed.includes(l.id));
@@ -487,7 +475,7 @@ export default function CursosPage() {
                         handleStartLesson(currentCourse.id, next.id);
                       }
                     }}
-                    className="px-4 py-2 bg-yellow-400 text-slate-900 rounded-md font-bold hover:bg-yellow-500 transition-colors"
+                    className="px-4 py-2 bg-gray-900 text-white rounded-md font-bold hover:bg-gray-800 transition-colors border border-gray-800"
                   >
                     Próxima Lección
                   </button>
@@ -497,8 +485,6 @@ export default function CursosPage() {
           </div>
         )}
       </div>
-
-      {/* Ads Container - End of Lesson Section */}
       <div className="ads-container mt-8 mb-4"></div>
     </div>
   );
