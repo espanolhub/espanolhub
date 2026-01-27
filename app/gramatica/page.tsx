@@ -557,9 +557,15 @@ export default function GramaticaPage() {
                 <div className="text-center mt-6">
                   <button
                     onClick={() => setVerbsLimit(v => Math.min(filteredVerbs.length, v + 20))}
-                    className="px-8 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl shadow-lg hover:shadow-xl hover:from-red-700 hover:to-red-800 font-semibold transition-all duration-200 transform hover:scale-105 active:scale-95"
+                    className="px-8 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl shadow-lg hover:shadow-xl hover:from-purple-700 hover:to-purple-800 font-semibold transition-all duration-200 transform hover:scale-105 active:scale-95"
+                    style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
                   >
-                    Cargar más verbos ({filteredVerbs.length - verbsLimit} restantes)
+                    <span style={{ position: 'relative', zIndex: 1 }}>
+                      Cargar más verbos
+                    </span>
+                    <span className="ml-2 px-2 py-1 bg-white/20 rounded-full text-sm font-bold">
+                      {filteredVerbs.length - verbsLimit} restantes
+                    </span>
                   </button>
                 </div>
               )}
