@@ -115,7 +115,7 @@ export default function Navigation() {
                 className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-slate-900 bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200"
                 aria-label="Iniciar Sesión"
               >
-                <User className="w-5 h-5" aria-hidden="true" />
+                <User className="w-5 h-5 text-slate-900" aria-hidden="true" />
                 <span className="hidden lg:inline">Iniciar Sesión</span>
                 <span className="lg:hidden">Login</span>
               </button>
@@ -123,7 +123,7 @@ export default function Navigation() {
               {/* Mobile Search Button */}
               <button
                 onClick={() => setSearchOverlayOpen(true)}
-                className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
+                className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
                 aria-label="Buscar"
               >
                 <Search className="w-5 h-5 text-slate-900" aria-hidden="true" />
@@ -132,7 +132,7 @@ export default function Navigation() {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md transition-all duration-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
+                className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md transition-all duration-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
                 aria-label={mobileMenuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
                 aria-expanded={mobileMenuOpen}
               >

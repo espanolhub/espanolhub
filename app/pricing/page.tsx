@@ -132,9 +132,10 @@ export default function PricingPage() {
                 onClick={() => setBillingCycle('monthly')}
                 className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                   billingCycle === 'monthly'
-                    ? 'bg-purple-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 border-2 border-gray-200'
+                    ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
+                    : 'bg-white text-black border-2 border-gray-200'
                 }`}
+                style={billingCycle !== 'monthly' ? { color: '#000000', fontWeight: '900' } : {}}
               >
                 Mensual
               </button>
@@ -142,9 +143,10 @@ export default function PricingPage() {
                 onClick={() => setBillingCycle('annual')}
                 className={`relative px-6 py-3 rounded-xl font-semibold transition-all ${
                   billingCycle === 'annual'
-                    ? 'bg-purple-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 border-2 border-gray-200'
+                    ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
+                    : 'bg-white text-black border-2 border-gray-200'
                 }`}
+                style={billingCycle !== 'annual' ? { color: '#000000', fontWeight: '900' } : {}}
               >
                 Anual
                 <span className="absolute -top-2 -right-2 px-2 py-1 bg-green-500 text-white text-xs rounded-full">

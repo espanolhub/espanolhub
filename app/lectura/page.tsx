@@ -203,6 +203,7 @@ export default function LecturaPage() {
                 ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white'
                 : 'bg-white text-gray-700 hover:bg-gray-50 border-2 border-gray-200'
             }`}
+            style={activeTab === 'texts' ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
           >
             📖 Textos
           </button>
@@ -216,9 +217,10 @@ export default function LecturaPage() {
             }}
             className={`px-6 py-4 rounded-xl font-bold transition-all text-sm md:text-base shadow-lg hover:shadow-xl transform hover:scale-105 ${
               activeTab === 'dialogues'
-                ? 'bg-gradient-to-r from-pink-600 to-pink-700 text-white'
+                ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white'
                 : 'bg-white text-gray-700 hover:bg-gray-50 border-2 border-gray-200'
             }`}
+            style={activeTab === 'dialogues' ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
           >
             💬 Diálogos
           </button>
@@ -232,9 +234,10 @@ export default function LecturaPage() {
             }}
             className={`px-6 py-4 rounded-xl font-bold transition-all text-sm md:text-base shadow-lg hover:shadow-xl transform hover:scale-105 ${
               activeTab === 'sentences'
-                ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white'
+                ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white'
                 : 'bg-white text-gray-700 hover:bg-gray-50 border-2 border-gray-200'
             }`}
+            style={activeTab === 'sentences' ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
           >
             ⚡ Frases Inteligentes
           </button>
@@ -252,9 +255,10 @@ export default function LecturaPage() {
             }}
             className={`px-6 py-3 rounded-xl font-bold transition-all capitalize shadow-lg hover:shadow-xl transform hover:scale-105 ${
               selectedLevel === 'beginner'
-                ? 'bg-gradient-to-r from-green-500 to-green-600 text-white'
+                ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white'
                 : 'bg-white text-gray-700 hover:bg-gray-50 border-2 border-gray-200'
             }`}
+            style={selectedLevel === 'beginner' ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
           >
             🌱 Principiante
           </button>
@@ -268,9 +272,10 @@ export default function LecturaPage() {
             }}
             className={`px-6 py-3 rounded-xl font-bold transition-all capitalize shadow-lg hover:shadow-xl transform hover:scale-105 ${
               selectedLevel === 'intermediate'
-                ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white'
+                ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white'
                 : 'bg-white text-gray-700 hover:bg-gray-50 border-2 border-gray-200'
             }`}
+            style={selectedLevel === 'intermediate' ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
           >
             ⭐ Intermedio
           </button>
@@ -284,9 +289,10 @@ export default function LecturaPage() {
             }}
             className={`px-6 py-3 rounded-xl font-bold transition-all capitalize shadow-lg hover:shadow-xl transform hover:scale-105 ${
               selectedLevel === 'advanced'
-                ? 'bg-gradient-to-r from-purple-500 to-purple-600 text-white'
+                ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white'
                 : 'bg-white text-gray-700 hover:bg-gray-50 border-2 border-gray-200'
             }`}
+            style={selectedLevel === 'advanced' ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
           >
             🏆 Avanzado
           </button>
@@ -308,6 +314,7 @@ export default function LecturaPage() {
                           ? 'bg-purple-600 text-white shadow-md'
                           : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
                       }`}
+                      style={selectedCategory === category ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
                     >
                       {category}
                     </button>
@@ -706,6 +713,7 @@ function UsefulSentencesSection() {
                       ? 'bg-purple-600 text-white shadow-md'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
+                  style={selectedLevel === level ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
                 >
                   {level === 'all' ? 'Todos' : level === 'beginner' ? 'Principiante' : level === 'intermediate' ? 'Intermedio' : 'Avanzado'}
                 </button>

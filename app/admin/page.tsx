@@ -85,7 +85,7 @@ export default function AdminPage() {
                   className={`flex items-center gap-2 px-6 py-4 border-b-2 font-semibold text-sm transition-all ${
                     activeTab === tab.id
                       ? 'border-blue-600 text-blue-600 bg-blue-50/50'
-                      : 'border-transparent text-gray-600 hover:text-blue-600 hover:border-blue-300 hover:bg-gray-50'
+                      : 'border-transparent text-slate-600 hover:text-blue-600 hover:border-blue-300 hover:bg-gray-50'
                   }`}
                 >
                   <Icon className="w-5 h-5" />

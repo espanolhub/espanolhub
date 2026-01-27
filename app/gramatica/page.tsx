@@ -415,9 +415,10 @@ export default function GramaticaPage() {
                         }}
                         className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
                           selectedTense === tense
-                            ? 'bg-red-600 text-white shadow-lg ring-4 ring-red-300'
+                            ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg ring-4 ring-purple-300'
                             : 'bg-white text-gray-900 shadow-md hover:bg-gray-50 border border-gray-200'
                         }`}
+                        style={selectedTense === tense ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
                       >
                         <div className="text-lg">{info.name}</div>
                       </button>
@@ -618,9 +619,10 @@ export default function GramaticaPage() {
                         }}
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                           selectedCategory === category
-                            ? 'bg-red-600 text-white'
+                            ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white'
                             : 'bg-gray-100 text-gray-900 hover:bg-gray-50'
                         }`}
+                        style={selectedCategory === category ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
                       >
                         {category === 'all' ? 'Todas' : category === 'verbs' ? 'Verbos' : category === 'articles' ? 'Artículos' : category === 'pronouns' ? 'Pronombres' : 'Adjetivos'}
                       </button>
@@ -646,9 +648,10 @@ export default function GramaticaPage() {
                         }}
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all capitalize ${
                           selectedLevel === level
-                            ? 'bg-red-600 text-white'
+                            ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white'
                             : 'bg-gray-100 text-gray-900 hover:bg-gray-50'
                         }`}
+                        style={selectedLevel === level ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
                       >
                         {level === 'beginner' ? 'Principiante' : level === 'intermediate' ? 'Intermedio' : 'Avanzado'}
                       </button>
@@ -871,7 +874,7 @@ export default function GramaticaPage() {
                             <button
                               key={tense}
                               onClick={() => setSelectedTense(tense)}
-                              className="px-4 py-2 bg-gray-100 hover:bg-red-100 active:bg-red-200 text-gray-700 rounded-lg text-sm font-medium transition-colors"
+                              className="px-4 py-2 bg-gray-100 hover:bg-purple-100 active:bg-purple-200 text-black rounded-lg text-sm font-medium transition-colors"
                               aria-label={`Cambiar a ${tenseInfo[tense].name}`}
                             >
                               {tenseInfo[tense].name}

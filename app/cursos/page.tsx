@@ -212,7 +212,7 @@ export default function CursosPage() {
                   <span className="text-4xl">{currentCourse.icon}</span>
                   <h2 className="text-2xl font-black text-slate-900">{currentCourse.title}</h2>
                 </div>
-                <button onClick={() => setSelectedCourse(null)} className="p-2 hover:bg-white rounded-full text-slate-400 hover:text-slate-900 transition-all">
+                <button onClick={() => setSelectedCourse(null)} className="p-2 hover:bg-gray-100 rounded-full text-slate-400 hover:text-slate-900 transition-all">
                   ✕
                 </button>
               </div>

@@ -256,9 +256,10 @@ function SearchContent() {
               onClick={() => setActiveTab(tab)}
               className={`px-4 py-2 rounded-lg font-medium transition-all capitalize ${
                 activeTab === tab
-                  ? 'bg-blue-600 text-white shadow-md'
-                  : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                  ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-md'
+                  : 'bg-white text-black hover:bg-gray-100 border border-gray-200'
               }`}
+              style={activeTab !== tab ? { color: '#000000', fontWeight: '900' } : {}}
             >
               {tab === 'all' ? 'Todos' : tab === 'vocabulary' ? 'Vocabulario' : tab === 'lessons' ? 'Lecciones' : tab === 'dialogues' ? 'Diálogos' : tab === 'games' ? 'Juegos' : 'Frases'}
             </button>

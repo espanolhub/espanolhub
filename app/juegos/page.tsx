@@ -301,35 +301,37 @@ function JuegosContent() {
           </div>
         ) : !selectedGame ? (
           <>
-            {/* Tabs Navigation - Enhanced */}
+            {/* Tabs Navigation - Simple Clear Design */}
             <div className="flex justify-center mb-8 overflow-x-auto">
-              <div className="inline-flex flex-nowrap items-center gap-2 bg-white rounded-xl shadow-md p-2 border border-gray-200 min-w-0">
+              <div className="inline-flex flex-nowrap items-center gap-3 min-w-0">
                 <button
                   onClick={() => setActiveTab('principales')}
-                  className={`flex items-center justify-center gap-2 px-6 py-3 h-12 min-w-[140px] rounded-lg font-semibold transition-all duration-200 border ${
+                  className={`flex items-center justify-center gap-2 px-6 py-3 h-12 min-w-[140px] rounded-lg font-bold transition-all duration-200 border-2 ${
                     activeTab === 'principales'
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-md'
-                      : 'bg-white text-slate-900 border-slate-200 hover:bg-gray-50 hover:shadow-sm'
+                      ? 'bg-purple-600 text-white border-purple-600 shadow-lg'
+                      : 'bg-white text-black border-gray-400 hover:border-gray-600 hover:shadow-md'
                   }`}
+                  style={activeTab !== 'principales' ? { color: '#000000', fontWeight: '900' } : {}}
                 >
-                  <Gamepad2 className={`w-5 h-5 flex-shrink-0 ${activeTab === 'principales' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
-                  <span className="text-sm sm:text-base whitespace-nowrap">Principales</span>
+                  <Gamepad2 className={`w-6 h-6 flex-shrink-0 ${activeTab === 'principales' ? 'text-white' : 'text-purple-600'} transition-colors duration-200`} aria-hidden="true" />
+                  <span className="text-sm sm:text-base whitespace-nowrap" style={activeTab !== 'principales' ? { color: '#000000' } : {}}>Principales</span>
                 </button>
                 <button
                   onClick={() => setActiveTab('biblioteca')}
-                  className={`flex items-center justify-center gap-2 px-6 py-3 h-12 min-w-[140px] rounded-lg font-semibold transition-all duration-200 border ${
+                  className={`flex items-center justify-center gap-2 px-6 py-3 h-12 min-w-[140px] rounded-lg font-bold transition-all duration-200 border-2 ${
                     activeTab === 'biblioteca'
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-md'
-                      : 'bg-white text-slate-900 border-slate-200 hover:bg-gray-50 hover:shadow-sm'
+                      ? 'bg-purple-600 text-white border-purple-600 shadow-lg'
+                      : 'bg-white text-black border-gray-400 hover:border-gray-600 hover:shadow-md'
                   }`}
+                  style={activeTab !== 'biblioteca' ? { color: '#000000', fontWeight: '900' } : {}}
                 >
-                  <BookOpen className={`w-5 h-5 flex-shrink-0 ${activeTab === 'biblioteca' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
-                  <span className="text-sm sm:text-base whitespace-nowrap">Biblioteca</span>
+                  <BookOpen className={`w-6 h-6 flex-shrink-0 ${activeTab === 'biblioteca' ? 'text-white' : 'text-purple-600'} transition-colors duration-200`} aria-hidden="true" />
+                  <span className="text-sm sm:text-base whitespace-nowrap" style={activeTab !== 'biblioteca' ? { color: '#000000' } : {}}>Biblioteca</span>
                   {libraryTitles.length > 0 && (
                     <span className={`text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ${
                       activeTab === 'biblioteca' 
-                        ? 'bg-white text-slate-900' 
-                        : 'bg-slate-900 text-white'
+                        ? 'bg-white text-purple-600' 
+                        : 'bg-red-600 text-white'
                     }`}>
                       {libraryTitles.length}
                     </span>
@@ -337,14 +339,15 @@ function JuegosContent() {
                 </button>
                 <button
                   onClick={() => setActiveTab('todos')}
-                  className={`flex items-center justify-center gap-2 px-6 py-3 h-12 min-w-[140px] rounded-lg font-semibold transition-all duration-200 border ${
+                  className={`flex items-center justify-center gap-2 px-6 py-3 h-12 min-w-[140px] rounded-lg font-bold transition-all duration-200 border-2 ${
                     activeTab === 'todos'
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-md'
-                      : 'bg-white text-slate-900 border-slate-200 hover:bg-gray-50 hover:shadow-sm'
+                      ? 'bg-purple-600 text-white border-purple-600 shadow-lg'
+                      : 'bg-white text-black border-gray-400 hover:border-gray-600 hover:shadow-md'
                   }`}
+                  style={activeTab !== 'todos' ? { color: '#000000', fontWeight: '900' } : {}}
                 >
-                  <Grid3x3 className={`w-5 h-5 flex-shrink-0 ${activeTab === 'todos' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
-                  <span className="text-sm sm:text-base whitespace-nowrap">Todos</span>
+                  <Grid3x3 className={`w-6 h-6 flex-shrink-0 ${activeTab === 'todos' ? 'text-white' : 'text-purple-600'} transition-colors duration-200`} aria-hidden="true" />
+                  <span className="text-sm sm:text-base whitespace-nowrap" style={activeTab !== 'todos' ? { color: '#000000' } : {}}>Todos</span>
                 </button>
               </div>
             </div>

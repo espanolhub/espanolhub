@@ -418,9 +418,10 @@ export default function TramitesPage() {
                   onClick={() => setSelectedCategory(cat.id)}
                   className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all border ${
                     isActive
-                      ? 'bg-gray-900 text-white border-gray-900'
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
+                      ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white border-purple-600'
+                      : 'bg-white text-black border-gray-200 hover:bg-gray-50'
                   }`}
+                  style={!isActive ? { color: '#000000', fontWeight: '900' } : {}}
                 >
                   <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
                   <span>{cat.label}</span>

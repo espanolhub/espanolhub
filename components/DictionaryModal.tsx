@@ -57,7 +57,7 @@ export default function DictionaryModal({ open, entry, onClose }: DictionaryModa
               <p className="text-gray-700"><strong>Ejemplo:</strong> {entry.example}</p>
             </div>
           ) : (
-            <div className="mt-4 p-3 bg-gray-50 rounded text-sm text-gray-600">
+            <div className="mt-4 p-3 bg-gray-50 rounded text-sm text-slate-600">
               No hay ejemplos aún — <button className="underline" onClick={async () => {
                 try {
                   const suggested = prompt('Escribe un ejemplo en español para la palabra \"' + entry.word + '\"');

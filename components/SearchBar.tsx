@@ -106,7 +106,7 @@ export default function SearchBar() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
                       <span className="font-semibold text-gray-900">{result.title}</span>
-                      <span className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded">
+                      <span className="text-xs text-slate-600 bg-gray-100 px-2 py-0.5 rounded">
                         {typeLabels[result.type]}
                       </span>
                       {result.level && (

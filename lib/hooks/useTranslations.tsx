@@ -67,11 +67,11 @@ export function TranslationToggleButton({
   return (
     <button
       onClick={onClick}
-      className={`px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex items-center gap-2 shadow-md hover:shadow-lg ${className}`}
+      className={`px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex items-center gap-2 shadow-md hover:shadow-lg ${className}`}
       aria-label={showTranslations ? 'Ocultar traducciones árabes' : 'Mostrar traducciones árabes'}
     >
       <span className="text-lg">🌐</span>
-      <span className="font-medium">
+      <span className="font-medium" style={{ color: '#000000', fontWeight: 'bold' }}>
         {showTranslations ? 'Ocultar' : 'Mostrar'} Árabe
       </span>
     </button>
