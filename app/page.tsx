@@ -164,6 +164,49 @@ export default function Home() {
 								<div className="text-sm font-semibold text-gray-900 text-center">Blog</div>
 							</Link>
 							</div>
+
+							{/* Educational Learning Buttons */}
+							<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mt-4">
+							<Link
+								href="/gramatica"
+								className="group p-4 bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg hover:shadow-md hover:from-blue-100 hover:to-blue-200 transition-all"
+							>
+								<BookOpen className="w-6 h-6 text-blue-600 mb-2 mx-auto" aria-hidden="true" />
+								<div className="text-sm font-semibold text-blue-900 text-center">Gramática</div>
+							</Link>
+
+							<Link
+								href="/vocabulario"
+								className="group p-4 bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-lg hover:shadow-md hover:from-green-100 hover:to-green-200 transition-all"
+							>
+								<Languages className="w-6 h-6 text-green-600 mb-2 mx-auto" aria-hidden="true" />
+								<div className="text-sm font-semibold text-green-900 text-center">Vocabulario</div>
+							</Link>
+
+							<Link
+								href="/lectura"
+								className="group p-4 bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-lg hover:shadow-md hover:from-purple-100 hover:to-purple-200 transition-all"
+							>
+								<FileText className="w-6 h-6 text-purple-600 mb-2 mx-auto" aria-hidden="true" />
+								<div className="text-sm font-semibold text-purple-900 text-center">Lectura</div>
+							</Link>
+
+							<Link
+								href="/ejercicios-espanol-interactivos"
+								className="group p-4 bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 rounded-lg hover:shadow-md hover:from-orange-100 hover:to-orange-200 transition-all"
+							>
+								<Zap className="w-6 h-6 text-orange-600 mb-2 mx-auto" aria-hidden="true" />
+								<div className="text-sm font-semibold text-orange-900 text-center">Ejercicios</div>
+							</Link>
+
+							<Link
+								href="/examenes-espanol-gratis"
+								className="group p-4 bg-gradient-to-br from-red-50 to-red-100 border border-red-200 rounded-lg hover:shadow-md hover:from-red-100 hover:to-red-200 transition-all"
+							>
+								<FileCheck className="w-6 h-6 text-red-600 mb-2 mx-auto" aria-hidden="true" />
+								<div className="text-sm font-semibold text-red-900 text-center">Exámenes</div>
+							</Link>
+							</div>
 						</div>
 
 						<div className="w-full md:w-1/3 relative flex items-center justify-center">
