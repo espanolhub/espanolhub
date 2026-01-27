@@ -1,7 +1,7 @@
 {
-  "name": "Espanol Hub - Tu Centro Inteligente para Aprender Español",
+  "name": "Espanol Hub - La Mejor Plataforma para Aprender Español",
   "short_name": "Espanol Hub",
-  "description": "Tu centro inteligente para aprender español. Gramática, vocabulario, CCSE, carnet de conducir y más. ¡100% gratis!",
+  "description": "La plataforma #1 para aprender español. Gramática, vocabulario, CCSE, carnet de conducir y más. ¡100% gratis! 🚀",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -19,11 +19,56 @@
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
-  "categories": ["education", "languages"],
+  "categories": ["education", "languages", "productivity"],
   "lang": "es",
   "dir": "ltr",
   "scope": "/",
-  "prefer_related_applications": false
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Gramática",
+      "short_name": "Gramática",
+      "description": "Aprende gramática española",
+      "url": "/gramatica",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Vocabulario",
+      "short_name": "Vocabulario",
+      "description": "Mejora tu vocabulario",
+      "url": "/vocabulario",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Juegos",
+      "short_name": "Juegos",
+      "description": "Juegos educativos",
+      "url": "/juegos",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Espanol Hub - Desktop"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "640x1136",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Espanol Hub - Mobile"
+    }
+  ]
 }
