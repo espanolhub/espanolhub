@@ -2526,9 +2526,7 @@ Los colores son vocabulario fundamental que usarás diariamente. Practica descri
  * Get all blog posts
  */
 export function getAllBlogPosts(): BlogPost[] {
-  return blogPosts.sort((a, b) => 
-    new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime()
-  );
+  return blogPosts;
 }
 
 /**

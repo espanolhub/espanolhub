@@ -45,8 +45,8 @@ export const metadata: Metadata = {
     default: "Espanol Hub - La #1 Plataforma para Aprender Español GRATIS | Gramática, Vocabulario, Juegos 🚀",
     template: "%s | Espanol Hub"
   },
-  description: "La plataforma #1 para aprender español 100% gratis. Gramática, vocabulario, juegos educativos, preparación CCSE y carnet de conducir. ¡La mejor plataforma para aprender español online!",
-  keywords: ["aprender español gratis", "mejor plataforma español", "gramática española", "vocabulario español", "juegos educativos español", "curso español online", "aprender español", "español para principiantes", "CCSE", "nacionalidad española", "carnet de conducir", "DGT", "espanolhub", "aprender español gratis"],
+  description: "La plataforma #1 para aprender español 100% gratis con pronunciación nativa y búsqueda por voz. Gramática, vocabulario, juegos educativos, preparación CCSE y carnet de conducir. ¡La mejor plataforma para aprender español online con tecnología de voz avanzada!",
+  keywords: ["aprender español gratis", "mejor plataforma español", "gramática española", "vocabulario español", "juegos educativos español", "curso español online", "aprender español", "español para principiantes", "CCSE", "nacionalidad española", "carnet de conducir", "DGT", "espanolhub", "aprender español gratis", "pronunciación español", "búsqueda por voz español", "voz nativa español", "aprender español con voz", "pronunciación correcta español", "hablar español gratis"],
   authors: [{ name: "Espanol Hub Team" }],
   creator: "Espanol Hub",
   publisher: "Espanol Hub",
@@ -65,22 +65,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_ES',
     url: 'https://www.espanolhub.com',
-    title: 'Espanol Hub - La #1 Plataforma para Aprender Español GRATIS 🚀',
-    description: 'La plataforma #1 para aprender español 100% gratis. Gramática, vocabulario, juegos educativos, preparación CCSE y carnet de conducir.',
+    title: 'Espanol Hub - La #1 Plataforma para Aprender Español GRATIS con Voz 🚀',
+    description: 'La plataforma #1 para aprender español 100% gratis con pronunciación nativa y búsqueda por voz. Gramática, vocabulario, juegos educativos, preparación CCSE y carnet de conducir.',
     siteName: 'Espanol Hub',
     images: [
       {
         url: 'https://www.espanolhub.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Espanol Hub - Aprende Español GRATIS',
+        alt: 'Espanol Hub - Aprende Español GRATIS con Voz',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Espanol Hub - La #1 Plataforma para Aprender Español GRATIS 🚀',
-    description: 'La plataforma #1 para aprender español 100% gratis. Gramática, vocabulario, juegos educativos, preparación CCSE y carnet de conducir.',
+    title: 'Espanol Hub - La #1 Plataforma para Aprender Español GRATIS con Voz 🚀',
+    description: 'La plataforma #1 para aprender español 100% gratis con pronunciación nativa y búsqueda por voz. Gramática, vocabulario, juegos educativos, preparación CCSE y carnet de conducir.',
     images: ['https://www.espanolhub.com/og-image.png'],
   },
   verification: {

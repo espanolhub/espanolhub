@@ -7,6 +7,11 @@ import { normalizeArabic } from '@/lib/utils/normalizeArabic';
 import { searchDictionary, getDictionaryByCategory, getDictionaryByWord, getDictionary } from '@/lib/data/dictionary';
 import AudioPlayer from '@/components/AudioPlayer';
 import DictionaryModal from '@/components/DictionaryModal';
+import EnhancedPronunciation from '@/components/EnhancedPronunciation';
+import VocabularyGame from '@/components/VocabularyGame';
+import VocabularyProgress from '@/components/VocabularyProgress';
+import VocabularyStudyMode from '@/components/VocabularyStudyMode';
+import VoiceSearch from '@/components/VoiceSearch';
 import { 
   Palette, Coffee, Users, Cat, Home, Shirt, User, Play, BookOpen, Heart, 
   MapPin, Car, GraduationCap, HeartPulse, Smile, Building, Share2, Search 
@@ -52,6 +57,8 @@ function VocabularioContent() {
   const [selectedWord, setSelectedWord] = useState<string | null>(null);
   const [isGeneratingImage, setIsGeneratingImage] = useState(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [activeTab, setActiveTab] = useState<'browse' | 'study' | 'game' | 'progress'>('browse');
+  const [voiceSearchQuery, setVoiceSearchQuery] = useState<string>('');
   const cardRef = useRef<HTMLDivElement>(null);
 
   // Set initial category from URL on mount
@@ -167,13 +174,13 @@ function VocabularioContent() {
   return (
     <div className="min-h-screen bg-white py-8 md:py-12">
       <div className="w-full max-w-7xl mx-auto px-4">
-        {/* Header Section */}
+        {/* Enhanced Header */}
         <div className="text-center mb-8 md:mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
-            Vocabulario Español
+            Vocabulario Español con Voz 🎤
           </h1>
           <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Amplía tu vocabulario con más de {(getDictionary()?.length ?? 0)} palabras organizadas en {vocabularyCategories.length} categorías temáticas
+            Amplía tu vocabulario con más de {(getDictionary()?.length ?? 0)} palabras organizadas en {vocabularyCategories.length} categorías temáticas. ¡Aprende con pronunciación nativa y juegos interactivos!
           </p>
           
           {/* Translation Toggle Button */}
@@ -185,50 +192,104 @@ function VocabularioContent() {
           </div>
         </div>
 
-        {/* Search Bar */}
+        {/* Tab Navigation */}
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          <button
+            onClick={() => setActiveTab('browse')}
+            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+              activeTab === 'browse'
+                ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
+                : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
+            }`}
+          >
+            📚 Explorar
+          </button>
+          <button
+            onClick={() => setActiveTab('study')}
+            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+              activeTab === 'study'
+                ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
+                : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
+            }`}
+          >
+            🧠 Estudiar
+          </button>
+          <button
+            onClick={() => setActiveTab('game')}
+            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+              activeTab === 'game'
+                ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
+                : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
+            }`}
+          >
+            🎮 Jugar
+          </button>
+          <button
+            onClick={() => setActiveTab('progress')}
+            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+              activeTab === 'progress'
+                ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
+                : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
+            }`}
+          >
+            📈 Progreso
+          </button>
+        </div>
+
+        {/* Enhanced Search Bar with Voice Search */}
         <div className="mb-6 md:mb-8 max-w-2xl mx-auto">
-          <div className="relative">
+          <div className="relative mb-4">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" aria-hidden="true" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={`Buscar palabra en español${showTranslations ? ' o árabe' : ''}...${showTranslations ? ' / ابحث عن كلمة بالإسبانية أو العربية...' : ''}`}
-              className="w-full pl-12 pr-4 py-3 md:py-4 border-2 border-gray-300 rounded-xl focus:border-yellow-500 focus:outline-none text-base md:text-lg shadow-sm hover:shadow-md transition-shadow"
+              className="w-full pl-12 pr-4 py-3 md:py-4 border-2 border-gray-300 rounded-xl focus:border-purple-500 focus:outline-none text-base md:text-lg shadow-sm hover:shadow-md transition-shadow"
               dir="auto"
             />
           </div>
+          
+          {/* Voice Search */}
+          <VoiceSearch
+            onTranscript={(text) => setSearchQuery(text)}
+            placeholder="Di la palabra que buscas..."
+            className="w-full"
+          />
         </div>
 
-        {/* Category Selector - Improved Responsive Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4 mb-8 md:mb-10" role="tablist" aria-label="Categorías de vocabulario">
-          {vocabularyCategories.map((category) => {
-            const Icon = categoryIcons[category] || BookOpen;
-            return (
-              <button
-                key={category}
-                type="button"
-                onClick={() => {
-                  setSelectedCategory(category);
-                  setSelectedWord(null);
-                  setSearchQuery('');
-                }}
-                className={`px-3 md:px-4 py-3 md:py-3.5 rounded-lg font-semibold transition-all capitalize flex items-center justify-center gap-2 text-sm md:text-base border ${
-                  selectedCategory === category
-                    ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white border-purple-600'
-                    : 'bg-white text-gray-900 hover:bg-gray-50 border-gray-200'
-                }`}
-                style={selectedCategory === category ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
-                role="tab"
-                aria-selected={selectedCategory === category}
-                aria-label={`Categoría ${category}`}
-              >
-                <Icon className={`w-5 h-5 ${selectedCategory === category ? 'text-white' : 'text-gray-900'}`} aria-hidden="true" />
-                <span className={`hidden sm:inline ${selectedCategory === category ? 'text-white' : 'text-gray-900'}`}>{category}</span>
-              </button>
-            );
-          })}
-        </div>
+        {/* Tab Content */}
+        {activeTab === 'browse' && (
+          <>
+            {/* Category Selector */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4 mb-8 md:mb-10" role="tablist" aria-label="Categorías de vocabulario">
+              {vocabularyCategories.map((category) => {
+                const Icon = categoryIcons[category] || BookOpen;
+                return (
+                  <button
+                    key={category}
+                    type="button"
+                    onClick={() => {
+                      setSelectedCategory(category);
+                      setSelectedWord(null);
+                      setSearchQuery('');
+                    }}
+                    className={`px-3 md:px-4 py-3 md:py-3.5 rounded-lg font-semibold transition-all capitalize flex items-center justify-center gap-2 text-sm md:text-base border ${
+                      selectedCategory === category
+                        ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white border-purple-600'
+                        : 'bg-white text-gray-900 hover:bg-gray-50 border-gray-200'
+                    }`}
+                    style={selectedCategory === category ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
+                    role="tab"
+                    aria-selected={selectedCategory === category}
+                    aria-label={`Categoría ${category}`}
+                  >
+                    <Icon className={`w-5 h-5 ${selectedCategory === category ? 'text-white' : 'text-gray-900'}`} aria-hidden="true" />
+                    <span className={`hidden sm:inline ${selectedCategory === category ? 'text-white' : 'text-gray-900'}`}>{category}</span>
+                  </button>
+                );
+              })}
+            </div>
 
         {/* Words Grid - Improved Responsive */}
         {words.length === 0 ? (
@@ -298,7 +359,7 @@ function VocabularioContent() {
                     </div>
                   </div>
                   <div 
-                    className="text-xl md:text-2xl font-bold text-yellow-600 mb-2 cursor-pointer hover:text-yellow-700 transition-colors break-words"
+                    className="text-xl md:text-2xl font-bold text-yellow-600 mb-2 cursor-pointer hover:text-yellow-700 transition-colors break-words flex items-center gap-2"
                     onClick={(e) => {
                       e.stopPropagation();
                       pronounceWord(word.word);
@@ -306,6 +367,11 @@ function VocabularioContent() {
                     title="Haz clic para pronunciar"
                   >
                     {word.word}
+                    <EnhancedPronunciation 
+                      text={word.word} 
+                      className="ml-2"
+                      showControls={false}
+                    />
                   </div>
                   <div className="text-base md:text-lg text-gray-800 font-semibold mb-1 break-words">
                     {Array.isArray(word.translation) ? word.translation.join(' / ') : word.translation}
@@ -318,6 +384,31 @@ function VocabularioContent() {
               </div>
             ))}
           </div>
+        )}
+
+        {/* Study Tab */}
+        {activeTab === 'study' && (
+          <VocabularyStudyMode 
+            words={words}
+            onSessionComplete={(stats) => {
+              console.log('Study session completed:', stats);
+            }}
+          />
+        )}
+
+        {/* Game Tab */}
+        {activeTab === 'game' && (
+          <VocabularyGame 
+            words={words}
+            onGameComplete={(score, total) => {
+              console.log('Game completed:', { score, total });
+            }}
+          />
+        )}
+
+        {/* Progress Tab */}
+        {activeTab === 'progress' && (
+          <VocabularyProgress />
         )}
 
         {/* Selected Word Modal */}
