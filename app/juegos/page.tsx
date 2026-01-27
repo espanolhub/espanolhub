@@ -12,6 +12,10 @@ import { addXP, unlockAchievement, updateStats, getUserProgress } from '@/lib/ut
 import { getRandomQuestions } from '@/lib/utils/gameUtils';
 import { compareArabic } from '@/lib/utils/normalizeArabic';
 import type { GameQuestion, LibraryEntry } from '@/lib/types';
+import GameTabs from '@/components/games/ui/GameTabs';
+import GameButton from '@/components/games/ui/GameButton';
+import GameCard from '@/components/games/ui/GameCard';
+import GameShell from '@/components/games/ui/GameShell';
 
 type TabType = 'principales' | 'biblioteca' | 'todos';
 
@@ -275,7 +279,7 @@ function JuegosContent() {
   };
 
   return (
-    <div className="min-h-screen bg-white py-12">
+    <div className="min-h-screen bg-[var(--bg-base)] py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -287,69 +291,40 @@ function JuegosContent() {
         </div>
 
         {selectedEntry ? (
-          <div className="bg-white rounded-xl shadow-2xl p-8 max-w-3xl mx-auto">
-            <button 
-              onClick={() => setSelectedEntry(null)} 
-              className="mb-6 flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 rounded-xl hover:from-gray-200 hover:to-gray-300 transition-all font-semibold shadow-md hover:shadow-lg"
-            >
+          <GameShell className="max-w-4xl mx-auto">
+            <GameButton onClick={() => setSelectedEntry(null)} className="mb-6" variant="secondary">
               <ArrowLeft className="w-5 h-5 text-gray-900" aria-hidden="true" />
               Volver a Juegos
-            </button>
+            </GameButton>
             {/* render playable library entry */}
             <GameRenderer entry={selectedEntry} />
-          </div>
+          </GameShell>
         ) : !selectedGame ? (
           <>
-            {/* Tabs Navigation - Simple Clear Design */}
-            <div className="flex justify-center mb-8 overflow-x-auto">
-              <div className="inline-flex flex-nowrap items-center gap-3 min-w-0">
-                <button
-                  onClick={() => setActiveTab('principales')}
-                  className={`flex items-center justify-center gap-2 px-6 py-3 h-12 min-w-[140px] rounded-lg font-bold transition-all duration-200 border-2 ${
-                    activeTab === 'principales'
-                      ? 'bg-purple-600 text-white border-purple-600 shadow-lg'
-                      : 'bg-white text-black border-gray-400 hover:border-gray-600 hover:shadow-md'
-                  }`}
-                  style={activeTab !== 'principales' ? { color: '#000000', fontWeight: '900' } : {}}
-                >
-                  <Gamepad2 className={`w-6 h-6 flex-shrink-0 ${activeTab === 'principales' ? 'text-white' : 'text-purple-600'} transition-colors duration-200`} aria-hidden="true" />
-                  <span className="text-sm sm:text-base whitespace-nowrap" style={activeTab !== 'principales' ? { color: '#000000' } : {}}>Principales</span>
-                </button>
-                <button
-                  onClick={() => setActiveTab('biblioteca')}
-                  className={`flex items-center justify-center gap-2 px-6 py-3 h-12 min-w-[140px] rounded-lg font-bold transition-all duration-200 border-2 ${
-                    activeTab === 'biblioteca'
-                      ? 'bg-purple-600 text-white border-purple-600 shadow-lg'
-                      : 'bg-white text-black border-gray-400 hover:border-gray-600 hover:shadow-md'
-                  }`}
-                  style={activeTab !== 'biblioteca' ? { color: '#000000', fontWeight: '900' } : {}}
-                >
-                  <BookOpen className={`w-6 h-6 flex-shrink-0 ${activeTab === 'biblioteca' ? 'text-white' : 'text-purple-600'} transition-colors duration-200`} aria-hidden="true" />
-                  <span className="text-sm sm:text-base whitespace-nowrap" style={activeTab !== 'biblioteca' ? { color: '#000000' } : {}}>Biblioteca</span>
-                  {libraryTitles.length > 0 && (
-                    <span className={`text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ${
-                      activeTab === 'biblioteca' 
-                        ? 'bg-white text-purple-600' 
-                        : 'bg-red-600 text-white'
-                    }`}>
-                      {libraryTitles.length}
-                    </span>
-                  )}
-                </button>
-                <button
-                  onClick={() => setActiveTab('todos')}
-                  className={`flex items-center justify-center gap-2 px-6 py-3 h-12 min-w-[140px] rounded-lg font-bold transition-all duration-200 border-2 ${
-                    activeTab === 'todos'
-                      ? 'bg-purple-600 text-white border-purple-600 shadow-lg'
-                      : 'bg-white text-black border-gray-400 hover:border-gray-600 hover:shadow-md'
-                  }`}
-                  style={activeTab !== 'todos' ? { color: '#000000', fontWeight: '900' } : {}}
-                >
-                  <Grid3x3 className={`w-6 h-6 flex-shrink-0 ${activeTab === 'todos' ? 'text-white' : 'text-purple-600'} transition-colors duration-200`} aria-hidden="true" />
-                  <span className="text-sm sm:text-base whitespace-nowrap" style={activeTab !== 'todos' ? { color: '#000000' } : {}}>Todos</span>
-                </button>
-              </div>
-            </div>
+            <GameTabs<TabType>
+              value={activeTab}
+              onChange={setActiveTab}
+              className="mb-8"
+              items={[
+                { key: 'principales', label: 'Principales', icon: Gamepad2 },
+                {
+                  key: 'biblioteca',
+                  label: 'Biblioteca',
+                  icon: BookOpen,
+                  badge:
+                    libraryTitles.length > 0 ? (
+                      <span
+                        className={`text-xs font-bold px-2 py-0.5 rounded-full ${
+                          activeTab === 'biblioteca' ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'
+                        }`}
+                      >
+                        {libraryTitles.length}
+                      </span>
+                    ) : null,
+                },
+                { key: 'todos', label: 'Todos', icon: Grid3x3 },
+              ]}
+            />
 
             {/* Main Games Section */}
             {(activeTab === 'principales' || activeTab === 'todos') && (
@@ -360,30 +335,34 @@ function JuegosContent() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                 {games.map((gameItem) => {
-                  const gradient = gameGradients[gameItem.id] || 'from-gray-500 to-gray-600';
+                  const accent =
+                    gameItem.id === 'memory'
+                      ? 'blue'
+                      : gameItem.id === 'multiple-choice'
+                        ? 'green'
+                        : gameItem.id === 'fill-blank'
+                          ? 'purple'
+                          : gameItem.id === 'order'
+                            ? 'amber'
+                            : gameItem.id === 'word-race'
+                              ? 'rose'
+                              : 'slate';
                   return (
-                    <div
+                    <GameCard
                       key={gameItem.id}
+                      title={gameItem.name}
+                      description={gameItem.description}
+                      icon={gameItem.icon}
+                      accent={accent as any}
                       onClick={() => handleStartGame(gameItem.id)}
-                      className="group bg-white rounded-lg border border-gray-200 hover:shadow-md p-4 sm:p-6 md:p-8 cursor-pointer transition-all duration-200"
-                    >
-                      <div className="text-center relative z-10">
-                        <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg bg-gray-900 mb-2 sm:mb-4 border border-gray-800">
-                          <span className="text-2xl sm:text-3xl md:text-4xl text-white">{gameItem.icon}</span>
-                        </div>
-                        <h2 className="text-sm sm:text-lg md:text-2xl font-bold text-gray-900 mb-1 sm:mb-3 line-clamp-2">
-                          {gameItem.name}
-                        </h2>
-                        <p className="text-gray-600 mb-2 sm:mb-4 min-h-[36px] sm:min-h-[48px] text-xs sm:text-base line-clamp-2 hidden sm:block">
-                          {gameItem.description}
-                        </p>
-                        <div className="inline-flex items-center gap-2 px-2 sm:px-4 py-1 sm:py-2 bg-gray-100 rounded-full">
-                          <span className="text-[10px] sm:text-sm font-semibold text-gray-700 truncate max-w-full">
+                      meta={
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-100 rounded-full">
+                          <span className="text-xs font-semibold text-slate-700 truncate max-w-full">
                             {gameItem.questions.length > 0 ? `${gameItem.questions.length} preguntas` : '⏱️ Tiempo'}
                           </span>
                         </div>
-                      </div>
-                    </div>
+                      }
+                    />
                   );
                 })}
               </div>
@@ -404,7 +383,7 @@ function JuegosContent() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                   {libraryTitles.map((g) => (
-                    <div
+                    <GameCard
                       key={g.id}
                       onClick={async () => {
                         const res = await fetch(`/api/library/juegos/entry?id=${encodeURIComponent(g.id)}`);
@@ -413,70 +392,60 @@ function JuegosContent() {
                           setSelectedEntry(entry);
                         }
                       }}
-                      className="group bg-white rounded-lg border border-gray-200 hover:shadow-md p-4 sm:p-6 cursor-pointer transition-all duration-200"
-                    >
-                      
-                      <div className="relative z-10">
-                        {g.image && (
-                          <div className="w-full h-20 sm:h-32 bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg sm:rounded-xl mb-2 sm:mb-4 flex items-center justify-center overflow-hidden">
-                            <img src={g.image} alt={g.title} className="w-full h-full object-cover" />
-                          </div>
-                        )}
-                        <h4 className="font-bold text-sm sm:text-xl text-gray-800 mb-1 sm:mb-2 group-hover:text-purple-600 transition-colors line-clamp-2">
-                          {g.title}
-                        </h4>
-                        <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3 line-clamp-2 hidden sm:block">
-                          {g.excerpt}
-                        </p>
-                        {g.level && (
-                          <span className={`inline-block px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold ${
-                            g.level === 'beginner' ? 'bg-green-100 text-green-700' :
-                            g.level === 'intermediate' ? 'bg-yellow-100 text-yellow-700' :
-                            'bg-orange-100 text-orange-700'
-                          }`}>
+                      title={g.title}
+                      description={g.excerpt}
+                      imageUrl={g.image}
+                      accent="purple"
+                      meta={
+                        g.level ? (
+                          <span
+                            className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${
+                              g.level === 'beginner'
+                                ? 'bg-green-100 text-green-700'
+                                : g.level === 'intermediate'
+                                  ? 'bg-yellow-100 text-yellow-700'
+                                  : 'bg-orange-100 text-orange-700'
+                            }`}
+                          >
                             {g.level === 'beginner' ? 'Principiante' : g.level === 'intermediate' ? 'Intermedio' : 'Avanzado'}
                           </span>
-                        )}
-                      </div>
-                    </div>
+                        ) : null
+                      }
+                    />
                   ))}
                 </div>
               </div>
             )}
           </>
         ) : selectedGame === 'word-race' ? (
-          <div className="bg-white rounded-xl shadow-2xl p-8 max-w-3xl mx-auto">
-            <button 
-              onClick={handleReset}
-              className="mb-6 flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-all font-semibold text-slate-900"
-            >
+          <GameShell className="max-w-4xl mx-auto">
+            <GameButton onClick={handleReset} className="mb-6" variant="secondary">
               <ArrowLeft className="w-5 h-5 text-slate-900" aria-hidden="true" />
               Volver a Juegos
-            </button>
+            </GameButton>
             <WordRaceGame onBack={handleReset} />
-          </div>
+          </GameShell>
         ) : game && (
-          <div className="bg-white rounded-xl shadow-2xl p-8 max-w-3xl mx-auto relative">
-            <button
-              onClick={handleReset}
-              className="mb-6 flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 rounded-xl hover:from-gray-200 hover:to-gray-300 transition-all font-semibold shadow-md hover:shadow-lg text-slate-900"
-            >
+          <GameShell className="max-w-4xl mx-auto relative">
+            <GameButton onClick={handleReset} className="mb-6" variant="secondary">
               <ArrowLeft className="w-5 h-5 text-slate-900" aria-hidden="true" />
               Volver a Juegos
-            </button>
+            </GameButton>
 
             {levelSelectActive && (selectedGame === 'order' || selectedGame === 'multiple-choice') ? (
               <div className="text-center py-8">
                 <h3 className="text-2xl font-bold text-gray-800 mb-6">Elige tu nivel</h3>
                 <div className="flex flex-wrap justify-center gap-4">
                   {[1, 2, 3].map((l) => (
-                    <button
+                    <GameButton
                       key={l}
                       onClick={() => handleStartGame(selectedGame!, l)}
-                      className="px-8 py-4 h-12 min-w-[120px] bg-white text-slate-900 border-2 border-slate-300 rounded-xl font-bold hover:bg-slate-100 hover:border-slate-400 hover:shadow-md transition-all duration-200"
+                      className="min-w-[120px]"
+                      variant="secondary"
+                      size="lg"
                     >
                       Nivel {l}
-                    </button>
+                    </GameButton>
                   ))}
                 </div>
               </div>
@@ -484,19 +453,16 @@ function JuegosContent() {
               <div className="text-center py-12">
                 <div className="text-4xl font-bold text-green-600 mb-4">¡Subiste de nivel!</div>
                 <p className="text-xl text-gray-700 mb-6">Nivel {levelUpTo}</p>
-                <button
-                  onClick={handleLevelUpContinue}
-                  className="px-8 py-4 bg-gray-900 text-white rounded-lg font-bold hover:bg-gray-800 transition-all border border-gray-800"
-                >
+                <GameButton onClick={handleLevelUpContinue} variant="primary" size="lg">
                   Continuar
-                </button>
+                </GameButton>
               </div>
             ) : (
             <>
             {/* Game Header */}
             <div className="text-center mb-8">
               <div className="text-5xl mb-4">{game.icon}</div>
-              <h2 className="text-3xl font-bold text-pink-600 mb-2">
+              <h2 className="text-3xl font-bold text-slate-900 mb-2">
                 {game.name}
               </h2>
               <div className="flex justify-center items-center space-x-4 flex-wrap gap-2">
@@ -816,12 +782,9 @@ function JuegosContent() {
 
                 {showResult && (
                   <div className="flex justify-center">
-                    <button
-                      onClick={handleNext}
-                      className="px-8 py-3 bg-pink-600 text-white rounded-lg font-semibold hover:bg-pink-700 transition-colors"
-                    >
+                    <GameButton onClick={handleNext} variant="primary" size="lg">
                       {currentQuestionIndex < game.questions.length - 1 ? 'Siguiente' : 'Ver Resultados'}
-                    </button>
+                    </GameButton>
                   </div>
                 )}
               </>
@@ -831,28 +794,22 @@ function JuegosContent() {
                 <h2 className="text-4xl font-bold text-gray-800 mb-4">
                   ¡Juego Completado!
                 </h2>
-                <div className="text-6xl font-bold text-pink-600 mb-6">
+                <div className="text-6xl font-bold text-slate-900 mb-6">
                   {score} puntos
                 </div>
                 <div className="text-xl text-gray-600 mb-8">
                   De {game.questions.reduce((sum, q) => sum + q.points, 0)} puntos posibles
                 </div>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <button
-                    onClick={handleReset}
-                    className="px-8 py-3 bg-white border border-gray-200 text-slate-900 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center"
-                  >
+                  <GameButton onClick={handleReset} variant="secondary" size="lg">
                     <RotateCcw className="w-5 h-5 mr-2 text-slate-900" aria-hidden="true" />
                     Volver a los Juegos
-                  </button>
+                  </GameButton>
                   {(selectedGame === 'memory' || selectedGame === 'fill-blank') && (
-                    <button
-                      onClick={() => handleStartGame(selectedGame!)}
-                      className="px-8 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors flex items-center border border-gray-800"
-                    >
+                    <GameButton onClick={() => handleStartGame(selectedGame!)} variant="primary" size="lg">
                       <Gamepad2 className="w-5 h-5 mr-2 text-white" aria-hidden="true" />
                       Jugar de nuevo
-                    </button>
+                    </GameButton>
                   )}
                 </div>
               </div>
@@ -868,7 +825,7 @@ function JuegosContent() {
                 onClose={handleReset}
               />
             )}
-          </div>
+          </GameShell>
         )}
       </div>
     </div>

@@ -6,6 +6,8 @@ import {
   Target, Zap, Award, ArrowRight, BookOpen, Brain 
 } from 'lucide-react';
 import { getRandomQuestions, getExplanationEs, VerbQuizQuestion } from '@/lib/data/verb-quiz-questions';
+import GameShell from '@/components/games/ui/GameShell';
+import GameButton from '@/components/games/ui/GameButton';
 
 type Level = 'beginner' | 'intermediate' | 'advanced';
 
@@ -89,7 +91,7 @@ export default function QuickQuizVerbos() {
   // Menu Screen
   if (gameState === 'menu') {
     return (
-      <div className="min-h-[600px] bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 rounded-2xl p-8">
+      <GameShell>
         {/* Game Title */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mb-4">
@@ -202,7 +204,7 @@ export default function QuickQuizVerbos() {
             </button>
           </div>
         </div>
-      </div>
+      </GameShell>
     );
   }
 
@@ -212,7 +214,7 @@ export default function QuickQuizVerbos() {
     const isCorrect = selectedAnswer === currentQuestion.correctAnswer;
 
     return (
-      <div className="min-h-[600px] bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 rounded-2xl p-4 md:p-8">
+      <GameShell contentClassName="p-4 md:p-8">
         {/* Header */}
         <div className="mb-6">
           <div className="flex items-center justify-between mb-4">
@@ -352,10 +354,7 @@ export default function QuickQuizVerbos() {
         {/* Next Button */}
         {showResult && (
           <div className="flex justify-center">
-            <button
-              onClick={nextQuestion}
-              className="flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-bold hover:shadow-lg transform hover:scale-105 transition-all"
-            >
+            <GameButton onClick={nextQuestion} variant="primary" size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 border-0 hover:bg-none">
               {currentQuestionIndex < questions.length - 1 ? (
                 <>
                   Siguiente Pregunta
@@ -367,10 +366,10 @@ export default function QuickQuizVerbos() {
                   <Trophy className="w-5 h-5" />
                 </>
               )}
-            </button>
+            </GameButton>
           </div>
         )}
-      </div>
+      </GameShell>
     );
   }
 
@@ -383,7 +382,7 @@ export default function QuickQuizVerbos() {
     const seconds = timeTaken % 60;
 
     return (
-      <div className="min-h-[600px] bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 rounded-2xl p-8">
+      <GameShell>
         {/* Title */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mb-4">
@@ -495,23 +494,22 @@ export default function QuickQuizVerbos() {
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-3">
-            <button
-              onClick={restartGame}
-              className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl font-bold transition-all"
-            >
+            <GameButton onClick={restartGame} variant="secondary" size="lg" className="flex-1">
               <BookOpen className="w-5 h-5" />
               Cambiar Nivel
-            </button>
-            <button
+            </GameButton>
+            <GameButton
               onClick={() => startGame(selectedLevel)}
-              className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-xl font-bold transition-all transform hover:scale-105"
+              variant="primary"
+              size="lg"
+              className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 border-0"
             >
               <RotateCcw className="w-5 h-5" />
               Jugar Otra Vez
-            </button>
+            </GameButton>
           </div>
         </div>
-      </div>
+      </GameShell>
     );
   }
 

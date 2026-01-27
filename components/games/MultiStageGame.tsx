@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { Trophy, Clock, ArrowRight, CheckCircle, XCircle, Play, RotateCcw } from 'lucide-react';
+import GameShell from '@/components/games/ui/GameShell';
+import GameButton from '@/components/games/ui/GameButton';
 
 type StageType = 'memory' | 'word-race' | 'quiz';
 
@@ -212,7 +214,7 @@ export default function MultiStageGame({ onComplete, onBack }: MultiStageGamePro
   // Start screen
   if (!gameStarted) {
     return (
-      <div className="max-w-4xl mx-auto p-6">
+      <GameShell className="max-w-5xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">🎮 Desafío Multifase</h1>
           <p className="text-xl text-gray-600">Completa tres etapas diferentes para ganar el máximo de puntos</p>
@@ -233,15 +235,17 @@ export default function MultiStageGame({ onComplete, onBack }: MultiStageGamePro
         </div>
 
         <div className="text-center">
-          <button
+          <GameButton
             onClick={handleStartGame}
-            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg"
+            variant="primary"
+            size="lg"
+            className="bg-gradient-to-r from-purple-600 to-pink-600 border-0 shadow-lg"
           >
             <Play className="w-5 h-5 inline mr-2" />
             Comenzar Desafío
-          </button>
+          </GameButton>
         </div>
-      </div>
+      </GameShell>
     );
   }
 
@@ -249,7 +253,7 @@ export default function MultiStageGame({ onComplete, onBack }: MultiStageGamePro
   if (gameCompleted) {
     const percentage = (totalScore / 150) * 100;
     return (
-      <div className="max-w-4xl mx-auto p-6">
+      <GameShell className="max-w-5xl mx-auto">
         <div className="bg-white rounded-xl shadow-2xl p-8 text-center">
           <div className="text-6xl mb-4">
             {percentage >= 80 ? '🎉' : percentage >= 60 ? '👍' : '💪'}
@@ -284,24 +288,18 @@ export default function MultiStageGame({ onComplete, onBack }: MultiStageGamePro
           </div>
 
           <div className="flex gap-4 justify-center">
-            <button
-              onClick={handleStartGame}
-              className="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
-            >
+            <GameButton onClick={handleStartGame} variant="primary">
               <RotateCcw className="w-5 h-5 inline mr-2" />
               Reintentar
-            </button>
+            </GameButton>
             {onBack && (
-              <button
-                onClick={onBack}
-                className="bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
-              >
+              <GameButton onClick={onBack} variant="secondary">
                 Volver
-              </button>
+              </GameButton>
             )}
           </div>
         </div>
-      </div>
+      </GameShell>
     );
   }
 

@@ -4,6 +4,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { Trophy, Clock, RotateCcw, CheckCircle, XCircle } from 'lucide-react';
 import { getRandomWordPairs, WordPair } from '@/lib/services/geminiService';
 import { getHighScore, setHighScore } from '@/lib/utils/highScore';
+import GameShell from '@/components/games/ui/GameShell';
+import GameButton from '@/components/games/ui/GameButton';
 
 interface WordRaceGameProps {
   onBack?: () => void;
@@ -160,7 +162,8 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
 
   if (gameOver) {
     return (
-      <div key={gameOverKey} className="text-center word-race-fade-in">
+      <GameShell className="max-w-5xl mx-auto">
+        <div key={gameOverKey} className="text-center word-race-fade-in">
         <div className="word-race-trophy">
           <Trophy className="w-24 h-24 text-yellow-400 mx-auto mb-6" />
         </div>
@@ -172,25 +175,21 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
         <div className="flex gap-4 justify-center">
           <div className="flex flex-col gap-3">
             <div>
-              <button
-                onClick={restart}
-                className="flex items-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:scale-105 active:scale-95 transition-transform"
-              >
+              <GameButton onClick={restart} variant="primary">
                 <RotateCcw className="w-5 h-5" />
                 Jugar de Nuevo
-              </button>
+              </GameButton>
             </div>
             <div>
-              <button
-                onClick={onBack}
-                className="px-6 py-3 bg-gray-500 text-white rounded-lg font-semibold hover:scale-105 active:scale-95 transition-transform"
-              >
+              <GameButton onClick={onBack} variant="secondary">
                 Volver
-              </button>
+              </GameButton>
             </div>
             <div>
               {!showSubmit ? (
-                <button onClick={() => setShowSubmit(true)} className="px-6 py-3 bg-amber-400 text-slate-900 rounded-lg font-semibold">Guardar Puntuación</button>
+                <GameButton onClick={() => setShowSubmit(true)} variant="secondary" className="bg-amber-400 border-amber-400 hover:bg-amber-300">
+                  Guardar Puntuación
+                </GameButton>
               ) : (
                 <div className="mt-3 p-4 bg-white border rounded-lg inline-block">
                   <label className="block text-sm mb-1">Tu nombre (opcional)</label>
@@ -209,12 +208,13 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      </GameShell>
     );
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <GameShell className="max-w-4xl mx-auto">
       {/* Header */}
       <div className="mb-8">
         <div className="flex justify-between items-center mb-4">
@@ -278,7 +278,7 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
                       ? 'bg-red-500 text-white'
                       : isSelected
                       ? 'bg-blue-500 text-white'
-                      : 'bg-white text-gray-800 border-2 border-gray-300 hover:border-blue-500'
+                      : 'bg-white text-slate-900 border-2 border-slate-300 hover:border-blue-500'
                   }`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
@@ -293,6 +293,6 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
           </div>
         </div>
       )}
-    </div>
+    </GameShell>
   );
 }

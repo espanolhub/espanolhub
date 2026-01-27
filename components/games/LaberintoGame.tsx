@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { Lightbulb, Clock, Trophy, ArrowRight, ArrowLeft } from 'lucide-react';
+import GameShell from '@/components/games/ui/GameShell';
+import GameButton from '@/components/games/ui/GameButton';
 
 type Scenario = {
   id: string;
@@ -151,7 +153,7 @@ export default function LaberintoGame({ data, onComplete, onBack }: LaberintoGam
   // Level selection screen
   if (showLevelSelect) {
     return (
-      <div className="max-w-5xl mx-auto p-6">
+      <GameShell className="max-w-6xl mx-auto">
         {/* Logo */}
         <div className="flex items-center justify-center mb-8">
           <div className="relative">
@@ -200,15 +202,12 @@ export default function LaberintoGame({ data, onComplete, onBack }: LaberintoGam
         </div>
 
         {onBack && (
-          <button
-            onClick={onBack}
-            className="text-gray-600 hover:text-gray-800 flex items-center gap-2"
-          >
+          <GameButton onClick={onBack} variant="ghost" className="justify-start px-0">
             <ArrowLeft className="w-4 h-4" />
             Volver a los juegos
-          </button>
+          </GameButton>
         )}
-      </div>
+      </GameShell>
     );
   }
 
@@ -228,7 +227,7 @@ export default function LaberintoGame({ data, onComplete, onBack }: LaberintoGam
   // Level start screen (before game starts)
   if (!gameStarted) {
     return (
-      <div className="max-w-4xl mx-auto p-6">
+      <GameShell className="max-w-5xl mx-auto">
         {/* Logo */}
         <div className="flex items-center justify-center mb-8">
           <div className="relative">
@@ -275,15 +274,12 @@ export default function LaberintoGame({ data, onComplete, onBack }: LaberintoGam
         </div>
 
         {onBack && (
-          <button
-            onClick={onBack}
-            className="text-gray-600 hover:text-gray-800 flex items-center gap-2"
-          >
+          <GameButton onClick={onBack} variant="ghost" className="justify-start px-0">
             <ArrowLeft className="w-4 h-4" />
             Volver a los juegos
-          </button>
+          </GameButton>
         )}
-      </div>
+      </GameShell>
     );
   }
 
@@ -291,7 +287,7 @@ export default function LaberintoGame({ data, onComplete, onBack }: LaberintoGam
   if (levelCompleted) {
     const percentage = totalScenarios > 0 ? Math.round((score / (totalScenarios * 10)) * 100) : 0;
     return (
-      <div className="max-w-4xl mx-auto p-6">
+      <GameShell className="max-w-5xl mx-auto">
         <div className="bg-white rounded-xl shadow-lg p-8 text-center">
           <div className="text-6xl mb-4">
             {percentage >= 80 ? '🎉' : percentage >= 60 ? '👍' : '💪'}
@@ -314,41 +310,31 @@ export default function LaberintoGame({ data, onComplete, onBack }: LaberintoGam
           </div>
           <div className="flex gap-4 justify-center flex-wrap">
             {currentLevelIndex < (gameData.levels.length - 1) && (
-              <button
+              <GameButton
                 onClick={() => {
                   setCurrentLevelIndex(currentLevelIndex + 1);
                   setShowLevelSelect(false);
                   setGameStarted(false);
                   setLevelCompleted(false);
                 }}
-                className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-colors"
               >
                 Siguiente Nivel
-              </button>
+              </GameButton>
             )}
-            <button
-              onClick={handleStartLevel}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-            >
+            <GameButton onClick={handleStartLevel} variant="primary">
               Reintentar
-            </button>
-            <button
-              onClick={handleBackToLevelSelect}
-              className="bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
-            >
+            </GameButton>
+            <GameButton onClick={handleBackToLevelSelect} variant="secondary">
               Ver Todos los Niveles
-            </button>
+            </GameButton>
             {onBack && (
-              <button
-                onClick={onBack}
-                className="bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
-              >
+              <GameButton onClick={onBack} variant="secondary">
                 Volver a Juegos
-              </button>
+              </GameButton>
             )}
           </div>
         </div>
-      </div>
+      </GameShell>
     );
   }
 
