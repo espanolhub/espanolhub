@@ -7,7 +7,7 @@ import {
   BookOpen, Globe, Gamepad2, PlayCircle,
   Sparkles, Trophy, Target, Zap, Star,
   CheckCircle, ArrowRight, GraduationCap, Lock, Clock,
-  Gift, Book, Languages
+  Gift, Book, Languages, Hash, Volume2, Wrench, MessageSquare, FileCheck
 } from 'lucide-react';
 import { useModuleAccess } from '@/components/useModuleAccess';
 import { useAdminSettings } from '@/components/AdminSettingsProvider';
@@ -238,7 +238,7 @@ export default function Home() {
 						description="18 capítulos completos + Simulador oficial DGT"
 						features={['18 Lecciones completas', 'Simulador DGT oficial', 'Contenido interactivo', '100% actualizado 2026']}
 						href="/driving-license"
-						locked={driving.isLocked}
+						locked={!driving.hasAccess}
 					/>
 					
 					<ModernCard 
@@ -248,7 +248,7 @@ export default function Home() {
 						description="Preparación completa para el examen CCSE oficial"
 						features={['40+ Lecciones CCSE', 'Exámenes oficiales', 'Guías prácticas', 'Material completo']}
 						href="/nacionalidad"
-						locked={nationality.isLocked}
+						locked={!nationality.hasAccess}
 						badge="Popular"
 					/>
 					
@@ -259,7 +259,7 @@ export default function Home() {
 						description="Documentos, checklists y guías paso a paso"
 						features={['Guías completas', 'Checklists detallados', 'Documentación necesaria', 'Instrucciones claras']}
 						href="/tramites"
-						locked={tramites.isLocked}
+						locked={!tramites.hasAccess}
 					/>
 					</div>
 				</div>
@@ -298,65 +298,191 @@ export default function Home() {
 
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 						<Link
-							href="/gramatica-espanola-completa"
+							href="/alfabeto"
 							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
 						>
 							<div className="flex items-center gap-4 mb-4">
-								<div className="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center text-white border border-gray-800">
-									<GraduationCap className="w-6 h-6" />
+								<div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center text-white">
+									<Hash className="w-6 h-6" />
 								</div>
 								<h3 className="text-xl font-bold text-gray-900">
-									Gramática — Fundamentos
+									Alfabeto Español
 								</h3>
 							</div>
 							<p className="text-gray-700 mb-4">
-								Seis lecciones esenciales: Ser/Estar, artículos, verbos y más. 140+ ejercicios y ejemplos en español y árabe.
+								Aprende las 27 letras del alfabeto español con audio de nativos. Pronunciación perfecta desde el inicio.
 							</p>
-							<div className="flex items-center text-gray-900 font-semibold">
-								<span>Explorar</span>
+							<div className="flex items-center text-blue-500 font-semibold">
+								<span>Comenzar</span>
 								<ArrowRight className="w-4 h-4 ml-2" />
 							</div>
 						</Link>
 
 						<Link
-							href="/vocabulario"
+							href="/numeros"
 							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
 						>
 							<div className="flex items-center gap-4 mb-4">
-								<div className="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center text-white border border-gray-800">
-									<Languages className="w-6 h-6 text-white" aria-hidden="true" />
+								<div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-white">
+									<Hash className="w-6 h-6" />
 								</div>
 								<h3 className="text-xl font-bold text-gray-900">
-									Vocabulario por Temas
+									Números en Español
 								</h3>
 							</div>
 							<p className="text-gray-700 mb-4">
-								Diccionario visual por temas. Familia, trabajo, comida, viajes y más con pronunciación. Sin ejercicios interactivos.
+								Domina los números del 0 al 1000. Audio, pronunciación y ejercicios interactivos.
 							</p>
-							<div className="flex items-center text-gray-900 font-semibold">
-								<span>Explorar</span>
-								<ArrowRight className="w-5 h-5 ml-2 text-gray-900" aria-hidden="true" />
+							<div className="flex items-center text-green-500 font-semibold">
+								<span>Practicar</span>
+								<ArrowRight className="w-4 h-4 ml-2" />
 							</div>
 						</Link>
 
 						<Link
-							href="/blog"
+							href="/conjugador-verbos"
 							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
 						>
 							<div className="flex items-center gap-4 mb-4">
-								<div className="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center text-white border border-gray-800">
-									<Book className="w-6 h-6 text-white" aria-hidden="true" />
+								<div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center text-white">
+									<Wrench className="w-6 h-6" />
 								</div>
 								<h3 className="text-xl font-bold text-gray-900">
-									Blog Educativo
+									Conjugador de Verbos
 								</h3>
 							</div>
 							<p className="text-gray-700 mb-4">
-								Artículos, guías y consejos para aprender español. Gramática, vocabulario, pronunciación y más.
+								Conjuga cualquier verbo español en todos los tiempos. Más de 12,000 verbos disponibles.
 							</p>
-							<div className="flex items-center text-gray-900 font-semibold">
-								<span>Leer Artículos</span>
-								<ArrowRight className="w-5 h-5 ml-2 text-gray-900" aria-hidden="true" />
+							<div className="flex items-center text-purple-500 font-semibold">
+								<span>Conjugar</span>
+								<ArrowRight className="w-4 h-4 ml-2" />
+							</div>
+						</Link>
+
+						<Link
+							href="/pronunciacion-espanol-guia"
+							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+						>
+							<div className="flex items-center gap-4 mb-4">
+								<div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center text-white">
+									<Volume2 className="w-6 h-6" />
+								</div>
+								<h3 className="text-xl font-bold text-gray-900">
+									Guía de Pronunciación
+								</h3>
+							</div>
+							<p className="text-gray-700 mb-4">
+								Mejora tu pronunciación con nuestra guía completa. Audio de nativos y técnicas probadas.
+							</p>
+							<div className="flex items-center text-orange-500 font-semibold">
+								<span>Aprender</span>
+								<ArrowRight className="w-4 h-4 ml-2" />
+							</div>
+						</Link>
+
+						<Link
+							href="/curso-espanol-principiantes"
+							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+						>
+							<div className="flex items-center gap-4 mb-4">
+								<div className="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center text-white">
+									<GraduationCap className="w-6 h-6" />
+								</div>
+								<h3 className="text-xl font-bold text-gray-900">
+									Curso para Principiantes
+								</h3>
+							</div>
+							<p className="text-gray-700 mb-4">
+								Curso completo A1. Gramática, vocabulario y pronunciación desde cero. 100% gratis.
+							</p>
+							<div className="flex items-center text-red-500 font-semibold">
+								<span>Iniciar Curso</span>
+								<ArrowRight className="w-4 h-4 ml-2" />
+							</div>
+						</Link>
+
+						<Link
+							href="/espanol-para-arabes"
+							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+						>
+							<div className="flex items-center gap-4 mb-4">
+								<div className="w-12 h-12 bg-teal-500 rounded-lg flex items-center justify-center text-white">
+									<Globe className="w-6 h-6" />
+								</div>
+								<h3 className="text-xl font-bold text-gray-900">
+									Español para Árabes
+								</h3>
+							</div>
+							<p className="text-gray-700 mb-4">
+								Curso especial para hablantes de árabe. Explicaciones en árabe y adaptación cultural.
+							</p>
+							<div className="flex items-center text-teal-500 font-semibold">
+								<span>Comenzar</span>
+								<ArrowRight className="w-4 h-4 ml-2" />
+							</div>
+						</Link>
+
+						<Link
+							href="/ejercicios-espanol-interactivos"
+							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+						>
+							<div className="flex items-center gap-4 mb-4">
+								<div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center text-white">
+									<Gamepad2 className="w-6 h-6" />
+								</div>
+								<h3 className="text-xl font-bold text-gray-900">
+									Ejercicios Interactivos
+								</h3>
+							</div>
+							<p className="text-gray-700 mb-4">
+								140+ ejercicios de gramática, vocabulario y comprensión. Retroalimentación inmediata.
+							</p>
+							<div className="flex items-center text-indigo-500 font-semibold">
+								<span>Practicar</span>
+								<ArrowRight className="w-4 h-4 ml-2" />
+							</div>
+						</Link>
+
+						<Link
+							href="/examenes-espanol-gratis"
+							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+						>
+							<div className="flex items-center gap-4 mb-4">
+								<div className="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center text-white">
+									<FileCheck className="w-6 h-6" />
+								</div>
+								<h3 className="text-xl font-bold text-gray-900">
+									Exámenes Gratis
+								</h3>
+							</div>
+							<p className="text-gray-700 mb-4">
+								Evalúa tu nivel con exámenes A1-C2. Tests oficiales y resultados instantáneos.
+							</p>
+							<div className="flex items-center text-pink-500 font-semibold">
+								<span>Evaluar</span>
+								<ArrowRight className="w-4 h-4 ml-2" />
+							</div>
+						</Link>
+
+						<Link
+							href="/frases-espanol-conversacion"
+							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+						>
+							<div className="flex items-center gap-4 mb-4">
+								<div className="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center text-white">
+									<MessageSquare className="w-6 h-6" />
+								</div>
+								<h3 className="text-xl font-bold text-gray-900">
+									Frases de Conversación
+								</h3>
+							</div>
+							<p className="text-gray-700 mb-4">
+								500+ frases útiles para conversaciones diarias. Audio y ejemplos prácticos.
+							</p>
+							<div className="flex items-center text-cyan-500 font-semibold">
+								<span>Aprender</span>
+								<ArrowRight className="w-4 h-4 ml-2" />
 							</div>
 						</Link>
 					</div>
