@@ -152,22 +152,14 @@ export default function Navigation() {
               <div className="flex items-center gap-x-4 gap-y-2 flex-wrap">
                 <Link
                   href="/nacionalidad"
-                  className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
-                    pathname === '/nacionalidad' 
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
-                      : 'bg-white text-slate-900 hover:bg-slate-100'
-                  }`}
+                  className={`btn btn-tab whitespace-nowrap ${pathname === '/nacionalidad' ? 'btn-tab-active' : ''}`}
                 >
                   <Shield className={`w-5 h-5 flex-shrink-0 ${pathname === '/nacionalidad' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span>Nacionalidad ES</span>
                 </Link>
                 <Link
                   href="/driving-license"
-                  className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
-                    pathname === '/driving-license' 
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
-                      : 'bg-white text-slate-900 hover:bg-slate-100'
-                  }`}
+                  className={`btn btn-tab whitespace-nowrap ${pathname === '/driving-license' ? 'btn-tab-active' : ''}`}
                 >
                   <Car className={`w-5 h-5 flex-shrink-0 ${pathname === '/driving-license' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span>Carnet de Conducir</span>
@@ -181,55 +173,35 @@ export default function Navigation() {
               <div className="flex items-center gap-x-4 gap-y-2 flex-wrap">
                 <Link
                   href="/gramatica"
-                  className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
-                    pathname.startsWith('/gramatica')
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                      : 'bg-white text-slate-900 hover:bg-slate-100'
-                  }`}
+                  className={`btn btn-tab whitespace-nowrap ${pathname.startsWith('/gramatica') ? 'btn-tab-active' : ''}`}
                 >
                   <GraduationCap className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/gramatica') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span>Gramática</span>
                 </Link>
                 <Link
                   href="/vocabulario"
-                  className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
-                    pathname.startsWith('/vocabulario')
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                      : 'bg-white text-slate-900 hover:bg-slate-100'
-                  }`}
+                  className={`btn btn-tab whitespace-nowrap ${pathname.startsWith('/vocabulario') ? 'btn-tab-active' : ''}`}
                 >
                   <Languages className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/vocabulario') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span>Vocabulario</span>
                 </Link>
                 <Link
                   href="/lectura"
-                  className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
-                    pathname.startsWith('/lectura')
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                      : 'bg-white text-slate-900 hover:bg-slate-100'
-                  }`}
+                  className={`btn btn-tab whitespace-nowrap ${pathname.startsWith('/lectura') ? 'btn-tab-active' : ''}`}
                 >
                   <Book className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/lectura') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span>Lectura</span>
                 </Link>
                 <Link
                   href="/juegos"
-                  className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
-                    pathname === '/juegos' 
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
-                      : 'bg-white text-slate-900 hover:bg-slate-100'
-                  }`}
+                  className={`btn btn-tab whitespace-nowrap ${pathname === '/juegos' ? 'btn-tab-active' : ''}`}
                 >
                   <Gamepad2 className={`w-5 h-5 flex-shrink-0 ${pathname === '/juegos' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span>Juegos</span>
                 </Link>
                 <Link
                   href="/blog"
-                  className={`flex items-center justify-center gap-2 px-4 py-2 h-10 rounded-lg text-sm font-medium transition-all duration-200 border border-slate-200 whitespace-nowrap ${
-                    pathname.startsWith('/blog') 
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
-                      : 'bg-white text-slate-900 hover:bg-slate-100'
-                  }`}
+                  className={`btn btn-tab whitespace-nowrap ${pathname.startsWith('/blog') ? 'btn-tab-active' : ''}`}
                 >
                   <FileText className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/blog') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
                   <span>Blog</span>

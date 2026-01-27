@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Calendar, Clock, ArrowLeft, ArrowRight } from 'lucide-react';
-import MarkdownRendererClient from '@/components/MarkdownRendererClient';
+import MarkdownRenderer from '@/components/MarkdownRenderer';
 import { getBlogPostBySlug, getRelatedBlogPosts } from '@/lib/data/blog-posts';
 
 interface BlogPostPageProps {
@@ -48,7 +48,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <article className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+    <article className="min-h-screen bg-[var(--bg-base)]">
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumbs */}
         <nav className="max-w-4xl mx-auto mb-8">
@@ -104,7 +104,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {/* Article Content */}
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-xl shadow-lg p-8 md:p-12 prose prose-lg max-w-none">
-            <MarkdownRendererClient>{post.content}</MarkdownRendererClient>
+            <MarkdownRenderer>{post.content}</MarkdownRenderer>
           </div>
 
           {/* Related Posts */}
