@@ -6,13 +6,13 @@ import MarkdownRendererClient from '@/components/MarkdownRendererClient';
 import { getBlogPostBySlug, getRelatedBlogPosts } from '@/lib/data/blog-posts';
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const { slug } = params;
+  const { slug } = await params;
   const post = getBlogPostBySlug(slug);
 
   if (!post) {
@@ -38,8 +38,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   };
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = params;
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
   const post = getBlogPostBySlug(slug);
   const relatedPosts = post ? getRelatedBlogPosts(slug, 3) : [];
 
