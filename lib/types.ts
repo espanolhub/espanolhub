@@ -105,6 +105,24 @@ export interface Game {
   questions: GameQuestion[];
 }
 
+export interface LibraryEntry {
+  id: string;
+  title: string;
+  description: string;
+  excerpt?: string;
+  category: string;
+  level?: 'beginner' | 'intermediate' | 'advanced';
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  type: 'game' | 'exercise' | 'lesson';
+  content?: any;
+  image?: string;
+  thumbnail?: string;
+  tags?: string[];
+  isFree?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
 // Re-export nacionalidad types
 export * from './types/nacionalidad';
 export * from './types/progress';

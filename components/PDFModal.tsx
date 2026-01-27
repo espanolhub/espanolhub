@@ -20,9 +20,29 @@ export default function PDFModal({ isOpen, onClose }: PDFModalProps) {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // TODO: Add email submission logic here
-    // For now, just simulate a delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Send email submission to API
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: email.split('@')[0], // Extract name from email
+          email: email,
+          subject: 'PDF Download Request',
+          message: `User requested PDF download. Email: ${email}`,
+          type: 'pdf-download'
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit email');
+      }
+    } catch (error) {
+      console.error('Email submission error:', error);
+      // Continue with flow even if email fails
+    }
     
     // Close modal and redirect to thank you page
     onClose();

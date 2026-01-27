@@ -11,7 +11,7 @@ const WordRaceGame = dynamic(() => import('@/components/games/WordRaceGame'), { 
 import { addXP, unlockAchievement, updateStats, getUserProgress } from '@/lib/utils/progress';
 import { getRandomQuestions } from '@/lib/utils/gameUtils';
 import { compareArabic } from '@/lib/utils/normalizeArabic';
-import type { GameQuestion } from '@/lib/types';
+import type { GameQuestion, LibraryEntry } from '@/lib/types';
 
 type TabType = 'principales' | 'biblioteca' | 'todos';
 
@@ -19,8 +19,8 @@ function JuegosContent() {
   const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<TabType>('principales');
   const [selectedGame, setSelectedGame] = useState<string | null>(null);
-  const [libraryTitles, setLibraryTitles] = useState<any[]>([]);
-  const [selectedEntry, setSelectedEntry] = useState<any | null>(null);
+  const [libraryTitles, setLibraryTitles] = useState<LibraryEntry[]>([]);
+  const [selectedEntry, setSelectedEntry] = useState<LibraryEntry | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | string[] | null>(null);
@@ -146,11 +146,11 @@ function JuegosContent() {
         const res = await fetch('/api/library/juegos/grouped');
         if (!res.ok) return;
         const data = await res.json();
-        const list: any[] = [];
-        Object.values(data).forEach((arr:any) => arr.forEach((e:any) => list.push(e)));
+        const list: LibraryEntry[] = [];
+        Object.values(data).forEach((arr: LibraryEntry[]) => arr.forEach((e: LibraryEntry) => list.push(e)));
         if (mounted) setLibraryTitles(list);
       } catch (e) {
-        // ignore
+        console.error('Error loading library games:', e);
       }
     })();
     return () => { mounted = false; };
@@ -296,7 +296,6 @@ function JuegosContent() {
               Volver a Juegos
             </button>
             {/* render playable library entry */}
-            {/* @ts-ignore */}
             <GameRenderer entry={selectedEntry} />
           </div>
         ) : !selectedGame ? (
