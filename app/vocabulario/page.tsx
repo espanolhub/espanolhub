@@ -291,99 +291,101 @@ function VocabularioContent() {
               })}
             </div>
 
-        {/* Words Grid - Improved Responsive */}
-        {words.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-xl text-gray-600">No se encontraron palabras con "{searchQuery}"</p>
-            <div className="mt-6">
-              <button
-                onClick={async () => {
-                  try {
-                    const res = await fetch('/api/suggestions', {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({ word: searchQuery, category: selectedCategory })
-                    });
-                    if (res.ok) {
-                      try { (window as any).__showToast?.('Sugerencia enviada. Gracias!', 'success'); } catch(e){}
-                    } else {
-                      try { (window as any).__showToast?.('No se pudo enviar la sugerencia', 'error'); } catch(e){}
-                    }
-                  } catch (e) {
-                    try { (window as any).__showToast?.('Error al enviar sugerencia', 'error'); } catch(e){}
-                  }
-                }}
-                className="mt-4 inline-flex items-center gap-2 px-6 py-3 bg-white border border-yellow-600 text-yellow-600 rounded-lg font-semibold hover:bg-yellow-50 transition"
-              >
-                Sugerir palabra
-              </button>
-            </div>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6 mb-12">
-            {words.map((word, index) => (
-              <div
-                key={index}
-                onClick={() => {
-                  const wasSelected = selectedWord === word.word;
-                  setSelectedWord(wasSelected ? null : word.word);
-                  
-                  // Update daily challenge progress for vocabulary (only when selecting, not deselecting)
-                  if (!wasSelected) {
-                    try {
-                      const { updateChallengeProgress } = require('@/lib/utils/dailyChallenge');
-                      updateChallengeProgress('learn-vocabulary', 1);
-                    } catch (e) {
-                      // Ignore if module not available
-                    }
-                  }
-                }}
-                className={`bg-white rounded-xl shadow-md hover:shadow-2xl p-4 md:p-5 lg:p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 text-left w-full border-2 ${
-                  selectedWord === word.word ? 'ring-4 ring-yellow-500 border-yellow-400' : 'border-transparent'
-                }`}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    setSelectedWord(selectedWord === word.word ? null : word.word);
-                  }
-                }}
-                aria-label={`Palabra: ${word.word} - ${Array.isArray(word.translation) ? word.translation.join(', ') : word.translation}`}
-                aria-pressed={selectedWord === word.word}
-              >
-                <div className="text-center">
-                  <div className="flex justify-center mb-3">
-                    <div className="w-12 h-12 md:w-14 md:h-14 bg-gray-900 rounded-full flex items-center justify-center border border-gray-800">
-                      <CategoryIcon className="w-6 h-6 md:w-7 md:h-7 text-white" aria-hidden="true" />
-                    </div>
-                  </div>
-                  <div 
-                    className="text-xl md:text-2xl font-bold text-yellow-600 mb-2 cursor-pointer hover:text-yellow-700 transition-colors break-words flex items-center gap-2"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      pronounceWord(word.word);
+            {/* Words Grid - Improved Responsive */}
+            {words.length === 0 ? (
+              <div className="text-center py-12">
+                <p className="text-xl text-gray-600">No se encontraron palabras con "{searchQuery}"</p>
+                <div className="mt-6">
+                  <button
+                    onClick={async () => {
+                      try {
+                        const res = await fetch('/api/suggestions', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({ word: searchQuery, category: selectedCategory })
+                        });
+                        if (res.ok) {
+                          try { (window as any).__showToast?.('Sugerencia enviada. Gracias!', 'success'); } catch(e){}
+                        } else {
+                          try { (window as any).__showToast?.('No se pudo enviar la sugerencia', 'error'); } catch(e){}
+                        }
+                      } catch (e) {
+                        try { (window as any).__showToast?.('Error al enviar sugerencia', 'error'); } catch(e){}
+                      }
                     }}
-                    title="Haz clic para pronunciar"
+                    className="mt-4 inline-flex items-center gap-2 px-6 py-3 bg-white border border-yellow-600 text-yellow-600 rounded-lg font-semibold hover:bg-yellow-50 transition"
                   >
-                    {word.word}
-                    <EnhancedPronunciation 
-                      text={word.word} 
-                      className="ml-2"
-                      showControls={false}
-                    />
-                  </div>
-                  <div className="text-base md:text-lg text-gray-800 font-semibold mb-1 break-words">
-                    {Array.isArray(word.translation) ? word.translation.join(' / ') : word.translation}
-                  </div>
-                  <div className="text-sm text-gray-500 italic mb-3">
-                    {word.pronunciation}
-                  </div>
-                  <AudioPlayer text={word.word} />
+                    Sugerir palabra
+                  </button>
                 </div>
               </div>
-            ))}
-          </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6 mb-12">
+                {words.map((word, index) => (
+                  <div
+                    key={index}
+                    onClick={() => {
+                      const wasSelected = selectedWord === word.word;
+                      setSelectedWord(wasSelected ? null : word.word);
+                      
+                      // Update daily challenge progress for vocabulary (only when selecting, not deselecting)
+                      if (!wasSelected) {
+                        try {
+                          const { updateChallengeProgress } = require('@/lib/utils/dailyChallenge');
+                          updateChallengeProgress('learn-vocabulary', 1);
+                        } catch (e) {
+                          // Ignore if module not available
+                        }
+                      }
+                    }}
+                    className={`bg-white rounded-xl shadow-md hover:shadow-2xl p-4 md:p-5 lg:p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 text-left w-full border-2 ${
+                      selectedWord === word.word ? 'ring-4 ring-yellow-500 border-yellow-400' : 'border-transparent'
+                    }`}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setSelectedWord(selectedWord === word.word ? null : word.word);
+                      }
+                    }}
+                    aria-label={`Palabra: ${word.word} - ${Array.isArray(word.translation) ? word.translation.join(', ') : word.translation}`}
+                    aria-pressed={selectedWord === word.word}
+                  >
+                    <div className="text-center">
+                      <div className="flex justify-center mb-3">
+                        <div className="w-12 h-12 md:w-14 md:h-14 bg-gray-900 rounded-full flex items-center justify-center border border-gray-800">
+                          <CategoryIcon className="w-6 h-6 md:w-7 md:h-7 text-white" aria-hidden="true" />
+                        </div>
+                      </div>
+                      <div 
+                        className="text-xl md:text-2xl font-bold text-yellow-600 mb-2 cursor-pointer hover:text-yellow-700 transition-colors break-words flex items-center gap-2"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          pronounceWord(word.word);
+                        }}
+                        title="Haz clic para pronunciar"
+                      >
+                        {word.word}
+                        <EnhancedPronunciation 
+                          text={word.word} 
+                          className="ml-2"
+                          showControls={false}
+                        />
+                      </div>
+                      <div className="text-base md:text-lg text-gray-800 font-semibold mb-1 break-words">
+                        {Array.isArray(word.translation) ? word.translation.join(' / ') : word.translation}
+                      </div>
+                      <div className="text-sm text-gray-500 italic mb-3">
+                        {word.pronunciation}
+                      </div>
+                      <AudioPlayer text={word.word} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </>
         )}
 
         {/* Study Tab */}
