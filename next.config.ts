@@ -19,6 +19,15 @@ const nextConfig: NextConfig = {
   // Experimental features for better performance
   experimental: {
     optimizeCss: true,
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
+  },
+  
+  // Turbopack configuration
+  turbopack: {
+    // Turbopack-specific optimizations
+    rules: {
+      '*.svg': ['@svgr/webpack'],
+    },
   },
   
   // Output for Vercel deployment (optional, but good practice)
@@ -36,6 +45,9 @@ const nextConfig: NextConfig = {
         hostname: '**',
       },
     ],
+    // Enable image optimization for better performance
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   
   // Headers for caching and security
@@ -126,6 +138,17 @@ const nextConfig: NextConfig = {
             value: 'public, max-age=604800, immutable',
           },
         ],
+      },
+    ];
+  },
+  
+  // Redirects for better SEO and performance
+  async redirects() {
+    return [
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
       },
     ];
   },
