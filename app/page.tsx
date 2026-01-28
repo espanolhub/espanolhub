@@ -400,13 +400,13 @@ export default function Home() {
 			{/* Final CTA Section */}
 			<section className="py-8 bg-white">
 				<div className="max-w-7xl mx-auto px-6">
-					<div className="relative rounded-lg bg-gray-900 p-6 md:p-8 border border-gray-800">
+					<div className="relative rounded-lg bg-gray-900 p-6 md:p-8 border border-gray-800" style={{ backgroundColor: '#111827' }}>
 						<div className="flex flex-col items-center text-center">
 							<div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-full mb-4 border border-gray-700">
 								<Star className="w-5 h-5 text-white" aria-hidden="true" />
 								<span className="text-sm font-semibold text-white">Acceso Gratuito de por Vida</span>
 							</div>
-							<h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
+							<h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4" style={{ color: '#ffffff' }}>
 								Empieza hoy tu camino al éxito
 							</h2>
 
