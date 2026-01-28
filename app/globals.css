@@ -453,17 +453,6 @@ span a {
   transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Global primary button - Simple and Clean */
-.btn-primary {
-  background: var(--accent-primary);
-  color: #FFFFFF;
-  border: none;
-  transition: all 200ms ease-in-out;
-}
-.btn-primary:hover {
-  background: var(--accent-hover);
-}
-
 /* Modern card global style - Elegant and Refined */
 .modern-card {
   border-radius: 0.875rem;
@@ -625,65 +614,6 @@ h3 {
     text-rendering: optimizeLegibility;
   }
   
-  /* Specific color classes with HIGH CONTRAST */
-  .text-gray-600,
-  .text-gray-500,
-  .text-gray-400 {
-    color: #374151 !important;
-  }
-
-  .text-gray-300 {
-    color: #4b5563 !important;
-  }
-
-  .text-gray-800,
-  .text-gray-700,
-  .text-gray-900 {
-    color: #111827 !important;
-  }
-
-  .text-purple-600,
-  .text-purple-500 {
-    color: #7c3aed !important;
-  }
-
-  .text-blue-600,
-  .text-blue-500 {
-    color: #2563eb !important;
-  }
-
-  .text-indigo-600,
-  .text-indigo-500 {
-    color: #4f46e5 !important;
-  }
-
-  .text-green-600,
-  .text-green-500 {
-    color: #059669 !important;
-  }
-  
-  /* White text on dark backgrounds */
-  .text-white,
-  .text-white\/90,
-  .text-white\/80,
-  .text-white\/70 {
-    color: #ffffff !important;
-  }
-  
-  /* PRESERVE ICONS */
-  svg, svg[class*="w-"], svg[class*="h-"], .icon, [class*="lucide-"] {
-    max-width: none !important;
-    height: auto !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    transform: none !important;
-    word-wrap: normal !important;
-    overflow-wrap: normal !important;
-    display: inline-block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-  
   /* Better contrast for search and form elements */
   input::placeholder {
     color: #6b7280;
@@ -699,44 +629,10 @@ h3 {
     margin-bottom: 0.75rem !important;
   }
   
-  nav a {
-    color: #2563eb !important;
-  }
-  
-  /* Dark theme navigation override */
-  .dark .mobile-menu-item,
-  .dark .mobile-nav-item,
-  [class*="dark"] .mobile-menu-item,
-  [class*="dark"] .mobile-nav-item,
-  .bg-gray-900 .mobile-menu-item,
-  .bg-gray-900 .mobile-nav-item {
-    color: #ffffff !important;
-  }
-  
-  .dark nav span,
-  .dark nav div,
-  [class*="dark"] nav span,
-  [class*="dark"] nav div,
-  .bg-gray-900 nav span,
-  .bg-gray-900 nav div {
-    color: #e5e7eb !important;
-  }
-  
-  .dark nav a,
-  [class*="dark"] nav a,
-  .bg-gray-900 nav a {
-    color: #60a5fa !important;
-  }
-  
   /* Reduce shadow complexity on mobile */
   .modern-card,
   .card-hover-effect {
     box-shadow: 0 4px 12px rgba(2, 6, 23, 0.08) !important;
-  }
-  
-  /* Optimize images - lazy loading hint */
-  img {
-    loading: lazy;
   }
 }
 

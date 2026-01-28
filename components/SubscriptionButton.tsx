@@ -5,11 +5,13 @@ import { useState } from 'react';
 export default function SubscriptionButton({ 
   planId = 'premium-monthly',
   amount = '9.99',
-  disabled = false 
+  disabled = false,
+  noteTextClassName = 'text-white/80',
 }: { 
   planId?: string; 
   amount?: string;
   disabled?: boolean;
+  noteTextClassName?: string;
 }) {
   const [loading, setLoading] = useState(false);
 
@@ -86,7 +88,7 @@ export default function SubscriptionButton({
           'Comenzar Ahora'
         )}
       </button>
-      <p className="text-center text-sm text-white/80 mt-2">
+      <p className={`text-center text-sm mt-2 ${noteTextClassName}`}>
         🔒 Pago seguro • ❌ Cancela cuando quieras
       </p>
     </div>

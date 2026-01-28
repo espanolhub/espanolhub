@@ -30,8 +30,10 @@ const nextConfig: NextConfig = {
     },
   },
   
-  // Output for Vercel deployment (optional, but good practice)
-  output: 'standalone', // Enables standalone output for Docker/container deployments
+  // Output for container deployments.
+  // NOTE: On Windows, `output: 'standalone'` can hit path issues (e.g. `[externals]_node:crypto...`).
+  // Keep it enabled for non-Windows environments where it's most useful.
+  output: process.platform === 'win32' ? undefined : 'standalone',
   
   // Image optimization
   images: {
