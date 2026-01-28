@@ -1,15 +1,11 @@
 'use client';
 
-import { useState, useMemo, useRef, useEffect, Suspense } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { vocabularyCategories } from '@/lib/data/vocabulary';
-import { searchDictionary, getDictionaryByCategory, getDictionaryByWord, getDictionary } from '@/lib/data/dictionary';
+import { getDictionaryByCategory, getDictionary } from '@/lib/data/dictionary';
 import AudioPlayer from '@/components/AudioPlayer';
-import DictionaryModal from '@/components/DictionaryModal';
 import EnhancedPronunciation from '@/components/EnhancedPronunciation';
-import VocabularyGame from '@/components/VocabularyGame';
-import VocabularyProgress from '@/components/VocabularyProgress';
-import VocabularyStudyMode from '@/components/VocabularyStudyMode';
 import VoiceSearch from '@/components/VoiceSearch';
 import { 
   Palette, Coffee, Users, Cat, Home, Shirt, User, Play, BookOpen, Heart, 
@@ -49,12 +45,7 @@ function VocabularioContent() {
   const categoryFromUrl = searchParams?.get('category');
   
   const [selectedCategory, setSelectedCategory] = useState<string>('verbos');
-  const [selectedWord, setSelectedWord] = useState<string | null>(null);
-  const [isGeneratingImage, setIsGeneratingImage] = useState(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [activeTab, setActiveTab] = useState<'browse' | 'study' | 'game' | 'progress'>('browse');
-  const [voiceSearchQuery, setVoiceSearchQuery] = useState<string>('');
-  const cardRef = useRef<HTMLDivElement>(null);
 
   // Set initial category from URL on mount
   useEffect(() => {
@@ -63,36 +54,25 @@ function VocabularioContent() {
     }
   }, [categoryFromUrl]);
 
-  // Memoize filtered words with search using centralized dictionary
+  // Local (Spanish-only) search for vocabulario UI:
+  // We intentionally do NOT use Arabic translations in search results.
   const words = useMemo(() => {
     try {
-      const q = searchQuery.trim();
+      const q = searchQuery.trim().toLowerCase();
 
-      if (!q) {
-        // Use dictionary by category
-        const list = getDictionaryByCategory(selectedCategory) || [];
-        return list.map(d => ({
-          word: d.word || '',
-          translation: d.translations || [],
-          pronunciation: d.pronunciation || '',
-          example: d.example || '',
-          audio: d.audio || undefined,
-          category: d.category || selectedCategory,
-        }));
-      }
+      const baseList = getDictionaryByCategory(selectedCategory) || [];
+      const list = q
+        ? baseList.filter((d) => {
+            const w = (d.word || '').toLowerCase();
+            const p = (d.pronunciation || '').toLowerCase();
+            const tags = Array.isArray((d as any).tags) ? ((d as any).tags as string[]).join(' ').toLowerCase() : '';
+            return w.includes(q) || p.includes(q) || tags.includes(q);
+          })
+        : baseList;
 
-      const results = searchDictionary(q) || [];
-      // If searching within a category, filter results to that category
-      const filtered = results.filter(r => {
-        if (!r || !r.category) return true;
-        return r.category.toLowerCase() === selectedCategory.toLowerCase();
-      });
-
-      return filtered.map(d => ({
+      return list.map(d => ({
         word: d.word || '',
-        translation: d.translations || [],
         pronunciation: d.pronunciation || '',
-        example: d.example || '',
         audio: d.audio || undefined,
         category: d.category || selectedCategory,
       }));
@@ -133,39 +113,6 @@ function VocabularioContent() {
     }
   };
 
-  // Share as Image function
-  const handleShareAsImage = async () => {
-    if (!cardRef.current || !selectedWord) return;
-    
-    setIsGeneratingImage(true);
-    try {
-      const html2canvas = (await import('html2canvas')).default;
-      const canvas = await html2canvas(cardRef.current, {
-        backgroundColor: '#ffffff',
-        scale: 2,
-        logging: false,
-      });
-      
-      canvas.toBlob((blob) => {
-        if (!blob) return;
-        
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `vocabulario-${selectedWord}.png`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        URL.revokeObjectURL(url);
-        
-        setIsGeneratingImage(false);
-      }, 'image/png');
-    } catch (error) {
-      console.error('Error generating image:', error);
-      setIsGeneratingImage(false);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-white py-8 md:py-12">
       <div className="w-full max-w-7xl mx-auto px-4">
@@ -175,53 +122,9 @@ function VocabularioContent() {
             Vocabulario Español con Voz 🎤
           </h1>
           <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Amplía tu vocabulario con más de {(getDictionary()?.length ?? 0)} palabras organizadas en {vocabularyCategories.length} categorías temáticas. ¡Aprende con pronunciación nativa y juegos interactivos!
+            Amplía tu vocabulario con más de {(getDictionary()?.length ?? 0)} palabras organizadas en {vocabularyCategories.length} categorías temáticas. Aprende con iconos y pronunciación (audio) en español.
           </p>
           
-        </div>
-
-        {/* Tab Navigation */}
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
-          <button
-            onClick={() => setActiveTab('browse')}
-            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
-              activeTab === 'browse'
-                ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
-                : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
-            }`}
-          >
-            📚 Explorar
-          </button>
-          <button
-            onClick={() => setActiveTab('study')}
-            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
-              activeTab === 'study'
-                ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
-                : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
-            }`}
-          >
-            🧠 Estudiar
-          </button>
-          <button
-            onClick={() => setActiveTab('game')}
-            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
-              activeTab === 'game'
-                ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
-                : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
-            }`}
-          >
-            🎮 Jugar
-          </button>
-          <button
-            onClick={() => setActiveTab('progress')}
-            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
-              activeTab === 'progress'
-                ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
-                : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
-            }`}
-          >
-            📈 Progreso
-          </button>
         </div>
 
         {/* Enhanced Search Bar with Voice Search */}
@@ -246,178 +149,82 @@ function VocabularioContent() {
           />
         </div>
 
-        {/* Tab Content */}
-        {activeTab === 'browse' && (
-          <>
-            {/* Category Selector */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4 mb-8 md:mb-10" role="tablist" aria-label="Categorías de vocabulario">
-              {vocabularyCategories.map((category) => {
-                const Icon = categoryIcons[category] || BookOpen;
-                return (
-                  <button
-                    key={category}
-                    type="button"
-                    onClick={() => {
-                      setSelectedCategory(category);
-                      setSelectedWord(null);
-                      setSearchQuery('');
-                    }}
-                    className={`px-3 md:px-4 py-3 md:py-3.5 rounded-lg font-semibold transition-all capitalize flex items-center justify-center gap-2 text-sm md:text-base border ${
-                      selectedCategory === category
-                        ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white border-purple-600'
-                        : 'bg-white text-gray-900 hover:bg-gray-50 border-gray-200'
-                    }`}
-                    style={selectedCategory === category ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
-                    role="tab"
-                    aria-selected={selectedCategory === category}
-                    aria-label={`Categoría ${category}`}
-                  >
-                    <Icon className={`w-5 h-5 ${selectedCategory === category ? 'text-white' : 'text-gray-900'}`} aria-hidden="true" />
-                    <span className={`hidden sm:inline ${selectedCategory === category ? 'text-white' : 'text-gray-900'}`}>{category}</span>
-                  </button>
-                );
-              })}
-            </div>
+        {/* Category Selector */}
+        <div
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4 mb-8 md:mb-10"
+          role="tablist"
+          aria-label="Categorías de vocabulario"
+        >
+          {vocabularyCategories.map((category) => {
+            const Icon = categoryIcons[category] || BookOpen;
+            return (
+              <button
+                key={category}
+                type="button"
+                onClick={() => {
+                  setSelectedCategory(category);
+                  setSearchQuery('');
+                }}
+                className={`px-3 md:px-4 py-3 md:py-3.5 rounded-lg font-semibold transition-all capitalize flex items-center justify-center gap-2 text-sm md:text-base border ${
+                  selectedCategory === category
+                    ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white border-purple-600'
+                    : 'bg-white text-gray-900 hover:bg-gray-50 border-gray-200'
+                }`}
+                style={selectedCategory === category ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
+                role="tab"
+                aria-selected={selectedCategory === category}
+                aria-label={`Categoría ${category}`}
+              >
+                <Icon className={`w-5 h-5 ${selectedCategory === category ? 'text-white' : 'text-gray-900'}`} aria-hidden="true" />
+                <span className={`hidden sm:inline ${selectedCategory === category ? 'text-white' : 'text-gray-900'}`}>{category}</span>
+              </button>
+            );
+          })}
+        </div>
 
-            {/* Words Grid - Improved Responsive */}
-            {words.length === 0 ? (
-              <div className="text-center py-12">
-                <p className="text-xl text-gray-600">No se encontraron palabras con "{searchQuery}"</p>
-                <div className="mt-6">
-                  <button
-                    onClick={async () => {
-                      try {
-                        const res = await fetch('/api/suggestions', {
-                          method: 'POST',
-                          headers: { 'Content-Type': 'application/json' },
-                          body: JSON.stringify({ word: searchQuery, category: selectedCategory })
-                        });
-                        if (res.ok) {
-                          try { (window as any).__showToast?.('Sugerencia enviada. Gracias!', 'success'); } catch(e){}
-                        } else {
-                          try { (window as any).__showToast?.('No se pudo enviar la sugerencia', 'error'); } catch(e){}
-                        }
-                      } catch (e) {
-                        try { (window as any).__showToast?.('Error al enviar sugerencia', 'error'); } catch(e){}
-                      }
-                    }}
-                    className="mt-4 inline-flex items-center gap-2 px-6 py-3 bg-white border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-gray-50 transition"
-                  >
-                    Sugerir palabra
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6 mb-12">
-                {words.map((word, index) => (
+        {/* Words Grid */}
+        {words.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-xl text-gray-600">No se encontraron palabras con "{searchQuery}"</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6 mb-12">
+            {words.map((word, index) => (
+              <div
+                key={`${word.category}-${word.word}-${index}`}
+                className="bg-white rounded-xl shadow-md hover:shadow-2xl p-4 md:p-5 lg:p-6 transform transition-all duration-300 hover:scale-105 text-left w-full border-2 border-transparent"
+                aria-label={`Palabra: ${word.word}`}
+              >
+                <div className="text-center">
+                  <div className="flex justify-center mb-3">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-gray-900 rounded-full flex items-center justify-center border border-gray-800">
+                      <CategoryIcon className="w-6 h-6 md:w-7 md:h-7 text-white" aria-hidden="true" />
+                    </div>
+                  </div>
+
                   <div
-                    key={index}
-                    onClick={() => {
-                      const wasSelected = selectedWord === word.word;
-                      setSelectedWord(wasSelected ? null : word.word);
-                      
-                      // Update daily challenge progress for vocabulary (only when selecting, not deselecting)
-                      if (!wasSelected) {
-                        try {
-                          const { updateChallengeProgress } = require('@/lib/utils/dailyChallenge');
-                          updateChallengeProgress('learn-vocabulary', 1);
-                        } catch (e) {
-                          // Ignore if module not available
-                        }
-                      }
-                    }}
-                    className={`bg-white rounded-xl shadow-md hover:shadow-2xl p-4 md:p-5 lg:p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 text-left w-full border-2 ${
-                      selectedWord === word.word ? 'ring-4 ring-blue-600 border-blue-600' : 'border-transparent'
-                    }`}
+                    className="text-xl md:text-2xl font-bold text-blue-600 mb-4 cursor-pointer hover:text-blue-700 transition-colors break-words flex items-center justify-center gap-2"
+                    onClick={() => pronounceWord(word.word)}
+                    title="Haz clic para pronunciar"
                     role="button"
                     tabIndex={0}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
-                        setSelectedWord(selectedWord === word.word ? null : word.word);
+                        pronounceWord(word.word);
                       }
                     }}
-                    aria-label={`Palabra: ${word.word} - ${Array.isArray(word.translation) ? word.translation.join(', ') : word.translation}`}
-                    aria-pressed={selectedWord === word.word}
                   >
-                    <div className="text-center">
-                      <div className="flex justify-center mb-3">
-                        <div className="w-12 h-12 md:w-14 md:h-14 bg-gray-900 rounded-full flex items-center justify-center border border-gray-800">
-                          <CategoryIcon className="w-6 h-6 md:w-7 md:h-7 text-white" aria-hidden="true" />
-                        </div>
-                      </div>
-                      <div 
-                        className="text-xl md:text-2xl font-bold text-blue-600 mb-2 cursor-pointer hover:text-blue-700 transition-colors break-words flex items-center gap-2"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          pronounceWord(word.word);
-                        }}
-                        title="Haz clic para pronunciar"
-                      >
-                        {word.word}
-                        <EnhancedPronunciation 
-                          text={word.word} 
-                          className="ml-2"
-                          showControls={false}
-                        />
-                      </div>
-                      <div className="text-base md:text-lg text-gray-800 font-semibold mb-1 break-words">
-                        {Array.isArray(word.translation) ? word.translation.join(' / ') : word.translation}
-                      </div>
-                      <div className="text-sm text-gray-500 italic mb-3">
-                        {word.pronunciation}
-                      </div>
-                      <AudioPlayer text={word.word} />
-                    </div>
+                    {word.word}
+                    <EnhancedPronunciation text={word.word} className="ml-2" showControls={false} />
                   </div>
-                ))}
+
+                  <AudioPlayer text={word.word} />
+                </div>
               </div>
-            )}
-          </>
+            ))}
+          </div>
         )}
-
-        {/* Study Tab */}
-        {activeTab === 'study' && (
-          <VocabularyStudyMode 
-            words={words}
-            onSessionComplete={(stats) => {
-              console.log('Study session completed:', stats);
-            }}
-          />
-        )}
-
-        {/* Game Tab */}
-        {activeTab === 'game' && (
-          <VocabularyGame 
-            words={words}
-            onGameComplete={(score, total) => {
-              console.log('Game completed:', { score, total });
-            }}
-          />
-        )}
-
-        {/* Progress Tab */}
-        {activeTab === 'progress' && (
-          <VocabularyProgress />
-        )}
-
-        {/* Selected Word Modal */}
-        {selectedWord && (() => {
-          try {
-            const entry = getDictionaryByWord(selectedWord);
-            if (!entry) return null;
-            return (
-              <DictionaryModal
-                open={true}
-                entry={entry}
-                onClose={() => setSelectedWord(null)}
-              />
-            );
-          } catch (error) {
-            console.error('Error loading word details:', error);
-            return null;
-          }
-        })()}
 
         {/* Statistics */}
         <div className="mt-12 bg-gray-900 text-white rounded-lg p-6 md:p-8 text-center border border-gray-800">
