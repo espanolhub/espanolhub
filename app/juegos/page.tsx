@@ -15,6 +15,7 @@ import GameTabs from '@/components/games/ui/GameTabs';
 import GameButton from '@/components/games/ui/GameButton';
 import GameCard from '@/components/games/ui/GameCard';
 import type { GameCardAccent } from '@/components/games/ui/GameCard';
+import { cx } from '@/components/games/ui/classNames';
 import GameShell from '@/components/games/ui/GameShell';
 import NounAgreementGame from '@/components/games/NounAgreementGame';
 
@@ -304,13 +305,13 @@ function JuegosContent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-8">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+      <div className="container mx-auto px-4 py-8">
+        <div className="text-center mb-10">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
             🎮 Juegos Educativos
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             Aprende divirtiéndote con juegos educativos interactivos y desafiantes
           </p>
         </div>
@@ -358,7 +359,7 @@ function JuegosContent() {
                 <span className="text-4xl">🎯</span>
                 Juegos Principales
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {games.map((gameItem) => {
                   const accent: GameCardAccent =
                     gameItem.id === 'multiple-choice'
@@ -368,10 +369,12 @@ function JuegosContent() {
                           : gameItem.id === 'order'
                             ? 'purple'
                             : gameItem.id === 'word-race'
-                              ? 'rose'
+                              ? 'orange'
                               : gameItem.id === 'noun-agreement'
                                 ? 'pink'
-                                : 'slate';
+                                : gameItem.id === 'quick-quiz-verbos'
+                                  ? 'amber'
+                                  : 'slate';
                   return (
                     <GameCard
                       key={gameItem.id}
@@ -381,8 +384,13 @@ function JuegosContent() {
                       accent={accent}
                       onClick={() => handleStartGame(gameItem.id)}
                       meta={
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200">
-                          <span className="text-xs font-semibold text-gray-700">
+                        <div className={cx(
+                          'inline-flex items-center gap-2 px-3 py-1.5 rounded-full border backdrop-blur-sm transition-all duration-300',
+                          gameItem.questions.length > 0 
+                            ? 'bg-white/90 border-gray-200 hover:bg-white hover:shadow-md'
+                            : 'bg-gradient-to-r from-amber-50 to-orange-50 border-amber-200 hover:from-amber-100 hover:to-orange-100'
+                        )}>
+                          <span className="text-xs font-semibold">
                             {gameItem.questions.length > 0 ? `${gameItem.questions.length} preguntas` : '⏱️ Tiempo'}
                           </span>
                         </div>

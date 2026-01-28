@@ -110,7 +110,7 @@ export const games: Game[] = [
     name: 'Quick Quiz - Verbos',
     description: 'Practica verbos y gramática con frases de la vida diaria',
     icon: '⚡',
-    image: '/assets/games/word-race.svg',
+    image: '/assets/games/quick-quiz-verbos.svg',
     questions: [],
   },
 ];
