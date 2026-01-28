@@ -29,26 +29,34 @@ function AudioPlayer({ text, language = 'es', rate }: AudioPlayerProps) {
   const handlePlay = () => {
     if ('speechSynthesis' in window) {
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = language === 'es' ? 'es-ES' : language;
+      const resolvedLang = language === 'es' ? 'es-ES' : language;
+      utterance.lang = resolvedLang;
       
       // Use provided rate or default to 0.8 for clearer pronunciation
       utterance.rate = typeof rate === 'number' ? rate : 0.8;
       utterance.pitch = 1;
       utterance.volume = 1;
       
-      // اختيار voice إسبانية إسبانية احترافية (Castellano)
+      // Always enforce Spanish voices for Spanish playback to avoid English TTS.
       const voices = window.speechSynthesis.getVoices();
-      const spanishVoice = voices.find(voice => 
-        voice.lang.startsWith('es-ES') && 
-        (voice.name.toLowerCase().includes('castilian') || 
-         voice.name.toLowerCase().includes('spain') || 
-         voice.name.toLowerCase().includes('peninsular'))
-      ) || voices.find(voice => 
-        voice.lang.startsWith('es-ES') && 
-        !voice.name.toLowerCase().includes('latin')
-      ) || voices.find(voice => voice.lang.startsWith('es-ES'));
-      
-      if (spanishVoice) {
+      const wantsSpanish = resolvedLang.toLowerCase().startsWith('es');
+
+      if (wantsSpanish) {
+        const spanishVoice =
+          voices.find((voice) => voice.lang?.toLowerCase().startsWith('es-es') && (
+            voice.name.toLowerCase().includes('castilian') ||
+            voice.name.toLowerCase().includes('spain') ||
+            voice.name.toLowerCase().includes('peninsular')
+          )) ||
+          voices.find((voice) => voice.lang?.toLowerCase().startsWith('es-es')) ||
+          voices.find((voice) => voice.lang?.toLowerCase().startsWith('es-')) ||
+          voices.find((voice) => voice.lang?.toLowerCase().startsWith('es'));
+
+        if (!spanishVoice) {
+          console.warn('No Spanish voice available; skipping TTS to avoid English voice.');
+          return;
+        }
+
         utterance.voice = spanishVoice;
       }
       

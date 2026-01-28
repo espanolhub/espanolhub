@@ -4,7 +4,7 @@ import { BASE_URL, getCanonicalUrl } from '@/lib/config/seo-config';
 
 export const metadata: Metadata = {
   title: 'Juegos Educativos - Aprende Español Jugando | Espanol Hub',
-  description: 'Juegos interactivos para aprender español: memoria, preguntas múltiples, completar espacios en blanco, ordenar palabras y más. Aprende divirtiéndote.',
+  description: 'Juegos interactivos para aprender español: preguntas múltiples, completar espacios en blanco, ordenar palabras y más. Aprende divirtiéndote.',
   keywords: ['juegos español', 'aprender español jugando', 'juegos educativos', 'juegos interactivos', 'español online', 'juegos gratis español'],
   alternates: {
     canonical: getCanonicalUrl('/juegos'),

@@ -53,6 +53,26 @@ function JuegosContent() {
 
   const currentQuestion = game?.questions[currentQuestionIndex];
 
+  // Safety: never show Arabic text in games UI
+  const hasArabic = (value: unknown): boolean => {
+    if (typeof value === 'string') return /[\u0600-\u06FF]/.test(value);
+    if (Array.isArray(value)) return value.some((v) => hasArabic(v));
+    return false;
+  };
+
+  const sanitizeQuestions = (qs: any[]): any[] => {
+    if (!Array.isArray(qs)) return [];
+    return qs.filter((q) => {
+      if (!q) return false;
+      return !(
+        hasArabic(q.question) ||
+        hasArabic(q.options) ||
+        hasArabic(q.correctAnswer) ||
+        hasArabic(q.explanation)
+      );
+    });
+  };
+
   const fetchOrderOrMcq = async (gameId: string, level: number) => {
     const apiPath = gameId === 'order' ? '/api/games/order' : '/api/games/multiple-choice';
     const res = await fetch(`${apiPath}?level=${level}`);
@@ -81,7 +101,7 @@ function JuegosContent() {
         setLevelLoading(true);
         try {
           const qs = await fetchOrderOrMcq(gameId, chosenLevel);
-          setSelectedQuestions(qs);
+          setSelectedQuestions(sanitizeQuestions(qs));
           setCurrentLevel(chosenLevel);
         } catch (e) {
           console.error('Error loading game:', e);
@@ -96,26 +116,12 @@ function JuegosContent() {
       return;
     }
 
-    if (gameId === 'memory') {
-      try {
-        const res = await fetch('/api/games/match');
-        if (res.ok) {
-          const data = await res.json();
-          const qs = (data.questions ?? []).slice(0, 21);
-          setSelectedQuestions(qs);
-        } else setSelectedQuestions([]);
-      } catch (e) {
-        console.error('Error loading match game:', e);
-        setSelectedQuestions([]);
-      }
-      return;
-    }
     if (gameId === 'fill-blank') {
       try {
         const res = await fetch('/api/games/fill-blank?level=1');
         if (res.ok) {
           const data = await res.json();
-          const qs = (data.questions ?? []).slice(0, 21);
+          const qs = sanitizeQuestions((data.questions ?? []).slice(0, 21));
           setSelectedQuestions(qs);
         } else setSelectedQuestions([]);
       } catch (e) {
@@ -125,7 +131,7 @@ function JuegosContent() {
       return;
     }
     if (baseGameData && baseGameData.id !== 'word-race' && baseGameData.questions.length > 0) {
-      setSelectedQuestions(getRandomQuestions(baseGameData.questions, 20));
+      setSelectedQuestions(sanitizeQuestions(getRandomQuestions(baseGameData.questions, 20)));
     } else {
       setSelectedQuestions([]);
     }
@@ -135,7 +141,7 @@ function JuegosContent() {
   useEffect(() => {
     if (urlGameInitialized.current) return;
     const gameParam = searchParams?.get('game');
-    if (gameParam && ['quick-quiz-verbos', 'order', 'word-race', 'multiple-choice', 'memory', 'fill-blank'].includes(gameParam)) {
+    if (gameParam && ['quick-quiz-verbos', 'order', 'word-race', 'multiple-choice', 'fill-blank'].includes(gameParam)) {
       urlGameInitialized.current = true;
       handleStartGame(gameParam);
     }
@@ -257,7 +263,7 @@ function JuegosContent() {
     setShowLevelUp(false);
     try {
       const qs = await fetchOrderOrMcq(selectedGame, levelUpTo);
-      setSelectedQuestions(qs);
+      setSelectedQuestions(sanitizeQuestions(qs));
       setCurrentLevel(levelUpTo);
       setCurrentQuestionIndex(0);
       setLevelUpTo(0);
@@ -271,7 +277,6 @@ function JuegosContent() {
 
   // Define gradient colors for each game
   const gameGradients: Record<string, string> = {
-    'memory': 'from-blue-500 to-cyan-500',
     'multiple-choice': 'from-green-500 to-emerald-500',
     'fill-blank': 'from-purple-500 to-pink-500',
     'order': 'from-blue-600 to-indigo-600',
@@ -336,9 +341,7 @@ function JuegosContent() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                 {games.map((gameItem) => {
                   const accent =
-                    gameItem.id === 'memory'
-                      ? 'blue'
-                      : gameItem.id === 'multiple-choice'
+                    gameItem.id === 'multiple-choice'
                         ? 'green'
                         : gameItem.id === 'fill-blank'
                           ? 'purple'
@@ -480,7 +483,7 @@ function JuegosContent() {
                     </span>
                   </div>
                 )}
-                {(selectedGame === 'memory' || selectedGame === 'fill-blank') && (
+                {(selectedGame === 'fill-blank') && (
                   <div className="bg-blue-100 rounded-lg px-4 py-2">
                     <span className="text-sm text-gray-600">Ronda </span>
                     <span className="font-bold text-blue-700">
@@ -805,7 +808,7 @@ function JuegosContent() {
                     <RotateCcw className="w-5 h-5 mr-2 text-slate-900" aria-hidden="true" />
                     Volver a los Juegos
                   </GameButton>
-                  {(selectedGame === 'memory' || selectedGame === 'fill-blank') && (
+                  {(selectedGame === 'fill-blank') && (
                     <GameButton onClick={() => handleStartGame(selectedGame!)} variant="primary" size="lg">
                       <Gamepad2 className="w-5 h-5 mr-2 text-white" aria-hidden="true" />
                       Jugar de nuevo

@@ -5,7 +5,6 @@ import { useSearchParams } from 'next/navigation';
 import { vocabularyCategories } from '@/lib/data/vocabulary';
 import { getDictionaryByCategory, getDictionary } from '@/lib/data/dictionary';
 import AudioPlayer from '@/components/AudioPlayer';
-import EnhancedPronunciation from '@/components/EnhancedPronunciation';
 import VoiceSearch from '@/components/VoiceSearch';
 import { 
   Palette, Coffee, Users, Cat, Home, Shirt, User, Play, BookOpen, Heart, 
@@ -83,35 +82,6 @@ function VocabularioContent() {
   }, [selectedCategory, searchQuery]);
   
   const CategoryIcon = categoryIcons[selectedCategory] || BookOpen;
-
-  // Web Speech API - Pronounce word on click
-  const pronounceWord = (word: string) => {
-    if ('speechSynthesis' in window) {
-      const utterance = new SpeechSynthesisUtterance(word);
-      utterance.lang = 'es-ES';
-      utterance.rate = 0.65;
-      utterance.pitch = 1;
-      utterance.volume = 1;
-      
-      const voices = window.speechSynthesis.getVoices();
-      const spanishVoice = voices.find(voice => 
-        voice.lang.startsWith('es-ES') && 
-        (voice.name.toLowerCase().includes('castilian') || 
-         voice.name.toLowerCase().includes('spain') || 
-         voice.name.toLowerCase().includes('peninsular'))
-      ) || voices.find(voice => 
-        voice.lang.startsWith('es-ES') && 
-        !voice.name.toLowerCase().includes('latin')
-      ) || voices.find(voice => voice.lang.startsWith('es-ES'));
-      
-      if (spanishVoice) {
-        utterance.voice = spanishVoice;
-      }
-      
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-white py-8 md:py-12">
@@ -202,21 +172,8 @@ function VocabularioContent() {
                     </div>
                   </div>
 
-                  <div
-                    className="text-xl md:text-2xl font-bold text-blue-600 mb-4 cursor-pointer hover:text-blue-700 transition-colors break-words flex items-center justify-center gap-2"
-                    onClick={() => pronounceWord(word.word)}
-                    title="Haz clic para pronunciar"
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        pronounceWord(word.word);
-                      }
-                    }}
-                  >
+                  <div className="text-xl md:text-2xl font-bold text-blue-600 mb-4 break-words">
                     {word.word}
-                    <EnhancedPronunciation text={word.word} className="ml-2" showControls={false} />
                   </div>
 
                   <AudioPlayer text={word.word} />

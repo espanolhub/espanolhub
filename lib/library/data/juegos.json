@@ -30,8 +30,8 @@
     "id": "desafio-multifase",
     "title": "Desafío Multifase",
     "level": "intermediate",
-    "summary": "Completa tres etapas diferentes: Memoria, Carrera de Palabras y Quiz",
-    "excerpt": "Desafío completo que combina diferentes tipos de juegos educativos",
+    "summary": "Completa dos etapas diferentes: Carrera de Palabras y Quiz",
+    "excerpt": "Desafío completo que combina varios tipos de juegos educativos",
     "image": "/assets/games/sample2.svg",
     "content": "{\"gameType\":\"multi-stage\"}"
   }

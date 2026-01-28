@@ -5,7 +5,7 @@ import { Trophy, Clock, ArrowRight, CheckCircle, XCircle, Play, RotateCcw } from
 import GameShell from '@/components/games/ui/GameShell';
 import GameButton from '@/components/games/ui/GameButton';
 
-type StageType = 'memory' | 'word-race' | 'quiz';
+type StageType = 'word-race' | 'quiz';
 
 interface Stage {
   id: StageType;
@@ -22,35 +22,19 @@ interface MultiStageGameProps {
 
 const stages: Stage[] = [
   {
-    id: 'memory',
-    name: 'Fase 1: Memoria',
-    description: 'Encuentra las parejas de palabras',
-    icon: '🧠',
-    color: 'from-blue-500 to-cyan-500',
-  },
-  {
     id: 'word-race',
-    name: 'Fase 2: Carrera de Palabras',
-    description: 'Traduce lo más rápido posible',
+    name: 'Fase 1: Carrera de Palabras',
+    description: 'Responde lo más rápido posible',
     icon: '⚡',
     color: 'from-yellow-500 to-amber-500',
   },
   {
     id: 'quiz',
-    name: 'Fase 3: Quiz de Verbos',
+    name: 'Fase 2: Quiz de Verbos',
     description: 'Responde preguntas de opción múltiple',
     icon: '✅',
     color: 'from-green-500 to-emerald-500',
   },
-];
-
-// Memory game questions (from lib/data/games.ts)
-const memoryQuestions = [
-  { id: '1', question: 'Empareja: rojo', type: 'match' as const, correctAnswer: ['rojo'], points: 10 },
-  { id: '2', question: 'Empareja: casa', type: 'match' as const, correctAnswer: ['casa'], points: 10 },
-  { id: '3', question: 'Empareja: perro', type: 'match' as const, correctAnswer: ['perro'], points: 10 },
-  { id: '4', question: 'Empareja: agua', type: 'match' as const, correctAnswer: ['agua'], points: 10 },
-  { id: '5', question: 'Empareja: azul', type: 'match' as const, correctAnswer: ['azul'], points: 10 },
 ];
 
 // Quiz questions (from lib/data/games.ts)
@@ -100,22 +84,15 @@ const quizQuestions = [
 export default function MultiStageGame({ onComplete, onBack }: MultiStageGameProps) {
   const [currentStageIndex, setCurrentStageIndex] = useState(0);
   const [stageScores, setStageScores] = useState<Record<StageType, number>>({
-    memory: 0,
     'word-race': 0,
     quiz: 0,
   });
   const [stageCompleted, setStageCompleted] = useState<Record<StageType, boolean>>({
-    memory: false,
     'word-race': false,
     quiz: false,
   });
   const [gameStarted, setGameStarted] = useState(false);
   const [gameCompleted, setGameCompleted] = useState(false);
-
-  // Memory game state
-  const [memoryIndex, setMemoryIndex] = useState(0);
-  const [memoryAnswer, setMemoryAnswer] = useState('');
-  const [memoryShowResult, setMemoryShowResult] = useState(false);
 
   // Quiz state
   const [quizIndex, setQuizIndex] = useState(0);
@@ -135,31 +112,9 @@ export default function MultiStageGame({ onComplete, onBack }: MultiStageGamePro
   const handleStartGame = () => {
     setGameStarted(true);
     setCurrentStageIndex(0);
-    setStageScores({ memory: 0, 'word-race': 0, quiz: 0 });
-    setStageCompleted({ memory: false, 'word-race': false, quiz: false });
+    setStageScores({ 'word-race': 0, quiz: 0 });
+    setStageCompleted({ 'word-race': false, quiz: false });
     setGameCompleted(false);
-  };
-
-  const handleMemoryAnswer = () => {
-    const question = memoryQuestions[memoryIndex];
-    const isCorrect = memoryAnswer.toLowerCase().trim() === question.correctAnswer[0].toLowerCase().trim();
-    setMemoryShowResult(true);
-    
-    if (isCorrect) {
-      setStageScores(prev => ({ ...prev, memory: prev.memory + question.points }));
-    }
-  };
-
-  const handleMemoryNext = () => {
-    if (memoryIndex < memoryQuestions.length - 1) {
-      setMemoryIndex(prev => prev + 1);
-      setMemoryAnswer('');
-      setMemoryShowResult(false);
-    } else {
-      // Memory stage completed
-      setStageCompleted(prev => ({ ...prev, memory: true }));
-      handleNextStage();
-    }
   };
 
   const handleQuizAnswer = (answer: string) => {
@@ -217,10 +172,10 @@ export default function MultiStageGame({ onComplete, onBack }: MultiStageGamePro
       <GameShell className="max-w-5xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">🎮 Desafío Multifase</h1>
-          <p className="text-xl text-gray-600">Completa tres etapas diferentes para ganar el máximo de puntos</p>
+          <p className="text-xl text-gray-600">Completa dos etapas diferentes para ganar el máximo de puntos</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {stages.map((stage, index) => (
             <div
               key={stage.id}
@@ -251,7 +206,8 @@ export default function MultiStageGame({ onComplete, onBack }: MultiStageGamePro
 
   // Game completed screen
   if (gameCompleted) {
-    const percentage = (totalScore / 150) * 100;
+    const totalPossible = 100;
+    const percentage = (totalScore / totalPossible) * 100;
     return (
       <GameShell className="max-w-5xl mx-auto">
         <div className="bg-white rounded-xl shadow-2xl p-8 text-center">
@@ -262,7 +218,7 @@ export default function MultiStageGame({ onComplete, onBack }: MultiStageGamePro
           
           <div className="mb-6">
             <div className="text-5xl font-bold text-purple-600 mb-2">{totalScore} puntos</div>
-            <div className="text-gray-600">de 150 posibles</div>
+            <div className="text-gray-600">de {totalPossible} posibles</div>
           </div>
 
           <div className="mb-6">
@@ -307,84 +263,6 @@ export default function MultiStageGame({ onComplete, onBack }: MultiStageGamePro
   const completedStages = Object.values(stageCompleted).filter(Boolean).length;
   
   // Render current stage
-  if (currentStage.id === 'memory') {
-    const question = memoryQuestions[memoryIndex];
-    return (
-      <div className="max-w-4xl mx-auto p-6">
-        {/* Progress Header */}
-        <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-800">{currentStage.name}</h2>
-              <p className="text-gray-600">{currentStage.description}</p>
-            </div>
-            <div className="text-right">
-              <div className="text-3xl font-bold text-blue-600">{stageScores.memory}</div>
-              <div className="text-sm text-gray-500">puntos</div>
-            </div>
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-3">
-            <div
-              className="bg-gradient-to-r from-blue-500 to-cyan-500 h-3 rounded-full transition-all"
-              style={{ width: `${((memoryIndex + 1) / memoryQuestions.length) * 100}%` }}
-            />
-          </div>
-          <div className="mt-2 text-sm text-gray-500">
-            Pregunta {memoryIndex + 1} de {memoryQuestions.length} • Fase {completedStages + 1} de {stages.length}
-          </div>
-        </div>
-
-        {/* Memory Game */}
-        <div className="bg-white rounded-xl shadow-lg p-8">
-          <h3 className="text-2xl font-bold text-gray-800 mb-6">{question.question}</h3>
-          
-          <div className="space-y-4">
-            <input
-              type="text"
-              value={memoryAnswer}
-              onChange={(e) => !memoryShowResult && setMemoryAnswer(e.target.value)}
-              onKeyPress={(e) => {
-                if (e.key === 'Enter' && memoryAnswer && !memoryShowResult) {
-                  handleMemoryAnswer();
-                }
-              }}
-              disabled={memoryShowResult}
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-lg focus:border-blue-500 focus:outline-none"
-              placeholder="Escribe la traducción..."
-            />
-
-            {memoryShowResult && (
-              <div className={`p-4 rounded-lg ${
-                memoryAnswer.toLowerCase().trim() === question.correctAnswer[0].toLowerCase().trim()
-                  ? 'bg-green-50 border-2 border-green-500'
-                  : 'bg-red-50 border-2 border-red-500'
-              }`}>
-                <p className="font-semibold">
-                  {memoryAnswer.toLowerCase().trim() === question.correctAnswer[0].toLowerCase().trim()
-                    ? '✓ Correcto!'
-                    : '✗ Incorrecto'}
-                </p>
-                <p className="text-gray-700 mt-2">
-                  La respuesta correcta es: <strong>{question.correctAnswer[0]}</strong>
-                </p>
-              </div>
-            )}
-
-            {memoryShowResult && (
-              <button
-                onClick={handleMemoryNext}
-                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all"
-              >
-                {memoryIndex < memoryQuestions.length - 1 ? 'Siguiente' : 'Finalizar Fase'}
-                <ArrowRight className="w-5 h-5 inline ml-2" />
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   const handleWordRaceAnswer = () => {
     // Simple validation - in real implementation, this would use dictionary
     setWordRaceShowResult(true);
