@@ -25,19 +25,19 @@ export default function Home() {
 		</a>
 		{/* Hero */}
 		<header className="relative overflow-hidden bg-white border-b border-gray-200">
-			<div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
+			<div className="max-w-7xl mx-auto px-6 py-10 md:py-16">
 				<div className="bg-white border border-gray-200 rounded-lg p-8 md:p-12">
 					<div className="flex flex-col md:flex-row items-center gap-12">
 						<div className="flex-1 text-center md:text-left">
-				<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900">
+				<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 text-gray-900">
 					Tu futuro en España comienza aquí
 				</h1>
-				<p className="text-lg mb-8 text-gray-700 max-w-2xl mx-auto md:mx-0">
+				<p className="text-lg mb-4 text-gray-700 max-w-2xl mx-auto md:mx-0">
 					Aprende español, aprueba tus exámenes y gestiona tus trámites de forma completamente gratuita. Sin tarjetas de crédito.
 				</p>
 
 						{/* Main CTA Buttons */}
-						<div className="flex flex-col sm:flex-row gap-4 mb-6 justify-center md:justify-start">
+						<div className="flex flex-col sm:flex-row gap-3 mb-4 justify-center md:justify-start">
 							<Link
 								href="/cursos"
 								className="group relative px-8 py-4 bg-gray-900 text-white font-bold rounded-lg shadow-sm hover:bg-gray-800 transition-all duration-200 flex items-center justify-center gap-2"
@@ -57,7 +57,7 @@ export default function Home() {
 						</div>
 
 						{/* Core Content Grid - 4 Categories */}
-						<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+						<div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
 						<Link
 							href="/gramatica"
 							className="group p-6 bg-gradient-to-br from-blue-100 to-blue-200 border border-blue-300 rounded-lg hover:shadow-md hover:from-blue-200 hover:to-blue-300 transition-all text-center"
@@ -110,53 +110,18 @@ export default function Home() {
 			</div>
 		</header>
 
-			{/* Aprende Español GRATIS Section */}
-			<section className="py-16 bg-white border-b border-gray-200">
-				<div className="max-w-7xl mx-auto px-6">
-					<div className="bg-white rounded-lg p-8 md:p-12 border border-gray-200">
-						<div className="flex flex-col md:flex-row items-center gap-8">
-							<div className="flex-1 text-center md:text-left">
-								<div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-4 border border-gray-200">
-									<Gift className="w-5 h-5 text-gray-700" aria-hidden="true" />
-									<span className="text-sm font-bold text-gray-900">100% GRATIS</span>
-								</div>
-								<h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
-									Aprende Español <span className="text-gray-900">GRATIS</span>
-								</h2>
-								<p className="text-lg text-gray-700 mb-6 max-w-2xl">
-									Accede a todo nuestro contenido educativo sin costo. Gramática, vocabulario, juegos interactivos y más. Sin registro, sin tarjeta de crédito.
-								</p>
-								<Link
-									href="/aprender-espanol-gratis"
-									className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white font-bold rounded-lg shadow-sm hover:bg-gray-800 transition-all"
-								>
-									<Star className="w-5 h-5 text-white" aria-hidden="true" />
-									<span>Empieza Ahora - GRATIS</span>
-									<ArrowRight className="w-5 h-5 text-white" aria-hidden="true" />
-								</Link>
-							</div>
-							<div className="flex-shrink-0">
-								<div className="w-32 h-32 md:w-40 md:h-40 bg-gray-100 rounded-full flex items-center justify-center border border-gray-200">
-									<Gift className="w-16 h-16 md:w-20 md:h-20 text-gray-700" aria-hidden="true" />
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
 			{/* Main Features - Three Pillars */}
-			<section id="main-content" className="py-16 bg-white">
+			<section id="main-content" className="py-8 bg-white">
 				<div className="max-w-7xl mx-auto px-6">
 					{/* Section Header */}
-				<div className="text-center mb-12">
+				<div className="text-center mb-8">
 					<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 flex items-center justify-center gap-3">
 						<Zap className="w-8 h-8 text-gray-700" aria-hidden="true" />
 						Nuestros Programas Principales
 					</h2>
 				</div>
 
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 					<ModernCard 
 						icon={<Car className="w-8 h-8 text-white" aria-hidden="true" />}
 						gradient="from-blue-600 via-indigo-600 to-blue-600"
@@ -192,7 +157,7 @@ export default function Home() {
 			</section>
 
 			{/* Practice Section */}
-			<section className="py-16 bg-white border-b border-gray-200">
+			<section className="py-8 bg-white border-b border-gray-200">
 				<div className="max-w-7xl mx-auto px-6">
 					<div className="text-center mb-8">
 						<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-3">
@@ -209,69 +174,27 @@ export default function Home() {
 				</div>
 			</section>
 
-			{/* Herramientas Gratuitas Section */}
-			<section className="py-16 bg-white">
+			{/* Recursos Adicionales Section */}
+			<section className="py-8 bg-white">
 				<div className="max-w-7xl mx-auto px-6">
-					<div className="text-center mb-12">
+					<div className="text-center mb-8">
 						<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 flex items-center justify-center gap-3">
 							<Wrench className="w-8 h-8 text-gray-700" aria-hidden="true" />
-							<span>Herramientas Gratuitas</span>
+							<span>Recursos Adicionales</span>
 						</h2>
 						<p className="text-lg text-gray-700 max-w-2xl mx-auto">
-							Utiliza nuestras herramientas gratuitas para mejorar tu español
+							Refuerza tu base con recursos clave de letras, pronunciación y conjugaciones.
 						</p>
 					</div>
 
-					<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-						<Link
-							href="/driving-license"
-							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
-						>
-							<div className="flex items-center gap-4 mb-4">
-								<div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center text-white">
-									<Car className="w-6 h-6" />
-								</div>
-								<h3 className="text-xl font-bold text-gray-900">
-									Carnet de Conducir
-								</h3>
-							</div>
-							<p className="text-gray-700 mb-4">
-								18 capítulos completos + Simulador oficial DGT. Todo lo necesario para aprobar tu examen.
-							</p>
-							<div className="flex items-center text-blue-500 font-semibold">
-								<span>Comenzar</span>
-								<ArrowRight className="w-4 h-4 ml-2" />
-							</div>
-						</Link>
-
-						<Link
-							href="/nacionalidad"
-							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
-						>
-							<div className="flex items-center gap-4 mb-4">
-								<div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center text-white">
-									<Award className="w-6 h-6" />
-								</div>
-								<h3 className="text-xl font-bold text-gray-900">
-									Nacionalidad
-								</h3>
-							</div>
-							<p className="text-gray-700 mb-4">
-								Preparación completa para el examen CCSE oficial. 40+ lecciones y exámenes oficiales.
-							</p>
-							<div className="flex items-center text-purple-500 font-semibold">
-								<span>Estudiar</span>
-								<ArrowRight className="w-4 h-4 ml-2" />
-							</div>
-						</Link>
-
+					<div className="grid md:grid-cols-3 gap-6">
 						<Link
 							href="/alfabeto"
 							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
 						>
 							<div className="flex items-center gap-4 mb-4">
 								<div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-white">
-									<Hash className="w-6 h-6" />
+									<Hash className="w-6 h-6" aria-hidden="true" />
 								</div>
 								<h3 className="text-xl font-bold text-gray-900">
 									Alfabeto
@@ -282,7 +205,28 @@ export default function Home() {
 							</p>
 							<div className="flex items-center text-green-500 font-semibold">
 								<span>Aprender</span>
-								<ArrowRight className="w-4 h-4 ml-2" />
+								<ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
+							</div>
+						</Link>
+
+						<Link
+							href="/pronunciacion-espanol-guia"
+							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+						>
+							<div className="flex items-center gap-4 mb-4">
+								<div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white">
+									<Volume2 className="w-6 h-6" aria-hidden="true" />
+								</div>
+								<h3 className="text-xl font-bold text-gray-900">
+									Guía de Pronunciación
+								</h3>
+							</div>
+							<p className="text-gray-700 mb-4">
+								Mejora tu pronunciación con nuestra guía completa. Audio de nativos y técnicas probadas.
+							</p>
+							<div className="flex items-center text-blue-500 font-semibold">
+								<span>Practicar sonidos</span>
+								<ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
 							</div>
 						</Link>
 
@@ -292,7 +236,7 @@ export default function Home() {
 						>
 							<div className="flex items-center gap-4 mb-4">
 								<div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center text-white">
-									<Wrench className="w-6 h-6" />
+									<Wrench className="w-6 h-6" aria-hidden="true" />
 								</div>
 								<h3 className="text-xl font-bold text-gray-900">
 									Conjugador
@@ -303,7 +247,7 @@ export default function Home() {
 							</p>
 							<div className="flex items-center text-indigo-500 font-semibold">
 								<span>Conjugar</span>
-								<ArrowRight className="w-4 h-4 ml-2" />
+								<ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
 							</div>
 						</Link>
 					</div>
@@ -311,9 +255,9 @@ export default function Home() {
 			</section>
 
 			{/* Why Choose Us */}
-			<section className="py-16 bg-white border-b border-gray-200">
+			<section className="py-8 bg-white border-b border-gray-200">
 			<div className="max-w-7xl mx-auto px-6">
-				<div className="text-center mb-12">
+				<div className="text-center mb-8">
 					<h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
 						¿Por qué <span className="text-gray-900">Espanol Hub</span>?
 					</h2>
@@ -331,7 +275,7 @@ export default function Home() {
 					/>
 					<SimpleFeatureBox 
 						icon={<Shield className="w-8 h-8" />}
-						title="Contenido Actualizado 2026"
+						title="Contenido Actualizado"
 						description="Últimas actualizaciones oficiales"
 						delay={100}
 					/>
@@ -344,7 +288,7 @@ export default function Home() {
 				</div>
 
 				{/* Stats Row */}
-				<div className="mt-16 grid grid-cols-3 gap-8 text-center">
+				<div className="mt-10 grid grid-cols-3 gap-6 text-center">
 					<div className="p-6 bg-gray-50 border border-gray-200 rounded-lg">
 						<div className="text-4xl font-bold mb-2 text-gray-900">100+</div>
 						<div className="text-sm text-gray-700">Lecciones</div>
@@ -362,20 +306,20 @@ export default function Home() {
 			</section>
 
 			{/* Final CTA Section */}
-			<section className="py-16 bg-white">
+			<section className="py-8 bg-white">
 				<div className="max-w-7xl mx-auto px-6">
-					<div className="relative rounded-lg bg-gray-900 p-8 md:p-12 border border-gray-800">
+					<div className="relative rounded-lg bg-gray-900 p-6 md:p-8 border border-gray-800">
 						<div className="flex flex-col items-center text-center">
 							<div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-full mb-4 border border-gray-700">
 								<Star className="w-5 h-5 text-white" aria-hidden="true" />
 								<span className="text-sm font-semibold text-white">Acceso Gratuito de por Vida</span>
 							</div>
-							<h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
+							<h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
 								Empieza hoy tu camino al éxito
 							</h2>
 
 							{/* Features list */}
-							<div className="mt-6 space-y-2 max-w-2xl">
+							<div className="mt-4 space-y-2 max-w-2xl">
 								<div className="flex items-center justify-center gap-2 text-white">
 									<CheckCircle className="w-5 h-5 text-white" aria-hidden="true" />
 									<span className="text-sm">Acceso completo a todos los cursos</span>
@@ -392,7 +336,7 @@ export default function Home() {
 
 							<Link
 								href="/cursos"
-								className="mt-8 inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 font-bold rounded-lg shadow-sm hover:bg-gray-50 transition-all duration-200"
+								className="mt-6 inline-flex items-center gap-2 px-8 py-3 bg-white text-gray-900 font-bold rounded-lg shadow-sm hover:bg-gray-50 transition-all duration-200"
 							>
 								<span>Empezar Gratis Ahora</span>
 								<ArrowRight className="w-5 h-5 text-gray-900" aria-hidden="true" />
