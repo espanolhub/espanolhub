@@ -1,23 +1,18 @@
  'use client';
 
-import * as React from 'react';
-import { useEffect, useState } from 'react';
 import { getCourseById } from '@/lib/data/courses';
-import { useRouter } from 'next/navigation';
-import { Play, ArrowRight, BookOpen, Clock } from 'lucide-react';
+import type { Lesson } from '@/lib/types/courses';
+import { useParams, useRouter } from 'next/navigation';
+import { Play, BookOpen, Clock } from 'lucide-react';
 import Link from 'next/link';
 
-export default function CoursePage({ params }: { params: { id: string } }) {
-  const { id } = params;
-  const course = getCourseById(id);
-  const [mounted, setMounted] = useState(false);
+export default function CoursePage() {
+  const params = useParams<{ id?: string | string[] }>();
+  const id = typeof params?.id === 'string' ? params.id : Array.isArray(params?.id) ? params.id[0] : undefined;
+  const course = id ? getCourseById(id) : undefined;
   const router = useRouter();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const handleStartLesson = (lesson: any) => {
+  const handleStartLesson = (lesson: Lesson) => {
     // Special handling for driving lessons
     if (course?.id === 'carnet-1' && lesson.contentId.startsWith('driving-')) {
       router.push(`/driving-license#${lesson.contentId}`);
@@ -38,6 +33,17 @@ export default function CoursePage({ params }: { params: { id: string } }) {
       router.push(routeBuilder(lesson.contentId));
     }
   };
+
+  if (!id) {
+    return (
+      <div className="min-h-screen p-8 bg-white text-slate-900">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-3xl font-bold mb-4">Curso no encontrado</h1>
+          <p>ID del curso no proporcionado.</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!course) {
     return (
@@ -69,7 +75,7 @@ export default function CoursePage({ params }: { params: { id: string } }) {
             </div>
           ) : (
             <div className="space-y-4">
-              {course.lessons.map((lesson: any, idx: number) => (
+              {course.lessons.map((lesson, idx: number) => (
                 <div key={lesson.id} className="p-6 border rounded-xl bg-white hover:shadow-md transition-all">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
