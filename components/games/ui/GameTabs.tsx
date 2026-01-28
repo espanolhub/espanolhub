@@ -40,7 +40,7 @@ export default function GameTabs<T extends string>({
               {Icon ? (
                 <Icon className={cx('w-6 h-6 flex-shrink-0', active ? 'text-white' : 'text-slate-900')} aria-hidden="true" />
               ) : null}
-              <span className="text-sm sm:text-base">{item.label}</span>
+              <span className={cx('text-sm sm:text-base', active ? 'text-white' : 'text-slate-900')}>{item.label}</span>
               {item.badge ? <span className="flex-shrink-0">{item.badge}</span> : null}
             </button>
           );
