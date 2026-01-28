@@ -171,12 +171,18 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         
         
-        {/* Critical CSS inline for faster rendering */}
+        {/* Critical CSS inline for faster rendering - aligned with Dark Slate theme */}
         <style dangerouslySetInnerHTML={{
           __html: `
-            /* Light-only critical styles to avoid color mismatches on first paint */
-            :root { color-scheme: light; }
-            body { font-family: var(--font-inter), system-ui, sans-serif; margin: 0; padding: 0; background: #ffffff; color: #0f172a; }
+            /* Dark Slate critical styles to avoid color mismatches on first paint */
+            :root { color-scheme: dark; }
+            body {
+              font-family: var(--font-inter), system-ui, sans-serif;
+              margin: 0;
+              padding: 0;
+              background: #0f172a;
+              color: #e5e7eb;
+            }
             a { text-underline-offset: 3px; }
             .skip-to-main { position: absolute; left: -9999px; top: 0; z-index: 9999; }
             .skip-to-main:focus { left: 50%; transform: translateX(-50%); }

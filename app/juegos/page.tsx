@@ -15,6 +15,7 @@ import GameTabs from '@/components/games/ui/GameTabs';
 import GameButton from '@/components/games/ui/GameButton';
 import GameCard from '@/components/games/ui/GameCard';
 import GameShell from '@/components/games/ui/GameShell';
+import NounAgreementGame from '@/components/games/NounAgreementGame';
 
 type TabType = 'principales' | 'biblioteca' | 'todos';
 
@@ -284,9 +285,9 @@ function JuegosContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--bg-base)] py-12">
+    <div className="min-h-screen bg-[var(--bg-base)] py-8">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             🎮 Juegos Educativos
           </h1>
@@ -360,7 +361,7 @@ function JuegosContent() {
                       onClick={() => handleStartGame(gameItem.id)}
                       meta={
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-100 rounded-full">
-                          <span className="text-xs font-semibold text-slate-700 truncate max-w-full">
+                          <span className="text-xs font-semibold text-slate-700">
                             {gameItem.questions.length > 0 ? `${gameItem.questions.length} preguntas` : '⏱️ Tiempo'}
                           </span>
                         </div>
@@ -420,6 +421,14 @@ function JuegosContent() {
               </div>
             )}
           </>
+        ) : selectedGame === 'noun-agreement' ? (
+          <GameShell className="max-w-5xl mx-auto">
+            <GameButton onClick={handleReset} className="mb-6" variant="secondary">
+              <ArrowLeft className="w-5 h-5 text-slate-900" aria-hidden="true" />
+              Volver a Juegos
+            </GameButton>
+            <NounAgreementGame onBack={handleReset} />
+          </GameShell>
         ) : selectedGame === 'word-race' ? (
           <GameShell className="max-w-4xl mx-auto">
             <GameButton onClick={handleReset} className="mb-6" variant="secondary">

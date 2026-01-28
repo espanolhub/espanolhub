@@ -57,7 +57,7 @@ export default function GameCard({
 
       <div className="min-h-[64px]">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-lg font-extrabold text-slate-900 leading-tight line-clamp-2">{title}</h3>
+          <h3 className="text-lg font-extrabold text-slate-900 leading-tight">{title}</h3>
           <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-slate-500 flex-shrink-0 mt-1 transition-colors" aria-hidden="true" />
         </div>
         {description ? (

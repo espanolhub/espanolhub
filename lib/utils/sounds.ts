@@ -114,3 +114,30 @@ export function playCompletionSound() {
     console.debug('Audio context not available:', error);
   }
 }
+
+/**
+ * Play a fail sound effect (short low-tone beep).
+ */
+export function playFailSound() {
+  if (typeof window === 'undefined') return;
+
+  try {
+    const ctx = getAudioContext();
+    const oscillator = ctx.createOscillator();
+    const gainNode = ctx.createGain();
+
+    oscillator.connect(gainNode);
+    gainNode.connect(ctx.destination);
+
+    oscillator.frequency.value = 180;
+    oscillator.type = 'sine';
+
+    gainNode.gain.setValueAtTime(0.12, ctx.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.18);
+
+    oscillator.start(ctx.currentTime);
+    oscillator.stop(ctx.currentTime + 0.18);
+  } catch (error) {
+    console.debug('Audio context not available:', error);
+  }
+}

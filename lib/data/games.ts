@@ -2,6 +2,13 @@ import { Game } from '../types';
 
 export const games: Game[] = [
   {
+    id: 'noun-agreement',
+    name: 'Género y Número: Sustantivos',
+    description: 'Masculino/Femenino + Singular/Plural en 3 niveles',
+    icon: '🧩',
+    questions: [],
+  },
+  {
     id: 'multiple-choice',
     name: 'Preguntas de Opción Múltiple',
     description: 'Elige la respuesta correcta',

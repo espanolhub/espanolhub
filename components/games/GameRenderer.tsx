@@ -9,6 +9,7 @@ const componentMap: Record<string, () => Promise<{ default: React.ComponentType<
   'laberinto': () => import('@/components/games/LaberintoGame'),
   'multi-stage': () => import('@/components/games/MultiStageGame'),
   'quick-quiz-verbos': () => import('@/components/games/QuickQuizVerbos'),
+  'noun-agreement': () => import('@/components/games/NounAgreementGame'),
 };
 
 export default function GameRenderer({ entry }: { entry: any }) {

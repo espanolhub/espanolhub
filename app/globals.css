@@ -1,32 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  /* Light-only design tokens (single source of truth) */
-  --background: #ffffff;
-  --foreground: #0f172a;
+  /* Dark Slate design tokens (single source of truth) */
+  /* Base */
+  --background: #020617;            /* slate-950 */
+  --foreground: #e5e7eb;            /* slate-200 */
 
-  --bg-base: #ffffff;
-  --bg-elevated: #ffffff;
-  --bg-subtle: #f8fafc;
+  --bg-base: #020617;               /* page background */
+  --bg-elevated: #020617;           /* for full-bleed sections */
+  --bg-subtle: #0f172a;             /* slate-900 panels */
 
-  --surface: #ffffff;
-  --surface-hover: #f8fafc;
-  --surface-border: #e5e7eb;
+  --surface: #0f172a;               /* main card / surfaces */
+  --surface-hover: #1e293b;         /* slightly lighter hover */
+  --surface-border: #1f2937;        /* slate-800 */
 
-  --text-primary: #0f172a;
-  --text-secondary: #1f2937;
-  --text-tertiary: #334155;
-  --text-disabled: #64748b;
+  --text-primary: #f9fafb;          /* near-white */
+  --text-secondary: #e5e7eb;        /* slate-200 */
+  --text-tertiary: #cbd5f5;         /* soft slate/indigo mix */
+  --text-disabled: #64748b;         /* slate-500 */
 
-  --brand-primary: #1d4ed8;
-  --brand-primary-hover: #1e40af;
-  --brand-secondary: #0f172a;
-  --brand-secondary-hover: #111827;
+  /* Brand (kept blue for CTAs) */
+  --brand-primary: #2563eb;         /* blue-600 */
+  --brand-primary-hover: #1d4ed8;   /* blue-700 */
+  --brand-secondary: #0f172a;       /* dark pill/tab bg */
+  --brand-secondary-hover: #020617; /* deeper slate */
 
-  --success: #059669;
-  --warning: #d97706;
-  --error: #b91c1c;
-  --error-hover: #991b1b;
+  --success: #22c55e;               /* green-500 */
+  --warning: #f59e0b;               /* amber-500 */
+  --error: #ef4444;                 /* red-500 */
+  --error-hover: #b91c1c;           /* red-700 */
 
   --focus-ring: var(--brand-primary);
   --link: var(--brand-primary);
@@ -64,7 +66,7 @@
 
 @layer base {
   html {
-    color-scheme: light;
+    color-scheme: dark;
   }
 
   body {
@@ -110,6 +112,40 @@
   .btn-primary:hover {
     background: var(--brand-primary-hover);
     border-color: var(--brand-primary-hover);
+  }
+
+  .btn-secondary {
+    background: var(--brand-secondary);
+    border-color: var(--brand-secondary);
+    color: var(--text-secondary);
+  }
+
+  .btn-secondary:hover {
+    background: var(--brand-secondary-hover);
+    border-color: var(--brand-secondary-hover);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border-color: transparent;
+    color: var(--text-secondary);
+  }
+
+  .btn-ghost:hover {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(15, 23, 42, 0.8);
+    color: var(--text-primary);
+  }
+
+  .btn-danger {
+    background: var(--error);
+    border-color: var(--error);
+    color: #ffffff;
+  }
+
+  .btn-danger:hover {
+    background: var(--error-hover);
+    border-color: var(--error-hover);
   }
 
   .btn-tab {

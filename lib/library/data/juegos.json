@@ -34,5 +34,14 @@
     "excerpt": "Desafío completo que combina varios tipos de juegos educativos",
     "image": "/assets/games/sample2.svg",
     "content": "{\"gameType\":\"multi-stage\"}"
+  },
+  {
+    "id": "genero-y-numero",
+    "title": "Género y Número: Sustantivos",
+    "level": "beginner",
+    "summary": "Aprende Masculino/Femenino y Singular/Plural en 3 niveles",
+    "excerpt": "Clasifica sustantivos, forma plurales contra el tiempo y elige la concordancia correcta con combo de puntos",
+    "image": "/assets/games/sample2.svg",
+    "content": "{\"gameType\":\"noun-agreement\",\"config\":{\"roundsLevel1\":20,\"roundsLevel2\":15,\"roundsLevel3\":25}}"
   }
 ]
