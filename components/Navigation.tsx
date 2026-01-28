@@ -53,27 +53,27 @@ export default function Navigation() {
   return (
     <>
       <SearchOverlay isOpen={searchOverlayOpen} onClose={() => setSearchOverlayOpen(false)} />
-      <nav className={`sticky top-0 z-40 w-full bg-white transition-all duration-300 ${
-        scrolled ? 'shadow-sm' : ''
+      <nav className={`sticky top-0 z-40 w-full bg-slate-950/95 backdrop-blur-sm border-b border-slate-800 transition-all duration-300 ${
+        scrolled ? 'shadow-sm shadow-slate-900/40' : ''
       }`}>
         <div className="container mx-auto px-4">
           {/* Row 1: Top Bar */}
-          <div className="flex items-center justify-between h-16 border-b border-gray-200">
+          <div className="flex items-center justify-between h-16">
             {/* Left: Logo and Name */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0 group" aria-label="Espanol Hub - Ir a la página principal">
-              <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center font-bold text-white text-lg border border-gray-800 group-hover:bg-gray-800 transition-all">
+              <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center font-bold text-white text-lg border border-slate-700 group-hover:bg-slate-800 transition-all">
                 <GraduationCap className="w-6 h-6 text-white" aria-hidden="true" />
               </div>
               <div className="hidden sm:flex flex-col">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-xl font-extrabold text-gray-900">
+                  <span className="text-xl font-extrabold text-slate-50">
                     Español
                   </span>
-                  <span className="text-xl font-extrabold text-gray-900">
+                  <span className="text-xl font-extrabold text-slate-50">
                     Hub
                   </span>
                 </div>
-                <span className="text-[9px] text-gray-600 font-medium -mt-1 italic leading-tight">
+                <span className="text-[9px] text-slate-400 font-medium -mt-1 italic leading-tight">
                   Tu centro inteligente para aprender español
                 </span>
               </div>
@@ -83,11 +83,11 @@ export default function Navigation() {
             <div className="hidden md:flex flex-1 max-w-2xl mx-8">
               <button
                 onClick={() => setSearchOverlayOpen(true)}
-                className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200 hover:bg-gray-100 hover:border-gray-300 transition-all duration-200 text-left focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+                className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 hover:border-slate-500 transition-all duration-200 text-left focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-slate-950"
                 aria-label="Buscar"
               >
-                <Search className="w-5 h-5 text-gray-500 flex-shrink-0" aria-hidden="true" />
-                <span className="text-sm text-gray-500">Buscar...</span>
+                <Search className="w-5 h-5 text-slate-400 flex-shrink-0" aria-hidden="true" />
+                <span className="text-sm text-slate-400">Buscar...</span>
               </button>
             </div>
 
@@ -99,12 +99,12 @@ export default function Navigation() {
                   href="/admin"
                   className={`hidden md:flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 border ${
                     pathname === '/admin'
-                      ? 'bg-gray-900 text-white border-gray-900 shadow-md'
-                      : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:shadow-sm hover:border-gray-300'
+                      ? 'bg-slate-800 text-white border-slate-600 shadow-md'
+                      : 'bg-slate-900 text-slate-100 border-slate-700 hover:bg-slate-800 hover:shadow-sm hover:border-slate-500'
                   }`}
                   aria-label="Panel de Control"
                 >
-                  <Shield className={`w-5 h-5 ${pathname === '/admin' ? 'text-white' : 'text-slate-900'} transition-colors`} aria-hidden="true" />
+                  <Shield className={`w-5 h-5 ${pathname === '/admin' ? 'text-white' : 'text-slate-200'} transition-colors`} aria-hidden="true" />
                   <span className="hidden lg:inline">Panel de Control</span>
                   <span className="lg:hidden">Admin</span>
                 </Link>
@@ -112,10 +112,10 @@ export default function Navigation() {
 
               {/* Login/Profile Button */}
               <button
-                className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-slate-900 bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200"
+                className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-slate-100 bg-slate-900 border border-slate-700 hover:bg-slate-800 hover:border-slate-500 transition-all duration-200"
                 aria-label="Iniciar Sesión"
               >
-                <User className="w-5 h-5 text-slate-900" aria-hidden="true" />
+                <User className="w-5 h-5 text-slate-100" aria-hidden="true" />
                 <span className="hidden lg:inline">Iniciar Sesión</span>
                 <span className="lg:hidden">Login</span>
               </button>
@@ -123,30 +123,30 @@ export default function Navigation() {
               {/* Mobile Search Button */}
               <button
                 onClick={() => setSearchOverlayOpen(true)}
-                className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+                className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 hover:border-slate-500 transition-all duration-200 text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-slate-950"
                 aria-label="Buscar"
               >
-                <Search className="w-5 h-5 text-slate-900" aria-hidden="true" />
+                <Search className="w-5 h-5 text-slate-100" aria-hidden="true" />
               </button>
 
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md transition-all duration-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+                className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 hover:border-slate-500 hover:shadow-md transition-all duration-200 text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-slate-950"
                 aria-label={mobileMenuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
                 aria-expanded={mobileMenuOpen}
               >
                 {mobileMenuOpen ? (
-                  <X className="w-5 h-5 text-slate-900" aria-hidden="true" />
+                  <X className="w-5 h-5 text-slate-100" aria-hidden="true" />
               ) : (
-                  <Menu className="w-5 h-5 text-slate-900" aria-hidden="true" />
+                  <Menu className="w-5 h-5 text-slate-100" aria-hidden="true" />
                 )}
               </button>
             </div>
           </div>
 
           {/* Row 2: Navigation Bar - Simplified to 4 Essential Links */}
-          <div className="hidden md:flex items-center py-3 border-b border-gray-200">
+          <div className="hidden md:flex items-center py-3">
             <div className="flex items-center gap-x-4 gap-y-2 w-full">
               <Link
                 href="/cursos"
