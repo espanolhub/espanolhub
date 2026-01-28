@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 // Clerk hooks removed to avoid SSR issues - Navigation works without auth
 // import { UserButton, SignInButton, SignUpButton, useUser, useAuth, SignedIn, SignedOut } from '@clerk/nextjs';
-import { Gamepad2, GraduationCap, Book, Languages, X, Menu, Shield, Award, Search, Download, Car, FileText, Star, User } from 'lucide-react';
+import { Gamepad2, GraduationCap, Book, Languages, X, Menu, Shield, Award, Search, Download, Car, FileText, Star, User, Wrench } from 'lucide-react';
 import SearchOverlay from './SearchOverlay';
 // AdminNotificationBadge removed - Navigation works without Clerk hooks
 // import AdminNotificationBadge from './AdminNotificationBadge';
@@ -145,68 +145,37 @@ export default function Navigation() {
             </div>
           </div>
 
-          {/* Row 2: Navigation Bar */}
+          {/* Row 2: Navigation Bar - Simplified to 4 Essential Links */}
           <div className="hidden md:flex items-center py-3 border-b border-gray-200">
-            <div className="flex items-center flex-wrap gap-x-4 gap-y-2 w-full">
-              {/* Group 2: Main Tools */}
-              <div className="flex items-center gap-x-4 gap-y-2 flex-wrap">
-                <Link
-                  href="/nacionalidad"
-                  className={`btn btn-tab whitespace-nowrap ${pathname === '/nacionalidad' ? 'btn-tab-active' : ''}`}
-                >
-                  <Shield className={`w-5 h-5 flex-shrink-0 ${pathname === '/nacionalidad' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
-                  <span>Nacionalidad ES</span>
-                </Link>
-                <Link
-                  href="/driving-license"
-                  className={`btn btn-tab whitespace-nowrap ${pathname === '/driving-license' ? 'btn-tab-active' : ''}`}
-                >
-                  <Car className={`w-5 h-5 flex-shrink-0 ${pathname === '/driving-license' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
-                  <span>Carnet de Conducir</span>
-                </Link>
-              </div>
-
-              {/* Divider */}
-              <div className="w-px h-6 bg-gray-300"></div>
-
-              {/* Group 1: Learning Categories */}
-              <div className="flex items-center gap-x-4 gap-y-2 flex-wrap">
-                <Link
-                  href="/gramatica"
-                  className={`btn btn-tab whitespace-nowrap ${pathname.startsWith('/gramatica') ? 'btn-tab-active' : ''}`}
-                >
-                  <GraduationCap className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/gramatica') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
-                  <span>Gramática</span>
-                </Link>
-                <Link
-                  href="/vocabulario"
-                  className={`btn btn-tab whitespace-nowrap ${pathname.startsWith('/vocabulario') ? 'btn-tab-active' : ''}`}
-                >
-                  <Languages className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/vocabulario') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
-                  <span>Vocabulario</span>
-                </Link>
-                <Link
-                  href="/lectura"
-                  className={`btn btn-tab whitespace-nowrap ${pathname.startsWith('/lectura') ? 'btn-tab-active' : ''}`}
-                >
-                  <Book className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/lectura') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
-                  <span>Lectura</span>
-                </Link>
-                <Link
-                  href="/juegos"
-                  className={`btn btn-tab whitespace-nowrap ${pathname === '/juegos' ? 'btn-tab-active' : ''}`}
-                >
-                  <Gamepad2 className={`w-5 h-5 flex-shrink-0 ${pathname === '/juegos' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
-                  <span>Juegos</span>
-                </Link>
-                <Link
-                  href="/blog"
-                  className={`btn btn-tab whitespace-nowrap ${pathname.startsWith('/blog') ? 'btn-tab-active' : ''}`}
-                >
-                  <FileText className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/blog') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
-                  <span>Blog</span>
-                </Link>
-              </div>
+            <div className="flex items-center gap-x-4 gap-y-2 w-full">
+              <Link
+                href="/cursos"
+                className={`btn btn-tab whitespace-nowrap ${pathname.startsWith('/cursos') || pathname.startsWith('/gramatica') || pathname.startsWith('/vocabulario') || pathname.startsWith('/lectura') ? 'btn-tab-active' : ''}`}
+              >
+                <GraduationCap className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/cursos') || pathname.startsWith('/gramatica') || pathname.startsWith('/vocabulario') || pathname.startsWith('/lectura') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
+                <span>Cursos</span>
+              </Link>
+              <Link
+                href="/juegos"
+                className={`btn btn-tab whitespace-nowrap ${pathname === '/juegos' ? 'btn-tab-active' : ''}`}
+              >
+                <Gamepad2 className={`w-5 h-5 flex-shrink-0 ${pathname === '/juegos' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
+                <span>Juegos</span>
+              </Link>
+              <Link
+                href="/alfabeto"
+                className={`btn btn-tab whitespace-nowrap ${pathname.startsWith('/alfabeto') || pathname.startsWith('/conjugador') || pathname.startsWith('/numeros') || pathname.startsWith('/pronunciacion') ? 'btn-tab-active' : ''}`}
+              >
+                <Wrench className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/alfabeto') || pathname.startsWith('/conjugador') || pathname.startsWith('/numeros') || pathname.startsWith('/pronunciacion') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
+                <span>Recursos</span>
+              </Link>
+              <Link
+                href="/blog"
+                className={`btn btn-tab whitespace-nowrap ${pathname.startsWith('/blog') ? 'btn-tab-active' : ''}`}
+              >
+                <FileText className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/blog') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
+                <span>Blog</span>
+              </Link>
             </div>
           </div>
 

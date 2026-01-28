@@ -24,6 +24,10 @@ export default function Footer() {
             </div>
           </div>
 
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-4 border border-gray-200">
+            <span className="text-sm font-semibold text-gray-900">Plataforma Educativa Abierta</span>
+          </div>
+
           <div className="text-sm text-gray-700 leading-relaxed">
             <p><strong>Aviso:</strong> Esta es una plataforma educativa independiente y no está afiliada a la DGT ni a ningún organismo gubernamental. El contenido es orientativo y educativo.</p>
           </div>

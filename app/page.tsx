@@ -4,67 +4,19 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { 
   Car, Award, FileText, Users, Shield, 
-  BookOpen, Globe, Gamepad2, PlayCircle,
-  Sparkles, Trophy, Target, Zap, Star,
-  CheckCircle, ArrowRight, GraduationCap, Lock, Clock,
+  BookOpen, Gamepad2, PlayCircle,
+  Trophy, Zap, Star,
+  CheckCircle, ArrowRight, GraduationCap, Lock,
   Gift, Book, Languages, Hash, Volume2, Wrench, MessageSquare, FileCheck
 } from 'lucide-react';
 import { useModuleAccess } from '@/components/useModuleAccess';
 import { useAdminSettings } from '@/components/AdminSettingsProvider';
-import SubscriptionButton from '@/components/SubscriptionButton';
 import PracticeCTA from '@/components/StickyPlayCTA';
 
 export default function Home() {
-	const { settings } = useAdminSettings();
 	const driving = useModuleAccess('driving');
 	const nationality = useModuleAccess('nationality');
 	const tramites = useModuleAccess('tramites');
-	const [saleEndsAt, setSaleEndsAt] = useState<number | null>(null);
-	const [timeLeft, setTimeLeft] = useState<number>(0);
-
-	useEffect(() => {
-		// If admin enabled sale, create or read a persistent deadline (demo: 48h)
-		try {
-			if (settings.is_sale_active) {
-				const key = 'cta_sale_deadline_v1';
-				let stored = sessionStorage.getItem(key);
-				if (!stored) {
-					const deadline = Date.now() + 48 * 3600 * 1000; // 48 hours demo
-					sessionStorage.setItem(key, String(deadline));
-					stored = String(deadline);
-				}
-				const deadlineNum = Number(stored);
-				setSaleEndsAt(deadlineNum);
-			} else {
-				setSaleEndsAt(null);
-			}
-		} catch (e) {
-			// ignore
-		}
-	}, [settings.is_sale_active]);
-
-	useEffect(() => {
-		if (!saleEndsAt) {
-			setTimeLeft(0);
-			return;
-		}
-		const update = () => {
-			const diff = Math.max(0, saleEndsAt - Date.now());
-			setTimeLeft(diff);
-		};
-		update();
-		const iv = window.setInterval(update, 1000);
-		return () => window.clearInterval(iv);
-	}, [saleEndsAt]);
-
-	const formatTimeLeft = (ms: number) => {
-		if (ms <= 0) return '00d 00h 00m';
-		const totalSec = Math.floor(ms / 1000);
-		const days = Math.floor(totalSec / 86400);
-		const hours = Math.floor((totalSec % 86400) / 3600);
-		const mins = Math.floor((totalSec % 3600) / 60);
-		return `${String(days).padStart(2,'0')}d ${String(hours).padStart(2,'0')}h ${String(mins).padStart(2,'0')}m`;
-	};
 
 	return (
 		<div className="min-h-screen bg-white text-slate-900">
@@ -77,136 +29,67 @@ export default function Home() {
 				<div className="bg-white border border-gray-200 rounded-lg p-8 md:p-12">
 					<div className="flex flex-col md:flex-row items-center gap-12">
 						<div className="flex-1 text-center md:text-left">
-							{/* Badge */}
-							<div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6 border border-gray-200">
-								<Sparkles className="w-5 h-5 text-gray-700" aria-hidden="true" />
-								<span className="text-sm font-semibold text-gray-900">Plataforma Educativa #1</span>
-								<Star className="w-5 h-5 text-gray-700" aria-hidden="true" />
-							</div>
+				<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900">
+					Tu futuro en España comienza aquí
+				</h1>
+				<p className="text-lg mb-8 text-gray-700 max-w-2xl mx-auto md:mx-0">
+					Aprende español, aprueba tus exámenes y gestiona tus trámites de forma completamente gratuita. Sin tarjetas de crédito.
+				</p>
 
-					<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900">
-						Tu futuro en España comienza aquí
-					</h1>
-					<p className="text-lg mb-8 text-gray-700 max-w-2xl mx-auto md:mx-0">
-						Aprende español, aprueba tus exámenes oficiales y gestiona tus trámites en una sola plataforma integral.
-					</p>
-
-							{/* Main CTA Buttons */}
-							<div className="flex flex-col sm:flex-row gap-4 mb-6 justify-center md:justify-start">
-								<Link
-									href="/cursos"
-									className="group relative px-8 py-4 bg-gray-900 text-white font-bold rounded-lg shadow-sm hover:bg-gray-800 transition-all duration-200 flex items-center justify-center gap-2"
-								>
-									<GraduationCap className="w-5 h-5 text-white" aria-hidden="true" />
-									<span>Ver Cursos</span>
-									<ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-								</Link>
-
-								<Link
-									href="/juegos"
-									className="px-8 py-4 bg-white border-2 border-gray-900 text-gray-900 font-bold rounded-lg shadow-sm hover:bg-gray-50 transition-all duration-200 flex items-center justify-center gap-2"
-								>
-									<Gamepad2 className="w-5 h-5 text-gray-900" aria-hidden="true" />
-									<span>Jugar Ahora</span>
-								</Link>
-							</div>
-
-							{/* Quick Access Buttons */}
-							<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+						{/* Main CTA Buttons */}
+						<div className="flex flex-col sm:flex-row gap-4 mb-6 justify-center md:justify-start">
 							<Link
-								href="/aprender-espanol-gratis"
-								className="group relative p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all"
+								href="/cursos"
+								className="group relative px-8 py-4 bg-gray-900 text-white font-bold rounded-lg shadow-sm hover:bg-gray-800 transition-all duration-200 flex items-center justify-center gap-2"
 							>
-								<div className="absolute top-1 right-1">
-									<Gift className="w-5 h-5 text-gray-700" aria-hidden="true" />
-								</div>
-								<Star className="w-6 h-6 text-gray-700 mb-2 mx-auto" aria-hidden="true" />
-								<div className="text-xs font-bold text-gray-900 text-center">GRATIS</div>
-							</Link>
-
-							<Link
-								href="/driving-license"
-								className="group p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all"
-							>
-								<Car className="w-6 h-6 text-gray-700 mb-2 mx-auto" aria-hidden="true" />
-								<div className="text-sm font-semibold text-gray-900 text-center">Carnet de Conducir</div>
-							</Link>
-
-							<Link
-								href="/nacionalidad"
-								className="group p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all"
-							>
-								<Award className="w-6 h-6 text-gray-700 mb-2 mx-auto" aria-hidden="true" />
-								<div className="text-sm font-semibold text-gray-900 text-center">CCSE</div>
+								<GraduationCap className="w-5 h-5 text-white" aria-hidden="true" />
+								<span>Empezar Gratis Ahora</span>
+								<ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" aria-hidden="true" />
 							</Link>
 
 							<Link
 								href="/juegos"
-								className="group p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all"
+								className="px-8 py-4 bg-white border-2 border-gray-900 text-gray-900 font-bold rounded-lg shadow-sm hover:bg-gray-50 transition-all duration-200 flex items-center justify-center gap-2"
 							>
-								<Gamepad2 className="w-6 h-6 text-gray-700 mb-2 mx-auto" aria-hidden="true" />
-								<div className="text-sm font-semibold text-gray-900 text-center">Juegos</div>
+								<Gamepad2 className="w-5 h-5 text-gray-900" aria-hidden="true" />
+								<span>Jugar Ahora</span>
 							</Link>
+						</div>
 
-							<Link
-								href="/simulator"
-								className="group p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all"
-							>
-								<PlayCircle className="w-6 h-6 text-gray-700 mb-2 mx-auto" aria-hidden="true" />
-								<div className="text-sm font-semibold text-gray-900 text-center">Simulador</div>
-							</Link>
+						{/* Core Content Grid - 4 Categories */}
+						<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+						<Link
+							href="/gramatica"
+							className="group p-6 bg-gradient-to-br from-blue-100 to-blue-200 border border-blue-300 rounded-lg hover:shadow-md hover:from-blue-200 hover:to-blue-300 transition-all text-center"
+						>
+							<BookOpen className="w-8 h-8 text-blue-700 mb-3 mx-auto" aria-hidden="true" />
+							<div className="text-base font-semibold text-blue-950">Gramática</div>
+						</Link>
 
-							<Link
-								href="/blog"
-								className="group p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all"
-							>
-								<Book className="w-6 h-6 text-gray-700 mb-2 mx-auto" aria-hidden="true" />
-								<div className="text-sm font-semibold text-gray-900 text-center">Blog</div>
-							</Link>
-							</div>
+						<Link
+							href="/vocabulario"
+							className="group p-6 bg-gradient-to-br from-green-100 to-green-200 border border-green-300 rounded-lg hover:shadow-md hover:from-green-200 hover:to-green-300 transition-all text-center"
+						>
+							<Languages className="w-8 h-8 text-green-700 mb-3 mx-auto" aria-hidden="true" />
+							<div className="text-base font-semibold text-green-950">Vocabulario</div>
+						</Link>
 
-							{/* Educational Learning Buttons */}
-							<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mt-4">
-							<Link
-								href="/gramatica"
-								className="group p-4 bg-gradient-to-br from-blue-100 to-blue-200 border border-blue-300 rounded-lg hover:shadow-md hover:from-blue-200 hover:to-blue-300 transition-all"
-							>
-								<BookOpen className="w-6 h-6 text-blue-700 mb-2 mx-auto" aria-hidden="true" />
-								<div className="text-sm font-semibold text-blue-950 text-center">Gramática</div>
-							</Link>
+						<Link
+							href="/lectura"
+							className="group p-6 bg-gradient-to-br from-purple-100 to-purple-200 border border-purple-300 rounded-lg hover:shadow-md hover:from-purple-200 hover:to-purple-300 transition-all text-center"
+						>
+							<FileText className="w-8 h-8 text-purple-700 mb-3 mx-auto" aria-hidden="true" />
+							<div className="text-base font-semibold text-purple-950">Lectura</div>
+						</Link>
 
-							<Link
-								href="/vocabulario"
-								className="group p-4 bg-gradient-to-br from-green-100 to-green-200 border border-green-300 rounded-lg hover:shadow-md hover:from-green-200 hover:to-green-300 transition-all"
-							>
-								<Languages className="w-6 h-6 text-green-700 mb-2 mx-auto" aria-hidden="true" />
-								<div className="text-sm font-semibold text-green-950 text-center">Vocabulario</div>
-							</Link>
-
-							<Link
-								href="/lectura"
-								className="group p-4 bg-gradient-to-br from-purple-100 to-purple-200 border border-purple-300 rounded-lg hover:shadow-md hover:from-purple-200 hover:to-purple-300 transition-all"
-							>
-								<FileText className="w-6 h-6 text-purple-700 mb-2 mx-auto" aria-hidden="true" />
-								<div className="text-sm font-semibold text-purple-950 text-center">Lectura</div>
-							</Link>
-
-							<Link
-								href="/ejercicios-espanol-interactivos"
-								className="group p-4 bg-gradient-to-br from-blue-50 to-blue-100 border border-gray-200 rounded-lg hover:shadow-md transition-all"
-							>
-								<Zap className="w-6 h-6 text-blue-600 mb-2 mx-auto" aria-hidden="true" />
-								<div className="text-sm font-semibold text-gray-900 text-center">Ejercicios</div>
-							</Link>
-
-							<Link
-								href="/examenes-espanol-gratis"
-								className="group p-4 bg-gradient-to-br from-red-100 to-red-200 border border-red-300 rounded-lg hover:shadow-md hover:from-red-200 hover:to-red-300 transition-all"
-							>
-								<FileCheck className="w-6 h-6 text-red-700 mb-2 mx-auto" aria-hidden="true" />
-								<div className="text-sm font-semibold text-red-950 text-center">Exámenes</div>
-							</Link>
-							</div>
+						<Link
+							href="/examenes-espanol-gratis"
+							className="group p-6 bg-gradient-to-br from-red-100 to-red-200 border border-red-300 rounded-lg hover:shadow-md hover:from-red-200 hover:to-red-300 transition-all text-center"
+						>
+							<FileCheck className="w-8 h-8 text-red-700 mb-3 mx-auto" aria-hidden="true" />
+							<div className="text-base font-semibold text-red-950">Exámenes</div>
+						</Link>
+						</div>
 						</div>
 
 						<div className="w-full md:w-1/3 relative flex items-center justify-center">
@@ -326,34 +209,34 @@ export default function Home() {
 				</div>
 			</section>
 
-			{/* Recursos Adicionales Section */}
+			{/* Herramientas Gratuitas Section */}
 			<section className="py-16 bg-white">
 				<div className="max-w-7xl mx-auto px-6">
 					<div className="text-center mb-12">
 						<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 flex items-center justify-center gap-3">
-							<BookOpen className="w-8 h-8 text-gray-700" aria-hidden="true" />
-							<span>Recursos Adicionales</span>
+							<Wrench className="w-8 h-8 text-gray-700" aria-hidden="true" />
+							<span>Herramientas Gratuitas</span>
 						</h2>
 						<p className="text-lg text-gray-700 max-w-2xl mx-auto">
-							Explora nuestros recursos educativos completos para aprender español de forma efectiva
+							Utiliza nuestras herramientas gratuitas para mejorar tu español
 						</p>
 					</div>
 
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+					<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 						<Link
-							href="/alfabeto"
+							href="/driving-license"
 							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
 						>
 							<div className="flex items-center gap-4 mb-4">
 								<div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center text-white">
-									<Hash className="w-6 h-6" />
+									<Car className="w-6 h-6" />
 								</div>
 								<h3 className="text-xl font-bold text-gray-900">
-									Alfabeto Español
+									Carnet de Conducir
 								</h3>
 							</div>
 							<p className="text-gray-700 mb-4">
-								Aprende las 27 letras del alfabeto español con audio de nativos. Pronunciación perfecta desde el inicio.
+								18 capítulos completos + Simulador oficial DGT. Todo lo necesario para aprobar tu examen.
 							</p>
 							<div className="flex items-center text-blue-500 font-semibold">
 								<span>Comenzar</span>
@@ -362,7 +245,28 @@ export default function Home() {
 						</Link>
 
 						<Link
-							href="/numeros"
+							href="/nacionalidad"
+							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+						>
+							<div className="flex items-center gap-4 mb-4">
+								<div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center text-white">
+									<Award className="w-6 h-6" />
+								</div>
+								<h3 className="text-xl font-bold text-gray-900">
+									Nacionalidad
+								</h3>
+							</div>
+							<p className="text-gray-700 mb-4">
+								Preparación completa para el examen CCSE oficial. 40+ lecciones y exámenes oficiales.
+							</p>
+							<div className="flex items-center text-purple-500 font-semibold">
+								<span>Estudiar</span>
+								<ArrowRight className="w-4 h-4 ml-2" />
+							</div>
+						</Link>
+
+						<Link
+							href="/alfabeto"
 							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
 						>
 							<div className="flex items-center gap-4 mb-4">
@@ -370,14 +274,14 @@ export default function Home() {
 									<Hash className="w-6 h-6" />
 								</div>
 								<h3 className="text-xl font-bold text-gray-900">
-									Números en Español
+									Alfabeto
 								</h3>
 							</div>
 							<p className="text-gray-700 mb-4">
-								Domina los números del 0 al 1000. Audio, pronunciación y ejercicios interactivos.
+								Aprende las 27 letras del alfabeto español con audio de nativos. Pronunciación perfecta desde el inicio.
 							</p>
 							<div className="flex items-center text-green-500 font-semibold">
-								<span>Practicar</span>
+								<span>Aprender</span>
 								<ArrowRight className="w-4 h-4 ml-2" />
 							</div>
 						</Link>
@@ -387,144 +291,18 @@ export default function Home() {
 							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
 						>
 							<div className="flex items-center gap-4 mb-4">
-								<div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center text-white">
+								<div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center text-white">
 									<Wrench className="w-6 h-6" />
 								</div>
 								<h3 className="text-xl font-bold text-gray-900">
-									Conjugador de Verbos
+									Conjugador
 								</h3>
 							</div>
 							<p className="text-gray-700 mb-4">
 								Conjuga cualquier verbo español en todos los tiempos. Más de 12,000 verbos disponibles.
 							</p>
-							<div className="flex items-center text-purple-500 font-semibold">
-								<span>Conjugar</span>
-								<ArrowRight className="w-4 h-4 ml-2" />
-							</div>
-						</Link>
-
-						<Link
-							href="/pronunciacion-espanol-guia"
-							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
-						>
-							<div className="flex items-center gap-4 mb-4">
-								<div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white">
-									<Volume2 className="w-6 h-6" />
-								</div>
-								<h3 className="text-xl font-bold text-gray-900">
-									Guía de Pronunciación
-								</h3>
-							</div>
-							<p className="text-gray-700 mb-4">
-								Mejora tu pronunciación con nuestra guía completa. Audio de nativos y técnicas probadas.
-							</p>
-							<div className="flex items-center text-blue-600 font-semibold">
-								<span>Aprender</span>
-								<ArrowRight className="w-4 h-4 ml-2" />
-							</div>
-						</Link>
-
-						<Link
-							href="/curso-espanol-principiantes"
-							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
-						>
-							<div className="flex items-center gap-4 mb-4">
-								<div className="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center text-white">
-									<GraduationCap className="w-6 h-6" />
-								</div>
-								<h3 className="text-xl font-bold text-gray-900">
-									Curso para Principiantes
-								</h3>
-							</div>
-							<p className="text-gray-700 mb-4">
-								Curso completo A1. Gramática, vocabulario y pronunciación desde cero. 100% gratis.
-							</p>
-							<div className="flex items-center text-red-500 font-semibold">
-								<span>Iniciar Curso</span>
-								<ArrowRight className="w-4 h-4 ml-2" />
-							</div>
-						</Link>
-
-						<Link
-							href="/espanol-para-arabes"
-							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
-						>
-							<div className="flex items-center gap-4 mb-4">
-								<div className="w-12 h-12 bg-teal-500 rounded-lg flex items-center justify-center text-white">
-									<Globe className="w-6 h-6" />
-								</div>
-								<h3 className="text-xl font-bold text-gray-900">
-									Español para Árabes
-								</h3>
-							</div>
-							<p className="text-gray-700 mb-4">
-								Curso especial para hablantes de árabe. Explicaciones en árabe y adaptación cultural.
-							</p>
-							<div className="flex items-center text-teal-500 font-semibold">
-								<span>Comenzar</span>
-								<ArrowRight className="w-4 h-4 ml-2" />
-							</div>
-						</Link>
-
-						<Link
-							href="/ejercicios-espanol-interactivos"
-							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
-						>
-							<div className="flex items-center gap-4 mb-4">
-								<div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center text-white">
-									<Gamepad2 className="w-6 h-6" />
-								</div>
-								<h3 className="text-xl font-bold text-gray-900">
-									Ejercicios Interactivos
-								</h3>
-							</div>
-							<p className="text-gray-700 mb-4">
-								140+ ejercicios de gramática, vocabulario y comprensión. Retroalimentación inmediata.
-							</p>
 							<div className="flex items-center text-indigo-500 font-semibold">
-								<span>Practicar</span>
-								<ArrowRight className="w-4 h-4 ml-2" />
-							</div>
-						</Link>
-
-						<Link
-							href="/examenes-espanol-gratis"
-							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
-						>
-							<div className="flex items-center gap-4 mb-4">
-								<div className="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center text-white">
-									<FileCheck className="w-6 h-6" />
-								</div>
-								<h3 className="text-xl font-bold text-gray-900">
-									Exámenes Gratis
-								</h3>
-							</div>
-							<p className="text-gray-700 mb-4">
-								Evalúa tu nivel con exámenes A1-C2. Tests oficiales y resultados instantáneos.
-							</p>
-							<div className="flex items-center text-pink-500 font-semibold">
-								<span>Evaluar</span>
-								<ArrowRight className="w-4 h-4 ml-2" />
-							</div>
-						</Link>
-
-						<Link
-							href="/frases-espanol-conversacion"
-							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
-						>
-							<div className="flex items-center gap-4 mb-4">
-								<div className="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center text-white">
-									<MessageSquare className="w-6 h-6" />
-								</div>
-								<h3 className="text-xl font-bold text-gray-900">
-									Frases de Conversación
-								</h3>
-							</div>
-							<p className="text-gray-700 mb-4">
-								500+ frases útiles para conversaciones diarias. Audio y ejemplos prácticos.
-							</p>
-							<div className="flex items-center text-cyan-500 font-semibold">
-								<span>Aprender</span>
+								<span>Conjugar</span>
 								<ArrowRight className="w-4 h-4 ml-2" />
 							</div>
 						</Link>
@@ -544,30 +322,24 @@ export default function Home() {
 					</p>
 				</div>
 
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 					<SimpleFeatureBox 
-						icon={<Users className="w-8 h-8" />}
-						title="Contenido Completo"
-						description="Todos los cursos y recursos necesarios"
+						icon={<Gift className="w-8 h-8" />}
+						title="100% Gratis"
+						description="Acceso completo sin costo alguno"
 						delay={0}
 					/>
 					<SimpleFeatureBox 
 						icon={<Shield className="w-8 h-8" />}
-						title="Actualizado 2026"
+						title="Contenido Actualizado 2026"
 						description="Últimas actualizaciones oficiales"
 						delay={100}
 					/>
 					<SimpleFeatureBox 
-						icon={<Target className="w-8 h-8" />}
-						title="Simuladores Oficiales"
-						description="Exámenes reales DGT y CCSE"
-						delay={200}
-					/>
-					<SimpleFeatureBox 
 						icon={<Trophy className="w-8 h-8" />}
-						title="98% de Éxito"
+						title="Éxito Garantizado"
 						description="Resultados excelentes comprobados"
-						delay={300}
+						delay={200}
 					/>
 				</div>
 
@@ -593,64 +365,38 @@ export default function Home() {
 			<section className="py-16 bg-white">
 				<div className="max-w-7xl mx-auto px-6">
 					<div className="relative rounded-lg bg-gray-900 p-8 md:p-12 border border-gray-800">
-						<div className="flex flex-col md:flex-row items-center justify-between gap-8">
-							{/* Left side */}
-							<div className="flex-1 text-center md:text-left">
+						<div className="flex flex-col items-center text-center">
 							<div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-full mb-4 border border-gray-700">
 								<Star className="w-5 h-5 text-white" aria-hidden="true" />
-								<span className="text-sm font-semibold text-white">Oferta Especial</span>
+								<span className="text-sm font-semibold text-white">Acceso Gratuito de por Vida</span>
 							</div>
 							<h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
 								Empieza hoy tu camino al éxito
 							</h2>
-								
-								{settings.is_sale_active && saleEndsAt && (
-									<div className="inline-flex items-center gap-3 px-6 py-3 bg-gray-800 rounded-lg border border-gray-700">
-										<Clock className="w-5 h-5 text-white" aria-hidden="true" />
-										<div>
-											<div className="text-sm font-semibold text-white">Oferta termina en:</div>
-											<div className="text-lg text-white font-mono font-bold">{formatTimeLeft(timeLeft)}</div>
-										</div>
-									</div>
-								)}
 
-								{/* Features list */}
-								<div className="mt-6 space-y-2">
-									<div className="flex items-center gap-2 text-white">
-										<CheckCircle className="w-5 h-5 text-white" aria-hidden="true" />
-										<span className="text-sm">Acceso completo a todos los cursos</span>
-									</div>
-									<div className="flex items-center gap-2 text-white">
-										<CheckCircle className="w-5 h-5 text-white" aria-hidden="true" />
-										<span className="text-sm">Simuladores oficiales DGT y CCSE</span>
-									</div>
-									<div className="flex items-center gap-2 text-white">
-										<CheckCircle className="w-5 h-5 text-white" aria-hidden="true" />
-										<span className="text-sm">Soporte en español y árabe</span>
-									</div>
+							{/* Features list */}
+							<div className="mt-6 space-y-2 max-w-2xl">
+								<div className="flex items-center justify-center gap-2 text-white">
+									<CheckCircle className="w-5 h-5 text-white" aria-hidden="true" />
+									<span className="text-sm">Acceso completo a todos los cursos</span>
+								</div>
+								<div className="flex items-center justify-center gap-2 text-white">
+									<CheckCircle className="w-5 h-5 text-white" aria-hidden="true" />
+									<span className="text-sm">Simuladores oficiales DGT y CCSE</span>
+								</div>
+								<div className="flex items-center justify-center gap-2 text-white">
+									<CheckCircle className="w-5 h-5 text-white" aria-hidden="true" />
+									<span className="text-sm">100% gratuito, sin tarjetas de crédito</span>
 								</div>
 							</div>
 
-							{/* Right side - Pricing */}
-							<div className="bg-white rounded-lg p-8 border border-gray-200 text-center min-w-[300px]">
-								<div className="mb-6">
-									<div className="text-sm text-gray-600 mb-2">Precio Mensual</div>
-									<div className="flex items-center justify-center gap-2">
-										<span className="text-5xl font-extrabold text-gray-900">
-											€{settings.monthly_price?.toFixed(2) ?? (settings.global_price).toFixed(2)}
-										</span>
-										<span className="text-gray-600 text-lg">/mes</span>
-									</div>
-									<div className="text-sm text-gray-600 mt-2">Cancela cuando quieras</div>
-								</div>
-
-								<SubscriptionButton noteTextClassName="text-gray-600" />
-
-								<div className="mt-4 flex items-center justify-center gap-2 text-xs text-gray-600">
-									<Shield className="w-5 h-5 text-gray-600" aria-hidden="true" />
-									<span>Pago seguro 100%</span>
-								</div>
-							</div>
+							<Link
+								href="/cursos"
+								className="mt-8 inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 font-bold rounded-lg shadow-sm hover:bg-gray-50 transition-all duration-200"
+							>
+								<span>Empezar Gratis Ahora</span>
+								<ArrowRight className="w-5 h-5 text-gray-900" aria-hidden="true" />
+							</Link>
 						</div>
 					</div>
 				</div>
