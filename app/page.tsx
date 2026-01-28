@@ -54,6 +54,14 @@ export default function Home() {
 								<Gamepad2 className="w-5 h-5 text-gray-900" aria-hidden="true" />
 								<span>Jugar Ahora</span>
 							</Link>
+
+							<Link
+								href="/lectura"
+								className="px-8 py-4 bg-white/90 border border-gray-300 text-gray-900 font-semibold rounded-lg shadow-sm hover:bg-white transition-all duration-200 flex items-center justify-center gap-2"
+							>
+								<FileText className="w-5 h-5 text-gray-800" aria-hidden="true" />
+								<span>Lectura</span>
+							</Link>
 						</div>
 
 						{/* Core Content Grid - 4 Categories */}
