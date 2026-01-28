@@ -57,9 +57,9 @@ export default function Home() {
 
 							<Link
 								href="/lectura"
-								className="px-8 py-4 bg-white border border-gray-400 text-gray-900 font-bold rounded-xl shadow-sm hover:bg-gray-50 transition-all duration-200 flex items-center justify-center gap-2"
+								className="px-8 py-4 bg-white border border-gray-400 text-gray-950 font-bold rounded-xl shadow-sm hover:bg-gray-50 transition-all duration-200 flex items-center justify-center gap-2"
 							>
-								<FileText className="w-5 h-5 text-gray-800" aria-hidden="true" />
+								<FileText className="w-5 h-5 text-gray-950" aria-hidden="true" />
 								<span>Lectura</span>
 							</Link>
 						</div>
@@ -86,7 +86,7 @@ export default function Home() {
 							href="/tramites"
 							className="group p-6 bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-300 rounded-xl hover:shadow-md hover:from-slate-200 hover:to-slate-300 transition-all text-center"
 						>
-							<FileText className="w-8 h-8 text-slate-800 mb-3 mx-auto" aria-hidden="true" />
+							<FileText className="w-8 h-8 text-slate-900 mb-3 mx-auto" aria-hidden="true" />
 							<div className="text-base font-semibold text-slate-950">Trámites en España</div>
 						</Link>
 
@@ -131,7 +131,7 @@ export default function Home() {
 
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 					<ModernCard 
-						icon={<Car className="w-8 h-8 text-blue-100" aria-hidden="true" />}
+						icon={<Car className="w-8 h-8 text-white" aria-hidden="true" />}
 						gradient="from-blue-600 via-indigo-600 to-blue-600"
 						title="Carnet de Conducir"
 						description="18 capítulos completos + Simulador oficial DGT"
@@ -141,7 +141,7 @@ export default function Home() {
 					/>
 					
 					<ModernCard 
-						icon={<Award className="w-8 h-8 text-blue-100" aria-hidden="true" />}
+						icon={<Award className="w-8 h-8 text-white" aria-hidden="true" />}
 						gradient="from-blue-500 via-purple-500 to-pink-500"
 						title="Nacionalidad Española"
 						description="Preparación completa para el examen CCSE oficial"
@@ -152,7 +152,7 @@ export default function Home() {
 					/>
 					
 					<ModernCard 
-						icon={<FileText className="w-8 h-8 text-emerald-50" aria-hidden="true" />}
+						icon={<FileText className="w-8 h-8 text-white" aria-hidden="true" />}
 						gradient="from-green-500 via-emerald-500 to-teal-500"
 						title="Guías de Trámites"
 						description="Documentos, checklists y guías paso a paso"
@@ -360,19 +360,19 @@ export default function Home() {
 
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 					<SimpleFeatureBox 
-						icon={<Gift className="w-8 h-8" />}
+						icon={<Gift className="w-8 h-8 text-white" />}
 						title="100% Gratis"
 						description="Acceso completo sin costo alguno"
 						delay={0}
 					/>
 					<SimpleFeatureBox 
-						icon={<Shield className="w-8 h-8" />}
+						icon={<Shield className="w-8 h-8 text-white" />}
 						title="Contenido Actualizado"
 						description="Últimas actualizaciones oficiales"
 						delay={100}
 					/>
 					<SimpleFeatureBox 
-						icon={<Trophy className="w-8 h-8" />}
+						icon={<Trophy className="w-8 h-8 text-white" />}
 						title="Éxito Garantizado"
 						description="Resultados excelentes comprobados"
 						delay={200}
