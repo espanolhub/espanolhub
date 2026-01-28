@@ -145,40 +145,6 @@ export default function Navigation() {
             </div>
           </div>
 
-          {/* Row 2: Navigation Bar - Simplified to 4 Essential Links */}
-          <div className="hidden md:flex items-center py-3">
-            <div className="flex items-center gap-x-4 gap-y-2 w-full">
-              <Link
-                href="/cursos"
-                className={`btn btn-tab whitespace-nowrap ${pathname.startsWith('/cursos') || pathname.startsWith('/gramatica') || pathname.startsWith('/vocabulario') || pathname.startsWith('/lectura') ? 'btn-tab-active' : ''}`}
-              >
-                <GraduationCap className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/cursos') || pathname.startsWith('/gramatica') || pathname.startsWith('/vocabulario') || pathname.startsWith('/lectura') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
-                <span>Cursos</span>
-              </Link>
-              <Link
-                href="/juegos"
-                className={`btn btn-tab whitespace-nowrap ${pathname === '/juegos' ? 'btn-tab-active' : ''}`}
-              >
-                <Gamepad2 className={`w-5 h-5 flex-shrink-0 ${pathname === '/juegos' ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
-                <span>Juegos</span>
-              </Link>
-              <Link
-                href="/alfabeto"
-                className={`btn btn-tab whitespace-nowrap ${pathname.startsWith('/alfabeto') || pathname.startsWith('/conjugador') || pathname.startsWith('/numeros') || pathname.startsWith('/pronunciacion') ? 'btn-tab-active' : ''}`}
-              >
-                <Wrench className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/alfabeto') || pathname.startsWith('/conjugador') || pathname.startsWith('/numeros') || pathname.startsWith('/pronunciacion') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
-                <span>Recursos</span>
-              </Link>
-              <Link
-                href="/blog"
-                className={`btn btn-tab whitespace-nowrap ${pathname.startsWith('/blog') ? 'btn-tab-active' : ''}`}
-              >
-                <FileText className={`w-5 h-5 flex-shrink-0 ${pathname.startsWith('/blog') ? 'text-white' : 'text-slate-900'}`} aria-hidden="true" />
-                <span>Blog</span>
-              </Link>
-            </div>
-          </div>
-
           {mobileMenuOpen && (
             <div className="md:hidden border-t border-gray-200 pt-5 pb-6 px-3">
               <div className="grid grid-cols-2 gap-3">

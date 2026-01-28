@@ -25,10 +25,10 @@ export default function Home() {
 		</a>
 		{/* Hero */}
 		<header className="relative overflow-hidden bg-white border-b border-gray-200">
-			<div className="max-w-7xl mx-auto px-6 py-10 md:py-16">
-				<div className="bg-white border border-gray-200 rounded-lg p-8 md:p-12">
-					<div className="flex flex-col md:flex-row items-center gap-12">
-						<div className="flex-1 text-center md:text-left">
+			<div className="max-w-7xl mx-auto px-6 py-8 md:py-12">
+				<div className="bg-white border border-gray-200 rounded-lg p-8 md:p-10">
+					<div className="flex flex-col md:flex-row items-center gap-10">
+						<div className="flex-1 text-center">
 				<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 text-gray-900">
 					Tu futuro en España comienza aquí
 				</h1>
@@ -75,11 +75,11 @@ export default function Home() {
 						</Link>
 
 						<Link
-							href="/lectura"
-							className="group p-6 bg-gradient-to-br from-purple-100 to-purple-200 border border-purple-300 rounded-lg hover:shadow-md hover:from-purple-200 hover:to-purple-300 transition-all text-center"
+							href="/tramites"
+							className="group p-6 bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-300 rounded-lg hover:shadow-md hover:from-slate-200 hover:to-slate-300 transition-all text-center"
 						>
-							<FileText className="w-8 h-8 text-purple-700 mb-3 mx-auto" aria-hidden="true" />
-							<div className="text-base font-semibold text-purple-950">Lectura</div>
+							<FileText className="w-8 h-8 text-slate-800 mb-3 mx-auto" aria-hidden="true" />
+							<div className="text-base font-semibold text-slate-950">Trámites en España</div>
 						</Link>
 
 						<Link
@@ -183,7 +183,7 @@ export default function Home() {
 							<span>Recursos Adicionales</span>
 						</h2>
 						<p className="text-lg text-gray-700 max-w-2xl mx-auto">
-							Refuerza tu base con recursos clave de letras, pronunciación y conjugaciones.
+							Refuerza tu base con recursos clave: letras, pronunciación, conjugaciones, números y frases útiles.
 						</p>
 					</div>
 
@@ -247,6 +247,90 @@ export default function Home() {
 							</p>
 							<div className="flex items-center text-indigo-500 font-semibold">
 								<span>Conjugar</span>
+								<ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
+							</div>
+						</Link>
+
+						<Link
+							href="/simulator"
+							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+						>
+							<div className="flex items-center gap-4 mb-4">
+								<div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center text-white">
+									<Car className="w-6 h-6" aria-hidden="true" />
+								</div>
+								<h3 className="text-xl font-bold text-gray-900">
+									Simulador DGT
+								</h3>
+							</div>
+							<p className="text-gray-700 mb-4">
+								Simulador oficial del examen teórico DGT para practicar como si fuera el día real.
+							</p>
+							<div className="flex items-center text-blue-500 font-semibold">
+								<span>Empezar simulador</span>
+								<ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
+							</div>
+						</Link>
+
+						<Link
+							href="/numeros"
+							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+						>
+							<div className="flex items-center gap-4 mb-4">
+								<div className="w-12 h-12 bg-amber-500 rounded-lg flex items-center justify-center text-white">
+									<Hash className="w-6 h-6" aria-hidden="true" />
+								</div>
+								<h3 className="text-xl font-bold text-gray-900">
+									Números en Español
+								</h3>
+							</div>
+							<p className="text-gray-700 mb-4">
+								Aprende y practica los números en español con audio y ejercicios hasta el 1000 y más.
+							</p>
+							<div className="flex items-center text-amber-500 font-semibold">
+								<span>Practicar números</span>
+								<ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
+							</div>
+						</Link>
+
+						<Link
+							href="/frases-espanol-conversacion"
+							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+						>
+							<div className="flex items-center gap-4 mb-4">
+								<div className="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center text-white">
+									<MessageSquare className="w-6 h-6" aria-hidden="true" />
+								</div>
+								<h3 className="text-xl font-bold text-gray-900">
+									Frases de Conversación
+								</h3>
+							</div>
+							<p className="text-gray-700 mb-4">
+								500+ frases útiles para conversaciones diarias en España con ejemplos prácticos.
+							</p>
+							<div className="flex items-center text-cyan-500 font-semibold">
+								<span>Aprender frases</span>
+								<ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
+							</div>
+						</Link>
+
+						<Link
+							href="/ejercicios-espanol-interactivos"
+							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+						>
+							<div className="flex items-center gap-4 mb-4">
+								<div className="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center text-white">
+									<Gamepad2 className="w-6 h-6" aria-hidden="true" />
+								</div>
+								<h3 className="text-xl font-bold text-gray-900">
+									Ejercicios Interactivos
+								</h3>
+							</div>
+							<p className="text-gray-700 mb-4">
+								Más de 140 ejercicios interactivos de gramática, vocabulario y comprensión con corrección inmediata.
+							</p>
+							<div className="flex items-center text-pink-500 font-semibold">
+								<span>Empezar ejercicios</span>
 								<ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
 							</div>
 						</Link>
