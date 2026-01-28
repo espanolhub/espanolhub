@@ -1,13 +1,34 @@
 'use client';
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { dgtQuestions } from '@/lib/data/dgt-questions';
+import { dgtQuestions, DGTQuestion } from '@/lib/data/dgt-questions';
 import Link from 'next/link';
 import { AlertTriangle, CheckCircle, XCircle, Flag, Send } from 'lucide-react';
 import Image from 'next/image';
 
+// Function to get random questions from JSON
+const getRandomQuestions = async (): Promise<DGTQuestion[]> => {
+  try {
+    const response = await fetch('/data/driving-license-questions.json');
+    if (!response.ok) {
+      throw new Error('Failed to load questions');
+    }
+    const data = await response.json();
+    const allQuestions = data.questions;
+    
+    // Shuffle and select 30 random questions
+    const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 30);
+  } catch (error) {
+    console.error('Error loading questions from JSON, using fallback:', error);
+    // Fallback to the original questions if JSON fails
+    return dgtQuestions;
+  }
+};
+
 export default function SimulatorPage() {
-  const questions = useMemo(() => dgtQuestions, []);
+  const [questions, setQuestions] = useState<DGTQuestion[]>([]);
+  const [loading, setLoading] = useState(true);
   const totalQuestions = questions.length;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -28,6 +49,23 @@ export default function SimulatorPage() {
   };
 
   useEffect(() => {
+    const loadQuestions = async () => {
+      setLoading(true);
+      try {
+        const randomQuestions = await getRandomQuestions();
+        setQuestions(randomQuestions);
+      } catch (error) {
+        console.error('Error loading questions:', error);
+        setQuestions(dgtQuestions);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadQuestions();
+  }, []);
+
+  useEffect(() => {
     const iv = setInterval(() => {
       setTimeLeft((t) => {
         if (t <= 1) {
@@ -43,6 +81,8 @@ export default function SimulatorPage() {
 
   // load local image fallback or use provided image
   useEffect(() => {
+    if (questions.length === 0) return;
+    
     let mounted = true;
     const loadImage = async () => {
       const q = questions[currentIndex];
@@ -213,12 +253,27 @@ export default function SimulatorPage() {
     }
   };
 
-  const handleRestart = () => {
-    setFinished(false);
-    setAnswers([]);
-    setSelectedIndex(null);
-    setCurrentIndex(0);
-    setTimeLeft(30 * 60);
+  const handleRestart = async () => {
+    setLoading(true);
+    try {
+      const newRandomQuestions = await getRandomQuestions();
+      setQuestions(newRandomQuestions);
+      setFinished(false);
+      setAnswers([]);
+      setSelectedIndex(null);
+      setCurrentIndex(0);
+      setTimeLeft(30 * 60);
+    } catch (error) {
+      console.error('Error loading new questions:', error);
+      setQuestions(dgtQuestions);
+      setFinished(false);
+      setAnswers([]);
+      setSelectedIndex(null);
+      setCurrentIndex(0);
+      setTimeLeft(30 * 60);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (finished) {
@@ -457,6 +512,19 @@ export default function SimulatorPage() {
 
   const q = questions[currentIndex];
   const answeredCount = answers.filter(a => a !== undefined).length;
+
+  // Show loading state while questions are being loaded
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white py-8 px-4 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-600 mx-auto mb-6"></div>
+          <h2 className="text-2xl font-bold text-slate-900 mb-2">Cargando Simulador DGT</h2>
+          <p className="text-slate-600">Preparando preguntas aleatorias para tu examen...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white py-8 px-4">

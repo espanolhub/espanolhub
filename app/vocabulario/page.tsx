@@ -6,9 +6,11 @@ import { vocabularyCategories } from '@/lib/data/vocabulary';
 import { getDictionaryByCategory, getDictionary } from '@/lib/data/dictionary';
 import AudioPlayer from '@/components/AudioPlayer';
 import VoiceSearch from '@/components/VoiceSearch';
+import VocabularyQuiz from '@/components/VocabularyQuiz';
 import { 
   Palette, Coffee, Users, Cat, Home, Shirt, User, Play, BookOpen, Heart, 
-  MapPin, Car, GraduationCap, HeartPulse, Smile, Building, Share2, Search 
+  MapPin, Car, GraduationCap, HeartPulse, Smile, Building, Share2, Search,
+  Brain
 } from 'lucide-react';
 
 // Category icon mapping
@@ -45,6 +47,7 @@ function VocabularioContent() {
   
   const [selectedCategory, setSelectedCategory] = useState<string>('verbos');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [activeTab, setActiveTab] = useState<'learn' | 'quiz'>('learn');
 
   // Set initial category from URL on mount
   useEffect(() => {
@@ -119,67 +122,104 @@ function VocabularioContent() {
           />
         </div>
 
-        {/* Category Selector */}
-        <div
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4 mb-8 md:mb-10"
-          role="tablist"
-          aria-label="Categorías de vocabulario"
-        >
-          {vocabularyCategories.map((category) => {
-            const Icon = categoryIcons[category] || BookOpen;
-            return (
-              <button
-                key={category}
-                type="button"
-                onClick={() => {
-                  setSelectedCategory(category);
-                  setSearchQuery('');
-                }}
-                className={`px-3 md:px-4 py-3 md:py-3.5 rounded-lg font-semibold transition-all capitalize flex items-center justify-center gap-2 text-sm md:text-base border ${
-                  selectedCategory === category
-                    ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white border-purple-600'
-                    : 'bg-white text-gray-900 hover:bg-gray-50 border-gray-200'
-                }`}
-                style={selectedCategory === category ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
-                role="tab"
-                aria-selected={selectedCategory === category}
-                aria-label={`Categoría ${category}`}
-              >
-                <Icon className={`w-5 h-5 ${selectedCategory === category ? 'text-white' : 'text-gray-900'}`} aria-hidden="true" />
-                <span className={`hidden sm:inline ${selectedCategory === category ? 'text-white' : 'text-gray-900'}`}>{category}</span>
-              </button>
-            );
-          })}
+        {/* Tab Selector */}
+        <div className="flex justify-center mb-8 space-x-4">
+          <button
+            onClick={() => setActiveTab('learn')}
+            className={`flex items-center gap-2 px-8 py-3 rounded-lg font-semibold transition-all border ${
+              activeTab === 'learn'
+                ? 'bg-purple-600 text-white border-purple-600'
+                : 'bg-white text-gray-900 hover:bg-gray-50 border-gray-200'
+            }`}
+          >
+            <BookOpen className={`w-5 h-5 ${activeTab === 'learn' ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
+            Aprender
+          </button>
+          <button
+            onClick={() => setActiveTab('quiz')}
+            className={`flex items-center gap-2 px-8 py-3 rounded-lg font-semibold transition-all border ${
+              activeTab === 'quiz'
+                ? 'bg-purple-600 text-white border-purple-600'
+                : 'bg-white text-gray-900 hover:bg-gray-50 border-gray-200'
+            }`}
+          >
+            <Brain className={`w-5 h-5 ${activeTab === 'quiz' ? 'text-white' : 'text-gray-700'}`} aria-hidden="true" />
+            Quiz con Repetición Espaciada
+          </button>
         </div>
 
-        {/* Words Grid */}
-        {words.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-xl text-gray-600">No se encontraron palabras con "{searchQuery}"</p>
+        {/* Quiz Tab */}
+        {activeTab === 'quiz' && (
+          <div className="mb-8">
+            <VocabularyQuiz />
           </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6 mb-12">
-            {words.map((word, index) => (
-              <div
-                key={`${word.category}-${word.word}-${index}`}
-                className="bg-white rounded-xl shadow-md hover:shadow-2xl p-4 md:p-5 lg:p-6 transform transition-all duration-300 hover:scale-105 text-left w-full border-2 border-transparent"
-                aria-label={`Palabra: ${word.word}`}
-              >
-                <div className="text-center">
-                  <div className="flex justify-center mb-3">
-                    <div className="w-12 h-12 md:w-14 md:h-14 bg-gray-900 rounded-full flex items-center justify-center border border-gray-800">
-                      <CategoryIcon className="w-6 h-6 md:w-7 md:h-7 text-white" aria-hidden="true" />
+        )}
+
+        {/* Learn Tab */}
+        {activeTab === 'learn' && (
+          <div>
+            <div
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4 mb-8 md:mb-10"
+              role="tablist"
+              aria-label="Categorías de vocabulario"
+            >
+              {vocabularyCategories.map((category) => {
+                const Icon = categoryIcons[category] || BookOpen;
+                return (
+                  <button
+                    key={category}
+                    type="button"
+                    onClick={() => {
+                      setSelectedCategory(category);
+                      setSearchQuery('');
+                    }}
+                    className={`px-3 md:px-4 py-3 md:py-3.5 rounded-lg font-semibold transition-all capitalize flex items-center justify-center gap-2 text-sm md:text-base border ${
+                      selectedCategory === category
+                        ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white border-purple-600'
+                        : 'bg-white text-gray-900 hover:bg-gray-50 border-gray-200'
+                    }`}
+                    style={selectedCategory === category ? { textShadow: '1px 1px 2px rgba(0,0,0,0.8)' } : {}}
+                    role="tab"
+                    aria-selected={selectedCategory === category}
+                    aria-label={`Categoría ${category}`}
+                  >
+                    <Icon className={`w-5 h-5 ${selectedCategory === category ? 'text-white' : 'text-gray-900'}`} aria-hidden="true" />
+                    <span className={`hidden sm:inline ${selectedCategory === category ? 'text-white' : 'text-gray-900'}`}>{category}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Words Grid */}
+            {words.length === 0 ? (
+              <div className="text-center py-12">
+                <p className="text-xl text-gray-600">No se encontraron palabras con "{searchQuery}"</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6 mb-12">
+                {words.map((word, index) => (
+                  <div
+                    key={`${word.category}-${word.word}-${index}`}
+                    className="bg-white rounded-xl shadow-md hover:shadow-2xl p-4 md:p-5 lg:p-6 transform transition-all duration-300 hover:scale-105 text-left w-full border-2 border-transparent"
+                    aria-label={`Palabra: ${word.word}`}
+                  >
+                    <div className="text-center">
+                      <div className="flex justify-center mb-3">
+                        <div className="w-12 h-12 md:w-14 md:h-14 bg-gray-900 rounded-full flex items-center justify-center border border-gray-800">
+                          <CategoryIcon className="w-6 h-6 md:w-7 md:h-7 text-white" aria-hidden="true" />
+                        </div>
+                      </div>
+
+                      <div className="text-xl md:text-2xl font-bold text-blue-600 mb-4 break-words">
+                        {word.word}
+                      </div>
+
+                      <AudioPlayer text={word.word} />
                     </div>
                   </div>
-
-                  <div className="text-xl md:text-2xl font-bold text-blue-600 mb-4 break-words">
-                    {word.word}
-                  </div>
-
-                  <AudioPlayer text={word.word} />
-                </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
         )}
 

@@ -1,0 +1,454 @@
+{
+  "questions": [
+    {
+      "id": "dgt-1",
+      "question_es": "En una intersección sin señalizar, ¿quién tiene prioridad?",
+      "question_ar": "في تقاطع بدون إشارات، من له الأولوية؟",
+      "options": [
+        "El vehículo que se acerca por la derecha",
+        "El vehículo más rápido",
+        "El vehículo que gira a la izquierda",
+        "El vehículo que viene por la izquierda"
+      ],
+      "correctIndex": 0,
+      "explanation_es": "En intersecciones sin señalizar, se aplica la regla general: el vehículo que viene por la derecha tiene prioridad.",
+      "explanation_ar": "في التقاطعات غير المعلّمة، تنطبق القاعدة العامة: المركبة القادمة من اليمين لها الأولوية.",
+      "category": "prioridad"
+    },
+    {
+      "id": "dgt-2",
+      "question_es": "¿Qué debe hacer al ver una señal de \"Ceda el paso\"?",
+      "question_ar": "ماذا يجب أن تفعل عندما ترى لافتة \"أعطِ الأفضلية\"؟",
+      "options": [
+        "Detenerse completamente siempre",
+        "Reducir la velocidad y ceder si es necesario",
+        "Acelerar para cruzar antes",
+        "Ignorar la señal"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "La señal \"Ceda el paso\" obliga a reducir la velocidad y ceder el paso a los vehículos que se aproximen por la vía principal.",
+      "explanation_ar": "لافتة \"أعطِ الأفضلية\" توجب تقليل السرعة وإعطاء الأولوية للمركبات القادمة من الطريق الرئيسي.",
+      "category": "señales"
+    },
+    {
+      "id": "dgt-3",
+      "question_es": "En una glorieta, ¿quién tiene prioridad?",
+      "question_ar": "في الدوار، من له الأولوية؟",
+      "options": [
+        "El vehículo que entra en la glorieta",
+        "Los peatones solamente",
+        "Los vehículos que ya se encuentran dentro de la glorieta",
+        "El vehículo más grande"
+      ],
+      "correctIndex": 2,
+      "explanation_es": "En las glorietas, tienen prioridad los vehículos que ya circulan por el interior de la glorieta sobre los que pretenden acceder.",
+      "explanation_ar": "في الدوارات، المركبات التي تسير بالفعل داخل الدوار لها الأولوية على المركبات التي تريد الدخول.",
+      "category": "prioridad"
+    },
+    {
+      "id": "dgt-4",
+      "question_es": "¿Cuál es la velocidad máxima permitida en autopistas para turismos?",
+      "question_ar": "ما هي السرعة القصوى المسموح بها على الطرق السريعة للسيارات؟",
+      "options": [
+        "110 km/h",
+        "120 km/h",
+        "130 km/h",
+        "100 km/h"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "En autopistas, la velocidad máxima para turismos es de 120 km/h.",
+      "explanation_ar": "على الطرق السريعة، السرعة القصوى للسيارات هي 120 كم/ساعة.",
+      "category": "velocidades"
+    },
+    {
+      "id": "dgt-5",
+      "question_es": "¿Cuál es la velocidad máxima en vías urbanas?",
+      "question_ar": "ما هي السرعة القصوى في الشوارع الحضرية؟",
+      "options": [
+        "40 km/h",
+        "50 km/h",
+        "30 km/h",
+        "60 km/h"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "En vías urbanas, la velocidad máxima general es de 50 km/h, aunque puede estar limitada a 30 km/h en determinadas zonas.",
+      "explanation_ar": "في الشوارع الحضرية، السرعة القصوى العامة هي 50 كم/ساعة، رغم أنه يمكن تحديدها بـ 30 كم/ساعة في مناطق معينة.",
+      "category": "velocidades"
+    },
+    {
+      "id": "dgt-6",
+      "question_es": "¿Qué indica una señal redonda con borde rojo y fondo blanco?",
+      "question_ar": "ماذا تعني لافتة دائرية بحافة حمراء وخلفية بيضاء؟",
+      "options": [
+        "Obligación",
+        "Prohibición",
+        "Peligro",
+        "Información"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "Las señales circulares con borde rojo y fondo blanco indican prohibición.",
+      "explanation_ar": "اللافتات الدائرية ذات الحافة الحمراء والخلفية البيضاء تشير إلى المنع.",
+      "category": "señales"
+    },
+    {
+      "id": "dgt-7",
+      "question_es": "¿Cuándo es obligatorio usar el cinturón de seguridad?",
+      "question_ar": "متى يكون استخدام حزام الأمان إجباريًا؟",
+      "options": [
+        "Solo en autopistas",
+        "Siempre que se circule, tanto en vías urbanas como interurbanas",
+        "Solo en carreteras",
+        "Solo para el conductor"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "El cinturón de seguridad es obligatorio para todos los ocupantes del vehículo, en todas las vías y en todas las situaciones.",
+      "explanation_ar": "حزام الأمان إجباري لجميع ركاب المركبة، في جميع الطرق وفي جميع الحالات.",
+      "category": "seguridad"
+    },
+    {
+      "id": "dgt-8",
+      "question_es": "¿Qué distancia de seguridad debe mantener con el vehículo precedente?",
+      "question_ar": "ما هي مسافة الأمان التي يجب الحفاظ عليها مع المركبة التي أمامك؟",
+      "options": [
+        "50 metros",
+        "La distancia equivalente a la distancia de reacción más la de frenado",
+        "10 metros",
+        "No es necesario mantener distancia"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "La distancia de seguridad debe ser suficiente para detenerse sin colisionar, equivalente a la distancia de reacción más la de frenado.",
+      "explanation_ar": "مسافة الأمان يجب أن تكون كافية للتوقف دون اصطدام، أي ما يعادل مسافة رد الفعل بالإضافة إلى مسافة الفرملة.",
+      "category": "seguridad"
+    },
+    {
+      "id": "dgt-9",
+      "question_es": "¿Qué significa una señal de \"Stop\"?",
+      "question_ar": "ماذا تعني لافتة \"قف\" (Stop)؟",
+      "options": [
+        "Reducir la velocidad",
+        "Detenerse obligatoriamente antes de la línea de detención",
+        "Ceder el paso",
+        "Solo para vehículos pesados"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "La señal de \"Stop\" obliga a detenerse completamente antes de la línea de detención o, si no existe, antes de la intersección.",
+      "explanation_ar": "لافتة \"قف\" (Stop) توجب التوقف الكامل قبل خط التوقف أو، إذا لم يكن موجودًا، قبل التقاطع.",
+      "category": "señales"
+    },
+    {
+      "id": "dgt-10",
+      "question_es": "¿Cuál es la tasa máxima de alcoholemia permitida para conductores noveles?",
+      "question_ar": "ما هي النسبة القصوى للكحول في الدم المسموح بها للسائقين الجدد؟",
+      "options": [
+        "0,5 g/l",
+        "0,3 g/l",
+        "0,0 g/l",
+        "0,25 g/l"
+      ],
+      "correctIndex": 2,
+      "explanation_es": "Los conductores noveles tienen una tasa máxima de alcoholemia de 0,0 g/l (tolerancia cero).",
+      "explanation_ar": "السائقون الجدد لديهم نسبة كحول قصوى في الدم تبلغ 0.0 غ/ل (عدم تحمل أي كحول).",
+      "category": "alcohol"
+    },
+    {
+      "id": "dgt-11",
+      "question_es": "¿En qué situaciones está prohibido adelantar?",
+      "question_ar": "في أي حالات يكون التجاوز محظورًا؟",
+      "options": [
+        "En autopistas",
+        "En curvas, cambios de rasante con visibilidad reducida, y pasos para peatones",
+        "Solo en vías urbanas",
+        "Nunca está prohibido"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "Está prohibido adelantar en curvas, cambios de rasante con visibilidad reducida, pasos para peatones, túneles, y cuando exista línea continua.",
+      "explanation_ar": "التجاوز محظور في المنعطفات، والتغييرات في الارتفاع مع انخفاض الرؤية، ومعابر المشاة، والأنفاق، وعند وجود خط مستمر.",
+      "category": "adelantamientos"
+    },
+    {
+      "id": "dgt-12",
+      "question_es": "¿Qué debe hacer si su vehículo se avería en la autopista?",
+      "question_ar": "ماذا يجب أن تفعل إذا تعطلت سيارتك على الطريق السريع؟",
+      "options": [
+        "Circular lentamente por el arcén",
+        "Detenerse en el arcén, poner las luces de emergencia y ponerse el chaleco reflectante antes de salir",
+        "Quedarse dentro del vehículo sin hacer nada",
+        "Caminar por la calzada"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "Debe detenerse en el arcén, activar las luces de emergencia, ponerse el chaleco reflectante antes de salir del vehículo, y colocar los triángulos de señalización.",
+      "explanation_ar": "يجب التوقف على جانب الطريق، تفعيل أضواء الطوارئ، وارتداء السترة العاكسة قبل الخروج من المركبة، ووضع مثلثات الإشارة.",
+      "category": "averías"
+    },
+    {
+      "id": "dgt-13",
+      "question_es": "¿Cuál es la distancia mínima para adelantar a un ciclista?",
+      "question_ar": "ما هي المسافة الدنيا لتجاوز راكب دراجة؟",
+      "options": [
+        "1 metro",
+        "1,5 metros",
+        "2 metros",
+        "0,5 metros"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "Al adelantar a un ciclista, debe dejar un espacio lateral mínimo de 1,5 metros.",
+      "explanation_ar": "عند تجاوز راكب دراجة، يجب ترك مسافة جانبية دنيا تبلغ 1.5 متر.",
+      "category": "adelantamientos"
+    },
+    {
+      "id": "dgt-14",
+      "question_es": "¿Qué indica una señal triangular con borde rojo?",
+      "question_ar": "ماذا تعني لافتة مثلثة بحافة حمراء؟",
+      "options": [
+        "Obligación",
+        "Peligro o advertencia",
+        "Prohibición",
+        "Información"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "Las señales triangulares con borde rojo indican peligro o advertencia.",
+      "explanation_ar": "اللافتات المثلثة ذات الحافة الحمراء تشير إلى الخطر أو التحذير.",
+      "category": "señales"
+    },
+    {
+      "id": "dgt-15",
+      "question_es": "¿Cuándo debe usar las luces de cruce (cortas)?",
+      "question_ar": "متى يجب استخدام المصابيح الأمامية (القصيرة)؟",
+      "options": [
+        "Solo de noche",
+        "De noche y en túneles, o cuando las condiciones meteorológicas reduzcan la visibilidad",
+        "Solo en túneles",
+        "Siempre"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "Debe usar las luces de cruce de noche, en túneles, y cuando las condiciones meteorológicas reduzcan la visibilidad.",
+      "explanation_ar": "يجب استخدام المصابيح الأمامية ليلاً، وفي الأنفاق، وعندما تقلل الظروف الجوية من الرؤية.",
+      "category": "iluminación"
+    },
+    {
+      "id": "dgt-16",
+      "question_es": "¿Qué significa una línea continua en la calzada?",
+      "question_ar": "ماذا تعني الخط المستمر على الطريق؟",
+      "options": [
+        "Puede adelantar",
+        "Prohibido adelantar",
+        "Velocidad limitada",
+        "Carril exclusivo"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "Una línea continua indica que está prohibido adelantar o cambiar de carril.",
+      "explanation_ar": "الخط المستمر يشير إلى أنه محظور التجاوز أو تغيير الممر.",
+      "category": "marcas"
+    },
+    {
+      "id": "dgt-17",
+      "question_es": "¿Cuál es la velocidad máxima para ciclomotores en vías urbanas?",
+      "question_ar": "ما هي السرعة القصوى للمركبات الصغيرة في الشوارع الحضرية؟",
+      "options": [
+        "30 km/h",
+        "45 km/h",
+        "50 km/h",
+        "40 km/h"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "Los ciclomotores tienen una velocidad máxima de 45 km/h en todas las vías.",
+      "explanation_ar": "المركبات الصغيرة لديها سرعة قصوى تبلغ 45 كم/ساعة في جميع الطرق.",
+      "category": "velocidades"
+    },
+    {
+      "id": "dgt-18",
+      "question_es": "¿Qué debe hacer en un paso de peatones?",
+      "question_ar": "ماذا يجب أن تفعل في معبر المشاة؟",
+      "options": [
+        "Acelerar para pasar rápido",
+        "Detenerse si hay peatones cruzándolo o a punto de cruzarlo",
+        "Tocar el claxon",
+        "Ignorar el paso"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "Debe detenerse y ceder el paso a los peatones que estén cruzando o a punto de cruzar el paso de peatones.",
+      "explanation_ar": "يجب التوقف وإعطاء الأولوية للمشاة الذين يعبرون أو على وشك عبور معبر المشاة.",
+      "category": "peatones"
+    },
+    {
+      "id": "dgt-19",
+      "question_es": "¿Qué indica una señal azul circular?",
+      "question_ar": "ماذا تعني لافتة دائرية زرقاء؟",
+      "options": [
+        "Prohibición",
+        "Obligación",
+        "Peligro",
+        "Información"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "Las señales circulares azules indican obligación.",
+      "explanation_ar": "اللافتات الدائرية الزرقاء تشير إلى الإلزام.",
+      "category": "señales"
+    },
+    {
+      "id": "dgt-20",
+      "question_es": "¿Cuál es la velocidad máxima en carreteras convencionales para turismos?",
+      "question_ar": "ما هي السرعة القصوى على الطرق التقليدية للسيارات؟",
+      "options": [
+        "90 km/h",
+        "100 km/h",
+        "110 km/h",
+        "80 km/h"
+      ],
+      "correctIndex": 0,
+      "explanation_es": "En carreteras convencionales, la velocidad máxima para turismos es de 90 km/h.",
+      "explanation_ar": "على الطرق التقليدية، السرعة القصوى للسيارات هي 90 كم/ساعة.",
+      "category": "velocidades"
+    },
+    {
+      "id": "dgt-21",
+      "question_es": "¿Qué distancia debe mantener con el vehículo precedente en autopista?",
+      "question_ar": "ما هي المسافة التي يجب الحفاظ عليها مع المركبة التي أمامك على الطريق السريع؟",
+      "options": [
+        "50 metros",
+        "Al menos 100 metros o el equivalente a 3 segundos",
+        "20 metros",
+        "No es necesario"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "En autopistas, debe mantener una distancia de seguridad de al menos 100 metros o el equivalente a 3 segundos de intervalo.",
+      "explanation_ar": "على الطرق السريعة، يجب الحفاظ على مسافة أمان لا تقل عن 100 متر أو ما يعادل 3 ثوانٍ من الفترة الزمنية.",
+      "category": "distancia"
+    },
+    {
+      "id": "dgt-22",
+      "question_es": "¿Qué debe hacer si se encuentra con un vehículo de emergencia con las luces y sirena activadas?",
+      "question_ar": "ماذا يجب أن تفعل إذا صادفت مركبة طوارئ بأضواء وصافرة نشطة؟",
+      "options": [
+        "Continuar a la misma velocidad",
+        "Facilitar el paso apartándose a la derecha y, si es necesario, deteniéndose",
+        "Acelerar para no estorbar",
+        "Ignorar el vehículo"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "Debe facilitar el paso a los vehículos de emergencia apartándose a la derecha y, si es necesario, deteniéndose.",
+      "explanation_ar": "يجب تسهيل مرور مركبات الطوارئ بالتحول إلى اليمين، وإذا لزم الأمر، بالتوقف.",
+      "category": "emergencias"
+    },
+    {
+      "id": "dgt-23",
+      "question_es": "¿Cuándo puede usar el teléfono móvil mientras conduce?",
+      "question_ar": "متى يمكنك استخدام الهاتف المحمول أثناء القيادة؟",
+      "options": [
+        "Nunca, debe estar completamente apagado",
+        "Solo con dispositivo de manos libres",
+        "Siempre que quiera",
+        "Solo en autopistas"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "Puede usar el teléfono móvil solo con un dispositivo de manos libres que no requiera usar las manos.",
+      "explanation_ar": "يمكنك استخدام الهاتف المحمول فقط مع جهاز لا يتطلب استخدام اليدين.",
+      "category": "distracciones"
+    },
+    {
+      "id": "dgt-24",
+      "question_es": "¿Qué significa una señal de \"Prohibido el paso\"?",
+      "question_ar": "ماذا تعني لافتة \"ممنوع المرور\"؟",
+      "options": [
+        "Reducir la velocidad",
+        "Prohibido el paso de vehículos en ambos sentidos",
+        "Solo para camiones",
+        "Solo para motos"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "La señal de \"Prohibido el paso\" prohíbe el acceso a todos los vehículos en ambos sentidos.",
+      "explanation_ar": "لافتة \"ممنوع المرور\" تحظر دخول جميع المركبات في كلا الاتجاهين.",
+      "category": "señales"
+    },
+    {
+      "id": "dgt-25",
+      "question_es": "¿Cuál es la velocidad máxima en zona residencial?",
+      "question_ar": "ما هي السرعة القصوى في المنطقة السكنية؟",
+      "options": [
+        "30 km/h",
+        "20 km/h",
+        "50 km/h",
+        "40 km/h"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "En zonas residenciales (señalizadas con la señal S-28), la velocidad máxima es de 20 km/h.",
+      "explanation_ar": "في المناطق السكنية (المعلّمة باللافتة S-28)، السرعة القصوى هي 20 كم/ساعة.",
+      "category": "velocidades"
+    },
+    {
+      "id": "dgt-26",
+      "question_es": "¿Qué debe hacer si se pincha una rueda?",
+      "question_ar": "ماذا يجب أن تفعل إذا تعطلت إطاراتك؟",
+      "options": [
+        "Frenar bruscamente",
+        "Sujetar firmemente el volante, reducir velocidad progresivamente y detenerse en lugar seguro",
+        "Acelerar para llegar antes",
+        "Cambiar de carril inmediatamente"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "Debe sujetar firmemente el volante, reducir la velocidad progresivamente sin frenar bruscamente, y detenerse en un lugar seguro.",
+      "explanation_ar": "يجب الإمساك بقوة بعجلة القيادة، تقليل السرعة تدريجيًا دون فرملة مفاجئة، والتوقف في مكان آمن.",
+      "category": "averías"
+    },
+    {
+      "id": "dgt-27",
+      "question_es": "¿Qué indica una señal de \"Dirección prohibida\"?",
+      "question_ar": "ماذا تعني لافتة \"الاتجاه محظور\"؟",
+      "options": [
+        "Puede continuar recto",
+        "Prohibido continuar en la dirección de la flecha",
+        "Solo para camiones",
+        "Velocidad limitada"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "La señal de \"Dirección prohibida\" prohíbe continuar en la dirección indicada por la flecha.",
+      "explanation_ar": "لافتة \"الاتجاه محظور\" تحظر الاستمرار في الاتجاه المشار إليه بالسهم.",
+      "category": "señales"
+    },
+    {
+      "id": "dgt-28",
+      "question_es": "¿Cuál es la tasa máxima de alcoholemia para conductores generales?",
+      "question_ar": "ما هي النسبة القصوى للكحول في الدم للسائقين العامين؟",
+      "options": [
+        "0,5 g/l",
+        "0,3 g/l",
+        "0,0 g/l",
+        "0,25 g/l"
+      ],
+      "correctIndex": 0,
+      "explanation_es": "Para conductores en general, la tasa máxima de alcoholemia es de 0,5 g/l en sangre o 0,25 mg/l en aire espirado.",
+      "explanation_ar": "للسائقين عامة، النسبة القصوى للكحول في الدم هي 0.5 غ/ل في الدم أو 0.25 مغ/ل في هواء الزفير.",
+      "category": "alcohol"
+    },
+    {
+      "id": "dgt-29",
+      "question_es": "¿Qué debe hacer si se aproxima a un paso a nivel?",
+      "question_ar": "ماذا يجب أن تفعل إذا اقتربت من معبر سكة حديدية؟",
+      "options": [
+        "Acelerar para pasar rápido",
+        "Extremar la precaución, reducir velocidad y asegurarse de que no viene ningún tren",
+        "Ignorar el paso",
+        "Tocar el claxon continuamente"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "Debe extremar la precaución, reducir la velocidad, detenerse si es necesario, y asegurarse de que no viene ningún tren antes de cruzar.",
+      "explanation_ar": "يجب توخي الحذر الشديد، تقليل السرعة، التوقف إذا لزم الأمر، والتأكد من عدم وجود قطار قبل العبور.",
+      "category": "seguridad"
+    },
+    {
+      "id": "dgt-30",
+      "question_es": "¿Qué indica una señal de \"Poblado\" (población)?",
+      "question_ar": "ماذا تعني لافتة \"منطقة سكنية\"؟",
+      "options": [
+        "Puede circular a cualquier velocidad",
+        "Debe reducir la velocidad a 50 km/h como máximo",
+        "Solo para residentes",
+        "Zona de aparcamiento"
+      ],
+      "correctIndex": 1,
+      "explanation_es": "La señal de \"Poblado\" indica el inicio de una vía urbana, donde la velocidad máxima es de 50 km/h (o 30 km/h si está señalizado).",
+      "explanation_ar": "لافتة \"منطقة سكنية\" تشير إلى بداية طريق حضري، حيث السرعة القصوى هي 50 كم/ساعة (أو 30 كم/ساعة إذا كانت معلّمة).",
+      "category": "velocidades"
+    }
+  ]
+}

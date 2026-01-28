@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { cx } from './classNames';
 
-type Accent = 'purple' | 'blue' | 'green' | 'amber' | 'rose' | 'slate';
+type Accent = 'purple' | 'blue' | 'green' | 'amber' | 'rose' | 'slate' | 'pink' | 'orange';
 
 export type GameCardAccent = Accent;
 
@@ -13,6 +13,8 @@ const accentMap: Record<Accent, { bg: string; ring: string }> = {
   amber: { bg: 'bg-gradient-to-br from-amber-500 to-orange-600', ring: 'group-hover:ring-amber-200' },
   rose: { bg: 'bg-gradient-to-br from-pink-600 to-rose-600', ring: 'group-hover:ring-rose-200' },
   slate: { bg: 'bg-gradient-to-br from-slate-800 to-slate-900', ring: 'group-hover:ring-slate-200' },
+  pink: { bg: 'bg-gradient-to-br from-pink-500 to-purple-600', ring: 'group-hover:ring-pink-200' },
+  orange: { bg: 'bg-gradient-to-br from-orange-500 to-red-600', ring: 'group-hover:ring-orange-200' },
 };
 
 export default function GameCard({

@@ -337,14 +337,15 @@ export default function DrivingLicensePage() {
           <main className="flex-1">
             <div className="modern-card bg-white border border-gray-200">
               {/* Chapter Header */}
-              <div className="bg-gray-50 border-b border-gray-200 p-6 rounded-t-lg">
-                <div className="flex items-start justify-between gap-4 mb-3">
-                  <div className="flex-1">
-                    <h2 className="text-2xl md:text-3xl font-bold mb-2 text-gray-900">{chapters[current].title}</h2>
-                    <p className="text-gray-700 text-sm font-semibold">
-                      Lección detallada con explicación completa / درس مفصل مع شرح كامل
-                    </p>
-                  </div>
+              {current !== -1 && (
+                <div className="bg-gray-50 border-b border-gray-200 p-6 rounded-t-lg">
+                  <div className="flex items-start justify-between gap-4 mb-3">
+                    <div className="flex-1">
+                      <h2 className="text-2xl md:text-3xl font-bold mb-2 text-gray-900">{chapters[current]?.title}</h2>
+                      <p className="text-gray-700 text-sm font-semibold">
+                        Lección detallada con explicación completa / درس مفصل مع شرح كامل
+                      </p>
+                    </div>
                   <div>
                     {/* All content is free now */}
                     <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-900 text-sm font-medium flex items-center gap-2 border border-gray-200">
@@ -364,6 +365,7 @@ export default function DrivingLicensePage() {
                   )}
                 </div>
               </div>
+              )}
 
               {/* Action Bar */}
               {current !== -1 && (
@@ -436,6 +438,13 @@ export default function DrivingLicensePage() {
               ) : (() => {
                 // Get lesson for current chapter
                 const currentChapter = chapters[current];
+                if (!currentChapter) {
+                  return (
+                    <div id="dl-lesson-content" className="p-6">
+                      <p className="text-gray-600">El contenido para este capítulo estará disponible pronto.</p>
+                    </div>
+                  );
+                }
                 const lessonId = (currentChapter as any)?.lessonId;
                 const lesson = lessonId ? getDrivingLessonById(lessonId) : null;
                 const chapterIsFree = currentChapter?.isFree;

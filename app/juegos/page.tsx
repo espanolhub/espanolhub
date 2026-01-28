@@ -166,7 +166,11 @@ function JuegosContent() {
         if (!res.ok) return;
         const data = await res.json();
         const list: LibraryEntry[] = [];
-        Object.values(data).forEach((arr: LibraryEntry[]) => arr.forEach((e: LibraryEntry) => list.push(e)));
+        Object.values(data).forEach((arr: any) => {
+          if (Array.isArray(arr)) {
+            arr.forEach((e: LibraryEntry) => list.push(e));
+          }
+        });
         if (mounted) setLibraryTitles(list);
       } catch (e) {
         console.error('Error loading library games:', e);
@@ -300,7 +304,7 @@ function JuegosContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--bg-base)] py-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-8">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -360,12 +364,14 @@ function JuegosContent() {
                     gameItem.id === 'multiple-choice'
                         ? 'green'
                         : gameItem.id === 'fill-blank'
-                          ? 'purple'
+                          ? 'blue'
                           : gameItem.id === 'order'
-                            ? 'amber'
+                            ? 'purple'
                             : gameItem.id === 'word-race'
                               ? 'rose'
-                              : 'slate';
+                              : gameItem.id === 'noun-agreement'
+                                ? 'pink'
+                                : 'slate';
                   return (
                     <GameCard
                       key={gameItem.id}
@@ -375,8 +381,8 @@ function JuegosContent() {
                       accent={accent}
                       onClick={() => handleStartGame(gameItem.id)}
                       meta={
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-100 rounded-full">
-                          <span className="text-xs font-semibold text-slate-700">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200">
+                          <span className="text-xs font-semibold text-gray-700">
                             {gameItem.questions.length > 0 ? `${gameItem.questions.length} preguntas` : '⏱️ Tiempo'}
                           </span>
                         </div>

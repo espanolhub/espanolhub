@@ -5,8 +5,9 @@ import { grammarExercises, getExercisesByCategory, getRandomExercises } from '@/
 import { getAllInfinitiveVerbs } from '@/lib/data/grammar';
 import useIsPro from '@/lib/hooks/useIsPro';
 import { useAdminSettings } from '@/components/AdminSettingsProvider';
-import { CheckCircle, XCircle, Lightbulb } from 'lucide-react';
+import { CheckCircle, XCircle, Lightbulb, RotateCcw, BarChart3 } from 'lucide-react';
 import HintModal from '@/components/HintModal';
+import { QuestionTracker } from '@/lib/utils/questionTracker';
 
 type Level = 'beginner' | 'intermediate' | 'advanced';
 
@@ -28,6 +29,8 @@ export default function GramEjerciciosPage() {
   const [exList, setExList] = useState<any[]>([]);
   const [boostMessage, setBoostMessage] = useState<string | null>(null);
   const [recentCorrectId, setRecentCorrectId] = useState<string | null>(null);
+  const [showStats, setShowStats] = useState(false);
+  const [includeWrongQuestions, setIncludeWrongQuestions] = useState(false);
 
   useEffect(() => {
     // Build pool including injected advanced verb questions
@@ -82,23 +85,31 @@ export default function GramEjerciciosPage() {
     const pool = (category === 'all' ? [...grammarExercises, ...extraQuestions] : [...getExercisesByCategory(category), ...extraQuestions.filter(q => q.category === category)]);
     // Filter by level
     const byLevel = pool.filter((e:any) => e.level === level);
-    // Shuffle client-side and pick up to 20
-    const shuffleQuestions = (arr:any[]) => {
-      const a = arr.slice();
-      for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-      }
-      return a;
-    };
+    
+    let selectedQuestions: any[] = [];
+    
+    if (includeWrongQuestions) {
+      // Include some questions the user got wrong for spaced repetition
+      const wrongQuestions = QuestionTracker.getWrongQuestions(byLevel, category, level, 5);
+      const unseenQuestions = QuestionTracker.getUnseenQuestions(byLevel, category, level, 15);
+      selectedQuestions = [...wrongQuestions, ...unseenQuestions];
+    } else {
+      // Get only unseen questions
+      selectedQuestions = QuestionTracker.getUnseenQuestions(byLevel, category, level, 20);
+    }
 
-    const shuffled = shuffleQuestions(byLevel.length ? byLevel : pool);
-    const list = shuffled.slice(0, Math.min(20, shuffled.length));
-    setExList(list);
+    // If we still don't have enough questions, fill with random ones
+    if (selectedQuestions.length < 10) {
+      const remainingQuestions = byLevel.filter(q => !selectedQuestions.some(sq => sq.id === q.id));
+      const shuffled = remainingQuestions.sort(() => Math.random() - 0.5);
+      selectedQuestions = [...selectedQuestions, ...shuffled.slice(0, 20 - selectedQuestions.length)];
+    }
+
+    setExList(selectedQuestions);
     setAnswers({});
     setShowResults(false);
     setShowHints({});
-  }, [category, level]);
+  }, [category, level, includeWrongQuestions]);
 
   // Motivational messages (ES)
   const boosts = [
@@ -132,6 +143,13 @@ export default function GramEjerciciosPage() {
     setShowResults(true);
     const correct = exList.reduce((acc, ex:any) => acc + (answers[ex.id] === ex.correctAnswer ? 1 : 0), 0);
     const score = Math.round((correct / exList.length)*100);
+    
+    // Record all attempts with QuestionTracker
+    exList.forEach(ex => {
+      const isCorrect = answers[ex.id] === ex.correctAnswer;
+      QuestionTracker.recordAttempt(ex.id, ex.category || category, ex.level || level, isCorrect);
+    });
+    
     // Auto-show hints for wrong answers
     const wrongIds: Record<string, boolean> = {};
     exList.forEach(ex => {
@@ -178,8 +196,75 @@ export default function GramEjerciciosPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-pink-50 py-8">
       <div className="max-w-4xl mx-auto px-4">
-        <h1 className="text-3xl font-bold mb-4">Ejercicios de Gramática</h1>
-        <div className="mb-4 flex gap-2">
+        <div className="flex items-center justify-between mb-4">
+          <h1 className="text-3xl font-bold">Ejercicios de Gramática</h1>
+          <div className="flex gap-2">
+            <button 
+              onClick={() => setShowStats(!showStats)}
+              className="px-3 py-2 bg-white rounded-lg shadow-md border border-gray-200 flex items-center gap-2 hover:bg-gray-50"
+            >
+              <BarChart3 className="w-4 h-4" />
+              Estadísticas
+            </button>
+            <button 
+              onClick={() => setIncludeWrongQuestions(!includeWrongQuestions)}
+              className={`px-3 py-2 rounded-lg shadow-md border flex items-center gap-2 transition-colors ${
+                includeWrongQuestions 
+                  ? 'bg-orange-100 border-orange-300 text-orange-700' 
+                  : 'bg-white border-gray-200 hover:bg-gray-50'
+              }`}
+            >
+              <RotateCcw className="w-4 h-4" />
+              Repetición Espaciada
+            </button>
+          </div>
+        </div>
+
+        {/* Stats Panel */}
+        {showStats && (
+          <div className="mb-6 p-4 bg-white rounded-xl shadow-md border border-gray-200">
+            <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+              <BarChart3 className="w-5 h-5" />
+              Tus Estadísticas
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-blue-600">
+                  {QuestionTracker.getStats(category, level).totalAttempts}
+                </div>
+                <div className="text-sm text-gray-600">Intentos Totales</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-green-600">
+                  {QuestionTracker.getStats(category, level).correctAnswers}
+                </div>
+                <div className="text-sm text-gray-600">Respuestas Correctas</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-purple-600">
+                  {QuestionTracker.getStats(category, level).accuracy}%
+                </div>
+                <div className="text-sm text-gray-600">Precisión</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-orange-600">
+                  {QuestionTracker.getStats(category, level).recentAttempts}
+                </div>
+                <div className="text-sm text-gray-600">Intentos Recientes</div>
+              </div>
+            </div>
+            <div className="mt-3 pt-3 border-t border-gray-200">
+              <p className="text-sm text-gray-600">
+                {includeWrongQuestions 
+                  ? "🔄 Incluyendo preguntas que respondiste incorrectamente para practicar"
+                  : "📝 Mostrando preguntas nuevas que no has visto recientemente"
+                }
+              </p>
+            </div>
+          </div>
+        )}
+
+        <div className="mb-4 flex gap-2 flex-wrap">
           {(['all','verbs','articles','pronouns','adjectives'] as any[]).map(c => (
             <button key={c} onClick={() => setCategory(c)} className={`px-3 py-2 rounded ${category===c ? 'bg-red-600 text-white' : 'bg-white text-gray-900'}`}>{c==='all' ? 'Todas' : c}</button>
           ))}
