@@ -540,25 +540,27 @@ export default function GramaticaEspanolaCompletaPage() {
         {/* CTA Section */}
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-7xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              ¿Listo para Dominar la Gramática Española?
-            </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Empieza ahora. Todo es 100% gratis y accesible de inmediato.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/gramatica"
-                className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105"
-              >
-                Empezar Curso
-              </Link>
-              <Link
-                href="/juegos"
-                className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold text-lg hover:bg-white/10 transition-all"
-              >
-                Ver Juegos
-              </Link>
+            <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-8 md:p-12 shadow-xl border border-gray-200 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+                ¿Listo para Dominar la Gramática Española?
+              </h2>
+              <p className="text-xl mb-8 text-white/90">
+                Empieza ahora. Todo es 100% gratis y accesible de inmediato.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/gramatica"
+                  className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105"
+                >
+                  Empezar Curso
+                </Link>
+                <Link
+                  href="/juegos"
+                  className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold text-lg hover:bg-white/10 transition-all"
+                >
+                  Ver Juegos
+                </Link>
+              </div>
             </div>
           </div>
         </section>

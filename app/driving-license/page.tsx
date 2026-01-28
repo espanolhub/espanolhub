@@ -420,7 +420,7 @@ export default function DrivingLicensePage() {
                 <div>
                   <div className="mb-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                         <AlertCircle className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
@@ -436,7 +436,7 @@ export default function DrivingLicensePage() {
                           Practica con preguntas reales del examen DGT. El simulador incluye 30 preguntas con imágenes y casos prácticos.
                         </p>
                         <div className="flex flex-wrap gap-2 text-xs">
-                          <span className="px-3 py-1 bg-amber-500 text-white rounded-full">30 Preguntas</span>
+                          <span className="px-3 py-1 bg-blue-600 text-white rounded-full">30 Preguntas</span>
                           <span className="px-3 py-1 bg-blue-500 text-white rounded-full">Tiempo Real</span>
                           <span className="px-3 py-1 bg-green-500 text-white rounded-full">Corrección Automática</span>
                         </div>

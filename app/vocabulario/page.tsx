@@ -313,7 +313,7 @@ function VocabularioContent() {
                         try { (window as any).__showToast?.('Error al enviar sugerencia', 'error'); } catch(e){}
                       }
                     }}
-                    className="mt-4 inline-flex items-center gap-2 px-6 py-3 bg-white border border-yellow-600 text-yellow-600 rounded-lg font-semibold hover:bg-yellow-50 transition"
+                    className="mt-4 inline-flex items-center gap-2 px-6 py-3 bg-white border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-gray-50 transition"
                   >
                     Sugerir palabra
                   </button>
@@ -339,7 +339,7 @@ function VocabularioContent() {
                       }
                     }}
                     className={`bg-white rounded-xl shadow-md hover:shadow-2xl p-4 md:p-5 lg:p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 text-left w-full border-2 ${
-                      selectedWord === word.word ? 'ring-4 ring-yellow-500 border-yellow-400' : 'border-transparent'
+                      selectedWord === word.word ? 'ring-4 ring-blue-600 border-blue-600' : 'border-transparent'
                     }`}
                     role="button"
                     tabIndex={0}
@@ -359,7 +359,7 @@ function VocabularioContent() {
                         </div>
                       </div>
                       <div 
-                        className="text-xl md:text-2xl font-bold text-yellow-600 mb-2 cursor-pointer hover:text-yellow-700 transition-colors break-words flex items-center gap-2"
+                        className="text-xl md:text-2xl font-bold text-blue-600 mb-2 cursor-pointer hover:text-blue-700 transition-colors break-words flex items-center gap-2"
                         onClick={(e) => {
                           e.stopPropagation();
                           pronounceWord(word.word);

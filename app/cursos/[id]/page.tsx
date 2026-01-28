@@ -16,7 +16,7 @@ export default function CoursePage({ params }: { params: { id: string } }) {
 
   if (!course) {
     return (
-      <div style={{ background: '#ffffff', color: '#000000' }} className="min-h-screen p-8">
+      <div className="min-h-screen p-8 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl font-bold mb-4">Curso no encontrado</h1>
           <p>El curso solicitado no existe.</p>
@@ -26,18 +26,18 @@ export default function CoursePage({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div style={{ background: '#ffffff', color: '#000000' }} className="min-h-screen p-8">
+    <div className="min-h-screen p-8 bg-white text-slate-900">
       <div className="max-w-4xl mx-auto">
         <div className="mb-6">
           <h1 className="text-3xl font-bold">{course.title}</h1>
-          <p className="text-sm text-[#0f172a]">{course.description}</p>
+          <p className="text-sm text-slate-700">{course.description}</p>
         </div>
 
         <div>
           <h2 className="text-2xl font-semibold mb-4">Lecciones</h2>
           {course.lessons.length === 0 ? (
             <div className="p-6 border rounded-lg bg-white">
-              <p className="text-black">No hay lecciones todavía</p>
+              <p className="text-slate-900">No hay lecciones todavía</p>
             </div>
           ) : (
             <div className="space-y-4">
@@ -46,9 +46,9 @@ export default function CoursePage({ params }: { params: { id: string } }) {
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="font-bold">Lección {idx + 1}: {lesson.title}</h3>
-                      <p className="text-sm text-[#0f172a]">{lesson.description}</p>
+                      <p className="text-sm text-slate-700">{lesson.description}</p>
                     </div>
-                    <button className="px-4 py-2 bg-[#0f172a] text-white rounded-md">Finalizar</button>
+                    <button className="btn btn-primary px-4 py-2 rounded-md">Finalizar</button>
                   </div>
                   <div className="mt-3">
                     <h4 className="font-semibold mb-2">Contenido</h4>

@@ -116,7 +116,7 @@ export default function PricingPage() {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 rounded-full mb-6">
               <Sparkles className="w-4 h-4 text-purple-600" />
               <span className="text-sm font-semibold text-purple-900">Oferta Especial - Precio de Lanzamiento</span>
-              <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+              <Star className="w-4 h-4 text-blue-600 fill-blue-600" />
             </div>
 
 			<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -191,10 +191,10 @@ export default function PricingPage() {
             </div>
 
             {/* Pro Plan - Highlighted */}
-            <div className="bg-gradient-to-br from-purple-600 to-blue-600 rounded-3xl p-8 shadow-2xl transform scale-105 relative border-4 border-yellow-400">
+            <div className="bg-gradient-to-br from-purple-600 to-blue-600 rounded-3xl p-8 shadow-2xl transform scale-105 relative border-2 border-gray-200">
               {/* Popular Badge */}
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-yellow-400 text-gray-900 rounded-full font-bold text-sm shadow-lg">
-                ⭐ MÁS POPULAR ⭐
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-white text-slate-900 rounded-full font-bold text-sm shadow-lg border border-gray-200">
+                MÁS POPULAR
               </div>
 
               <div className="text-center mb-6 text-white">
@@ -207,7 +207,7 @@ export default function PricingPage() {
                   Por mes {billingCycle === 'annual' && '(€95.88/año)'}
                 </div>
                 {billingCycle === 'annual' && (
-                  <div className="mt-2 text-sm text-yellow-300 font-semibold">
+                  <div className="mt-2 text-sm text-white/90 font-semibold">
                     ¡Ahorra €23.88 al año!
                   </div>
                 )}
@@ -315,7 +315,7 @@ export default function PricingPage() {
 					<div key={idx} className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
 						<div className="flex items-center gap-1 mb-4">
 							{[...Array(testimonial.rating)].map((_, i) => (
-								<Star key={i} className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+								<Star key={i} className="w-5 h-5 text-blue-600 fill-blue-600" />
 							))}
 						</div>
 						<p className="text-gray-700 mb-6">{testimonial.text}</p>

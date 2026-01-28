@@ -274,8 +274,8 @@ function JuegosContent() {
     'memory': 'from-blue-500 to-cyan-500',
     'multiple-choice': 'from-green-500 to-emerald-500',
     'fill-blank': 'from-purple-500 to-pink-500',
-    'order': 'from-orange-500 to-red-500',
-    'word-race': 'from-yellow-500 to-amber-500',
+    'order': 'from-blue-600 to-indigo-600',
+    'word-race': 'from-blue-600 to-indigo-600',
   };
 
   return (
@@ -403,8 +403,8 @@ function JuegosContent() {
                               g.level === 'beginner'
                                 ? 'bg-green-100 text-green-700'
                                 : g.level === 'intermediate'
-                                  ? 'bg-yellow-100 text-yellow-700'
-                                  : 'bg-orange-100 text-orange-700'
+                                  ? 'bg-blue-100 text-blue-700'
+                                  : 'bg-slate-100 text-slate-700'
                             }`}
                           >
                             {g.level === 'beginner' ? 'Principiante' : g.level === 'intermediate' ? 'Intermedio' : 'Avanzado'}
@@ -481,9 +481,9 @@ function JuegosContent() {
                   </div>
                 )}
                 {(selectedGame === 'memory' || selectedGame === 'fill-blank') && (
-                  <div className="bg-amber-100 rounded-lg px-4 py-2">
+                  <div className="bg-blue-100 rounded-lg px-4 py-2">
                     <span className="text-sm text-gray-600">Ronda </span>
-                    <span className="font-bold text-amber-800">
+                    <span className="font-bold text-blue-700">
                       {Math.min(3, Math.floor(currentQuestionIndex / 7) + 1)} / 3
                     </span>
                   </div>

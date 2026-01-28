@@ -63,7 +63,7 @@ export default function Error({
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button
             onClick={reset}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-400 text-[#0f172a] rounded-xl font-semibold hover:brightness-95 transition-all shadow-lg hover:shadow-xl"
+            className="btn btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl"
           >
             <RefreshCw className="w-5 h-5" />
             <span>Intentar de Nuevo</span>

@@ -67,7 +67,7 @@ export default function RecursosPage() {
             <div className="text-sm text-gray-600">Recursos Gratis</div>
           </div>
           <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-            <Award className="w-10 h-10 text-amber-600 mx-auto mb-2" />
+            <Award className="w-10 h-10 text-blue-600 mx-auto mb-2" />
             <div className="text-3xl font-bold text-gray-800">{paidCount}</div>
             <div className="text-sm text-gray-600">Recursos Premium</div>
           </div>
@@ -118,7 +118,7 @@ export default function RecursosPage() {
                         ? price === 'free' 
                           ? 'bg-green-600 text-white shadow-md'
                           : price === 'paid'
-                          ? 'bg-amber-600 text-white shadow-md'
+                          ? 'bg-blue-600 text-white shadow-md'
                           : 'bg-blue-600 text-white shadow-md'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}

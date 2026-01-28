@@ -151,10 +151,10 @@ export default async function GrammarLessonPage({ params }: GrammarLessonPagePro
           {lesson.tips && lesson.tips.length > 0 && (
             <section className="mb-12">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                <Lightbulb className="w-6 h-6 text-yellow-500" />
+                <Lightbulb className="w-6 h-6 text-blue-600" />
                 Consejos Útiles
               </h2>
-              <div className="bg-yellow-50 rounded-xl p-6 border border-yellow-200 shadow-md">
+              <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 shadow-md">
                 <ul className="space-y-3">
                   {lesson.tips.map((tip, index) => (
                     <li key={index} className="flex items-start gap-3">
@@ -181,7 +181,7 @@ export default async function GrammarLessonPage({ params }: GrammarLessonPagePro
           )}
 
           {/* Practice CTA */}
-          <section className="mb-12 bg-gradient-to-r from-red-600 to-pink-600 rounded-2xl p-8 text-center text-white shadow-xl">
+          <section className="mb-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center text-white shadow-xl">
             <h2 className="text-2xl font-bold mb-4">
               ¿Listo para Practicar?
             </h2>
@@ -191,7 +191,7 @@ export default async function GrammarLessonPage({ params }: GrammarLessonPagePro
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/gramatica/ejercicios"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-red-600 font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
               >
                 Hacer Ejercicios
                 <ArrowRight className="w-5 h-5" />

@@ -123,9 +123,9 @@ const chapterMap = [
     ], 
     type: 'lesson', 
     icon: Clock, 
-    color: 'from-orange-500 to-red-600' 
+    color: 'from-blue-600 to-indigo-600' 
   },
-  { id: 'ch5', title: 'Simulador CCSE', type: 'exam', icon: Award, color: 'from-yellow-500 to-amber-600' },
+  { id: 'ch5', title: 'Simulador CCSE', type: 'exam', icon: Award, color: 'from-blue-600 to-indigo-600' },
 ];
 
 export default function NacionalidadPage() {
@@ -602,7 +602,7 @@ export default function NacionalidadPage() {
                       onClick={() => setShowTranslations(!showTranslations)}
                       className={`px-5 py-2.5 rounded-lg flex items-center gap-2 text-base font-bold transition-colors shadow-md ${
                         showTranslations 
-                          ? 'bg-yellow-500 text-white hover:bg-yellow-600' 
+                          ? 'bg-blue-600 text-white hover:bg-blue-700' 
                           : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
                       }`}
                     >
@@ -624,7 +624,7 @@ export default function NacionalidadPage() {
                     {!isProHook && current > 1 && (
                       <button
                         onClick={() => activatePreview(15)}
-                        className="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white rounded-lg text-base font-bold flex items-center gap-2 shadow-md hover:shadow-lg"
+                        className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-base font-bold flex items-center gap-2 shadow-md hover:shadow-lg"
                       >
                         <span style={{ fontSize: '18px', lineHeight: 1 }}>⭐</span>
                         <span className="font-bold">Vista Previa (15m)</span>
@@ -1013,7 +1013,7 @@ export default function NacionalidadPage() {
                         <div className={`mt-8 p-6 rounded-xl border-2 ${
                           summary.passed 
                             ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-green-300' 
-                            : 'bg-gradient-to-r from-yellow-50 to-amber-50 border-yellow-300'
+                            : 'bg-gradient-to-r from-gray-50 to-white border-gray-200'
                         }`}>
                           {summary.passed ? (
                             <>
@@ -1027,14 +1027,14 @@ export default function NacionalidadPage() {
                             </>
                           ) : (
                             <>
-                              <div className="font-bold text-lg text-yellow-900 mb-2">Sigue practicando, ¡casi lo logras!</div>
-                              <div className="text-sm text-yellow-800 mb-3" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
+                              <div className="font-bold text-lg text-slate-900 mb-2">Sigue practicando, ¡casi lo logras!</div>
+                              <div className="text-sm text-slate-700 mb-3" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
                                 استمر بالممارسة، قريبًا ستنجح!
                               </div>
                             </>
                           )}
                           <div className="text-base font-semibold text-gray-700">
-                            Puntuación: <span className={`${summary.passed ? 'text-green-700' : 'text-yellow-700'}`}>{summary.correct}/{summary.total}</span>
+                            Puntuación: <span className={`${summary.passed ? 'text-green-700' : 'text-slate-700'}`}>{summary.correct}/{summary.total}</span>
                           </div>
                         </div>
                       )}
@@ -1075,7 +1075,7 @@ export default function NacionalidadPage() {
                       <div className="absolute inset-0 flex items-center justify-center">
                         <button
                           onClick={() => setShowUpgrade(true)}
-                          className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-amber-500 text-white font-bold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all text-lg"
+                          className="btn btn-primary px-8 py-4 text-white font-bold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all text-lg"
                         >
                           Desbloquear PRO
                         </button>

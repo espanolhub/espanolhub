@@ -102,7 +102,7 @@ export default function CookiesPage() {
                   </p>
                 </div>
 
-                <div className="border-l-4 border-orange-500 pl-4">
+                <div className="border-l-4 border-blue-600 pl-4">
                   <h3 className="text-xl font-bold text-gray-800 mb-2">4. Cookies de Terceros</h3>
                   <p className="mb-2">
                     Algunos servicios que ofrecemos en el sitio utilizan cookies de terceros:
@@ -217,7 +217,7 @@ export default function CookiesPage() {
               </div>
             </section>
 
-            <section className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded">
+            <section className="bg-gray-50 border-l-4 border-blue-600 p-6 rounded">
               <h2 className="text-xl font-bold text-gray-800 mb-3">⚠️ Importante</h2>
               <p>
                 Si desactivas las cookies esenciales, algunas funciones del sitio web pueden no funcionar correctamente. 

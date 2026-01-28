@@ -180,7 +180,7 @@ export default function AprenderEspanolGratisPage() {
               <div key={index} className="bg-gray-50 p-6 rounded-xl">
                 <div className="flex mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400 text-xl">★</span>
+                    <span key={i} className="text-blue-600 text-xl">★</span>
                   ))}
                 </div>
                 <p className="text-gray-700 mb-4 italic">"{testimonial.text}"</p>

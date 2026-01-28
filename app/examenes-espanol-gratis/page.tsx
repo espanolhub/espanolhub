@@ -39,13 +39,13 @@ export const metadata: Metadata = {
 export default function ExamenesEspanolPage() {
   return (
     <div className="min-h-screen bg-white">
-      <header className="bg-gradient-to-br from-amber-50 to-white py-16">
+      <header className="bg-gradient-to-br from-gray-50 to-white py-16">
         <div className="container mx-auto px-4 max-w-7xl">
           <Breadcrumbs className="mb-8" />
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-100 rounded-full mb-6">
-              <Trophy className="w-5 h-5 text-amber-600" />
-              <span className="text-sm font-bold text-amber-900">Resultados Instantáneos</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6 border border-gray-200">
+              <Trophy className="w-5 h-5 text-blue-600" />
+              <span className="text-sm font-bold text-slate-900">Resultados Instantáneos</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
               Exámenes de Español Gratis
@@ -53,7 +53,7 @@ export default function ExamenesEspanolPage() {
             <p className="text-xl text-gray-700 mb-8">
               Evalúa tu nivel de español con nuestros exámenes y tests gratuitos. Desde A1 hasta C2. Resultados detallados al instante.
             </p>
-            <Link href="/simulator" className="inline-flex items-center gap-2 px-8 py-4 bg-amber-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all">
+            <Link href="/simulator" className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all">
               <FileCheck className="w-5 h-5" />Hacer Test de Nivel<ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -66,13 +66,13 @@ export default function ExamenesEspanolPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {examTypes.map((exam, i) => (
                 <div key={i} className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
-                  <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
-                    <Award className="w-6 h-6 text-amber-600" />
+                  <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4 border border-gray-200">
+                    <Award className="w-6 h-6 text-blue-600" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{exam.title}</h3>
                   <p className="text-gray-600 mb-4">{exam.description}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-semibold text-amber-600">{exam.questions}</span>
+                    <span className="text-sm font-semibold text-blue-600">{exam.questions}</span>
                     <span className="text-sm text-gray-500">{exam.duration}</span>
                   </div>
                 </div>
@@ -80,7 +80,7 @@ export default function ExamenesEspanolPage() {
             </div>
           </section>
 
-          <section className="mb-16 bg-amber-50 rounded-3xl p-8 md:p-12">
+          <section className="mb-16 bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-200">
             <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">¿Por qué hacer exámenes de español?</h2>
             <div className="bg-white rounded-xl p-8 shadow-md">
               <div className="prose max-w-none">

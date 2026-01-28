@@ -32,7 +32,7 @@ export default function GameTabs<T extends string>({
               className={cx(
                 'inline-flex items-center justify-center gap-2 h-12 min-w-[140px] px-6 rounded-xl font-bold border-2 transition-all duration-200 whitespace-nowrap',
                 active
-                  ? 'bg-slate-900 text-white border-slate-900 shadow-md'
+                  ? 'bg-blue-600 text-white border-blue-600 shadow-md'
                   : 'bg-white text-slate-900 border-slate-200 hover:border-slate-300 hover:bg-slate-50 hover:shadow-sm'
               )}
               aria-pressed={active}

@@ -353,9 +353,9 @@ export default function ContactPage() {
               </h3>
               <p className="text-gray-600 text-sm">¡Sí! Nuestro equipo habla español y árabe. Escribe en el idioma que prefieras.</p>
             </div>
-            <div className="bg-gradient-to-br from-orange-50 to-white rounded-xl p-6 border border-orange-100">
+            <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 border border-gray-200">
               <h3 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
-                <HelpCircle className="w-5 h-5 text-orange-600" />
+                <HelpCircle className="w-5 h-5 text-blue-600" />
                 ¿Cómo reporto un error técnico?
               </h3>
               <p className="text-gray-600 text-sm">Selecciona "Problema técnico" en el formulario y describe el error con detalles.</p>

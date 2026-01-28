@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function PronunciacionPage() {
   return (
     <div className="min-h-screen bg-white">
-      <header className="bg-gradient-to-br from-orange-50 to-white py-16">
+      <header className="bg-gradient-to-br from-gray-50 to-white py-16">
         <div className="container mx-auto px-4 max-w-7xl">
           <Breadcrumbs className="mb-8" />
           <div className="text-center max-w-4xl mx-auto">
@@ -27,7 +27,7 @@ export default function PronunciacionPage() {
             <p className="text-xl text-gray-700 mb-8">
               Aprende a pronunciar español correctamente con audio de hablantes nativos, ejercicios prácticos y técnicas probadas.
             </p>
-            <Link href="/lectura" className="inline-flex items-center gap-2 px-8 py-4 bg-orange-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all">
+            <Link href="/lectura" className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all">
               <Volume2 className="w-5 h-5" />Escuchar Audio Nativo<ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -40,9 +40,9 @@ export default function PronunciacionPage() {
             <div className="grid md:grid-cols-2 gap-6">
               {difficultSounds.map((sound, i) => (
                 <div key={i} className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
-                  <h3 className="text-2xl font-bold text-orange-600 mb-3">{sound.letter}</h3>
+                  <h3 className="text-2xl font-bold text-blue-600 mb-3">{sound.letter}</h3>
                   <p className="text-gray-700 mb-4">{sound.description}</p>
-                  <div className="bg-orange-50 rounded-lg p-4">
+                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                     <div className="font-semibold text-gray-900 mb-2">Ejemplos:</div>
                     <div className="space-y-1 text-gray-700">
                       {sound.examples.map((ex, j) => (

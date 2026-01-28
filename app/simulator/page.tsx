@@ -257,9 +257,9 @@ export default function SimulatorPage() {
                 <XCircle className="w-16 h-16 text-red-600" />
               )}
             </div>
-            <h2 className="text-4xl font-bold text-[#0f172a] mb-2">{passed ? 'Aprobado' : 'Suspendido'}</h2>
+            <h2 className="text-4xl font-bold text-slate-900 mb-2">{passed ? 'Aprobado' : 'Suspendido'}</h2>
             <p className="text-2xl text-slate-700 mb-1">
-              Puntuación: <span className="font-bold text-[#0f172a]">{correct} / {total}</span>
+              Puntuación: <span className="font-bold text-slate-900">{correct} / {total}</span>
             </p>
             <p className="text-lg text-slate-600">
               Porcentaje: <span className={`font-bold ${passed ? 'text-green-600' : 'text-red-600'}`}>{percentage}%</span>
@@ -267,7 +267,7 @@ export default function SimulatorPage() {
             <div className="mt-6 flex flex-wrap justify-center gap-4">
               <button
                 onClick={handleRestart}
-                className="px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-slate-900 rounded-full font-bold transition-colors"
+                className="btn btn-primary px-6 py-3 rounded-full font-bold transition-colors"
               >
                 Reiniciar Test
               </button>
@@ -289,16 +289,16 @@ export default function SimulatorPage() {
 
           {/* Detailed Scoring Table */}
           <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 mb-6">
-            <h3 className="text-2xl font-bold text-[#0f172a] mb-4">Tabla de Corrección Detallada</h3>
+            <h3 className="text-2xl font-bold text-slate-900 mb-4">Tabla de Corrección Detallada</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b-2 border-gray-200">
-                    <th className="text-left py-3 px-4 font-semibold text-[#0f172a]">#</th>
-                    <th className="text-left py-3 px-4 font-semibold text-[#0f172a]">Estado</th>
-                    <th className="text-left py-3 px-4 font-semibold text-[#0f172a]">Pregunta</th>
-                    <th className="text-left py-3 px-4 font-semibold text-[#0f172a]">Tu Respuesta</th>
-                    <th className="text-left py-3 px-4 font-semibold text-[#0f172a]">Respuesta Correcta</th>
+                    <th className="text-left py-3 px-4 font-semibold text-slate-900">#</th>
+                    <th className="text-left py-3 px-4 font-semibold text-slate-900">Estado</th>
+                    <th className="text-left py-3 px-4 font-semibold text-slate-900">Pregunta</th>
+                    <th className="text-left py-3 px-4 font-semibold text-slate-900">Tu Respuesta</th>
+                    <th className="text-left py-3 px-4 font-semibold text-slate-900">Respuesta Correcta</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -307,7 +307,7 @@ export default function SimulatorPage() {
                       key={result.index}
                       className={`border-b border-gray-100 hover:bg-gray-50 ${result.isCorrect ? 'bg-green-50' : 'bg-red-50'}`}
                     >
-                      <td className="py-3 px-4 font-medium text-[#0f172a]">{result.index + 1}</td>
+                      <td className="py-3 px-4 font-medium text-slate-900">{result.index + 1}</td>
                       <td className="py-3 px-4">
                         {result.isCorrect ? (
                           <span className="inline-flex items-center gap-1 text-green-600 font-medium">
@@ -322,7 +322,7 @@ export default function SimulatorPage() {
                         )}
                       </td>
                       <td className="py-3 px-4">
-                        <div className="font-medium text-[#0f172a]">{result.question.question_es}</div>
+                        <div className="font-medium text-slate-900">{result.question.question_es}</div>
                         <div className="text-xs text-slate-600 mt-1" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
                           {result.question.question_ar}
                         </div>
@@ -351,14 +351,14 @@ export default function SimulatorPage() {
           {/* Wrong Answers Details */}
           {wrongs.length > 0 && (
             <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 mb-6">
-              <h3 className="text-2xl font-bold text-[#0f172a] mb-4 flex items-center gap-2">
+              <h3 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
                 <AlertTriangle className="w-6 h-6 text-red-600" />
                 Preguntas Incorrectas ({wrongs.length})
               </h3>
               <div className="space-y-4">
                 {wrongs.map((w) => (
                   <div key={w.index} className="p-4 border border-red-200 rounded-lg bg-red-50">
-                    <div className="font-bold text-[#0f172a] mb-2">Pregunta {w.index + 1}: {w.question.question_es}</div>
+                    <div className="font-bold text-slate-900 mb-2">Pregunta {w.index + 1}: {w.question.question_es}</div>
                     <div className="text-sm text-slate-700 mb-3" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
                       {w.question.question_ar}
                     </div>
@@ -393,7 +393,7 @@ export default function SimulatorPage() {
           {/* History */}
           {history.length > 0 && (
             <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-200">
-              <h3 className="text-xl font-bold text-[#0f172a] mb-4">Historial de Intentos</h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Historial de Intentos</h3>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
@@ -424,7 +424,7 @@ export default function SimulatorPage() {
         {showReportModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-md w-full">
-              <h3 className="text-2xl font-bold text-[#0f172a] mb-4">Reportar Error</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">Reportar Error</h3>
               <p className="text-slate-600 mb-4">
                 Si encuentras algún error en las preguntas o respuestas, por favor repórtalo aquí. Tu feedback nos ayuda a mejorar.
               </p>
@@ -432,7 +432,7 @@ export default function SimulatorPage() {
                 value={reportMessage}
                 onChange={(e) => setReportMessage(e.target.value)}
                 placeholder="Describe el error que encontraste..."
-                className="w-full h-32 p-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#0f172a]"
+                className="w-full h-32 p-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-900"
               />
               <div className="flex gap-3 mt-4">
                 <button
@@ -476,13 +476,13 @@ export default function SimulatorPage() {
         <header className="bg-white rounded-2xl shadow-lg p-6 mb-6 border border-gray-200">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-[#0f172a]">Simulador DGT</h1>
+              <h1 className="text-3xl font-bold text-slate-900">Simulador DGT</h1>
               <p className="text-slate-600 mt-1">Examen teórico de conducción</p>
             </div>
             <div className="flex flex-wrap items-center gap-4">
               <div className="flex items-center gap-2">
                 <div className="text-sm text-slate-600">Tiempo restante:</div>
-                <div className={`text-xl font-mono font-bold text-[#0f172a] ${timeLeft <= 120 ? 'animate-pulse text-red-600' : ''}`}>
+                <div className={`text-xl font-mono font-bold text-slate-900 ${timeLeft <= 120 ? 'animate-pulse text-red-600' : ''}`}>
                   {formatTimer(timeLeft)}
                 </div>
               </div>
@@ -501,7 +501,7 @@ export default function SimulatorPage() {
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-3xl w-full max-h-[80vh] overflow-y-auto">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-2xl font-bold text-[#0f172a]">Navegación de Preguntas</h3>
+                <h3 className="text-2xl font-bold text-slate-900">Navegación de Preguntas</h3>
                 <button
                   onClick={() => setShowQuestionGrid(false)}
                   className="text-gray-500 hover:text-gray-700 text-2xl"
@@ -520,7 +520,7 @@ export default function SimulatorPage() {
                       onClick={() => jumpToQuestion(index)}
                       className={`
                         w-12 h-12 rounded-lg font-bold text-sm transition-all
-                        ${isCurrent ? 'ring-4 ring-blue-500 scale-110' : ''}
+                        ${isCurrent ? 'ring-4 ring-blue-600 scale-110' : ''}
                         ${isAnswered
                           ? isCorrect
                             ? 'bg-green-500 text-white hover:bg-green-600'
@@ -562,7 +562,7 @@ export default function SimulatorPage() {
             </div>
             <div className="w-full bg-gray-200 h-3 rounded-full overflow-hidden">
               <div
-                className="h-3 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 transition-all duration-300"
+                className="h-3 rounded-full bg-blue-600 transition-all duration-300"
                 style={{ width: `${((currentIndex + 1) / totalQuestions) * 100}%` }}
               />
             </div>
@@ -583,7 +583,7 @@ export default function SimulatorPage() {
                 </div>
               </div>
             )}
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">{q.question_es}</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">{q.question_es}</h2>
             <p className="text-lg text-slate-700 mb-6" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
               {q.question_ar}
             </p>
@@ -599,8 +599,8 @@ export default function SimulatorPage() {
                     className={`
                       w-full text-left px-6 py-4 rounded-xl border-2 transition-all
                       ${selected
-                        ? 'bg-yellow-400 border-yellow-500 text-slate-900 shadow-lg scale-[1.02]'
-                        : 'bg-white border-gray-300 text-[#0f172a] hover:border-yellow-400 hover:bg-yellow-50'
+                        ? 'bg-blue-600 border-blue-700 text-white shadow-lg scale-[1.02]'
+                        : 'bg-white border-gray-300 text-slate-900 hover:border-blue-600 hover:bg-gray-50'
                       }
                     `}
                     aria-pressed={selected}
@@ -626,7 +626,7 @@ export default function SimulatorPage() {
                 className={`px-8 py-3 rounded-xl font-bold transition-all ${
                   selectedIndex === null
                     ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-                    : 'bg-yellow-400 text-slate-900 hover:bg-yellow-500 shadow-lg hover:shadow-xl'
+                    : 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl'
                 } ${selectedIndex !== null ? 'animate-pulse' : ''}`}
               >
                 {currentIndex < totalQuestions - 1 ? 'Siguiente →' : 'Finalizar'}

@@ -87,7 +87,7 @@ export default function CursosPage() {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 border border-slate-200 shadow-sm">
-            <Sparkles className="w-5 h-5 text-amber-500" />
+            <Sparkles className="w-5 h-5 text-blue-600" />
             <span className="text-sm font-bold text-slate-800">{courses.length} Cursos Disponibles</span>
           </div>
           <h1 className="text-4xl md:text-6xl font-black mb-6 text-slate-900 tracking-tight">

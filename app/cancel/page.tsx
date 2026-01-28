@@ -28,7 +28,7 @@ export default function CancelPage() {
         <div className="space-y-3">
           <Link
             href="/pricing"
-            className="block w-full px-6 py-3 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 font-bold rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
+            className="block w-full px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-lg hover:shadow-xl hover:bg-blue-700 transition-all flex items-center justify-center gap-2"
           >
             <ArrowLeft className="w-5 h-5" />
             Intentar de Nuevo / حاول مرة أخرى

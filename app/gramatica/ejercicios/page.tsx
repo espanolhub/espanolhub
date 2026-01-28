@@ -217,7 +217,7 @@ export default function GramEjerciciosPage() {
                 <div className="flex items-start justify-between mb-3">
                   <div className="font-semibold text-lg">{idx+1}. {ex.question}</div>
                   {!showResults && (
-                    <button onClick={() => openHintModal(getArabicHintLocal(ex))} className="px-3 py-1 rounded bg-amber-100 text-amber-800 flex items-center gap-2">
+                    <button onClick={() => openHintModal(getArabicHintLocal(ex))} className="px-3 py-1 rounded bg-gray-100 text-blue-700 flex items-center gap-2 border border-gray-300">
                       <Lightbulb className="w-4 h-4" />
                     </button>
                   )}
@@ -248,7 +248,7 @@ export default function GramEjerciciosPage() {
                 )}
                 {/* Inline hint triggered by button or by wrong answer */}
                 {showHints[ex.id] && (
-                  <div className="mt-3 p-3 bg-amber-50 text-amber-900 rounded" dir="rtl" style={{ fontFamily: 'var(--font-cairo), sans-serif' }}>
+                  <div className="mt-3 p-3 bg-gray-50 text-slate-900 rounded border-r-4 border-blue-600" dir="rtl" style={{ fontFamily: 'var(--font-cairo), sans-serif' }}>
                     <strong className="block mb-1">نصيحة</strong>
                     <div>
                       {(() => {

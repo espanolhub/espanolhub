@@ -234,7 +234,7 @@ const exerciseTypes = [
     description: "Examen oficial de conducir. Preguntas reales DGT.",
     count: "Simulador oficial",
     href: "/simulator",
-    bgColor: "bg-gradient-to-br from-orange-500 to-orange-600"
+    bgColor: "bg-gradient-to-br from-blue-600 to-indigo-600"
   },
   {
     icon: <Star className="w-7 h-7 text-white" />,

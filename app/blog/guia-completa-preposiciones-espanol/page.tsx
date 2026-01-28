@@ -56,13 +56,13 @@ export default function PreposicionesBlogPost() {
               existen 19 preposiciones oficiales, pero en la práctica, solo 9 de ellas cubren el 95% de los usos cotidianos.
             </p>
 
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-6">
-              <h3 className="font-bold text-yellow-900 mb-3">Las 19 preposiciones oficiales del español:</h3>
-              <p className="text-yellow-800 mb-3">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
+              <h3 className="font-bold text-slate-900 mb-3">Las 19 preposiciones oficiales del español:</h3>
+              <p className="text-slate-700 mb-3">
                 a, ante, bajo, cabe, con, contra, de, desde, durante, en, entre, hacia, hasta, 
                 mediante, para, por, según, sin, so, sobre, tras.
               </p>
-              <p className="text-yellow-700 text-sm">
+              <p className="text-slate-600 text-sm">
                 <strong>Nota:</strong> Las preposiciones "cabe" y "so" son arcaicas y raramente se usan en el español moderno.
               </p>
             </div>
@@ -142,11 +142,11 @@ export default function PreposicionesBlogPost() {
               </div>
 
               {/* POR */}
-              <div className="bg-orange-50 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-orange-900 mb-4">5. POR - Causa y duración</h3>
+              <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                <h3 className="text-xl font-bold text-slate-900 mb-4">5. POR - Causa y duración</h3>
                 <div className="mb-4">
-                  <h4 className="font-semibold text-orange-800 mb-2">Usos principales:</h4>
-                  <ul className="space-y-2 text-orange-700">
+                  <h4 className="font-semibold text-slate-700 mb-2">Usos principales:</h4>
+                  <ul className="space-y-2 text-slate-700">
                     <li>• <strong>Causa:</strong> Lloro <u>por</u> alegría</li>
                     <li>• <strong>Duración:</strong> Estudio <u>por</u> dos horas</li>
                     <li>• <strong>Intercambio:</strong> Cambio euros <u>por</u> dólares</li>
@@ -226,9 +226,9 @@ export default function PreposicionesBlogPost() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-orange-50 rounded-lg p-6">
-                <h4 className="font-bold text-orange-900 mb-3">Usa POR cuando:</h4>
-                <ul className="space-y-2 text-orange-700 text-sm">
+              <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                <h4 className="font-bold text-slate-900 mb-3">Usa POR cuando:</h4>
+                <ul className="space-y-2 text-slate-700 text-sm">
                   <li>• Expresas causa: "Lo hago <u>por</u> amor"</li>
                   <li>• Indicas duración: "Trabajo <u>por</u> 8 horas"</li>
                   <li>• Hablas de intercambio: "Cambio euros <u>por</u> dólares"</li>
@@ -252,25 +252,25 @@ export default function PreposicionesBlogPost() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Errores comunes y cómo evitarlos</h2>
             
             <div className="space-y-6">
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-                <h3 className="font-bold text-yellow-900 mb-3">Error 1: Usar DE en lugar de PARA para finalidad</h3>
-                <p className="text-yellow-800 mb-2">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                <h3 className="font-bold text-slate-900 mb-3">Error 1: Usar DE en lugar de PARA para finalidad</h3>
+                <p className="text-slate-700 mb-2">
                   <strong>Incorrecto:</strong> "Estudio de aprender"<br/>
                   <strong>Correcto:</strong> "Estudio <u>para</u> aprender"
                 </p>
               </div>
 
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-                <h3 className="font-bold text-yellow-900 mb-3">Error 2: Confundir EN y A para direcciones</h3>
-                <p className="text-yellow-800 mb-2">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                <h3 className="font-bold text-slate-900 mb-3">Error 2: Confundir EN y A para direcciones</h3>
+                <p className="text-slate-700 mb-2">
                   <strong>Incorrecto:</strong> "Voy en la escuela"<br/>
                   <strong>Correcto:</strong> "Voy <u>a</u> la escuela"
                 </p>
               </div>
 
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-                <h3 className="font-bold text-yellow-900 mb-3">Error 3: Usar POR en lugar de PARA para destinatarios</h3>
-                <p className="text-yellow-800 mb-2">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                <h3 className="font-bold text-slate-900 mb-3">Error 3: Usar POR en lugar de PARA para destinatarios</h3>
+                <p className="text-slate-700 mb-2">
                   <strong>Incorrecto:</strong> "Este regalo es por ti"<br/>
                   <strong>Correcto:</strong> "Este regalo es <u>para</u> ti"
                 </p>

@@ -10,19 +10,19 @@ import SearchOverlay from './SearchOverlay';
 // AdminNotificationBadge removed - Navigation works without Clerk hooks
 // import AdminNotificationBadge from './AdminNotificationBadge';
 
-// Mobile menu: card-based items with colored icons (used only on md and below)
+// Mobile menu: neutral + one brand accent (SEO-friendly readability)
 const mobileMenuItems: { href: string; label: string; icon: typeof Shield; bg: string; iconColor: string }[] = [
-  { href: '/aprender-espanol-gratis', label: 'Aprender GRATIS', icon: Star, bg: 'bg-yellow-50', iconColor: 'text-yellow-600' },
-  { href: '/nacionalidad', label: 'Nacionalidad ES', icon: Shield, bg: 'bg-blue-50', iconColor: 'text-blue-600' },
-  { href: '/driving-license', label: 'Carnet', icon: Car, bg: 'bg-emerald-50', iconColor: 'text-emerald-600' },
-  { href: '/tramites', label: 'Guías Legales', icon: Download, bg: 'bg-violet-50', iconColor: 'text-violet-600' },
-  { href: '/gramatica-espanola-completa', label: 'Gramática — Fundamentos', icon: GraduationCap, bg: 'bg-blue-50', iconColor: 'text-blue-600' },
-  { href: '/gramatica', label: 'Gramática', icon: GraduationCap, bg: 'bg-amber-50', iconColor: 'text-amber-600' },
-  { href: '/vocabulario', label: 'Vocabulario', icon: Languages, bg: 'bg-teal-50', iconColor: 'text-teal-600' },
-  { href: '/lectura', label: 'Lectura', icon: Book, bg: 'bg-indigo-50', iconColor: 'text-indigo-600' },
-  { href: '/juegos', label: 'Juegos', icon: Gamepad2, bg: 'bg-pink-50', iconColor: 'text-pink-600' },
-  { href: '/blog', label: 'Blog', icon: FileText, bg: 'bg-purple-50', iconColor: 'text-purple-600' },
-  { href: '/simulator', label: 'Simulador (DGT)', icon: Car, bg: 'bg-orange-50', iconColor: 'text-orange-600' },
+  { href: '/aprender-espanol-gratis', label: 'Aprender GRATIS', icon: Star, bg: 'bg-gray-50', iconColor: 'text-blue-600' },
+  { href: '/nacionalidad', label: 'Nacionalidad ES', icon: Shield, bg: 'bg-gray-50', iconColor: 'text-blue-600' },
+  { href: '/driving-license', label: 'Carnet', icon: Car, bg: 'bg-gray-50', iconColor: 'text-blue-600' },
+  { href: '/tramites', label: 'Guías Legales', icon: Download, bg: 'bg-gray-50', iconColor: 'text-blue-600' },
+  { href: '/gramatica-espanola-completa', label: 'Gramática — Fundamentos', icon: GraduationCap, bg: 'bg-gray-50', iconColor: 'text-blue-600' },
+  { href: '/gramatica', label: 'Gramática', icon: GraduationCap, bg: 'bg-gray-50', iconColor: 'text-blue-600' },
+  { href: '/vocabulario', label: 'Vocabulario', icon: Languages, bg: 'bg-gray-50', iconColor: 'text-blue-600' },
+  { href: '/lectura', label: 'Lectura', icon: Book, bg: 'bg-gray-50', iconColor: 'text-blue-600' },
+  { href: '/juegos', label: 'Juegos', icon: Gamepad2, bg: 'bg-gray-50', iconColor: 'text-blue-600' },
+  { href: '/blog', label: 'Blog', icon: FileText, bg: 'bg-gray-50', iconColor: 'text-blue-600' },
+  { href: '/simulator', label: 'Simulador (DGT)', icon: Car, bg: 'bg-gray-50', iconColor: 'text-blue-600' },
 ];
 
 export default function Navigation() {
@@ -83,7 +83,7 @@ export default function Navigation() {
             <div className="hidden md:flex flex-1 max-w-2xl mx-8">
               <button
                 onClick={() => setSearchOverlayOpen(true)}
-                className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200 hover:bg-gray-100 hover:border-gray-300 transition-all duration-200 text-left focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
+                className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200 hover:bg-gray-100 hover:border-gray-300 transition-all duration-200 text-left focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
                 aria-label="Buscar"
               >
                 <Search className="w-5 h-5 text-gray-500 flex-shrink-0" aria-hidden="true" />
@@ -123,7 +123,7 @@ export default function Navigation() {
               {/* Mobile Search Button */}
               <button
                 onClick={() => setSearchOverlayOpen(true)}
-                className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
+                className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
                 aria-label="Buscar"
               >
                 <Search className="w-5 h-5 text-slate-900" aria-hidden="true" />
@@ -132,7 +132,7 @@ export default function Navigation() {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md transition-all duration-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
+                className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-md transition-all duration-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
                 aria-label={mobileMenuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
                 aria-expanded={mobileMenuOpen}
               >

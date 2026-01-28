@@ -15,7 +15,7 @@ export default function GameButton({
   size?: Size;
 }) {
   const base =
-    'inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2';
+    'inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2';
 
   const sizes: Record<Size, string> = {
     sm: 'h-10 px-4 text-sm',
@@ -24,7 +24,7 @@ export default function GameButton({
   };
 
   const variants: Record<Variant, string> = {
-    primary: 'bg-slate-900 text-white border border-slate-900 hover:bg-slate-800',
+    primary: 'bg-blue-600 text-white border border-blue-600 hover:bg-blue-700',
     secondary: 'bg-white text-slate-900 border border-slate-200 hover:bg-slate-50 hover:border-slate-300',
     ghost: 'bg-transparent text-slate-900 hover:bg-slate-50',
   };

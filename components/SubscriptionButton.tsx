@@ -6,7 +6,7 @@ export default function SubscriptionButton({
   planId = 'premium-monthly',
   amount = '9.99',
   disabled = false,
-  noteTextClassName = 'text-white/80',
+  noteTextClassName = 'text-gray-600',
 }: { 
   planId?: string; 
   amount?: string;
@@ -61,11 +61,11 @@ export default function SubscriptionButton({
   // Sin botón de suscripción cuando los pagos están desactivados
   if (disabled) {
     return (
-      <div className="w-full rounded-xl bg-white/10 backdrop-blur-sm px-6 py-4 text-center">
-        <p className="text-white font-semibold">
+      <div className="w-full rounded-xl bg-gray-50 border border-gray-200 px-6 py-4 text-center">
+        <p className="text-gray-900 font-semibold">
           Todo el contenido es gratis actualmente
         </p>
-        <p className="text-sm text-white/80 mt-1" dir="rtl" style={{ fontFamily: 'var(--font-cairo, inherit)' }}>
+        <p className="text-sm text-gray-600 mt-1" dir="rtl" style={{ fontFamily: 'var(--font-cairo, inherit)' }}>
           كل المحتوى مجاني الآن
         </p>
       </div>
@@ -77,11 +77,11 @@ export default function SubscriptionButton({
       <button
         onClick={handleSubscribe}
         disabled={loading}
-        className="w-full px-8 py-4 bg-white text-purple-600 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+        className="w-full btn btn-primary px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {loading ? (
           <span className="flex items-center justify-center gap-2">
-            <div className="w-5 h-5 border-2 border-purple-600 border-t-transparent rounded-full animate-spin" />
+            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
             Procesando...
           </span>
         ) : (
@@ -89,7 +89,7 @@ export default function SubscriptionButton({
         )}
       </button>
       <p className={`text-center text-sm mt-2 ${noteTextClassName}`}>
-        🔒 Pago seguro • ❌ Cancela cuando quieras
+        Pago seguro • Cancela cuando quieras
       </p>
     </div>
   );

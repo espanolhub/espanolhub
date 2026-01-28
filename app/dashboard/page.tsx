@@ -171,7 +171,7 @@ export default function DashboardPage() {
             <div className="flex items-center justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <Crown className="w-6 h-6 text-yellow-300" />
+                  <Crown className="w-6 h-6 text-white" />
                   <h3 className="text-xl font-bold">Actualiza a Premium</h3>
                 </div>
                 <p className="text-purple-100 mb-3">

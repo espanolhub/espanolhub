@@ -68,7 +68,7 @@ export default function Home() {
 
 	return (
 		<div className="min-h-screen bg-white text-slate-900">
-		<a href="#main-content" className="skip-link absolute left-2 top-16 z-50 -translate-y-12 focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-yellow-300 rounded px-3 py-2 bg-white text-sm">
+		<a href="#main-content" className="skip-link absolute left-2 top-16 z-50 -translate-y-12 focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded px-3 py-2 bg-white text-sm">
 			Ir al contenido
 		</a>
 		{/* Hero */}
@@ -193,10 +193,10 @@ export default function Home() {
 
 							<Link
 								href="/ejercicios-espanol-interactivos"
-								className="group p-4 bg-gradient-to-br from-orange-100 to-orange-200 border border-orange-300 rounded-lg hover:shadow-md hover:from-orange-200 hover:to-orange-300 transition-all"
+								className="group p-4 bg-gradient-to-br from-blue-50 to-blue-100 border border-gray-200 rounded-lg hover:shadow-md transition-all"
 							>
-								<Zap className="w-6 h-6 text-orange-700 mb-2 mx-auto" aria-hidden="true" />
-								<div className="text-sm font-semibold text-orange-950 text-center">Ejercicios</div>
+								<Zap className="w-6 h-6 text-blue-600 mb-2 mx-auto" aria-hidden="true" />
+								<div className="text-sm font-semibold text-gray-900 text-center">Ejercicios</div>
 							</Link>
 
 							<Link
@@ -276,7 +276,7 @@ export default function Home() {
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 					<ModernCard 
 						icon={<Car className="w-8 h-8 text-white" aria-hidden="true" />}
-						gradient="from-orange-500 via-red-500 to-pink-500"
+						gradient="from-blue-600 via-indigo-600 to-blue-600"
 						title="Carnet de Conducir"
 						description="18 capítulos completos + Simulador oficial DGT"
 						features={['18 Lecciones completas', 'Simulador DGT oficial', 'Contenido interactivo', '100% actualizado 2026']}
@@ -408,7 +408,7 @@ export default function Home() {
 							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
 						>
 							<div className="flex items-center gap-4 mb-4">
-								<div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center text-white">
+								<div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white">
 									<Volume2 className="w-6 h-6" />
 								</div>
 								<h3 className="text-xl font-bold text-gray-900">
@@ -418,7 +418,7 @@ export default function Home() {
 							<p className="text-gray-700 mb-4">
 								Mejora tu pronunciación con nuestra guía completa. Audio de nativos y técnicas probadas.
 							</p>
-							<div className="flex items-center text-orange-500 font-semibold">
+							<div className="flex items-center text-blue-600 font-semibold">
 								<span>Aprender</span>
 								<ArrowRight className="w-4 h-4 ml-2" />
 							</div>

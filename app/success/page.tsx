@@ -16,7 +16,7 @@ export default function SuccessPage() {
           <div className="mx-auto flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-4">
             <CheckCircle className="w-12 h-12 text-green-600" />
           </div>
-          <Sparkles className="w-8 h-8 text-yellow-400 mx-auto mb-4" />
+          <Sparkles className="w-8 h-8 text-blue-600 mx-auto mb-4" />
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

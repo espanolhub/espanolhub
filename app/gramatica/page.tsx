@@ -473,7 +473,7 @@ export default function GramaticaPage() {
                             ✓ Completado
                           </div>
                         ) : (
-                          <div className="text-xs font-semibold px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-50 to-yellow-50 text-amber-700 border border-amber-300 shadow-sm">
+                          <div className="text-xs font-semibold px-3 py-1.5 rounded-full bg-gray-50 text-slate-700 border border-gray-200 shadow-sm">
                             Categoría
                           </div>
                         )}
@@ -685,7 +685,7 @@ export default function GramaticaPage() {
                       {!showResults && (
                         <button
                           onClick={() => toggleHint(exercise.id)}
-                          className="ml-4 flex-shrink-0 px-3 py-1.5 bg-amber-100 hover:bg-amber-200 text-amber-700 rounded-lg font-medium text-sm transition-colors flex items-center gap-2 border border-amber-300"
+                          className="ml-4 flex-shrink-0 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-blue-700 rounded-lg font-medium text-sm transition-colors flex items-center gap-2 border border-gray-300"
                         >
                           <Lightbulb className="w-5 h-5 text-gray-700" aria-hidden="true" />
                           <span>Pista{showTranslations && ' / نصيحة'}</span>
@@ -694,7 +694,7 @@ export default function GramaticaPage() {
                     </div>
                     
                     {showHints[exercise.id] && !showResults && showTranslations && (
-                      <div className="mb-4 p-4 bg-gradient-to-r from-amber-50 to-yellow-50 border-r-4 border-amber-400 rounded-xl shadow-md" dir="rtl">
+                      <div className="mb-4 p-4 bg-gray-50 border-r-4 border-blue-600 rounded-xl shadow-md" dir="rtl">
                         <div className="flex items-start gap-2">
                           <Lightbulb className="w-5 h-5 text-gray-700 flex-shrink-0 mt-0.5" aria-hidden="true" />
                           <p className="text-sm font-medium text-gray-900" style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}>

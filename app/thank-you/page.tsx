@@ -34,16 +34,16 @@ export default function ThankYouPage() {
           {/* Discount Offer */}
           <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl p-6 md:p-8 mb-8 text-white">
             <div className="flex justify-center mb-4">
-              <Gift className="w-12 h-12 text-yellow-300" />
+              <Gift className="w-12 h-12 text-white" />
             </div>
             <h2 className="text-2xl md:text-3xl font-bold mb-3">
               ¡Oferta Especial!
             </h2>
             <p className="text-lg md:text-xl mb-4">
-              Y por cierto, aquí tienes un <strong className="text-yellow-300">50% de descuento</strong> en nuestro curso premium de español!
+              Y por cierto, aquí tienes un <strong className="text-white">50% de descuento</strong> en nuestro curso premium de español!
             </p>
             <p className="text-base md:text-lg opacity-90 mb-6">
-              And by the way, here is a <strong className="text-yellow-300">50% discount</strong> on our premium Spanish course!
+              And by the way, here is a <strong className="text-white">50% discount</strong> on our premium Spanish course!
             </p>
             
             {/* CTA Button */}

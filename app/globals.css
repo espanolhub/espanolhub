@@ -1,32 +1,43 @@
 @import "tailwindcss";
 
 :root {
-  /* Theme Tokens (Light default) */
-  --background: #FFFFFF;
+  /* Light-only design tokens (single source of truth) */
+  --background: #ffffff;
   --foreground: #0f172a;
-  --bg-base: #FFFFFF;
-  --bg-elevated: #FFFFFF;
-  --bg-subtle: #F9FAFB;
-  --surface: #FFFFFF;
-  --surface-hover: #F9FAFB;
-  --surface-border: #E5E7EB;
+
+  --bg-base: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-subtle: #f8fafc;
+
+  --surface: #ffffff;
+  --surface-hover: #f8fafc;
+  --surface-border: #e5e7eb;
 
   --text-primary: #0f172a;
-  --text-secondary: #111827;
-  --text-tertiary: #374151;
-  --text-disabled: #6B7280;
+  --text-secondary: #1f2937;
+  --text-tertiary: #334155;
+  --text-disabled: #64748b;
 
-  --accent-primary: #2563EB;
-  --accent-hover: #1D4ED8;
+  --brand-primary: #1d4ed8;
+  --brand-primary-hover: #1e40af;
+  --brand-secondary: #0f172a;
+  --brand-secondary-hover: #111827;
+
   --success: #059669;
-  --error: #DC2626;
+  --warning: #d97706;
+  --error: #b91c1c;
+  --error-hover: #991b1b;
+
+  --focus-ring: var(--brand-primary);
+  --link: var(--brand-primary);
+  --link-hover: var(--brand-primary-hover);
   
   /* Accent colors - subtle and elegant */
-  --accent-blue: #EFF6FF;
-  --accent-purple: #F5F3FF;
-  --accent-green: #F0FDF4;
-  --accent-amber: #FFFBEB;
-  --accent-rose: #FFF1F2;
+  --accent-blue: #eff6ff;
+  --accent-purple: #f5f3ff;
+  --accent-green: #f0fdf4;
+  --accent-amber: #fffbeb;
+  --accent-rose: #fff1f2;
   
   /* Enhanced shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -36,16 +47,12 @@
   
   /* Legacy support */
   --muted-bg: var(--bg-subtle);
-  --brand-primary: #2563EB;
-  --brand-primary-hover: #1D4ED8;
-  --brand-secondary: #2563EB;
-  --brand-secondary-hover: #1D4ED8;
   --text-on-primary: #FFFFFF;
   --text-on-secondary: #FFFFFF;
-  --color-success: #059669;
-  --color-warning: #D97706;
-  --color-error: #DC2626;
-  --color-info: #2563EB;
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--brand-primary);
   --interactive-hover: #F3F4F6;
   --interactive-active: #E5E7EB;
 
@@ -57,7 +64,7 @@
 
 @layer base {
   html {
-    color-scheme: light dark;
+    color-scheme: light;
   }
 
   body {
@@ -90,19 +97,19 @@
   }
 
   .btn:focus-visible {
-    outline: 3px solid var(--accent-primary);
+    outline: 3px solid var(--focus-ring);
     outline-offset: 2px;
   }
 
   .btn-primary {
-    background: #0f172a; /* slate-900 */
-    border-color: #0f172a;
+    background: var(--brand-primary);
+    border-color: var(--brand-primary);
     color: #ffffff;
   }
 
   .btn-primary:hover {
-    background: #111827; /* gray-900 */
-    border-color: #111827;
+    background: var(--brand-primary-hover);
+    border-color: var(--brand-primary-hover);
   }
 
   .btn-tab {
@@ -113,8 +120,8 @@
   }
 
   .btn-tab-active {
-    background: #0f172a;
-    border-color: #0f172a;
+    background: var(--brand-secondary);
+    border-color: var(--brand-secondary);
     color: #ffffff;
     box-shadow: var(--shadow-sm);
   }
@@ -123,41 +130,24 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-border: var(--surface-border);
+  --color-muted: var(--bg-subtle);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+
+  --color-primary: var(--brand-primary);
+  --color-danger: var(--error);
+  --color-success: var(--success);
+  --color-link: var(--link);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  /* Semantic theme colors (WCAG AAA) */
-  --color-brand-primary: var(--brand-primary);
-  --color-brand-secondary: var(--brand-secondary);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-tertiary: var(--text-tertiary);
-  --color-surface: var(--surface);
-  --color-surface-hover: var(--surface-hover);
+  --color-text-disabled: var(--text-disabled);
   --color-base: var(--bg-base);
   --color-elevated: var(--bg-elevated);
-  --color-subtle: var(--bg-subtle);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0b1220;
-    --foreground: #e5e7eb;
-    --bg-base: #0b1220;
-    --bg-elevated: #111827;
-    --bg-subtle: #0f172a;
-    --surface: #111827;
-    --surface-hover: #0f172a;
-    --surface-border: #1f2937;
-    --text-primary: #e5e7eb;
-    --text-secondary: #e5e7eb;
-    --text-tertiary: #cbd5e1;
-    --text-disabled: #94a3b8;
-
-    /* Keep aliases consistent */
-    --bg-primary: var(--background);
-    --bg-secondary: var(--bg-subtle);
-    --border-color: var(--surface-border);
-  }
 }
 
 body {
@@ -192,7 +182,7 @@ body {
 
 .prose a,
 .prose-content a {
-  color: var(--accent-primary);
+  color: var(--link);
   text-decoration: underline;
 }
 
@@ -204,35 +194,171 @@ body {
   padding: 0.1rem 0.35rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  /* Make common “light” utilities theme-aware in dark mode */
-  .bg-white { background-color: var(--surface) !important; }
-  .bg-gray-50 { background-color: var(--bg-subtle) !important; }
-  .bg-slate-50 { background-color: var(--bg-subtle) !important; }
-  .bg-blue-50 { background-color: var(--bg-subtle) !important; }
+@layer utilities {
+  /*
+    Legacy Tailwind color utilities → design tokens (Light-only).
+    This lets us “recolor from scratch” without refactoring 4k+ usages in one go.
+  */
+  .bg-white { background-color: var(--surface); }
+  .bg-gray-50 { background-color: var(--bg-subtle); }
+  .bg-slate-50 { background-color: var(--bg-subtle); }
+  .bg-blue-50,
+  .bg-indigo-50,
+  .bg-purple-50,
+  .bg-violet-50,
+  .bg-pink-50,
+  .bg-rose-50,
+  .bg-red-50,
+  .bg-orange-50,
+  .bg-amber-50,
+  .bg-yellow-50,
+  .bg-green-50,
+  .bg-emerald-50,
+  .bg-teal-50,
+  .bg-cyan-50,
+  .bg-sky-50 { background-color: var(--bg-subtle); }
 
-  .text-gray-900,
-  .text-gray-800,
-  .text-gray-700,
-  .text-slate-900,
-  .text-slate-800,
-  .text-slate-700 {
-    color: var(--foreground) !important;
-  }
+  .bg-gray-100 { background-color: color-mix(in srgb, var(--bg-subtle) 75%, var(--surface) 25%); }
+  .bg-blue-100,
+  .bg-indigo-100,
+  .bg-purple-100,
+  .bg-violet-100,
+  .bg-pink-100,
+  .bg-rose-100,
+  .bg-red-100,
+  .bg-orange-100,
+  .bg-amber-100,
+  .bg-yellow-100,
+  .bg-green-100,
+  .bg-emerald-100,
+  .bg-teal-100,
+  .bg-cyan-100,
+  .bg-sky-100 { background-color: color-mix(in srgb, var(--bg-subtle) 70%, var(--surface) 30%); }
 
-  .text-gray-600,
-  .text-gray-500,
-  .text-slate-600,
-  .text-slate-500 {
-    color: var(--text-tertiary) !important;
-  }
+  .bg-gray-900 { background-color: var(--text-primary); }
+  .bg-slate-900 { background-color: var(--text-primary); }
 
-  .border-gray-200,
-  .border-gray-300,
-  .border-slate-200,
-  .border-slate-300 {
-    border-color: var(--surface-border) !important;
-  }
+  .text-gray-900, .text-slate-900 { color: var(--text-primary); }
+  .text-gray-800, .text-slate-800 { color: var(--text-secondary); }
+  .text-gray-700, .text-slate-700 { color: var(--text-tertiary); }
+  .text-gray-600, .text-slate-600 { color: var(--text-tertiary); }
+  .text-gray-500, .text-slate-500 { color: var(--text-disabled); }
+  .text-gray-400, .text-slate-400 { color: var(--text-disabled); }
+
+  .border-gray-200, .border-slate-200 { border-color: var(--surface-border); }
+  .border-gray-300, .border-slate-300 { border-color: color-mix(in srgb, var(--surface-border) 75%, var(--text-disabled) 25%); }
+
+  /* Common accent utilities mapped to the new brand */
+  .text-blue-600, .text-indigo-600, .text-purple-600 { color: var(--brand-primary); }
+  .text-blue-500, .text-indigo-500, .text-purple-500 { color: var(--brand-primary); }
+  .text-violet-600, .text-violet-500,
+  .text-sky-600, .text-sky-500,
+  .text-cyan-600, .text-cyan-500,
+  .text-teal-600, .text-teal-500 { color: var(--brand-primary); }
+
+  .text-pink-600, .text-pink-500,
+  .text-rose-600, .text-rose-500 { color: var(--brand-primary); }
+
+  .text-yellow-600, .text-yellow-500,
+  .text-amber-600, .text-amber-500,
+  .text-orange-600, .text-orange-500 { color: var(--warning); }
+  .bg-blue-600, .bg-indigo-600, .bg-purple-600 { background-color: var(--brand-primary); color: #fff; }
+  .bg-blue-700, .bg-indigo-700, .bg-purple-700 { background-color: var(--brand-primary-hover); color: #fff; }
+  .bg-blue-500, .bg-indigo-500, .bg-purple-500 { background-color: var(--brand-primary); color: #fff; }
+
+  .bg-violet-600, .bg-sky-600, .bg-cyan-600, .bg-teal-600 { background-color: var(--brand-primary); color: #fff; }
+  .bg-violet-700, .bg-sky-700, .bg-cyan-700, .bg-teal-700 { background-color: var(--brand-primary-hover); color: #fff; }
+  .bg-violet-500, .bg-sky-500, .bg-cyan-500, .bg-teal-500 { background-color: var(--brand-primary); color: #fff; }
+
+  /* Neutralize decorative gradients to the brand palette (keeps design consistent) */
+  .from-blue-600,
+  .from-indigo-600,
+  .from-purple-600,
+  .from-violet-600,
+  .from-sky-600,
+  .from-cyan-600,
+  .from-teal-600,
+  .from-pink-500,
+  .from-pink-600,
+  .from-rose-500,
+  .from-rose-600 { --tw-gradient-from: var(--brand-primary); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0,0,0,0)); }
+
+  .to-blue-600,
+  .to-indigo-600,
+  .to-purple-600,
+  .to-violet-600,
+  .to-sky-600,
+  .to-cyan-600,
+  .to-teal-600,
+  .to-pink-500,
+  .to-pink-600,
+  .to-rose-500,
+  .to-rose-600 { --tw-gradient-to: var(--brand-primary-hover); }
+
+  .via-blue-600,
+  .via-indigo-600,
+  .via-purple-600,
+  .via-violet-600,
+  .via-sky-600,
+  .via-cyan-600,
+  .via-teal-600,
+  .via-pink-500,
+  .via-pink-600,
+  .via-rose-500,
+  .via-rose-600 { --tw-gradient-stops: var(--tw-gradient-from), var(--brand-primary), var(--tw-gradient-to, rgba(0,0,0,0)); }
+
+  .from-blue-50,
+  .from-indigo-50,
+  .from-purple-50,
+  .from-violet-50,
+  .from-pink-50,
+  .from-rose-50,
+  .from-yellow-50,
+  .from-amber-50,
+  .from-orange-50,
+  .from-green-50,
+  .from-emerald-50,
+  .from-teal-50,
+  .from-cyan-50,
+  .from-sky-50 { --tw-gradient-from: var(--bg-subtle); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0,0,0,0)); }
+
+  .to-blue-50,
+  .to-indigo-50,
+  .to-purple-50,
+  .to-violet-50,
+  .to-pink-50,
+  .to-rose-50,
+  .to-yellow-50,
+  .to-amber-50,
+  .to-orange-50,
+  .to-green-50,
+  .to-emerald-50,
+  .to-teal-50,
+  .to-cyan-50,
+  .to-sky-50 { --tw-gradient-to: var(--bg-subtle); }
+
+  .via-blue-50,
+  .via-indigo-50,
+  .via-purple-50,
+  .via-violet-50,
+  .via-pink-50,
+  .via-rose-50,
+  .via-yellow-50,
+  .via-amber-50,
+  .via-orange-50,
+  .via-green-50,
+  .via-emerald-50,
+  .via-teal-50,
+  .via-cyan-50,
+  .via-sky-50 { --tw-gradient-stops: var(--tw-gradient-from), var(--surface), var(--tw-gradient-to, rgba(0,0,0,0)); }
+
+  .bg-red-600 { background-color: var(--error); color: #fff; }
+  .bg-red-700 { background-color: var(--error-hover); color: #fff; }
+  .text-red-600 { color: var(--error); }
+  .text-red-700 { color: var(--error-hover); }
+
+  .text-green-600, .text-green-500,
+  .text-emerald-600, .text-emerald-500 { color: var(--success); }
 }
 
 /* Arabic font styling for RTL text */
@@ -242,7 +368,7 @@ body {
 
 /* Accessibility improvements - WCAG 2.1 AA Compliant */
 *:focus-visible {
-  outline: 3px solid #2563eb;
+  outline: 3px solid var(--focus-ring);
   outline-offset: 3px;
   transition: outline-offset 0.2s ease;
 }
@@ -253,7 +379,7 @@ body {
   left: -9999px;
   top: 0;
   z-index: 9999;
-  background: #1e40af;
+  background: var(--brand-primary-hover);
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 0 0 0.5rem 0.5rem;
@@ -268,82 +394,13 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Ensure sufficient color contrast - WCAG AA minimum 4.5:1 */
-.text-gray-600 {
-  color: #1f2937; /* Darker gray for better contrast - 15.8:1 ratio on white */
-}
-
-.text-gray-700 {
-  color: #111827; /* Even darker gray - 21:1 ratio on white */
-}
-
-.text-gray-500 {
-  color: #374151; /* Medium gray - 10.74:1 ratio on white */
-}
-
-.text-gray-400 {
-  color: #4b5563; /* Light gray but still readable - 7.59:1 ratio on white */
-}
-
-.text-gray-300 {
-  color: #6b7280; /* Light gray with good contrast - 5.74:1 ratio on white */
-}
-
-/* Enhanced contrast for purple text on dark backgrounds - WCAG AA compliant */
-.text-purple-200 {
-  color: #c084fc; /* Darker purple for better contrast */
-}
-
-.text-purple-100 {
-  color: #d8b4fe; /* Darker purple for better contrast */
-}
-
-.text-purple-300 {
-  color: #a855f7; /* Medium purple for better visibility */
-}
-
-/* Enhanced contrast for green text - WCAG AA compliant */
-.text-green-600 {
-  color: #059669; /* Darker green for better contrast (was #16a34a) - 4.5:1 ratio on white */
-}
-
-.text-green-500 {
-  color: #10b981; /* Medium green for better visibility */
-}
-
-/* Enhanced contrast for orange/yellow text */
-.text-orange-400 {
-  color: #ea580c; /* Darker orange for better contrast */
-}
-
-.text-orange-300 {
-  color: #f97316; /* Darker orange for better visibility */
-}
-
-.text-yellow-400 {
-  color: #facc15; /* Darker yellow for better contrast */
-}
-
-.text-yellow-500 {
-  color: #eab308; /* Darker yellow for better visibility */
-}
-
-/* Enhanced contrast for blue text */
-.text-blue-400 {
-  color: #2563eb; /* Darker blue for better contrast */
-}
-
-.text-blue-300 {
-  color: #3b82f6; /* Medium blue for better visibility */
-}
-
 /* Focus styles for interactive elements - Enhanced for better visibility */
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 3px solid #2563eb;
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
   border-radius: 0.25rem;
 }
@@ -537,16 +594,6 @@ h3 {
     transform: scale(4);
     opacity: 0;
   }
-}
-
-/* Override common Tailwind red utilities to use brand red for primary look */
-.bg-red-600 {
-  background-color: var(--brand-red) !important;
-  color: #fff !important;
-}
-.bg-red-700 {
-  background-color: #a30b24 !important;
-  color: #fff !important;
 }
 
 /* Simple card style */
@@ -765,7 +812,7 @@ h3 {
 }
 
 .cta-pulse:focus-visible {
-  outline: 3px solid var(--accent-primary);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 3px;
 }
 
@@ -864,7 +911,7 @@ h3 {
 }
 
 .icon-accent {
-  color: var(--accent-primary);
+  color: var(--brand-primary);
 }
 
 /* Enhanced Navigation Buttons */

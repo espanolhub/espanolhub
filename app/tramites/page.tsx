@@ -363,7 +363,7 @@ export default function TramitesPage() {
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case 'fácil': return 'text-green-600 bg-green-100';
-      case 'medio': return 'text-yellow-600 bg-yellow-100';
+      case 'medio': return 'text-blue-600 bg-blue-100';
       case 'difícil': return 'text-red-600 bg-red-100';
       default: return 'text-gray-600 bg-gray-100';
     }
@@ -592,10 +592,10 @@ export default function TramitesPage() {
                       {(guide as any).tips && (guide as any).tips.length > 0 && (
                         <div className="mb-8">
                           <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                            <Sparkles className="w-6 h-6 text-amber-500" />
+                            <Sparkles className="w-6 h-6 text-blue-600" />
                             Consejos Importantes
                           </h4>
-                          <div className="bg-amber-50 rounded-xl p-5 border-2 border-amber-200">
+                          <div className="bg-gray-50 rounded-xl p-5 border-2 border-gray-200">
                             <ul className="space-y-3">
                               {(guide as any).tips.map((tip: any, i: number) => (
                                 <li key={i} className="flex items-start gap-3">
