@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { CheckCircle, VolumeX, Volume2, Zap, Trophy, Timer, ArrowRight, RotateCcw } from 'lucide-react';
+import { CheckCircle, VolumeX, Volume2, Zap, Trophy, Timer, ArrowRight, RotateCcw, Puzzle } from 'lucide-react';
 import GameShell from '@/components/games/ui/GameShell';
 import GameButton from '@/components/games/ui/GameButton';
 import { playCompletionSound, playFailSound, playSuccessSound } from '@/lib/utils/sounds';
@@ -17,7 +17,7 @@ type LevelConfig = {
 };
 
 type Props = {
-  data?: any;
+  data?: { roundsLevel1?: number; roundsLevel2?: number; roundsLevel3?: number };
   roundsLevel1?: number;
   roundsLevel2?: number;
   roundsLevel3?: number;
@@ -220,8 +220,9 @@ export default function NounAgreementGame({
   const l3Questions = useMemo(() => {
     const pool = shuffle([...NOUNS]);
     const selected = pool.slice(0, clamp(cfg.roundsLevel3, 8, 40));
-    return selected.map((n) => {
-      const number: NumberForm = Math.random() < 0.5 ? 'singular' : 'plural';
+    return selected.map((n, idx) => {
+      // Use deterministic approach based on index instead of Math.random()
+      const number: NumberForm = idx % 2 === 0 ? 'singular' : 'plural';
       const correct = phraseFor(n, number);
 
       const wrongGender: Gender = n.gender === 'masculino' ? 'femenino' : 'masculino';
@@ -368,13 +369,13 @@ export default function NounAgreementGame({
     <div className="mb-5">
       <div className="flex items-center justify-between gap-3">
         <div className="min-w-0">
-          <div className="flex items-center gap-2 text-slate-200">
-            <Zap className="w-5 h-5 text-emerald-300" aria-hidden="true" />
-            <h2 className="text-base sm:text-lg font-extrabold text-white truncate">
+          <div className="flex items-center gap-2">
+            <Zap className="w-5 h-5 text-emerald-600" aria-hidden="true" />
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 truncate">
               Género y Número
             </h2>
           </div>
-          <div className="text-xs sm:text-sm text-slate-300 mt-1">
+          <div className="text-xs sm:text-sm text-slate-600 mt-1">
             Nivel {level} de 3
           </div>
         </div>
@@ -382,7 +383,7 @@ export default function NounAgreementGame({
           <button
             type="button"
             onClick={() => setMuted((m) => !m)}
-            className="inline-flex items-center gap-2 px-3 h-10 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 hover:bg-slate-700 transition"
+            className="inline-flex items-center gap-2 px-3 h-10 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 hover:bg-slate-200 transition"
             aria-label={muted ? 'Activar sonido' : 'Silenciar'}
             title={muted ? 'Activar sonido' : 'Silenciar'}
           >
@@ -390,7 +391,7 @@ export default function NounAgreementGame({
             <span className="hidden sm:inline text-sm font-semibold">{muted ? 'Silencio' : 'Sonido'}</span>
           </button>
           {onBack ? (
-            <GameButton onClick={onBack} variant="secondary" className="bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-700">
+            <GameButton onClick={onBack} variant="secondary">
               Volver
             </GameButton>
           ) : null}
@@ -398,30 +399,30 @@ export default function NounAgreementGame({
       </div>
 
       <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-3">
-          <div className="flex items-center gap-2 text-slate-300 text-xs">
-            <Trophy className="w-4 h-4 text-yellow-300" aria-hidden="true" />
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-3">
+          <div className="flex items-center gap-2 text-slate-700 text-xs font-semibold">
+            <Trophy className="w-4 h-4 text-amber-600" aria-hidden="true" />
             Puntos
           </div>
-          <div className="text-xl font-extrabold text-white">{score}</div>
+          <div className="text-xl font-extrabold text-slate-900">{score}</div>
         </div>
-        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-3">
-          <div className="flex items-center gap-2 text-slate-300 text-xs">
-            <CheckCircle className="w-4 h-4 text-emerald-300" aria-hidden="true" />
+        <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-3">
+          <div className="flex items-center gap-2 text-slate-700 text-xs font-semibold">
+            <CheckCircle className="w-4 h-4 text-emerald-600" aria-hidden="true" />
             Combo
           </div>
-          <div className="text-xl font-extrabold text-white">
-            x{multiplier} <span className="text-sm text-slate-300 font-semibold">({streak})</span>
+          <div className="text-xl font-extrabold text-slate-900">
+            x{multiplier} <span className="text-sm text-slate-600 font-semibold">({streak})</span>
           </div>
         </div>
-        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-3 col-span-2 sm:col-span-2">
-          <div className="flex items-center justify-between text-slate-300 text-xs">
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 col-span-2 sm:col-span-2">
+          <div className="flex items-center justify-between text-slate-700 text-xs font-semibold">
             <span>Progreso</span>
-            <span className="font-semibold">{Math.round(overallProgress * 100)}%</span>
+            <span>{Math.round(overallProgress * 100)}%</span>
           </div>
-          <div className="mt-2 h-3 bg-slate-700 rounded-full overflow-hidden">
+          <div className="mt-2 h-3 bg-slate-200 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-emerald-400 to-cyan-400 transition-all duration-300"
+              className="h-full bg-gradient-to-r from-blue-500 to-emerald-500 transition-all duration-300"
               style={{ width: `${Math.round(overallProgress * 100)}%` }}
             />
           </div>
@@ -431,10 +432,10 @@ export default function NounAgreementGame({
       {flash !== 'none' ? (
         <div
           className={[
-            'mt-4 rounded-2xl border p-3 text-sm font-semibold transition',
+            'mt-4 rounded-xl border p-3 text-sm font-semibold transition',
             flash === 'success'
-              ? 'bg-emerald-900/30 border-emerald-700 text-emerald-200'
-              : 'bg-rose-900/30 border-rose-700 text-rose-200',
+              ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
+              : 'bg-rose-50 border-rose-200 text-rose-700',
           ].join(' ')}
         >
           {flash === 'success' ? '¡Correcto!' : 'Incorrecto — sigue intentando'}
@@ -446,45 +447,44 @@ export default function NounAgreementGame({
   // ===== Screens =====
   if (phase === 'intro') {
     return (
-      <GameShell
-        className="max-w-5xl mx-auto border border-slate-700 bg-slate-900"
-        contentClassName="p-4 sm:p-6 md:p-8"
-      >
+      <GameShell className="max-w-5xl mx-auto">
         {header}
-        <div className="bg-slate-800 border border-slate-700 rounded-3xl p-6 sm:p-8">
+        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8">
           <div className="text-center">
-            <div className="text-5xl mb-3">🧩</div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 mb-4 shadow-sm">
+              <Puzzle className="w-8 h-8 text-white" aria-hidden="true" />
+            </div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">
               Aprende Género y Número
             </h1>
-            <p className="text-slate-300 max-w-2xl mx-auto">
+            <p className="text-slate-600 max-w-2xl mx-auto leading-relaxed">
               Tres niveles para dominar <strong>Masculino/Femenino</strong> y <strong>Singular/Plural</strong>.
               Responde rápido para aumentar el combo y ganar más puntos.
             </p>
           </div>
 
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="rounded-2xl bg-slate-900 border border-slate-700 p-4">
-              <div className="text-slate-200 font-bold mb-1">Nivel 1</div>
-              <div className="text-slate-300 text-sm">Clasifica sustantivos en Masculino o Femenino.</div>
+            <div className="rounded-xl bg-white border border-slate-200 p-4">
+              <div className="text-slate-900 font-bold mb-1">Nivel 1</div>
+              <div className="text-slate-600 text-sm">Clasifica sustantivos en Masculino o Femenino.</div>
             </div>
-            <div className="rounded-2xl bg-slate-900 border border-slate-700 p-4">
-              <div className="text-slate-200 font-bold mb-1">Nivel 2</div>
-              <div className="text-slate-300 text-sm">Transforma Singular a Plural contra el reloj.</div>
+            <div className="rounded-xl bg-white border border-slate-200 p-4">
+              <div className="text-slate-900 font-bold mb-1">Nivel 2</div>
+              <div className="text-slate-600 text-sm">Transforma Singular a Plural contra el reloj.</div>
             </div>
-            <div className="rounded-2xl bg-slate-900 border border-slate-700 p-4">
-              <div className="text-slate-200 font-bold mb-1">Nivel 3</div>
-              <div className="text-slate-300 text-sm">Elige el artículo correcto en retos rápidos.</div>
+            <div className="rounded-xl bg-white border border-slate-200 p-4">
+              <div className="text-slate-900 font-bold mb-1">Nivel 3</div>
+              <div className="text-slate-600 text-sm">Elige el artículo correcto en retos rápidos.</div>
             </div>
           </div>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <GameButton onClick={start} variant="primary" size="lg" className="bg-emerald-500 border-emerald-500 hover:bg-emerald-600">
+            <GameButton onClick={start} variant="primary" size="lg" className="bg-blue-600 border-blue-600 hover:bg-blue-700 text-white">
               <Zap className="w-5 h-5" aria-hidden="true" />
               Empezar
             </GameButton>
             {onBack ? (
-              <GameButton onClick={onBack} variant="secondary" size="lg" className="bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800">
+              <GameButton onClick={onBack} variant="secondary" size="lg">
                 Volver a Juegos
               </GameButton>
             ) : null}
@@ -496,21 +496,20 @@ export default function NounAgreementGame({
 
   if (phase === 'levelComplete') {
     return (
-      <GameShell
-        className="max-w-5xl mx-auto border border-slate-700 bg-slate-900"
-        contentClassName="p-4 sm:p-6 md:p-8"
-      >
+      <GameShell className="max-w-5xl mx-auto">
         {header}
-        <div className="bg-slate-800 border border-slate-700 rounded-3xl p-6 sm:p-8 text-center">
-          <div className="text-5xl mb-3">✅</div>
-          <h3 className="text-2xl font-extrabold text-white mb-2">Nivel completado</h3>
-          <p className="text-slate-300 mb-6">Excelente. Prepárate para el siguiente reto.</p>
+        <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 sm:p-8 text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-emerald-500 mb-4">
+            <CheckCircle className="w-8 h-8 text-white" aria-hidden="true" />
+          </div>
+          <h3 className="text-2xl font-extrabold text-slate-900 mb-2">Nivel completado</h3>
+          <p className="text-slate-600 mb-6">Excelente. Prepárate para el siguiente reto.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <GameButton onClick={nextLevel} variant="primary" size="lg" className="bg-emerald-500 border-emerald-500 hover:bg-emerald-600">
+            <GameButton onClick={nextLevel} variant="primary" size="lg" className="bg-blue-600 border-blue-600 hover:bg-blue-700 text-white">
               Siguiente nivel
               <ArrowRight className="w-5 h-5" aria-hidden="true" />
             </GameButton>
-            <GameButton onClick={restartAll} variant="secondary" size="lg" className="bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800">
+            <GameButton onClick={restartAll} variant="secondary" size="lg">
               <RotateCcw className="w-5 h-5" aria-hidden="true" />
               Reiniciar
             </GameButton>
@@ -522,22 +521,21 @@ export default function NounAgreementGame({
 
   if (phase === 'complete') {
     return (
-      <GameShell
-        className="max-w-5xl mx-auto border border-slate-700 bg-slate-900"
-        contentClassName="p-4 sm:p-6 md:p-8"
-      >
+      <GameShell className="max-w-5xl mx-auto">
         {header}
-        <div className="bg-slate-800 border border-slate-700 rounded-3xl p-6 sm:p-8 text-center">
-          <div className="text-6xl mb-3">🏆</div>
-          <h3 className="text-3xl font-extrabold text-white mb-2">¡Juego completado!</h3>
-          <p className="text-slate-300 mb-6">Tu puntuación final:</p>
-          <div className="text-6xl font-extrabold text-emerald-300 mb-6">{score}</div>
+        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 sm:p-8 text-center">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 mb-4 shadow-md">
+            <Trophy className="w-10 h-10 text-white" aria-hidden="true" />
+          </div>
+          <h3 className="text-3xl font-extrabold text-slate-900 mb-2">¡Juego completado!</h3>
+          <p className="text-slate-600 mb-4">Tu puntuación final:</p>
+          <div className="text-5xl font-extrabold text-amber-600 mb-6">{score}</div>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <GameButton onClick={restartAll} variant="primary" size="lg" className="bg-emerald-500 border-emerald-500 hover:bg-emerald-600">
+            <GameButton onClick={restartAll} variant="primary" size="lg" className="bg-blue-600 border-blue-600 hover:bg-blue-700 text-white">
               Jugar de nuevo
             </GameButton>
             {onBack ? (
-              <GameButton onClick={onBack} variant="secondary" size="lg" className="bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800">
+              <GameButton onClick={onBack} variant="secondary" size="lg">
                 Volver a Juegos
               </GameButton>
             ) : null}
@@ -555,26 +553,23 @@ export default function NounAgreementGame({
     const isPlaced = (uid: string) => l1Mas.includes(uid) || l1Fem.includes(uid);
 
     return (
-      <GameShell
-        className="max-w-6xl mx-auto border border-slate-700 bg-slate-900"
-        contentClassName="p-4 sm:p-6 md:p-8"
-      >
+      <GameShell className="max-w-6xl mx-auto">
         {header}
 
-        <div className="mb-4 flex items-center justify-between text-slate-300 text-sm">
-          <div className="flex items-center gap-2">
-            <CheckCircle className="w-4 h-4 text-emerald-300" aria-hidden="true" />
+        <div className="mb-4 flex items-center justify-between text-slate-700 text-sm">
+          <div className="flex items-center gap-2 font-semibold">
+            <CheckCircle className="w-4 h-4 text-emerald-600" aria-hidden="true" />
             {placedCount}/{total} clasificadas
           </div>
-          <div className="text-xs text-slate-400">
+          <div className="text-xs text-slate-500">
             Consejo: en móvil, toca una tarjeta y luego un cubo.
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Cards */}
-          <div className="lg:col-span-2 bg-slate-800 border border-slate-700 rounded-3xl p-4 sm:p-6">
-            <h3 className="text-white font-extrabold text-lg mb-4">Arrastra o selecciona</h3>
+          <div className="lg:col-span-2 bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-6">
+            <h3 className="text-slate-900 font-bold text-lg mb-4">Arrastra o selecciona</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {l1Cards.map((c) => {
                 const placed = isPlaced(c.uid);
@@ -590,14 +585,14 @@ export default function NounAgreementGame({
                       setSelectedCardUid((prev) => (prev === c.uid ? null : c.uid));
                     }}
                     className={[
-                      'select-none text-left rounded-2xl border p-3 transition',
-                      placed ? 'opacity-40 cursor-not-allowed' : 'hover:bg-slate-700/50',
-                      selected ? 'border-emerald-400 bg-slate-900' : 'border-slate-700 bg-slate-900/60',
+                      'select-none text-left rounded-xl border p-3 transition',
+                      placed ? 'opacity-40 cursor-not-allowed bg-slate-100' : 'hover:bg-white hover:shadow-sm',
+                      selected ? 'border-blue-500 bg-blue-50 shadow-md' : 'border-slate-200 bg-white',
                     ].join(' ')}
                     aria-label={`Sustantivo: ${c.noun}`}
                   >
-                    <div className="text-white font-extrabold text-base">{titleCase(c.noun)}</div>
-                    {c.hint ? <div className="text-xs text-slate-400 mt-1">{c.hint}</div> : null}
+                    <div className="text-slate-900 font-bold text-base">{titleCase(c.noun)}</div>
+                    {c.hint ? <div className="text-xs text-slate-500 mt-1">{c.hint}</div> : null}
                   </button>
                 );
               })}
@@ -693,27 +688,27 @@ export default function NounAgreementGame({
     const progress = l2Questions.length ? (l2Index / l2Questions.length) * 100 : 0;
 
     return (
-      <GameShell className="max-w-5xl mx-auto border border-slate-700 bg-slate-900" contentClassName="p-4 sm:p-6 md:p-8">
+      <GameShell className="max-w-5xl mx-auto">
         {header}
 
-        <div className="bg-slate-800 border border-slate-700 rounded-3xl p-6">
+        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
           <div className="flex items-center justify-between gap-3 mb-4">
-            <div className="text-slate-300 text-sm">
+            <div className="text-slate-700 text-sm font-semibold">
               Pregunta {l2Index + 1} de {l2Questions.length}
             </div>
-            <div className="flex items-center gap-2 px-3 h-10 rounded-xl bg-slate-900 border border-slate-700 text-slate-200">
-              <Timer className="w-4 h-4 text-cyan-300" aria-hidden="true" />
-              <span className="font-extrabold">{l2TimeLeft}s</span>
+            <div className="flex items-center gap-2 px-3 h-10 rounded-lg bg-cyan-50 border border-cyan-200 text-cyan-700">
+              <Timer className="w-4 h-4" aria-hidden="true" />
+              <span className="font-bold">{l2TimeLeft}s</span>
             </div>
           </div>
 
-          <div className="h-3 bg-slate-700 rounded-full overflow-hidden mb-6">
-            <div className="h-full bg-gradient-to-r from-cyan-400 to-emerald-400 transition-all duration-300" style={{ width: `${progress}%` }} />
+          <div className="h-3 bg-slate-200 rounded-full overflow-hidden mb-6">
+            <div className="h-full bg-gradient-to-r from-blue-500 to-emerald-500 transition-all duration-300" style={{ width: `${progress}%` }} />
           </div>
 
           <div className="text-center mb-6">
-            <div className="text-slate-300 text-sm mb-2">Convierte a plural</div>
-            <div className="text-4xl font-extrabold text-white">{q.prompt}</div>
+            <div className="text-slate-600 text-sm mb-2 font-semibold">Convierte a plural</div>
+            <div className="text-3xl md:text-4xl font-extrabold text-slate-900">{q.prompt}</div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -735,13 +730,13 @@ export default function NounAgreementGame({
                   }, 450);
                 }}
                 className={[
-                  'rounded-2xl border p-4 text-left transition',
-                  'bg-slate-900/60 border-slate-700 hover:bg-slate-700/40',
-                  l2Locked ? 'opacity-80 cursor-not-allowed' : '',
+                  'rounded-xl border p-4 text-left transition',
+                  'bg-white border-slate-200 hover:bg-blue-50 hover:border-blue-300',
+                  l2Locked ? 'opacity-60 cursor-not-allowed' : '',
                 ].join(' ')}
               >
-                <div className="text-white font-extrabold">{opt}</div>
-                <div className="text-xs text-slate-400 mt-1">Elige la opción correcta</div>
+                <div className="text-slate-900 font-bold text-lg">{opt}</div>
+                <div className="text-xs text-slate-500 mt-1">Elige la opción correcta</div>
               </button>
             ))}
           </div>
@@ -756,27 +751,27 @@ export default function NounAgreementGame({
   const progress3 = l3Questions.length ? (l3Index / l3Questions.length) * 100 : 0;
 
   return (
-    <GameShell className="max-w-5xl mx-auto border border-slate-700 bg-slate-900" contentClassName="p-4 sm:p-6 md:p-8">
+    <GameShell className="max-w-5xl mx-auto">
       {header}
-      <div className="bg-slate-800 border border-slate-700 rounded-3xl p-6">
+      <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
         <div className="flex items-center justify-between gap-3 mb-4">
-          <div className="text-slate-300 text-sm">
+          <div className="text-slate-700 text-sm font-semibold">
             Reto {l3Index + 1} de {l3Questions.length}
           </div>
-          <div className="flex items-center gap-2 px-3 h-10 rounded-xl bg-slate-900 border border-slate-700 text-slate-200">
-            <Timer className="w-4 h-4 text-rose-300" aria-hidden="true" />
-            <span className="font-extrabold">{l3TimeLeft}s</span>
+          <div className="flex items-center gap-2 px-3 h-10 rounded-lg bg-rose-50 border border-rose-200 text-rose-700">
+            <Timer className="w-4 h-4" aria-hidden="true" />
+            <span className="font-bold">{l3TimeLeft}s</span>
           </div>
         </div>
 
-        <div className="h-3 bg-slate-700 rounded-full overflow-hidden mb-6">
-          <div className="h-full bg-gradient-to-r from-rose-400 to-amber-300 transition-all duration-300" style={{ width: `${progress3}%` }} />
+        <div className="h-3 bg-slate-200 rounded-full overflow-hidden mb-6">
+          <div className="h-full bg-gradient-to-r from-rose-500 to-amber-500 transition-all duration-300" style={{ width: `${progress3}%` }} />
         </div>
 
         <div className="text-center mb-6">
-          <div className="text-slate-300 text-sm mb-2">Elige la forma correcta</div>
-          <div className="text-3xl font-extrabold text-white">{titleCase(q3.noun.noun)}</div>
-          {q3.noun.hint ? <div className="text-xs text-slate-400 mt-2">{q3.noun.hint}</div> : null}
+          <div className="text-slate-600 text-sm mb-2 font-semibold">Elige la forma correcta</div>
+          <div className="text-3xl md:text-4xl font-extrabold text-slate-900">{titleCase(q3.noun.noun)}</div>
+          {q3.noun.hint ? <div className="text-xs text-slate-500 mt-2">{q3.noun.hint}</div> : null}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -798,13 +793,13 @@ export default function NounAgreementGame({
                 }, 420);
               }}
               className={[
-                'rounded-2xl border p-4 text-left transition',
-                'bg-slate-900/60 border-slate-700 hover:bg-slate-700/40',
-                l3Locked ? 'opacity-80 cursor-not-allowed' : '',
+                'rounded-xl border p-4 text-left transition',
+                'bg-white border-slate-200 hover:bg-purple-50 hover:border-purple-300',
+                l3Locked ? 'opacity-60 cursor-not-allowed' : '',
               ].join(' ')}
             >
-              <div className="text-white font-extrabold">{opt}</div>
-              <div className="text-xs text-slate-400 mt-1">Rápido: gana más combo</div>
+              <div className="text-slate-900 font-bold text-lg">{opt}</div>
+              <div className="text-xs text-slate-500 mt-1">Rápido: gana más combo</div>
             </button>
           ))}
         </div>

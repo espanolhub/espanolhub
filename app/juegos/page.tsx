@@ -167,7 +167,7 @@ function JuegosContent() {
         if (!res.ok) return;
         const data = await res.json();
         const list: LibraryEntry[] = [];
-        Object.values(data).forEach((arr: any) => {
+        Object.values(data).forEach((arr: unknown) => {
           if (Array.isArray(arr)) {
             arr.forEach((e: LibraryEntry) => list.push(e));
           }
@@ -305,13 +305,17 @@ function JuegosContent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+    <div className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-8">
-        <div className="text-center mb-10">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
-            🎮 Juegos Educativos
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full mb-4 border border-blue-200">
+            <Gamepad2 className="w-5 h-5 text-blue-600" aria-hidden="true" />
+            <span className="text-sm font-bold text-slate-900">Aprende Jugando</span>
+          </div>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
+            Juegos Educativos
           </h1>
-          <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
             Aprende divirtiéndote con juegos educativos interactivos y desafiantes
           </p>
         </div>
@@ -354,12 +358,12 @@ function JuegosContent() {
 
             {/* Main Games Section */}
             {(activeTab === 'principales' || activeTab === 'todos') && (
-            <div className="mb-12">
-              <h2 className="text-3xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-                <span className="text-4xl">🎯</span>
+            <div className="mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5 flex items-center gap-2">
+                <Trophy className="w-6 h-6 text-blue-600" aria-hidden="true" />
                 Juegos Principales
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
                 {games.map((gameItem) => {
                   const accent: GameCardAccent =
                     gameItem.id === 'multiple-choice'
@@ -404,17 +408,17 @@ function JuegosContent() {
 
             {/* Library Games Section */}
             {(activeTab === 'biblioteca' || activeTab === 'todos') && libraryTitles.length > 0 && (
-              <div className="mb-12">
-                <h2 className="text-3xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-                  <span className="text-4xl">📚</span>
+              <div className="mb-10">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5 flex items-center gap-2">
+                  <BookOpen className="w-6 h-6 text-purple-600" aria-hidden="true" />
                   Biblioteca de Juegos
                   {libraryTitles.length > 0 && (
-                    <span className="text-lg font-normal text-gray-500 ml-2">
-                      ({libraryTitles.length} juegos disponibles)
+                    <span className="text-sm font-semibold text-slate-500 ml-2">
+                      ({libraryTitles.length})
                     </span>
                   )}
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
                   {libraryTitles.map((g) => (
                     <GameCard
                       key={g.id}

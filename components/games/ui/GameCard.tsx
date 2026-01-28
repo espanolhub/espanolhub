@@ -99,21 +99,20 @@ export default function GameCard({
       type="button"
       onClick={onClick}
       className={cx(
-        'group text-left w-full bg-white rounded-2xl border border-gray-200 transition-all duration-300 ease-out px-6 py-7',
-        'hover:scale-[1.02] hover:shadow-xl transform',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-        acc.hover,
+        'group text-left w-full bg-white rounded-xl border border-slate-200 transition-all duration-200 px-5 py-5',
+        'hover:border-blue-300 hover:shadow-md',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2',
         className
       )}
     >
       {imageUrl ? (
-        <div className="relative w-full h-32 rounded-xl overflow-hidden border border-gray-100 mb-5 bg-gradient-to-br from-gray-50 to-gray-100 shadow-inner">
+        <div className="relative w-full h-28 rounded-lg overflow-hidden border border-slate-200 mb-4 bg-slate-50">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={imageUrl} alt={title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+          <img src={imageUrl} alt={title} className="w-full h-full object-cover" />
           {normalizedIcon ? (
             <div
               className={cx(
-                'absolute left-4 top-4 inline-flex items-center justify-center w-12 h-12 rounded-xl ring-4 ring-white/90 shadow-lg backdrop-blur-sm',
+                'absolute left-3 top-3 inline-flex items-center justify-center w-10 h-10 rounded-lg ring-2 ring-white/80 shadow-md',
                 acc.bg
               )}
               aria-hidden="true"
@@ -124,32 +123,26 @@ export default function GameCard({
         </div>
       ) : (
         <div className={cx(
-          'inline-flex items-center justify-center w-16 h-16 rounded-2xl ring-4 ring-transparent mb-5 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl',
-          acc.bg, acc.ring
+          'inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 shadow-sm',
+          acc.bg
         )}>
           {normalizedIcon}
         </div>
       )}
 
-      <div className="min-h-[80px]">
-        <div className="flex items-start justify-between gap-3">
-          <h3 className={cx(
-            'text-lg md:text-xl font-bold leading-tight transition-colors duration-300',
-            'text-gray-900 group-hover:text-gray-800'
-          )}>
+      <div className="min-h-[68px]">
+        <div className="flex items-start justify-between gap-2">
+          <h3 className="text-base md:text-lg font-bold text-slate-900 leading-snug">
             {title}
           </h3>
-          <ArrowRight className={cx(
-            'w-5 h-5 flex-shrink-0 mt-1 transition-all duration-300',
-            'text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1'
-          )} aria-hidden="true" />
+          <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-blue-600 flex-shrink-0 mt-0.5 transition-colors duration-200" aria-hidden="true" />
         </div>
         {description ? (
-          <p className="text-sm md:text-base text-gray-600 mt-3 leading-relaxed">{description}</p>
+          <p className="text-sm text-slate-600 mt-1.5 leading-snug">{description}</p>
         ) : null}
       </div>
 
-      {meta ? <div className="mt-5">{meta}</div> : null}
+      {meta ? <div className="mt-4">{meta}</div> : null}
     </button>
   );
 }
