@@ -3,7 +3,6 @@
 import { useState, useMemo, useRef, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { vocabularyCategories } from '@/lib/data/vocabulary';
-import { normalizeArabic } from '@/lib/utils/normalizeArabic';
 import { searchDictionary, getDictionaryByCategory, getDictionaryByWord, getDictionary } from '@/lib/data/dictionary';
 import AudioPlayer from '@/components/AudioPlayer';
 import DictionaryModal from '@/components/DictionaryModal';
@@ -16,7 +15,6 @@ import {
   Palette, Coffee, Users, Cat, Home, Shirt, User, Play, BookOpen, Heart, 
   MapPin, Car, GraduationCap, HeartPulse, Smile, Building, Share2, Search 
 } from 'lucide-react';
-import { useTranslations, TranslationToggleButton } from '@/lib/hooks/useTranslations';
 
 // Category icon mapping
 const categoryIcons: Record<string, any> = {
@@ -49,9 +47,6 @@ function VocabularioContent() {
   // Get category from URL query params
   const searchParams = useSearchParams();
   const categoryFromUrl = searchParams?.get('category');
-  
-  // Translation toggle
-  const [showTranslations, setShowTranslations] = useTranslations();
   
   const [selectedCategory, setSelectedCategory] = useState<string>('verbos');
   const [selectedWord, setSelectedWord] = useState<string | null>(null);
@@ -183,13 +178,6 @@ function VocabularioContent() {
             Amplía tu vocabulario con más de {(getDictionary()?.length ?? 0)} palabras organizadas en {vocabularyCategories.length} categorías temáticas. ¡Aprende con pronunciación nativa y juegos interactivos!
           </p>
           
-          {/* Translation Toggle Button */}
-          <div className="mt-4 md:mt-6">
-            <TranslationToggleButton
-              showTranslations={showTranslations}
-              onClick={() => setShowTranslations(!showTranslations)}
-            />
-          </div>
         </div>
 
         {/* Tab Navigation */}
@@ -244,7 +232,7 @@ function VocabularioContent() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={`Buscar palabra en español${showTranslations ? ' o árabe' : ''}...${showTranslations ? ' / ابحث عن كلمة بالإسبانية أو العربية...' : ''}`}
+              placeholder="Buscar palabra en español..."
               className="w-full pl-12 pr-4 py-3 md:py-4 border-2 border-gray-300 rounded-xl focus:border-purple-500 focus:outline-none text-base md:text-lg shadow-sm hover:shadow-md transition-shadow"
               dir="auto"
             />

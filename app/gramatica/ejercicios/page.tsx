@@ -10,15 +10,11 @@ import HintModal from '@/components/HintModal';
 
 type Level = 'beginner' | 'intermediate' | 'advanced';
 
-function getArabicHintLocal(exercise:any): string {
-  // simplified hint generator similar to page implementation
-  if (exercise.category === 'verbs') {
-    if (exercise.question.includes('Yo')) return 'تذكر: Yo -> النهاية -o';
-    if (exercise.question.includes('Tú')) return 'تذكر: Tú -> النهاية -as/-es';
-    return 'انظر إلى الضمير لتحديد النهاية الصحيحة';
-  }
-  if (exercise.category === 'articles') return 'تذكر: el/la/los/las';
-  return 'اقرأ الجملة بعناية وفكّر في السياق';
+function getHintLocal(exercise: any): string {
+  return (
+    exercise?.explanation ||
+    'Pista: fíjate en el sujeto y en la regla de esta categoría.'
+  );
 }
 
 export default function GramEjerciciosPage() {
@@ -104,29 +100,12 @@ export default function GramEjerciciosPage() {
     setShowHints({});
   }, [category, level]);
 
-  // Motivational messages (ES / AR)
+  // Motivational messages (ES)
   const boosts = [
-    '¡Excelente! 🌟 (ممتاز!)',
-    '¡Vas por buen camino! 🚀 (أنت على الطريق الصحيح!)',
-    '¡Eres un genio! 🧠 (أنت عبقري!)',
+    '¡Excelente! 🌟',
+    '¡Vas por buen camino! 🚀',
+    '¡Muy bien! 🧠',
   ];
-
-  const verbArabicMap: Record<string,string> = {
-    girar: 'يدور / ينعطف',
-    solicitar: 'يطلب',
-    cruzar: 'يعبر',
-    renovar: 'يجدد',
-    tramitar: 'يكمل الإجراءات',
-  };
-
-  const extractVerbFromQuestion = (q:string) => {
-    const lower = q.toLowerCase();
-    const verbs = Object.keys(verbArabicMap);
-    for (const v of verbs) {
-      if (lower.includes(v)) return v;
-    }
-    return null;
-  };
 
   const showBoost = (message:string) => {
     setBoostMessage(message);
@@ -217,7 +196,7 @@ export default function GramEjerciciosPage() {
                 <div className="flex items-start justify-between mb-3">
                   <div className="font-semibold text-lg">{idx+1}. {ex.question}</div>
                   {!showResults && (
-                    <button onClick={() => openHintModal(getArabicHintLocal(ex))} className="px-3 py-1 rounded bg-gray-100 text-blue-700 flex items-center gap-2 border border-gray-300">
+                    <button onClick={() => openHintModal(getHintLocal(ex))} className="px-3 py-1 rounded bg-gray-100 text-blue-700 flex items-center gap-2 border border-gray-300">
                       <Lightbulb className="w-4 h-4" />
                     </button>
                   )}
@@ -241,22 +220,16 @@ export default function GramEjerciciosPage() {
                   })}
                 </div>
                 {showResults && answers[ex.id] !== ex.correctAnswer && (
-                  <div className="mt-3 p-3 bg-red-50 text-red-800 rounded" dir="rtl" style={{ fontFamily: 'var(--font-cairo), sans-serif' }}>
-                    <strong className="block mb-1">تذكير</strong>
-                    <div>{getArabicHintLocal(ex)}</div>
+                  <div className="mt-3 p-3 bg-red-50 text-red-800 rounded">
+                    <strong className="block mb-1">Pista</strong>
+                    <div>{getHintLocal(ex)}</div>
                   </div>
                 )}
                 {/* Inline hint triggered by button or by wrong answer */}
                 {showHints[ex.id] && (
-                  <div className="mt-3 p-3 bg-gray-50 text-slate-900 rounded border-r-4 border-blue-600" dir="rtl" style={{ fontFamily: 'var(--font-cairo), sans-serif' }}>
-                    <strong className="block mb-1">نصيحة</strong>
-                    <div>
-                      {(() => {
-                        const verb = extractVerbFromQuestion(ex.question || '');
-                        if (verb && (verbArabicMap as any)[verb]) return `${verb} — ${(verbArabicMap as any)[verb]}`;
-                        return getArabicHintLocal(ex);
-                      })()}
-                    </div>
+                  <div className="mt-3 p-3 bg-gray-50 text-slate-900 rounded border-l-4 border-blue-600">
+                    <strong className="block mb-1">Pista</strong>
+                    <div>{getHintLocal(ex)}</div>
                   </div>
                 )}
               </div>
@@ -271,7 +244,7 @@ export default function GramEjerciciosPage() {
           </div>
         )}
         {/* Hint Modal */}
-        <HintModal open={hintOpen} onClose={() => setHintOpen(false)} title="Nótese">{hintContent}</HintModal>
+        <HintModal open={hintOpen} onClose={() => setHintOpen(false)} title="Pista">{hintContent}</HintModal>
 
         <div className="mt-6 flex justify-center">
           {!showResults ? (

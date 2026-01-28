@@ -7,7 +7,6 @@ import {
   AlertCircle, Zap, Menu, X
 } from 'lucide-react';
 import dynamic from 'next/dynamic';
-import { Cairo } from 'next/font/google';
 const ReactMarkdown = dynamic(() => import('react-markdown'), { 
   ssr: false,
   loading: () => <div className="text-gray-600">Cargando contenido...</div>
@@ -19,15 +18,8 @@ import { addXP } from '@/lib/utils/progress';
 import { getLessonQuestions } from '@/lib/utils/nacionalidad-questions';
 import ExamLibrary from '@/components/ExamLibrary';
 import useIsPro from '@/lib/hooks/useIsPro';
-import { useTranslations } from '@/lib/hooks/useTranslations';
 
 const ExamSimulator = dynamic(() => import('@/components/ExamSimulator'), { ssr: false });
-
-const cairo = Cairo({
-  variable: '--font-cairo',
-  subsets: ['arabic', 'latin'],
-  weight: ['400', '600'],
-});
 
 const chapterMap = [
   { 
@@ -138,13 +130,13 @@ export default function NacionalidadPage() {
   const [showResults, setShowResults] = useState(false);
   const [summary, setSummary] = useState<{ passed: boolean; correct: number; total: number } | null>(null);
   const [activeTab, setActiveTab] = useState<'lesson' | 'questions'>('lesson');
-  const [activeLessonIndex, setActiveLessonIndex] = useState(0); // للدرس النشط داخل Chapter
+  const [activeLessonIndex, setActiveLessonIndex] = useState(0); // active lesson within chapter
   const [completed, setCompleted] = useState<number[]>([]);
   const [studyTime, setStudyTime] = useState(0);
   const [showStats, setShowStats] = useState(false);
   const totalChapters = chapterMap.length;
 
-  // حساب رقم الدرس الكلي (ترقيم متواصل عبر جميع الفصول)
+  // Calculate global lesson number across chapters
   const calculateLessonNumber = (chapterIndex: number, lessonIndexInChapter: number): number => {
     let totalLessons = 0;
     for (let i = 0; i < chapterIndex; i++) {
@@ -204,82 +196,62 @@ export default function NacionalidadPage() {
     {
       id: 'c1q1',
       question_es: '¿Cuál es la forma de organización política de España?',
-      question_ar: 'ما هو شكل التنظيم السياسي لإسبانيا؟',
       options: ['Monarquía parlamentaria', 'República presidencial', 'Monarquía absoluta'],
       correct: 'Monarquía parlamentaria',
-      explanation_ar: 'إسبانيا هي ملكية برلمانية، حيث يوجد ملك ومؤسسات ديمقراطية منتخبة.',
     },
     {
       id: 'c1q2',
       question_es: '¿Qué documento es la norma suprema del país?',
-      question_ar: 'ما هو الوثيقة التي تمثل القانون الأعلى في البلاد؟',
       options: ['La Constitución', 'El Código Civil', 'La Ley de Municipios'],
       correct: 'La Constitución',
-      explanation_ar: 'الدستور هو أعلى قانون يحدد القواعد الأساسية للدولة.',
     },
     {
       id: 'c1q3',
       question_es: '¿Quién sanciona las leyes en España?',
-      question_ar: 'من يصدق على القوانين في إسبانيا؟',
       options: ['El Rey', 'El Tribunal Constitucional', 'El Gobierno únicamente'],
       correct: 'El Rey',
-      explanation_ar: 'الملك sanciona y promulga las leyes aprobadas por las Cortes.',
     },
     {
       id: 'c1q4',
       question_es: '¿Qué son las Cortes Generales?',
-      question_ar: 'ما هي "الكورتيس جنراليس"؟',
       options: ['El Parlamento compuesto por Diputados y Senadores', 'Un tribunal supremo', 'Un organismo local'],
       correct: 'El Parlamento compuesto por Diputados y Senadores',
-      explanation_ar: 'Las Cortes Generales son el órgano legislativo formado por Congreso y Senado.',
     },
     {
       id: 'c1q5',
       question_es: '¿Qué derecho protege la libertad de expresión?',
-      question_ar: 'ما الحق الذي يحمي حرية التعبير؟',
       options: ['Derechos fundamentales', 'Derechos administrativos', 'Derechos financieros'],
       correct: 'Derechos fundamentales',
-      explanation_ar: 'La libertad de expresión es un derecho fundamental protegido por la Constitución.',
     },
     {
       id: 'c1q6',
       question_es: '¿Qué función tiene el Tribunal Constitucional?',
-      question_ar: 'ما وظيفة المحكمة الدستورية؟',
       options: ['Controlar la constitucionalidad de las leyes', 'Gestionar municipios', 'Redactar decretos administrativos'],
       correct: 'Controlar la constitucionalidad de las leyes',
-      explanation_ar: 'Se encarga de interpretar la Constitución y controlar la compatibilidad de las leyes.',
     },
     {
       id: 'c1q7',
       question_es: '¿Quién es el jefe del gobierno en España?',
-      question_ar: 'من هو رئيس الحكومة في إسبانيا؟',
       options: ['El Presidente del Gobierno', 'El Rey', 'El Ministro de Hacienda'],
       correct: 'El Presidente del Gobierno',
-      explanation_ar: 'El Presidente del Gobierno dirige la política general del país.',
     },
     {
       id: 'c1q8',
       question_es: '¿Qué derecho permite votar en elecciones?',
-      question_ar: 'ما الحق الذي يتيح التصويت في الانتخابات؟',
       options: ['El derecho de sufragio', 'El derecho a la educación', 'El derecho de asociación'],
       correct: 'El derecho de sufragio',
-      explanation_ar: 'El sufragio es el derecho a participar en la elección de representantes.',
     },
     {
       id: 'c1q9',
       question_es: '¿Qué institución vela por los derechos humanos en España?',
-      question_ar: 'أي مؤسسة تحمي حقوق الإنسان في إسبانيا؟',
       options: ['Defensor del Pueblo', 'Ministerio de Finanzas', 'Banco de España'],
       correct: 'Defensor del Pueblo',
-      explanation_ar: 'El Defensor del Pueblo protege y promueve los derechos fundamentales.',
     },
     {
       id: 'c1q10',
       question_es: '¿Qué significa "participación ciudadana"?',
-      question_ar: 'ماذا تعني "المشاركة المدنية"؟',
       options: ['Intervenir en la vida política y social', 'Solo pagar impuestos', 'Solo votar una vez'],
       correct: 'Intervenir en la vida política y social',
-      explanation_ar: 'Participar activamente en la sociedad y en procesos democráticos.',
     },
   ]), []);
 
@@ -321,7 +293,6 @@ export default function NacionalidadPage() {
 
   const currentChapter = chapterMap[current];
   const ChapterIcon = currentChapter?.icon || BookOpen;
-  const [showTranslations, setShowTranslations] = useTranslations();
   const [previewMode, setPreviewMode] = useState(false);
   const [previewExpiry, setPreviewExpiry] = useState<number | null>(null);
 
@@ -362,7 +333,7 @@ export default function NacionalidadPage() {
   };
 
   return (
-    <div className={`min-h-screen bg-white ${cairo.variable} font-sans text-gray-900`}>
+    <div className="min-h-screen bg-white font-sans text-gray-900">
       <div className="container mx-auto px-4 max-w-6xl py-6">
         {/* Header Section */}
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 mb-8">
@@ -370,9 +341,6 @@ export default function NacionalidadPage() {
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
                 🇪🇸 Nacionalidad Española - CCSE
-                <span className="block text-xl text-gray-700 font-semibold mt-2" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
-                  الجنسية الإسبانية - اختبار CCSE
-                </span>
               </h1>
               <p className="text-gray-700 text-lg font-medium">
                 Preparación completa para el examen CCSE de nacionalidad española
@@ -391,7 +359,7 @@ export default function NacionalidadPage() {
               <div className="flex items-center justify-between">
                 <div className="flex-1 min-w-0">
                   <div className="text-xl font-bold text-gray-900">{progressPercent}%</div>
-                  <div className="text-xs font-medium text-gray-600 mt-0.5">Progreso / التقدم</div>
+                  <div className="text-xs font-medium text-gray-600 mt-0.5">Progreso</div>
                 </div>
                 <Trophy className="w-6 h-6 text-gray-700 flex-shrink-0 ml-2" aria-hidden="true" />
               </div>
@@ -401,7 +369,7 @@ export default function NacionalidadPage() {
               <div className="flex items-center justify-between">
                 <div className="flex-1 min-w-0">
                   <div className="text-xl font-bold text-gray-900">{completed.length}/{totalChapters}</div>
-                  <div className="text-xs font-medium text-gray-600 mt-0.5">Completado / مكتمل</div>
+                  <div className="text-xs font-medium text-gray-600 mt-0.5">Completado</div>
                 </div>
                 <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 ml-2" aria-hidden="true" />
               </div>
@@ -411,7 +379,7 @@ export default function NacionalidadPage() {
               <div className="flex items-center justify-between">
                 <div className="flex-1 min-w-0">
                   <div className="text-xl font-bold text-gray-900">{formatTime(studyTime)}</div>
-                  <div className="text-xs font-medium text-gray-600 mt-0.5">Tiempo / الوقت</div>
+                  <div className="text-xs font-medium text-gray-600 mt-0.5">Tiempo</div>
                 </div>
                 <Clock className="w-6 h-6 text-gray-700 flex-shrink-0 ml-2" aria-hidden="true" />
               </div>
@@ -421,7 +389,7 @@ export default function NacionalidadPage() {
               <div className="flex items-center justify-between">
                 <div className="flex-1 min-w-0">
                   <div className="text-xl font-bold text-gray-900">{totalChapters - completed.length}</div>
-                  <div className="text-xs font-medium text-gray-600 mt-0.5">Restantes / متبقي</div>
+                  <div className="text-xs font-medium text-gray-600 mt-0.5">Restantes</div>
                 </div>
                 <Target className="w-6 h-6 text-gray-700 flex-shrink-0 ml-2" aria-hidden="true" />
               </div>
@@ -441,7 +409,7 @@ export default function NacionalidadPage() {
               <div className="modern-card bg-white border border-gray-200 p-4">
                 <h3 className="font-bold mb-2 flex items-center gap-2 text-gray-900">
                   <span style={{ fontSize: '16px', lineHeight: 1 }}>⚡</span>
-                  Acceso Rápido / وصول سريع
+                  Acceso Rápido
                 </h3>
                 <div className="space-y-2">
                   <button 
@@ -449,12 +417,6 @@ export default function NacionalidadPage() {
                     className="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2 text-sm font-medium transition-all text-gray-900"
                   >
                     📝 Simulador CCSE
-                  </button>
-                  <button 
-                    onClick={() => setShowTranslations(!showTranslations)}
-                    className="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2 text-sm font-medium transition-all text-gray-900"
-                  >
-                    🌐 {showTranslations ? 'Ocultar' : 'Mostrar'} Árabe
                   </button>
                 </div>
               </div>
@@ -562,7 +524,7 @@ export default function NacionalidadPage() {
                   <div className="flex-1">
                     <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-gray-900">{currentChapter?.title}</h2>
                     <p className="text-gray-700 text-base font-semibold">
-                      Preparación oficial para el examen CCSE / الإعداد الرسمي لاختبار CCSE
+                      Preparación oficial para el examen CCSE
                     </p>
                   </div>
                   <div>
@@ -595,20 +557,9 @@ export default function NacionalidadPage() {
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <span style={{ fontSize: '20px', lineHeight: 1 }}>🧠</span>
-                    <span className="text-lg font-bold text-gray-900">Herramientas de Estudio / أدوات الدراسة</span>
+                    <span className="text-lg font-bold text-gray-900">Herramientas de Estudio</span>
                   </div>
                   <div className="flex flex-wrap gap-3">
-                    <button 
-                      onClick={() => setShowTranslations(!showTranslations)}
-                      className={`px-5 py-2.5 rounded-lg flex items-center gap-2 text-base font-bold transition-colors shadow-md ${
-                        showTranslations 
-                          ? 'bg-blue-600 text-white hover:bg-blue-700' 
-                          : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
-                      }`}
-                    >
-                      <span style={{ fontSize: '18px', lineHeight: 1 }}>💡</span>
-                      <span className="font-bold">{showTranslations ? 'العربية' : 'Traducir'}</span>
-                    </button>
                     <button 
                       onClick={markAsCompleted}
                       disabled={completed.includes(current)}
@@ -640,7 +591,7 @@ export default function NacionalidadPage() {
               {/* Content */}
               {currentChapter?.type === 'lesson' ? (
                 <>
-                  {/* Tabs Navigation - عرض جميع الدروس كـ tabs */}
+                  {/* Tabs Navigation */}
                   {currentChapter?.lessons && currentChapter.lessons.length > 0 && (
                     <div className="mb-6">
                       <div className="overflow-x-auto">
@@ -669,7 +620,7 @@ export default function NacionalidadPage() {
                     </div>
                   )}
 
-                  {/* عرض الدرس النشط فقط */}
+                  {/* Only show active lesson */}
                   {(() => {
                     const lessonId = currentChapter?.lessons?.[activeLessonIndex];
                     if (!lessonId) return null;
@@ -683,7 +634,7 @@ export default function NacionalidadPage() {
 
                     return (
                       <div key={lessonId}>
-                        {/* معلومات الدرس الحالي */}
+                        {/* Current lesson info */}
                         <div className="mb-6 p-6 bg-gray-50 rounded-lg border border-gray-200">
                           <div className="flex items-center justify-between flex-wrap gap-4">
                             <div>
@@ -705,30 +656,16 @@ export default function NacionalidadPage() {
                                 onClick={() => setShowUpgrade(true)} 
                                 className="px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white font-bold rounded-lg border border-gray-800 transition-all"
                               >
-                                Desbloquear / فتح
+                                Desbloquear
                               </button>
                             </div>
                           )}
-                          {/* المحتوى - يظهر دائماً في HTML للـ SEO حتى لو كان blur */}
+                          {/* Content (kept in HTML even when blurred) */}
                           <div className={`prose max-w-none ${!showFull ? 'filter blur-sm pointer-events-none' : ''}`} style={{ minHeight: '200px' }}>
                             {(() => {
-                              // إصلاح regex للـ split - البحث عن "العربية:" مع newlines
+                              // Spanish-only UI: if content contains an Arabic section marker, ignore it.
                               const content = lesson.content || '';
-                              // محاولة عدة أنماط للفاصل
-                              let arabicSeparator = /\nالعربية:\n/;
-                              let parts = content.split(arabicSeparator);
-                              // إذا لم يجد، جرب بدون newline في النهاية
-                              if (parts.length === 1) {
-                                arabicSeparator = /\nالعربية:\n?/;
-                                parts = content.split(arabicSeparator);
-                              }
-                              // إذا لم يجد، جرب pattern آخر
-                              if (parts.length === 1) {
-                                arabicSeparator = /العربية:\n/;
-                                parts = content.split(arabicSeparator);
-                              }
-                              const esPart = parts[0]?.trim() || '';
-                              const arPart = parts[1]?.trim() || '';
+                              const esPart = content.split(/\n\u0627\u0644\u0639\u0631\u0628\u064a\u0629:\n?/)[0]?.trim() || '';
                               
                               return (
                                 <>
@@ -758,10 +695,10 @@ export default function NacionalidadPage() {
                                   {activeTab === 'lesson' && (
                                     <article className="bg-white rounded-lg p-6 shadow-sm">
                                       <h3 className="text-2xl font-bold mb-6 text-gray-900">📖 Contenido Teórico</h3>
-                                      {/* عرض المحتوى - يظهر دائماً للـ SEO */}
+                                      {/* Render content */}
                                       {esPart ? (
                                         <>
-                                          {/* عرض النص العادي دائماً - مهم للـ SEO */}
+                                          {/* Plain text render */}
                                           <div 
                                             className="text-gray-900 prose max-w-none"
                                             style={{ 
@@ -771,7 +708,7 @@ export default function NacionalidadPage() {
                                             }}
                                           >
                                             {esPart.split('\n').map((line, idx, arr) => {
-                                              // معالجة بسيطة للـ markdown
+                                              // basic markdown-ish rendering
                                               let processedLine = line;
                                               if (line.startsWith('# ')) {
                                                 return <h2 key={idx} className="text-3xl font-extrabold mb-6 mt-8 text-gray-900 border-b-4 border-blue-600 pb-3">{line.substring(2)}</h2>;
@@ -782,14 +719,14 @@ export default function NacionalidadPage() {
                                               } else if (line.trim() === '') {
                                                 return <br key={idx} />;
                                               } else {
-                                                // معالجة bold و italic
+                                                // bold/italic-ish rendering
                                                 const parts = [];
                                                 let currentIndex = 0;
                                                 const boldRegex = /\*\*(.+?)\*\*/g;
                                                 const italicRegex = /\*(.+?)\*/g;
                                                 let match;
                                                 
-                                                // معالجة bold أولاً
+                                                // handle bold first
                                                 while ((match = boldRegex.exec(line)) !== null) {
                                                   if (match.index > currentIndex) {
                                                     parts.push(line.substring(currentIndex, match.index));
@@ -805,7 +742,7 @@ export default function NacionalidadPage() {
                                               }
                                             })}
                                           </div>
-                                          {/* تحسين المحتوى مع ReactMarkdown (اختياري) */}
+                                          {/* Optional: ReactMarkdown (hidden) */}
                                           <div className="hidden md:block">
                                             <Suspense fallback={null}>
                                               <div style={{ display: 'none' }}>
@@ -817,41 +754,7 @@ export default function NacionalidadPage() {
                                       ) : (
                                         <p className="text-gray-600">No hay contenido disponible para esta lección.</p>
                                       )}
-                                      {arPart && (
-                                        <div className={`mt-4 p-4 bg-slate-50 rounded ${showTranslations ? '' : 'hidden'}`} dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
-                                          {/* عرض النص العادي دائماً - مهم للـ SEO */}
-                                          <div 
-                                            className="text-gray-900"
-                                            style={{ 
-                                              whiteSpace: 'pre-wrap',
-                                              wordBreak: 'break-word',
-                                              lineHeight: '1.75'
-                                            }}
-                                          >
-                                            {arPart.split('\n').map((line, idx) => {
-                                              if (line.startsWith('# ')) {
-                                                return <h2 key={idx} className="text-3xl font-extrabold mb-6 mt-8 text-gray-900 border-b-4 border-blue-600 pb-3">{line.substring(2)}</h2>;
-                                              } else if (line.startsWith('## ')) {
-                                                return <h3 key={idx} className="text-2xl font-bold mb-4 mt-6 text-gray-900 border-r-4 border-blue-500 pr-4">{line.substring(3)}</h3>;
-                                              } else if (line.startsWith('### ')) {
-                                                return <h4 key={idx} className="text-xl font-bold mb-3 mt-5 text-gray-800">{line.substring(4)}</h4>;
-                                              } else if (line.trim() === '') {
-                                                return <br key={idx} />;
-                                              } else {
-                                                return <p key={idx} className="mb-4 leading-relaxed text-gray-800 text-base">{line}</p>;
-                                              }
-                                            })}
-                                          </div>
-                                          {/* تحسين المحتوى مع ReactMarkdown (اختياري) */}
-                                          {showTranslations && (
-                                            <div className="hidden">
-                                              <Suspense fallback={null}>
-                                                <ReactMarkdown>{arPart}</ReactMarkdown>
-                                              </Suspense>
-                                            </div>
-                                          )}
-                                        </div>
-                                      )}
+                                      {/* Spanish-only UI: Arabic content hidden */}
                                     </article>
                                   )}
 
@@ -873,7 +776,6 @@ export default function NacionalidadPage() {
                                             number={idx+1} 
                                             id={q.id} 
                                             question={q.question} 
-                                            question_ar={q.question_ar} 
                                             options={q.options} 
                                             correct={q.correctAnswer}
                                           />
@@ -887,7 +789,7 @@ export default function NacionalidadPage() {
                           </div>
                         </div>
 
-                        {/* أزرار التنقل بين الدروس */}
+                        {/* Lesson navigation buttons */}
                         <div className="mt-6 flex items-center justify-between gap-4">
                           <button
                             onClick={() => setActiveLessonIndex(prev => Math.max(0, prev - 1))}
@@ -919,7 +821,7 @@ export default function NacionalidadPage() {
                     );
                   })()}
 
-                  {/* Chapter 1 Quiz - يظهر فقط في آخر درس من Chapter 1 */}
+                  {/* Chapter 1 Quiz - only in last lesson */}
                   {current === 0 && activeLessonIndex === (currentChapter?.lessons?.length || 0) - 1 && (
                     <section className="mt-8">
                       <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 mb-6 border border-blue-100">
@@ -944,11 +846,6 @@ export default function NacionalidadPage() {
                                 </div>
                                 <div className="flex-1">
                                   <div className="font-semibold text-gray-900 mb-2 text-lg">{q.question_es}</div>
-                                  {showTranslations && (
-                                    <div className="text-sm text-gray-600 mb-4" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
-                                      {q.question_ar}
-                                    </div>
-                                  )}
                                 </div>
                               </div>
                               
@@ -988,11 +885,6 @@ export default function NacionalidadPage() {
                                   <div className="text-sm font-semibold text-red-900 mb-2">
                                     Respuesta correcta: <span className="font-normal">{q.correct}</span>
                                   </div>
-                                  {showTranslations && (
-                                    <div className="text-sm text-red-800 mt-2" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
-                                      {q.explanation_ar}
-                                    </div>
-                                  )}
                                 </div>
                               )}
                             </div>
@@ -1021,16 +913,10 @@ export default function NacionalidadPage() {
                                 <Award className="w-8 h-8 text-green-600" aria-hidden="true" />
                                 <div className="font-bold text-lg text-green-900">¡Felicidades! Has pasado el quiz de Capítulo 1.</div>
                               </div>
-                              <div className="text-sm text-green-800 mb-3" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
-                                تهانينا! لقد نجحت في اختبار الفصل الأول.
-                              </div>
                             </>
                           ) : (
                             <>
                               <div className="font-bold text-lg text-slate-900 mb-2">Sigue practicando, ¡casi lo logras!</div>
-                              <div className="text-sm text-slate-700 mb-3" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
-                                استمر بالممارسة، قريبًا ستنجح!
-                              </div>
                             </>
                           )}
                           <div className="text-base font-semibold text-gray-700">
@@ -1052,10 +938,9 @@ export default function NacionalidadPage() {
                         questionsProp={(isProHook ? require('@/lib/data/nacionalidad-exams').ccseFullQuestions : require('@/lib/data/nacionalidad-exams').ccseQuestions).map((q:any) => ({
                           id: q.id,
                           question_es: q.question,
-                          question_ar: q.question_ar || '',
                           options: q.options || [],
                           correct: q.correctAnswer === undefined ? (q.correct ? String(q.correct) : '') : String(q.correctAnswer),
-                          explanation_ar: q.explanation_ar || q.explanation || '',
+                          explanation: q.explanation || '',
                         }))}
                         timeLimitMinutes={60}
                         passThreshold={30}
@@ -1120,7 +1005,7 @@ export default function NacionalidadPage() {
           <div className="modern-card bg-white p-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
               <BookOpen className="w-6 h-6 text-gray-700" aria-hidden="true" />
-              Biblioteca de Exámenes / مكتبة الامتحانات
+              Biblioteca de Exámenes
             </h2>
             <ExamLibrary />
           </div>

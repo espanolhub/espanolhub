@@ -10,13 +10,6 @@ import {
   Users, GraduationCap, Heart, Car, Sparkles, Star, Lock,
   ChevronDown, ChevronUp
 } from 'lucide-react';
-import { Cairo } from 'next/font/google';
-
-const cairo = Cairo({
-  variable: '--font-cairo',
-  subsets: ['arabic', 'latin'],
-  weight: ['400', '600', '700'],
-});
 
 const guides = [
   {
@@ -355,8 +348,7 @@ export default function TramitesPage() {
   const filteredGuides = guides.filter(guide => {
     const matchesCategory = selectedCategory === 'all' || guide.category === selectedCategory;
     const matchesSearch = searchQuery === '' || 
-      guide.title_es.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      guide.title_ar.includes(searchQuery);
+      guide.title_es.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -370,7 +362,7 @@ export default function TramitesPage() {
   };
 
   return (
-    <div className={`min-h-screen bg-white py-12 ${cairo.variable}`}>
+    <div className="min-h-screen bg-white py-12">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Hero Section */}
         <div className="text-center mb-12">
@@ -674,10 +666,6 @@ export default function TramitesPage() {
                 Esta información es <strong>orientativa y educativa</strong>. Los procedimientos y requisitos pueden cambiar. 
                 Siempre verifica la información actualizada en las <strong>páginas web oficiales</strong> de cada organismo.
               </p>
-              <p className="text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-cairo)' }} dir="rtl">
-                هذه المعلومات <strong>إرشادية وتعليمية</strong>. قد تتغير الإجراءات والمتطلبات. 
-                تحقق دائماً من المعلومات المحدثة على <strong>المواقع الرسمية</strong> لكل جهة.
-              </p>
             </div>
           </div>
         </div>
@@ -689,9 +677,6 @@ export default function TramitesPage() {
           </h2>
           <p className="text-xl mb-6 text-gray-300">
             Toda la información actualizada y 100% gratis
-          </p>
-          <p className="text-lg mb-8 text-gray-300" style={{ fontFamily: 'var(--font-cairo)' }} dir="rtl">
-            لديك أسئلة حول أي إجراء؟ جميع المعلومات محدثة ومجانية 100%
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

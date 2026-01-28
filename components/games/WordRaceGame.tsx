@@ -72,6 +72,7 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
   const isPro = useIsPro();
 
   const startGame = async () => {
+    // Spanish-only UI: do not display/use Arabic fields.
     const wordPairs = await getRandomWordPairs(15, isPro);
     setWords(wordPairs);
     setCurrentIndex(0);
@@ -83,12 +84,14 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
   const generateOptions = () => {
     if (currentIndex >= words.length) return;
     
-    const correct = words[currentIndex].spanish;
-    const wrongOptions = words
+    const correct = words[currentIndex].category || 'general';
+    const pool = words
       .filter((_, i) => i !== currentIndex)
-      .map(w => w.spanish)
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 3);
+      .map(w => w.category || 'general');
+
+    // unique + shuffle
+    const unique = Array.from(new Set(pool)).sort(() => Math.random() - 0.5);
+    const wrongOptions = unique.slice(0, 3);
     
     const allOptions = [correct, ...wrongOptions].sort(() => Math.random() - 0.5);
     setOptions(allOptions);
@@ -97,7 +100,7 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
   const handleAnswer = (answer: string) => {
     if (showResult) return;
     
-    const correct = words[currentIndex].spanish;
+    const correct = words[currentIndex].category || 'general';
     const correctAnswer = answer === correct;
     
     setSelectedAnswer(answer);
@@ -254,15 +257,15 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
       {currentWord && (
         <div key={questionKey} className="mb-8 word-race-slide-in">
           <div className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl p-8 text-center mb-6">
-            <h3 className="text-5xl font-bold text-white mb-4">{currentWord.arabic}</h3>
-            <p className="text-white text-lg">¿Cuál es la traducción en español?</p>
+            <h3 className="text-5xl font-bold text-white mb-4">{currentWord.spanish}</h3>
+            <p className="text-white text-lg">¿A qué categoría pertenece?</p>
           </div>
 
           {/* Options */}
           <div className="grid grid-cols-2 gap-4">
             {options.map((option, index) => {
               const isSelected = selectedAnswer === option;
-              const isCorrectOption = option === currentWord.spanish;
+              const isCorrectOption = option === (currentWord.category || 'general');
               const showCorrect = showResult && isCorrectOption;
               const showIncorrect = showResult && isSelected && !isCorrectOption;
 

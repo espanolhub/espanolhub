@@ -17,18 +17,10 @@ const ReactMarkdown = dynamic(() => import('react-markdown'), { ssr: false });
 const Chapter2Priority = dynamic(() => import('@/components/Chapter2Priority'), { ssr: false });
 const Chapter3Signs = dynamic(() => import('@/components/Chapter3Signs'), { ssr: false });
 import { addXP } from '@/lib/utils/progress';
-import { Cairo } from 'next/font/google';
 import { useMemo } from 'react';
 import useIsPro from '@/lib/hooks/useIsPro';
-import { useTranslations } from '@/lib/hooks/useTranslations';
 
 const ExamSimulator = dynamic(() => import('@/components/ExamSimulator'), { ssr: false });
-
-const cairo = Cairo({
-  variable: '--font-cairo',
-  subsets: ['arabic', 'latin'],
-  weight: ['400', '600'],
-});
 
 // Mapping between chapter index and lesson ID
 const lessonIds = [
@@ -99,7 +91,6 @@ export default function DrivingLicensePage() {
   const { settings } = useAdminSettings();
   const [summary, setSummary] = useState<{ passed: boolean; correct: number; total: number } | null>(null);
   const [showUpgrade, setShowUpgrade] = useState(false);
-  const [showTranslations, setShowTranslations] = useTranslations();
   const isProHook = useIsPro();
   
   // Track study time
@@ -159,7 +150,7 @@ export default function DrivingLicensePage() {
 
 
   return (
-    <div className={`min-h-screen bg-white ${cairo.variable} font-sans`}>
+    <div className="min-h-screen bg-white font-sans">
       <div className="container mx-auto px-4 max-w-7xl py-8">
         {/* Header Section */}
         <div className="mb-8">
@@ -246,7 +237,7 @@ export default function DrivingLicensePage() {
               <div className="modern-card bg-white border border-gray-200 p-4">
                 <h3 className="font-bold mb-2 flex items-center gap-2 text-gray-900">
                   <Zap className="w-5 h-5 text-gray-700" aria-hidden="true" />
-                  Acceso Rápido / وصول سريع
+                  Acceso Rápido
                 </h3>
                 <div className="space-y-2">
                   <button 
@@ -254,12 +245,6 @@ export default function DrivingLicensePage() {
                     className="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2 text-sm font-medium transition-all text-gray-900"
                   >
                     📝 Simulador de Examen
-                  </button>
-                  <button 
-                    onClick={() => setShowTranslations(!showTranslations)}
-                    className="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2 text-sm font-medium transition-all text-gray-900"
-                  >
-                    🌐 {showTranslations ? 'Ocultar' : 'Mostrar'} Árabe
                   </button>
                 </div>
               </div>
@@ -386,15 +371,9 @@ export default function DrivingLicensePage() {
                   <div className="flex flex-wrap items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
                       <Brain className="w-5 h-5 text-gray-700" aria-hidden="true" />
-                      <span className="text-sm font-semibold text-gray-700">Herramientas de Estudio / أدوات الدراسة</span>
+                      <span className="text-sm font-semibold text-gray-700">Herramientas de Estudio</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      <button 
-                        onClick={() => setShowTranslations(!showTranslations)}
-                        className="px-4 py-2 bg-white border border-gray-200 hover:bg-gray-50 text-gray-900 rounded-lg flex items-center gap-2 text-sm font-medium transition-colors"
-                      >
-                        🌐 {showTranslations ? 'Ocultar' : 'Mostrar'} Árabe
-                      </button>
                       <button 
                         onClick={markAsCompleted}
                         disabled={completed.includes(current)}
@@ -426,11 +405,6 @@ export default function DrivingLicensePage() {
                       <div className="flex-1">
                         <h3 className="font-bold text-gray-900 mb-2 text-lg">
                           Simulador de Examen Oficial
-                          {showTranslations && (
-                            <span className="block text-sm font-normal text-gray-600 mt-1" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
-                              محاكي الامتحان الرسمي
-                            </span>
-                          )}
                         </h3>
                         <p className="text-gray-700 text-sm mb-3">
                           Practica con preguntas reales del examen DGT. El simulador incluye 30 preguntas con imágenes y casos prácticos.
@@ -487,7 +461,6 @@ export default function DrivingLicensePage() {
                         <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                           <Target className="w-5 h-5 text-gray-700" aria-hidden="true" />
                           Objetivos de Aprendizaje
-                          {showTranslations && <span> / أهداف التعلم</span>}
                         </h3>
                         <p className="text-gray-700 text-sm">
                           Al completar este capítulo, comprenderás los conceptos fundamentales y estarás preparado para aplicarlos en situaciones reales de conducción.
@@ -516,14 +489,8 @@ export default function DrivingLicensePage() {
                           <h4 className="font-bold text-lg mb-3 flex items-center gap-2 text-gray-900">
                             <BookOpen className="w-5 h-5 text-gray-700" aria-hidden="true" />
                             Resumen Clave
-                            {showTranslations && <span> / الملخص الأساسي</span>}
                           </h4>
                           <p className="text-gray-800 font-medium mb-3">{lesson.resumenClave.es}</p>
-                          {showTranslations && lesson.resumenClave.ar && (
-                            <p className="text-gray-700 mt-3 p-4 bg-white/60 rounded-lg" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
-                              {lesson.resumenClave.ar}
-                            </p>
-                          )}
                         </div>
                       )}
 
@@ -533,7 +500,6 @@ export default function DrivingLicensePage() {
                           <h4 className="font-bold text-lg mb-3 flex items-center gap-2 text-gray-900">
                             <AlertCircle className="w-5 h-5 text-gray-700" aria-hidden="true" />
                             Errores Comunes a Evitar
-                            {showTranslations && <span> / الأخطاء الشائعة</span>}
                           </h4>
                           <ul className="space-y-2">
                             {lesson.erroresComunes.map((error, idx) => (
@@ -553,7 +519,6 @@ export default function DrivingLicensePage() {
                         <h4 className="font-bold text-lg mb-3 flex items-center gap-2 text-gray-900">
                           <Star className="w-5 h-5 text-gray-700" aria-hidden="true" />
                           Consejos para Practicar
-                          {showTranslations && <span> / نصائح للتدريب</span>}
                         </h4>
                         <ul className="space-y-2 text-gray-700">
                           <li className="flex items-center gap-2">

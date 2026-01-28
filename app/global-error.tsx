@@ -2,13 +2,6 @@
 
 import { useEffect } from 'react';
 import { AlertTriangle, Home, RefreshCw } from 'lucide-react';
-import { Cairo } from 'next/font/google';
-
-const cairo = Cairo({
-  variable: '--font-cairo',
-  subsets: ['arabic', 'latin'],
-  weight: ['400', '600', '700'],
-});
 
 export default function GlobalError({
   error,
@@ -30,7 +23,7 @@ export default function GlobalError({
 
   return (
     <html lang="es">
-      <body className={`${cairo.variable} antialiased`}>
+      <body className="antialiased">
         <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50 flex items-center justify-center py-12 px-4">
           <div className="text-center max-w-2xl mx-auto">
             {/* Error Icon */}
@@ -45,9 +38,6 @@ export default function GlobalError({
               <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
                 Error Crítico
               </h1>
-              <p className={`text-xl text-gray-600 mb-2 ${cairo.variable}`} dir="rtl" style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}>
-                خطأ حرج
-              </p>
               <p className="text-lg text-gray-500 mb-4">
                 Ha ocurrido un error crítico en la aplicación. Por favor, recarga la página o contacta al soporte si el problema persiste.
               </p>

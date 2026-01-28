@@ -8,13 +8,6 @@ import {
   Users, BookOpen, Award, Target, Sparkles,
   ChevronDown, ChevronUp, Clock, Globe
 } from 'lucide-react';
-import { Cairo } from 'next/font/google';
-
-const cairo = Cairo({
-  variable: '--font-cairo',
-  subsets: ['arabic', 'latin'],
-  weight: ['400', '600', '700'],
-});
 
 export default function PricingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -83,7 +76,7 @@ export default function PricingPage() {
     { text: 'Sin publicidad', icon: Shield },
     { text: 'Certificados de finalización', icon: Trophy },
     { text: 'Acceso desde cualquier dispositivo', icon: Globe },
-    { text: 'Contenido bilingüe (ES/AR)', icon: Globe }
+    { text: 'Contenido claro y actualizado', icon: Globe }
   ];
 
   const freeFeatures = [
@@ -96,7 +89,7 @@ export default function PricingPage() {
   ];
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 ${cairo.variable}`}>
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
       {/* Hero Section */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10" />
@@ -107,7 +100,6 @@ export default function PricingPage() {
             <div className="bg-green-50 border-2 border-green-300 rounded-xl p-6 mb-8 text-center">
               <h3 className="text-xl font-bold text-green-800 mb-2">Todo el contenido es gratis</h3>
               <p className="text-green-700">Disfruta de 100+ lecciones, simuladores DGT y CCSE, juegos y más. Sin pagos, sin registro.</p>
-              <p className="text-green-600 mt-2" dir="rtl">كل المحتوى مجاني. استمتع بكل الدروس والألعاب والمحاكيات.</p>
             </div>
           )}
           

@@ -20,20 +20,6 @@ import { games } from '@/lib/data/games';
 
 import { usefulSentencesData } from '@/lib/data/useful-sentences';
 
-import { Cairo } from 'next/font/google';
-
-
-
-const cairo = Cairo({
-
-  variable: '--font-cairo',
-
-  subsets: ['arabic', 'latin'],
-
-  weight: ['400', '600', '700'],
-
-});
-
 
 
 interface SearchResult {
@@ -96,17 +82,11 @@ function SearchContent() {
 
       vocabulary.forEach(word => {
 
-        const translations = Array.isArray(word.translation) ? word.translation : [word.translation];
-
-        const translationText = translations.join(', ');
-
-        const translationMatches = translations.some(t => t.toLowerCase().includes(query));
+        // Spanish-only search: do not match against translations
 
         if (
 
           word.word.toLowerCase().includes(query) ||
-
-          translationMatches ||
 
           word.category.toLowerCase().includes(query)
 
@@ -120,7 +100,7 @@ function SearchContent() {
 
             title: word.word,
 
-            description: translationText,
+            description: `Categoría: ${word.category}`,
 
             url: '/vocabulario',
 
@@ -270,8 +250,6 @@ function SearchContent() {
 
             sentence.spanish.toLowerCase().includes(query) ||
 
-            sentence.arabic.includes(query) ||
-
             group.title.toLowerCase().includes(query) ||
 
             sentence.context.toLowerCase().includes(query)
@@ -286,7 +264,7 @@ function SearchContent() {
 
               title: sentence.spanish,
 
-              description: sentence.arabic,
+              description: group.title,
 
               url: '/lectura',
 
@@ -464,7 +442,7 @@ function SearchContent() {
 
               onChange={(e) => setSearchQuery(e.target.value)}
 
-              placeholder="¿Qué quieres aprender hoy? (ماذا تريد أن تتعلم اليوم؟)"
+              placeholder="¿Qué quieres aprender hoy?"
 
               className="w-full pl-14 pr-14 py-4 text-lg border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:border-blue-500"
 

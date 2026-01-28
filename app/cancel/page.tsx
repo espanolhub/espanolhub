@@ -14,31 +14,27 @@ export default function CancelPage() {
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Pago Cancelado / تم إلغاء الدفع
+          Pago Cancelado
         </h1>
         
         <p className="text-lg text-gray-600 mb-6">
           El proceso de pago fue cancelado. No se realizó ningún cargo.
         </p>
         
-        <p className="text-sm text-gray-500 mb-8" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
-          تم إلغاء عملية الدفع. لم يتم خصم أي مبلغ.
-        </p>
-
         <div className="space-y-3">
           <Link
             href="/pricing"
             className="block w-full px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-lg hover:shadow-xl hover:bg-blue-700 transition-all flex items-center justify-center gap-2"
           >
             <ArrowLeft className="w-5 h-5" />
-            Intentar de Nuevo / حاول مرة أخرى
+            Intentar de Nuevo
           </Link>
           
           <Link
             href="/"
             className="block w-full px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-colors"
           >
-            Volver al Inicio / العودة للصفحة الرئيسية
+            Volver al Inicio
           </Link>
         </div>
 

@@ -10,7 +10,6 @@ import dynamic from 'next/dynamic';
 const WordRaceGame = dynamic(() => import('@/components/games/WordRaceGame'), { ssr: false });
 import { addXP, unlockAchievement, updateStats, getUserProgress } from '@/lib/utils/progress';
 import { getRandomQuestions } from '@/lib/utils/gameUtils';
-import { compareArabic } from '@/lib/utils/normalizeArabic';
 import type { GameQuestion, LibraryEntry } from '@/lib/types';
 import GameTabs from '@/components/games/ui/GameTabs';
 import GameButton from '@/components/games/ui/GameButton';
@@ -168,10 +167,11 @@ function JuegosContent() {
     if (currentQuestion) {
       let isCorrect: boolean;
       
-      // For match type questions (Arabic text input), use normalization
+      // Spanish-only UI: match behaves like normal string equality
       if (currentQuestion.type === 'match' && typeof answer === 'string') {
-        // Match type always uses compareArabic, whether correctAnswer is string or array
-        isCorrect = compareArabic(answer, currentQuestion.correctAnswer);
+        isCorrect =
+          answer.trim().toLowerCase() ===
+          String(currentQuestion.correctAnswer).trim().toLowerCase();
       } else if (Array.isArray(currentQuestion.correctAnswer)) {
         // For array answers (e.g., order type)
         isCorrect = JSON.stringify(answer) === JSON.stringify(currentQuestion.correctAnswer);
@@ -583,8 +583,8 @@ function JuegosContent() {
                     <div className="space-y-4">
                       <p className="text-lg text-gray-700 mb-4">
                         {currentQuestion.options?.length
-                          ? 'Elige la traducción correcta:'
-                          : 'Empareja la palabra con su traducción:'}
+                          ? 'Elige la opción correcta:'
+                          : 'Empareja el elemento con la respuesta correcta:'}
                       </p>
                       <div className="bg-blue-50 p-6 rounded-lg text-center">
                         <p className="text-2xl font-bold text-blue-600 mb-4">
@@ -640,11 +640,11 @@ function JuegosContent() {
                               }}
                               disabled={showResult}
                               className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-lg focus:border-pink-500 focus:outline-none"
-                              placeholder="Escribe la traducción..."
+                              placeholder="Escribe la respuesta..."
                             />
                             {showResult && (() => {
                               const isCorrect = typeof selectedAnswer === 'string'
-                                ? compareArabic(selectedAnswer, currentQuestion.correctAnswer)
+                                ? selectedAnswer.trim().toLowerCase() === String(currentQuestion.correctAnswer).trim().toLowerCase()
                                 : selectedAnswer === currentQuestion.correctAnswer;
                               const correctDisplay = Array.isArray(currentQuestion.correctAnswer)
                                 ? currentQuestion.correctAnswer.join(' / ')

@@ -2,13 +2,6 @@
 
 import Link from 'next/link';
 import { Home, Search, ArrowLeft } from 'lucide-react';
-import { Cairo } from 'next/font/google';
-
-const cairo = Cairo({
-  variable: '--font-cairo',
-  subsets: ['arabic', 'latin'],
-  weight: ['400', '600', '700'],
-});
 
 export default function NotFound() {
   return (
@@ -26,9 +19,6 @@ export default function NotFound() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Página No Encontrada
           </h2>
-          <p className={`text-xl text-gray-600 mb-2 ${cairo.variable}`} dir="rtl" style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}>
-            الصفحة غير موجودة
-          </p>
           <p className="text-lg text-gray-500">
             Lo sentimos, la página que buscas no existe o ha sido movida.
           </p>

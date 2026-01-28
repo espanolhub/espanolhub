@@ -20,30 +20,26 @@ export default function SuccessPage() {
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          ¡Pago Exitoso! / الدفع ناجح!
+          ¡Pago Exitoso!
         </h1>
         
         <p className="text-lg text-gray-600 mb-6">
           ¡Gracias por tu suscripción! Tu cuenta Premium está activa ahora.
         </p>
         
-        <p className="text-sm text-gray-500 mb-8" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
-          شكراً لك على الاشتراك! حسابك Premium مفعّل الآن.
-        </p>
-
         <div className="space-y-3">
           <Link
             href="/dashboard"
             className="block w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all"
           >
-            Ir al Dashboard / اذهب إلى لوحة التحكم
+            Ir al Dashboard
           </Link>
           
           <Link
             href="/"
             className="block w-full px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-colors"
           >
-            Volver al Inicio / العودة للصفحة الرئيسية
+            Volver al Inicio
           </Link>
         </div>
 

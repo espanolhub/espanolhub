@@ -9,46 +9,45 @@ import Image from 'next/image';
 type ExamQuestion = {
   id: string;
   question_es: string;
-  question_ar: string;
   options: string[]; // A,B,C
   correct: string;
-  explanation_ar: string;
+  explanation?: string;
   // optional: could map to an icon name via id mapping
   // icon handled externally by id
 };
 
-// 30 high-quality bilingual DGT-style tricky questions
+// 30 preguntas estilo DGT (ES)
 const QUESTIONS: ExamQuestion[] = [
-  { id: 'q1', question_es: 'Con lluvia intensa, ¿cómo se debe adaptar la velocidad?', question_ar: 'عند هطول أمطار غزيرة، كيف يجب تعديل السرعة؟', options: ['Reducir y aumentar distancia', 'Mantener la velocidad', 'Acelerar'], correct: 'Reducir y aumentar distancia', explanation_ar: 'يجب تقليل السرعة وزيادة مسافة الأمان لأن السطح زلق.' },
-  { id: 'q2', question_es: 'En intersección sin señal, ¿quién tiene prioridad?', question_ar: 'في تقاطع بدون إشارة، من له الأفضلية؟', options: ['El que viene por la derecha', 'El que viene por la izquierda', 'El vehículo más grande'], correct: 'El que viene por la derecha', explanation_ar: 'القادم من اليمين له الأفضلية.' },
-  { id: 'q3', question_es: 'Semáforo ámbar intermitente significa:', question_ar: 'الضوء الكهرماني المتقطع يعني:', options: ['Precaución', 'Detenerse siempre', 'Avanzar sin detener'], correct: 'Precaución', explanation_ar: 'يعني توخي الحذر وقد يتطلب إعطاء الأفضلية.' },
-  { id: 'q4', question_es: 'Al aproximarse a un paso de peatones con peatón esperando, ¿qué hacer?', question_ar: 'عند الاقتراب من معبر المشاة وهناك مشاة ينتظر، ماذا تفعل؟', options: ['Detenerse y permitir el paso', 'Tocar bocina', 'Acelerar'], correct: 'Detenerse y permitir el paso', explanation_ar: 'يجب التوقف والسماح للمشاة بالعبور.' },
-  { id: 'q5', question_es: 'Señal "Prohibido adelantar" indica:', question_ar: 'إشارة "ممنوع التجاوز" تعني:', options: ['No adelantar', 'Adelantar rápido', 'Adelantar camiones'], correct: 'No adelantar', explanation_ar: 'تحظر أي تجاوز حتى انتهاء المنطقة.' },
-  { id: 'q6', question_es: 'En glorieta, ¿quién tiene prioridad?', question_ar: 'في الدوار، من له الأولوية؟', options: ['Los que circulan dentro', 'Los que entran', 'Los peatones'], correct: 'Los que circulan dentro', explanation_ar: 'من داخل الدوار لهم الأولوية.' },
-  { id: 'q7', question_es: 'Señal triangular con borde rojo indica:', question_ar: 'العلامة المثلثية بحافة حمراء تدل على:', options: ['Peligro', 'Prohibición', 'Información'], correct: 'Peligro', explanation_ar: 'تحذر من خطر قادم.' },
-  { id: 'q8', question_es: 'Vehículo de emergencia con sirena, ¿qué hacer?', question_ar: 'مركبة طوارئ مع صفارة، ماذا تفعل؟', options: ['Ceder paso y apartarse', 'Ignorar', 'Acelerar'], correct: 'Ceder paso y apartarse', explanation_ar: 'يجب تسهيل مرورها بالابتعاد بأمان.' },
-  { id: 'q9', question_es: 'Línea continua central implica:', question_ar: 'الخط المتصل في الوسط يعني:', options: ['No adelantar ni cruzar', 'Permite adelantar', 'Solo bicicletas'], correct: 'No adelantar ni cruzar', explanation_ar: 'تحظر التجاوز أو عبور الخط.' },
-  { id: 'q10', question_es: 'Zona escolar: velocidad típica?', question_ar: 'منطقة مدرسية: ما السرعة النموذجية؟', options: ['30 km/h', '120 km/h', '90 km/h'], correct: '30 km/h', explanation_ar: 'تخفيض السرعة لحماية الأطفال.' },
-  { id: 'q11', question_es: 'Señal azul con flecha blanca indica:', question_ar: 'العلامة الزرقاء بالسهم الأبيض تدل على:', options: ['Dirección obligatoria', 'Prohibición', 'Advertencia'], correct: 'Dirección obligatoria', explanation_ar: 'تفرض الاتجاه المشار إليه.' },
-  { id: 'q12', question_es: 'Carretera mojada: distancia de seguridad?', question_ar: 'طريق مبلل: مسافة الأمان؟', options: ['Mayor', 'Igual', 'Menor'], correct: 'Mayor', explanation_ar: 'زيادة المسافة لتقليل مخاطر الانزلاق.' },
-  { id: 'q13', question_es: 'Señal octogonal roja obliga a:', question_ar: 'العلامة ثمانية الأضلاع الحمراء تجبر على:', options: ['Parada total', 'Prohibición de giro', 'Fin de velocidad'], correct: 'Parada total', explanation_ar: 'تتطلب وقوفًا تامًا عند خط الوقوف.' },
-  { id: 'q14', question_es: 'Líneas amarillas en bordillo implican:', question_ar: 'الخط الأصفر على الحافة يعني:', options: ['Prohibido estacionar', 'Acelerar', 'Giro permitido'], correct: 'Prohibido estacionar', explanation_ar: 'تحظر التوقف/الوقوف على الحافة.' },
-  { id: 'q15', question_es: 'Ciclista en calzada: prioridad?', question_ar: 'الدراجة على الطريق: أولوية؟', options: ['Depende de señalización', 'Siempre prioridad', 'Nunca prioridad'], correct: 'Depende de señalización', explanation_ar: 'تعتمد الأفضلية على الإشارات والسياق.' },
-  { id: 'q16', question_es: 'Señal de fin de prohibición indica:', question_ar: 'علامة نهاية الحظر تعني:', options: ['Fin de restricciones', 'Inicio de prohibición', 'Zona peatonal'], correct: 'Fin de restricciones', explanation_ar: 'تنهي القيود السابقة.' },
-  { id: 'q17', question_es: 'Uso de luces largas cuándo?', question_ar: 'متى تستخدم الأضواء العالية؟', options: ['En carretera sin tráfico', 'Siempre en ciudad', 'Mientras haya vehículos adelante'], correct: 'En carretera sin tráfico', explanation_ar: 'تستخدم في الطرق المظلمة دون مركبات مقابلة.' },
-  { id: 'q18', question_es: 'Ceda el paso significa:', question_ar: 'عبارة "أفسح المجال" تعني:', options: ['Ceder al tráfico principal', 'Detenerse siempre', 'Prioridad propia'], correct: 'Ceder al tráfico principal', explanation_ar: 'يجب إعطاء الأفضلية لحركة الطريق الرئيسي.' },
-  { id: 'q19', question_es: 'Tren con barrera bajada: ¿qué hacer?', question_ar: 'قطار وحاجز منخفض: ماذا تفعل؟', options: ['Detenerse y esperar', 'Pasar con cuidado', 'Tocar bocina'], correct: 'Detenerse y esperar', explanation_ar: 'التوقف والانتظار حتى يُفتح الحاجز.' },
-  { id: 'q20', question_es: 'Señal azul con P blanca indica:', question_ar: 'علامة P البيضاء على خلفية زرقاء تدل على:', options: ['Parking', 'Prohibición', 'Peligro'], correct: 'Parking', explanation_ar: 'منطقة مخصصة لوقوف المركبات.' },
-  { id: 'q21', question_es: 'Límite 30 km/h significa:', question_ar: 'حد 30 كم/س يعني:', options: ['Máx 30 km/h', 'Mín 30 km/h', 'Velocidad recomendada'], correct: 'Máx 30 km/h', explanation_ar: 'الحد الأقصى المسموح به 30 كم/س.' },
-  { id: 'q22', question_es: 'Señal de obras y desvío: hacer?', question_ar: 'إشارة أشغال وتحويل: ماذا تفعل؟', options: ['Seguir señalización temporal', 'Ignorar señales', 'Tomar ruta alterna'], correct: 'Seguir señalización temporal', explanation_ar: 'اتباع الإشارات المؤقتة وتخفيض السرعة.' },
-  { id: 'q23', question_es: 'Señal fin de zona limitada significa:', question_ar: 'علامة نهاية المنطقة المحدودة تعني:', options: ['Fin de restricción', 'Inicio de restricción', 'Zona escolar'], correct: 'Fin de restricción', explanation_ar: 'تنهي القيود السابقة.' },
-  { id: 'q24', question_es: '¿Dónde detenerse con STOP?', question_ar: 'أين تتوقف مع STOP؟', options: ['Antes de la línea o intersección', 'En la intersección', 'Después de la línea'], correct: 'Antes de la línea o intersección', explanation_ar: 'توقف قبل خط التوقف أو قبل التقاطع إذا لم يكن الخط موجودًا.' },
-  { id: 'q25', question_es: 'Triángulo con peatón indica:', question_ar: 'مثلث برمز المشاة يدل على:', options: ['Advertencia paso de peatones', 'Prohibición de peatones', 'Zona industrial'], correct: 'Advertencia paso de peatones', explanation_ar: 'تحذير من معبر المشاة القريب.' },
-  { id: 'q26', question_es: 'Niebla intensa: qué luces usar?', question_ar: 'ضباب كثيف: أي أضواء تستخدم؟', options: ['Luces de cruce y antiniebla', 'Largas', 'Intermitentes'], correct: 'Luces de cruce y antiniebla', explanation_ar: 'استخدم الأضواء المنخفضة وأضواء الضباب إذا لزم.' },
-  { id: 'q27', question_es: 'Señal azul con "P" indica:', question_ar: 'علامة P البيضاء على أزرق تدل على:', options: ['Parking', 'Prohibición', 'Peligro'], correct: 'Parking', explanation_ar: 'منطقة لوقوف المركبات.' },
-  { id: 'q28', question_es: 'Rotonda con prioridad señalizada: hacer?', question_ar: 'دوار بأولوية مُعلنة: ماذا تفعل؟', options: ['Seguir señalización', 'Entrar acelerando', 'No ceder'], correct: 'Seguir señalización', explanation_ar: 'اتبع إشارات الأولوية المعلنة.' },
-  { id: 'q29', question_es: 'Círculo rojo con 50 significa:', question_ar: 'دائرة حمراء مع 50 تعني:', options: ['Límite máximo 50', 'Velocidad recomendada', 'Ruta 50'], correct: 'Límite máximo 50', explanation_ar: 'الحد الأقصى للسرعة 50 كم/س.' },
-  { id: 'q30', question_es: 'Si no conoces la señal, debes:', question_ar: 'إذا لم تعرف الإشارة، يجب أن:', options: ['Reducir y observar', 'Ignorarla', 'Continuar'], correct: 'Reducir y observar', explanation_ar: 'قلل السرعة وابحث عن معلومات أو إشارات إضافية.' },
+  { id: 'q1', question_es: 'Con lluvia intensa, ¿cómo se debe adaptar la velocidad?', options: ['Reducir y aumentar distancia', 'Mantener la velocidad', 'Acelerar'], correct: 'Reducir y aumentar distancia' },
+  { id: 'q2', question_es: 'En intersección sin señal, ¿quién tiene prioridad?', options: ['El que viene por la derecha', 'El que viene por la izquierda', 'El vehículo más grande'], correct: 'El que viene por la derecha' },
+  { id: 'q3', question_es: 'Semáforo ámbar intermitente significa:', options: ['Precaución', 'Detenerse siempre', 'Avanzar sin detener'], correct: 'Precaución' },
+  { id: 'q4', question_es: 'Al aproximarse a un paso de peatones con peatón esperando, ¿qué hacer?', options: ['Detenerse y permitir el paso', 'Tocar bocina', 'Acelerar'], correct: 'Detenerse y permitir el paso' },
+  { id: 'q5', question_es: 'Señal "Prohibido adelantar" indica:', options: ['No adelantar', 'Adelantar rápido', 'Adelantar camiones'], correct: 'No adelantar' },
+  { id: 'q6', question_es: 'En glorieta, ¿quién tiene prioridad?', options: ['Los que circulan dentro', 'Los que entran', 'Los peatones'], correct: 'Los que circulan dentro' },
+  { id: 'q7', question_es: 'Señal triangular con borde rojo indica:', options: ['Peligro', 'Prohibición', 'Información'], correct: 'Peligro' },
+  { id: 'q8', question_es: 'Vehículo de emergencia con sirena, ¿qué hacer?', options: ['Ceder paso y apartarse', 'Ignorar', 'Acelerar'], correct: 'Ceder paso y apartarse' },
+  { id: 'q9', question_es: 'Línea continua central implica:', options: ['No adelantar ni cruzar', 'Permite adelantar', 'Solo bicicletas'], correct: 'No adelantar ni cruzar' },
+  { id: 'q10', question_es: 'Zona escolar: velocidad típica?', options: ['30 km/h', '120 km/h', '90 km/h'], correct: '30 km/h' },
+  { id: 'q11', question_es: 'Señal azul con flecha blanca indica:', options: ['Dirección obligatoria', 'Prohibición', 'Advertencia'], correct: 'Dirección obligatoria' },
+  { id: 'q12', question_es: 'Carretera mojada: distancia de seguridad?', options: ['Mayor', 'Igual', 'Menor'], correct: 'Mayor' },
+  { id: 'q13', question_es: 'Señal octogonal roja obliga a:', options: ['Parada total', 'Prohibición de giro', 'Fin de velocidad'], correct: 'Parada total' },
+  { id: 'q14', question_es: 'Líneas amarillas en bordillo implican:', options: ['Prohibido estacionar', 'Acelerar', 'Giro permitido'], correct: 'Prohibido estacionar' },
+  { id: 'q15', question_es: 'Ciclista en calzada: prioridad?', options: ['Depende de señalización', 'Siempre prioridad', 'Nunca prioridad'], correct: 'Depende de señalización' },
+  { id: 'q16', question_es: 'Señal de fin de prohibición indica:', options: ['Fin de restricciones', 'Inicio de prohibición', 'Zona peatonal'], correct: 'Fin de restricciones' },
+  { id: 'q17', question_es: 'Uso de luces largas cuándo?', options: ['En carretera sin tráfico', 'Siempre en ciudad', 'Mientras haya vehículos adelante'], correct: 'En carretera sin tráfico' },
+  { id: 'q18', question_es: 'Ceda el paso significa:', options: ['Ceder al tráfico principal', 'Detenerse siempre', 'Prioridad propia'], correct: 'Ceder al tráfico principal' },
+  { id: 'q19', question_es: 'Tren con barrera bajada: ¿qué hacer?', options: ['Detenerse y esperar', 'Pasar con cuidado', 'Tocar bocina'], correct: 'Detenerse y esperar' },
+  { id: 'q20', question_es: 'Señal azul con P blanca indica:', options: ['Parking', 'Prohibición', 'Peligro'], correct: 'Parking' },
+  { id: 'q21', question_es: 'Límite 30 km/h significa:', options: ['Máx 30 km/h', 'Mín 30 km/h', 'Velocidad recomendada'], correct: 'Máx 30 km/h' },
+  { id: 'q22', question_es: 'Señal de obras y desvío: hacer?', options: ['Seguir señalización temporal', 'Ignorar señales', 'Tomar ruta alterna'], correct: 'Seguir señalización temporal' },
+  { id: 'q23', question_es: 'Señal fin de zona limitada significa:', options: ['Fin de restricción', 'Inicio de restricción', 'Zona escolar'], correct: 'Fin de restricción' },
+  { id: 'q24', question_es: '¿Dónde detenerse con STOP?', options: ['Antes de la línea o intersección', 'En la intersección', 'Después de la línea'], correct: 'Antes de la línea o intersección' },
+  { id: 'q25', question_es: 'Triángulo con peatón indica:', options: ['Advertencia paso de peatones', 'Prohibición de peatones', 'Zona industrial'], correct: 'Advertencia paso de peatones' },
+  { id: 'q26', question_es: 'Niebla intensa: qué luces usar?', options: ['Luces de cruce y antiniebla', 'Largas', 'Intermitentes'], correct: 'Luces de cruce y antiniebla' },
+  { id: 'q27', question_es: 'Señal azul con "P" indica:', options: ['Parking', 'Prohibición', 'Peligro'], correct: 'Parking' },
+  { id: 'q28', question_es: 'Rotonda con prioridad señalizada: hacer?', options: ['Seguir señalización', 'Entrar acelerando', 'No ceder'], correct: 'Seguir señalización' },
+  { id: 'q29', question_es: 'Círculo rojo con 50 significa:', options: ['Límite máximo 50', 'Velocidad recomendada', 'Ruta 50'], correct: 'Límite máximo 50' },
+  { id: 'q30', question_es: 'Si no conoces la señal, debes:', options: ['Reducir y observar', 'Ignorarla', 'Continuar'], correct: 'Reducir y observar' },
 ];
 
 export default function ExamSimulator({
@@ -244,7 +243,6 @@ export default function ExamSimulator({
             <>
               <div className="mt-4">
                 <div className="text-2xl font-semibold mb-2">{questions[currentIndex].question_es}</div>
-                <div className="text-sm text-gray-600 mb-4" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>{questions[currentIndex].question_ar}</div>
                 <div className="w-full h-48 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
                   {(() => {
                     const qid = questions[currentIndex].id;
@@ -358,16 +356,15 @@ export default function ExamSimulator({
 
         {reviewMode && (
           <div className="modern-card bg-white p-4 mt-4 space-y-3">
-            <h4 className="font-semibold">Review / مراجعة</h4>
+            <h4 className="font-semibold">Revisión</h4>
             {questions.map((q, idx) => {
               const user = answers[q.id];
               const wrong = user && user !== q.correct;
               return (
                 <div key={q.id} className="p-2 border rounded">
                   <div className="text-sm font-medium">{idx+1}. {q.question_es}</div>
-                  <div className="text-xs text-gray-600" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>{q.question_ar}</div>
                   <div className="mt-2 text-sm">Tu respuesta: {user ?? '—'}</div>
-                  {wrong && <div className="mt-1 text-sm text-red-700" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>Explicación: {q.explanation_ar}</div>}
+                  {wrong && q.explanation && <div className="mt-1 text-sm text-red-700">Explicación: {q.explanation}</div>}
                   {!wrong && user && <div className="mt-1 text-sm text-green-700">Correcto</div>}
                 </div>
               );

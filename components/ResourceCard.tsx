@@ -35,11 +35,6 @@ export default function ResourceCard({ resource }: ResourceCardProps) {
               <FileText className="w-20 h-20 mx-auto mb-4 text-white" aria-hidden="true" />
               <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-4">
                 <h3 className="text-xl font-bold mb-2">{resource.title}</h3>
-                {resource.titleAr && (
-                  <p className="text-sm opacity-90" dir="rtl" style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}>
-                    {resource.titleAr}
-                  </p>
-                )}
               </div>
             </div>
           </div>
@@ -79,12 +74,6 @@ export default function ResourceCard({ resource }: ResourceCardProps) {
           <h3 className="text-xl font-bold text-gray-800 mb-2">
             {resource.title}
           </h3>
-
-          {resource.descriptionAr && (
-            <p className="text-sm text-gray-500 mb-3" dir="rtl" style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}>
-              {resource.descriptionAr}
-            </p>
-          )}
 
           <p className="text-sm text-gray-600 mb-4">
             {resource.description}

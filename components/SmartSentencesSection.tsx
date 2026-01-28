@@ -3,25 +3,18 @@
 import { useState, useMemo } from 'react';
 import SmartSentencesCard from './SmartSentencesCard';
 import { sentences100, getRandomSentences, type Sentence } from '@/lib/data/sentences-100';
-import { Cairo } from 'next/font/google';
 
-const cairo = Cairo({
-  variable: '--font-cairo',
-  subsets: ['arabic', 'latin'],
-  weight: ['400', '600', '700'],
-});
-
-// Category labels in Spanish and Arabic
-const categoryLabels: Record<string, { es: string; ar: string }> = {
-  'All': { es: 'Todas', ar: 'الكل' },
-  'Restaurant': { es: 'Restaurante', ar: 'مطعم' },
-  'Travel': { es: 'Viajes', ar: 'السفر' },
-  'Feelings': { es: 'Sentimientos', ar: 'المشاعر' },
-  'Shopping': { es: 'Compras', ar: 'التسوق' },
-  'Work': { es: 'Trabajo', ar: 'العمل' },
-  'Health': { es: 'Salud', ar: 'الصحة' },
-  'Home': { es: 'Casa', ar: 'المنزل' },
-  'Social': { es: 'Social', ar: 'اجتماعي' },
+// Category labels (ES)
+const categoryLabels: Record<string, string> = {
+  All: 'Todas',
+  Restaurant: 'Restaurante',
+  Travel: 'Viajes',
+  Feelings: 'Sentimientos',
+  Shopping: 'Compras',
+  Work: 'Trabajo',
+  Health: 'Salud',
+  Home: 'Casa',
+  Social: 'Social',
 };
 
 export default function SmartSentencesSection() {
@@ -56,11 +49,8 @@ export default function SmartSentencesSection() {
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-2 md:mb-3">
           Frases Inteligentes
         </h2>
-        <p className={`text-base md:text-lg text-gray-600 ${cairo.variable}`} dir="rtl" style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}>
-          (جمل ذكية)
-        </p>
         <p className="text-sm md:text-base text-gray-600 mt-2">
-          جمل عملية مختارة عشوائياً لتحسين مهاراتك في الإسبانية
+          Frases prácticas seleccionadas aleatoriamente para mejorar tu español
         </p>
       </div>
 
@@ -69,7 +59,7 @@ export default function SmartSentencesSection() {
         <div className="flex flex-wrap justify-center gap-2 mb-4 px-2">
           {categories.map((category) => {
             const isActive = selectedCategory === category;
-            const label = categoryLabels[category] || { es: category, ar: category };
+            const label = categoryLabels[category] || category;
             
             return (
               <button
@@ -84,14 +74,7 @@ export default function SmartSentencesSection() {
                     : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 hover:border-purple-300'
                 }`}
               >
-                <span>{label.es}</span>
-                <span 
-                  className={`ml-1 md:ml-2 text-xs ${cairo.variable}`}
-                  dir="rtl"
-                  style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}
-                >
-                  ({label.ar})
-                </span>
+                <span>{label}</span>
               </button>
             );
           })}
@@ -103,7 +86,7 @@ export default function SmartSentencesSection() {
             onClick={() => setRefreshKey(prev => prev + 1)}
             className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm font-medium transition-colors border border-gray-300"
           >
-            🔄 جمل جديدة (Nuevas Frases)
+            🔄 Nuevas Frases
           </button>
         </div>
       </div>

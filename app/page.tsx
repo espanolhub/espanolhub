@@ -826,7 +826,7 @@ function Feature({ icon, title, subtitle, color, delay = 0 }: { icon: React.Reac
 					<div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${color} opacity-0 group-hover:opacity-30 group-hover:scale-150 transition-all duration-500`} />
 				</div>
 				<div className="flex-1 text-center md:text-left">
-					<div className="text-base md:text-lg font-bold text-slate-900 mb-1 group-hover:text-indigo-600 transition-colors" dir="rtl">
+					<div className="text-base md:text-lg font-bold text-slate-900 mb-1 group-hover:text-indigo-600 transition-colors">
 						{title}
 					</div>
 					{subtitle && (
@@ -879,7 +879,7 @@ function AnimatedStat({ num, prefix = '', suffix = '', label, labelEn, duration 
 			<div className="text-3xl md:text-4xl font-extrabold text-white mb-1 drop-shadow-lg">
 				{displayValue}
 			</div>
-			<div className="text-sm text-slate-300 font-medium" dir="rtl">{label}</div>
+			<div className="text-sm text-slate-300 font-medium">{label}</div>
 			{labelEn && (
 				<div className="text-xs text-slate-400 mt-0.5">{labelEn}</div>
 			)}

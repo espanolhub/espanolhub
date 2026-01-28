@@ -53,21 +53,18 @@ export default function ResourcesLibraryPage() {
   const categoryInfo = {
     'free-guides': {
       title: 'Guías Gratuitas',
-      titleAr: 'الدلائل المجانية',
       icon: FileText,
       description: 'Guías completas y materiales de estudio gratuitos',
       color: 'from-blue-500 to-blue-600',
     },
     'workbooks': {
       title: 'Cuadernos de Ejercicios',
-      titleAr: 'دفاتر التمارين',
       icon: BookOpen,
       description: 'Cuadernos de práctica con ejercicios interactivos',
       color: 'from-green-500 to-green-600',
     },
     'grammar-cheat-sheets': {
       title: 'Hojas de Referencia',
-      titleAr: 'ملخصات القواعد',
       icon: GraduationCap,
       description: 'Referencias rápidas de gramática y reglas esenciales',
       color: 'from-purple-500 to-purple-600',
@@ -191,11 +188,6 @@ export default function ResourcesLibraryPage() {
                       <Icon className="w-8 h-8" />
                       <div>
                         <h2 className="text-2xl md:text-3xl font-bold">{info.title}</h2>
-                        {info.titleAr && (
-                          <p className="text-sm opacity-90" dir="rtl" style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}>
-                            {info.titleAr}
-                          </p>
-                        )}
                       </div>
                     </div>
                     <p className="text-blue-100">{info.description}</p>

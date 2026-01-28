@@ -323,9 +323,6 @@ export default function SimulatorPage() {
                       </td>
                       <td className="py-3 px-4">
                         <div className="font-medium text-slate-900">{result.question.question_es}</div>
-                        <div className="text-xs text-slate-600 mt-1" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
-                          {result.question.question_ar}
-                        </div>
                       </td>
                       <td className="py-3 px-4">
                         {result.isAnswered ? (
@@ -359,9 +356,6 @@ export default function SimulatorPage() {
                 {wrongs.map((w) => (
                   <div key={w.index} className="p-4 border border-red-200 rounded-lg bg-red-50">
                     <div className="font-bold text-slate-900 mb-2">Pregunta {w.index + 1}: {w.question.question_es}</div>
-                    <div className="text-sm text-slate-700 mb-3" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
-                      {w.question.question_ar}
-                    </div>
                     <div className="space-y-2">
                       <div className="text-sm">
                         <strong className="text-red-700">Tu respuesta:</strong>{' '}
@@ -373,14 +367,9 @@ export default function SimulatorPage() {
                         <strong className="text-green-700">Respuesta correcta:</strong>{' '}
                         <span className="text-green-600">{w.question.options[w.question.correctIndex]}</span>
                       </div>
-                      {(w.question.explanation_es || w.question.explanation_ar) && (
+                      {w.question.explanation_es && (
                         <div className="mt-3 p-3 bg-white rounded border border-gray-200">
                           <div className="text-sm text-slate-700 mb-1">{w.question.explanation_es}</div>
-                          {w.question.explanation_ar && (
-                            <div className="text-sm text-slate-600 mt-1" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
-                              {w.question.explanation_ar}
-                            </div>
-                          )}
                         </div>
                       )}
                     </div>
@@ -584,9 +573,6 @@ export default function SimulatorPage() {
               </div>
             )}
             <h2 className="text-2xl font-bold text-slate-900 mb-4">{q.question_es}</h2>
-            <p className="text-lg text-slate-700 mb-6" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
-              {q.question_ar}
-            </p>
 
             {/* Options */}
             <div className="grid grid-cols-1 gap-3 mb-6">

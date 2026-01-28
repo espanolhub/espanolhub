@@ -133,9 +133,6 @@ export default async function GrammarLessonPage({ params }: GrammarLessonPagePro
                     <div className="text-lg font-bold text-red-600 mb-2">
                       {example.spanish}
                     </div>
-                    <div className="text-gray-900 mb-1" dir="rtl">
-                      {example.arabic}
-                    </div>
                     {example.english && (
                       <div className="text-sm text-gray-600 italic">
                         {example.english}
@@ -165,18 +162,6 @@ export default async function GrammarLessonPage({ params }: GrammarLessonPagePro
                 </ul>
               </div>
               
-              {/* Arabic Tips */}
-              <div className="mt-4 bg-blue-50 rounded-xl p-6 border border-blue-200 shadow-md" dir="rtl">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">نصائح بالعربية</h3>
-                <ul className="space-y-3">
-                  {lesson.tipsAr.map((tip, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-900">{tip}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </section>
           )}
 

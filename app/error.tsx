@@ -3,13 +3,6 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { AlertTriangle, Home, RefreshCw } from 'lucide-react';
-import { Cairo } from 'next/font/google';
-
-const cairo = Cairo({
-  variable: '--font-cairo',
-  subsets: ['arabic', 'latin'],
-  weight: ['400', '600', '700'],
-});
 
 export default function Error({
   error,
@@ -44,9 +37,6 @@ export default function Error({
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
             Algo salió mal
           </h1>
-          <p className={`text-xl text-gray-600 mb-2 ${cairo.variable}`} dir="rtl" style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}>
-            حدث خطأ ما
-          </p>
           <p className="text-lg text-gray-500 mb-4">
             Lo sentimos, ocurrió un error inesperado. Por favor, intenta de nuevo.
           </p>

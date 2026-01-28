@@ -6,7 +6,6 @@ export default function QuestionCard({
   number,
   id,
   question,
-  question_ar,
   options,
   correct,
   onAnswered,
@@ -14,7 +13,6 @@ export default function QuestionCard({
   number: number;
   id: string;
   question: string;
-  question_ar?: string;
   options: string[];
   correct: string | boolean;
   onAnswered?: (correct: boolean) => void;
@@ -40,11 +38,6 @@ export default function QuestionCard({
         </div>
         <div className="flex-1">
           <div className="font-semibold text-gray-900 mb-2">{question}</div>
-          {question_ar && (
-            <div className="text-sm text-slate-600 mb-3 p-3 bg-slate-50 rounded" dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }}>
-              {question_ar}
-            </div>
-          )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {options.map((opt, idx) => {

@@ -1,10 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Volume2, Lightbulb } from 'lucide-react';
+import { Volume2 } from 'lucide-react';
 import type { UsefulSentence } from '@/lib/data/useful-sentences';
 import { tenseLabels } from '@/lib/data/useful-sentences';
-import { playSuccessSound } from '@/lib/utils/sounds';
 
 interface UsefulSentencesCardProps {
   sentence: UsefulSentence;
@@ -14,7 +13,6 @@ interface UsefulSentencesCardProps {
 
 export default function UsefulSentencesCard({ sentence, flashcardMode = false, showAllTranslations = false }: UsefulSentencesCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [showTranslation, setShowTranslation] = useState(showAllTranslations);
 
   useEffect(() => {
     // Load voices on mount
@@ -22,11 +20,6 @@ export default function UsefulSentencesCard({ sentence, flashcardMode = false, s
       window.speechSynthesis.getVoices();
     }
   }, []);
-
-  useEffect(() => {
-    // Update translation visibility based on showAllTranslations
-    setShowTranslation(showAllTranslations);
-  }, [showAllTranslations]);
 
   const pronounceSentence = () => {
     if ('speechSynthesis' in window) {
@@ -60,16 +53,6 @@ export default function UsefulSentencesCard({ sentence, flashcardMode = false, s
     }
   };
 
-  const handleRevealTranslation = () => {
-    if (!showTranslation) {
-      setShowTranslation(true);
-      // Play success sound
-      playSuccessSound();
-      // Auto-play Spanish pronunciation when revealing translation
-      pronounceSentence();
-    }
-  };
-
   const tenseInfo = tenseLabels[sentence.tense];
 
   return (
@@ -99,57 +82,7 @@ export default function UsefulSentencesCard({ sentence, flashcardMode = false, s
         </button>
       </div>
 
-      {/* Arabic Translation */}
-      <div 
-        className="border-t border-gray-200 pt-4 relative"
-        onClick={flashcardMode ? handleRevealTranslation : undefined}
-        style={{ cursor: flashcardMode && !showTranslation ? 'pointer' : 'default' }}
-      >
-        {showTranslation ? (
-          <p 
-            className="text-base md:text-lg text-gray-700 leading-relaxed animate-in fade-in duration-300"
-            dir="rtl"
-            style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}
-          >
-            {sentence.arabic}
-          </p>
-        ) : (
-          <div className="relative">
-            {/* Blurred/Hidden Translation with Glassmorphism */}
-            <div 
-              className="relative backdrop-blur-sm bg-gradient-to-r from-white/80 to-gray-100/80 rounded-lg p-4 border border-gray-200/50"
-              style={{ filter: 'blur(5px)', WebkitFilter: 'blur(5px)' }}
-            >
-              <p 
-                className="text-base md:text-lg text-transparent leading-relaxed select-none"
-                dir="rtl"
-                style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}
-              >
-                {sentence.arabic}
-              </p>
-            </div>
-            
-            {/* Overlay with Help Icon */}
-            <div 
-              className="absolute inset-0 flex items-center justify-center bg-white/30 backdrop-blur-[2px] rounded-lg cursor-pointer transition-all duration-300 hover:bg-white/40 group"
-              onClick={handleRevealTranslation}
-            >
-              <div className="flex flex-col items-center gap-2">
-                <div className="p-3 bg-purple-500/90 rounded-full shadow-lg group-hover:bg-purple-600/90 transition-colors">
-                  <Lightbulb className="w-5 h-5 text-white" />
-                </div>
-                <p 
-                  className="text-xs text-gray-600 font-medium"
-                  dir="rtl"
-                  style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}
-                >
-                  انقر للكشف
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
+      {/* Spanish-only UI: no Arabic translation */}
 
       {/* Verbs */}
       {sentence.verbs && sentence.verbs.length > 0 && (

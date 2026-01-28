@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Geist_Mono, Cairo } from "next/font/google";
+import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavigationWrapper from "@/components/NavigationWrapper";
 import Footer from "@/components/Footer";
@@ -28,15 +28,6 @@ const geistMono = Geist_Mono({
   display: 'swap',
   preload: false,
   fallback: ['monospace'],
-});
-
-const cairo = Cairo({
-  variable: "--font-cairo",
-  subsets: ["arabic", "latin"],
-  weight: ["400", "600", "700"],
-  display: 'swap',
-  preload: true,
-  fallback: ['Tahoma', 'sans-serif'],
 });
 
 export const metadata: Metadata = {
@@ -222,7 +213,7 @@ export default function RootLayout({
         />
       </head>
   <body
-            className={`${inter.variable} ${geistMono.variable} ${cairo.variable} antialiased flex flex-col min-h-screen overflow-x-hidden`}
+            className={`${inter.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen overflow-x-hidden`}
           >
         {/* Google Tag Manager - Loaded via @next/third-parties for optimal performance */}
         <GoogleTagManager gtmId="GTM-P4HL68DB" />

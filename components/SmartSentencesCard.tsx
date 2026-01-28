@@ -1,17 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Volume2, Eye } from 'lucide-react';
+import { Volume2 } from 'lucide-react';
 import { createRipple } from '@/lib/utils/ripple';
 import type { Sentence } from '@/lib/data/sentences-100';
 import { playClickSound } from '@/lib/utils/sounds';
-import { Cairo } from 'next/font/google';
-
-const cairo = Cairo({
-  variable: '--font-cairo',
-  subsets: ['arabic', 'latin'],
-  weight: ['400', '600', '700'],
-});
 
 interface SmartSentencesCardProps {
   sentence: Sentence;
@@ -19,7 +12,6 @@ interface SmartSentencesCardProps {
 
 export default function SmartSentencesCard({ sentence }: SmartSentencesCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [showTranslation, setShowTranslation] = useState(false);
 
   useEffect(() => {
     // Load voices on mount
@@ -60,21 +52,6 @@ export default function SmartSentencesCard({ sentence }: SmartSentencesCardProps
     }
   };
 
-  const handleShowTranslation = () => {
-    if (!showTranslation) {
-      setShowTranslation(true);
-      playClickSound();
-      // Auto-play Spanish pronunciation when revealing translation
-      pronounceSentence();
-      // Trigger success moment (confetti, sound, XP animation)
-      try {
-        window.dispatchEvent(new CustomEvent('successMoment', { detail: { xp: 5 } }));
-      } catch (e) {
-        // ignore if not available
-      }
-    }
-  };
-
   // Get tense label
   const tenseLabel = sentence.tense === 'Present' ? 'Presente' : 'Pasado';
 
@@ -108,53 +85,7 @@ export default function SmartSentencesCard({ sentence }: SmartSentencesCardProps
         </button>
       </div>
 
-      {/* Arabic Translation */}
-      <div className="border-t border-gray-200 pt-4">
-        {showTranslation ? (
-          <p 
-            className="text-base md:text-lg text-gray-700 leading-relaxed animate-in fade-in duration-300"
-            dir="rtl"
-            style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}
-          >
-            {sentence.arabic}
-          </p>
-        ) : (
-          <div className="relative">
-            {/* Blurred/Hidden Translation */}
-            <div 
-              className="relative backdrop-blur-sm bg-gradient-to-r from-white/80 to-gray-100/80 rounded-lg p-4 border border-gray-200/50"
-              style={{ filter: 'blur(8px)', WebkitFilter: 'blur(8px)' }}
-            >
-              <p 
-                className="text-base md:text-lg text-transparent leading-relaxed select-none"
-                dir="rtl"
-                style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}
-              >
-                {sentence.arabic}
-              </p>
-            </div>
-            
-            {/* Overlay with Eye Icon */}
-            <div 
-              className="absolute inset-0 flex items-center justify-center bg-white/30 backdrop-blur-[2px] rounded-lg cursor-pointer transition-all duration-300 hover:bg-white/40 group"
-              onClick={handleShowTranslation}
-            >
-              <div className="flex flex-col items-center gap-2">
-                <div className="p-3 bg-purple-500/90 rounded-full shadow-lg group-hover:bg-purple-600/90 transition-colors">
-                  <Eye className="w-5 h-5 text-white" />
-                </div>
-                <p 
-                  className="text-xs text-gray-600 font-medium"
-                  dir="rtl"
-                  style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}
-                >
-                  انقر للكشف
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
+      {/* Spanish-only UI: no Arabic translation */}
 
       {/* Category Badge */}
       <div className="mt-4 pt-4 border-t border-gray-100">

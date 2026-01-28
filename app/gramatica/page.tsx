@@ -30,14 +30,10 @@ import { X, CheckCircle, XCircle, BookOpen, PenTool, Lightbulb, Copy, Volume2, I
 import { addXP, updateStats, getUserProgress } from '@/lib/utils/progress';
 import ProBadge from '@/components/ProBadge';
 import AdminBadge from '@/components/AdminBadge';
-import { useTranslations, TranslationToggleButton } from '@/lib/hooks/useTranslations';
 
 type TabType = 'learn' | 'exercises';
 
 export default function GramaticaPage() {
-  // Translation toggle
-  const [showTranslations, setShowTranslations] = useTranslations();
-  
   // Tab management
   const [activeTab, setActiveTab] = useState<TabType>('learn');
   
@@ -277,27 +273,9 @@ export default function GramaticaPage() {
     }));
   };
 
-  // Function to generate Arabic hint from exercise data
-  const getArabicHint = (exercise: GrammarExercise): string => {
-    if (exercise.category === 'verbs') {
-      if (exercise.question.includes('Yo')) {
-        return 'تذكر: ضمير "Yo" (أنا) يستخدم دائماً النهاية -o في المضارع';
-      } else if (exercise.question.includes('Tú')) {
-        return 'تذكر: ضمير "Tú" (أنت) يستخدم دائماً النهاية -es في المضارع';
-      } else if (exercise.question.includes('Nosotros')) {
-        return 'تذكر: ضمير "Nosotros" (نحن) يستخدم النهاية -amos أو -emos أو -imos';
-      } else if (exercise.question.includes('Ellos')) {
-        return 'تذكر: ضمير "Ellos" (هم) يستخدم النهاية -an أو -en';
-      }
-      return 'انظر إلى الضمير في الجملة لتحديد النهاية الصحيحة';
-    } else if (exercise.category === 'articles') {
-      return 'تذكر: "el" للمذكر، "la" للمؤنث، "los" للمذكر الجمع، "las" للمؤنث الجمع';
-    } else if (exercise.category === 'pronouns') {
-      return 'تذكر: الضمائر يجب أن تطابق الفاعل في الجنس والعدد';
-    } else if (exercise.category === 'adjectives') {
-      return 'تذكر: الصفات يجب أن تطابق الاسم في الجنس (مذكر/مؤنث) والعدد (مفرد/جمع)';
-    }
-    return 'انظر بعناية إلى السياق لتحديد الإجابة الصحيحة';
+  // Spanish-only hint for the current exercise
+  const getHint = (exercise: GrammarExercise): string => {
+    return exercise.explanation || 'Pista: fíjate en el sujeto y en la regla del tema.';
   };
 
   // Accessibility: pronunciation helper and copy helper for cards
@@ -351,13 +329,6 @@ export default function GramaticaPage() {
             </div>
           </div>
           
-          {/* Translation Toggle Button */}
-          <div className="mt-6">
-            <TranslationToggleButton
-              showTranslations={showTranslations}
-              onClick={() => setShowTranslations(!showTranslations)}
-            />
-          </div>
         </div>
 
         {/* Tab Selector */}
@@ -688,17 +659,17 @@ export default function GramaticaPage() {
                           className="ml-4 flex-shrink-0 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-blue-700 rounded-lg font-medium text-sm transition-colors flex items-center gap-2 border border-gray-300"
                         >
                           <Lightbulb className="w-5 h-5 text-gray-700" aria-hidden="true" />
-                          <span>Pista{showTranslations && ' / نصيحة'}</span>
+                          <span>Pista</span>
                         </button>
                       )}
                     </div>
                     
-                    {showHints[exercise.id] && !showResults && showTranslations && (
-                      <div className="mb-4 p-4 bg-gray-50 border-r-4 border-blue-600 rounded-xl shadow-md" dir="rtl">
+                    {showHints[exercise.id] && !showResults && (
+                      <div className="mb-4 p-4 bg-gray-50 border-l-4 border-blue-600 rounded-xl shadow-md">
                         <div className="flex items-start gap-2">
                           <Lightbulb className="w-5 h-5 text-gray-700 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                          <p className="text-sm font-medium text-gray-900" style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}>
-                            {getArabicHint(exercise)}
+                          <p className="text-sm font-medium text-gray-900">
+                            {getHint(exercise)}
                           </p>
                         </div>
                       </div>
@@ -746,13 +717,7 @@ export default function GramaticaPage() {
                         <p className="text-base font-medium">{exercise.explanation}</p>
                       </div>
                     )}
-                    {/* Arabic popup hint when the user failed this exercise */}
-                    {showResults && answers[exercise.id] !== exercise.correctAnswer && showTranslations && (
-                      <div className="mt-3 p-3 rounded-lg bg-red-50 border border-red-200 text-sm text-red-800" dir="rtl" style={{ fontFamily: 'var(--font-cairo), sans-serif' }}>
-                        <strong className="block mb-1">تذكير</strong>
-                        <div>{getArabicHint(exercise)}</div>
-                      </div>
-                    )}
+                    {/* Spanish-only UI: no Arabic popups */}
                   </div>
                 ))}
                 

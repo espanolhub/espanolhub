@@ -15,14 +15,10 @@ import { useAdminSettings } from '@/components/AdminSettingsProvider';
 import ProBadge from '@/components/ProBadge';
 import AdminBadge from '@/components/AdminBadge';
 import ProUpgradeModal from '@/components/ProUpgradeModal';
-import { useTranslations, TranslationToggleButton } from '@/lib/hooks/useTranslations';
 
 type TabType = 'texts' | 'dialogues' | 'sentences';
 
 export default function LecturaPage() {
-  // Translation toggle
-  const [showTranslations, setShowTranslations] = useTranslations();
-  
   const [activeTab, setActiveTab] = useState<TabType>('texts');
   const [selectedLevel, setSelectedLevel] = useState<'beginner' | 'intermediate' | 'advanced'>('beginner');
   const [selectedCategory, setSelectedCategory] = useState<string>('Todos');
@@ -145,13 +141,6 @@ export default function LecturaPage() {
             Diálogos cotidianos, ejercicios interactivos y frases útiles para el día a día
           </p>
           
-          {/* Translation Toggle Button */}
-          <div className="mt-6">
-            <TranslationToggleButton
-              showTranslations={showTranslations}
-              onClick={() => setShowTranslations(!showTranslations)}
-            />
-          </div>
         </div>
 
         {/* Stats Bar */}
@@ -616,17 +605,9 @@ export default function LecturaPage() {
       <HintModal
         open={hintModal.open}
         onClose={() => setHintModal({ open: false, content: '' })}
-        title={showTranslations ? "نصيحة / Pista" : "Pista"}
+        title="Pista"
       >
-        {showTranslations ? (
-          <div dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }} className="text-base">
-            {hintModal.content}
-          </div>
-        ) : (
-          <div className="text-base text-gray-700">
-            {hintModal.content}
-          </div>
-        )}
+        <div className="text-base text-gray-700">{hintModal.content}</div>
       </HintModal>
     </div>
   );
@@ -634,9 +615,6 @@ export default function LecturaPage() {
 
 // Useful Sentences Section Component
 function UsefulSentencesSection() {
-  // Translation toggle for this component
-  const [showTranslations] = useTranslations();
-  
   const [selectedContext, setSelectedContext] = useState<SentenceContext | 'all'>('all');
   const [selectedLevel, setSelectedLevel] = useState<UsefulSentence['level'] | 'all'>('all');
   const [flashcardMode, setFlashcardMode] = useState(false);
@@ -668,7 +646,7 @@ function UsefulSentencesSection() {
           {/* Context Filter */}
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-3">
-              Contexto{showTranslations && ' (السياق)'}
+              Contexto
             </label>
             <div className="flex flex-wrap gap-2">
               <button
@@ -701,7 +679,7 @@ function UsefulSentencesSection() {
           {/* Level Filter */}
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-3">
-              Nivel{showTranslations && ' (المستوى)'}
+              Nivel
             </label>
             <div className="flex flex-wrap gap-2">
               {(['all', 'beginner', 'intermediate', 'advanced'] as const).map((level) => (
@@ -733,7 +711,7 @@ function UsefulSentencesSection() {
       {/* Flashcard Mode Toggle */}
       <div className="bg-white rounded-xl shadow-lg p-4 mb-6 flex items-center justify-between flex-wrap gap-4">
         <div className="flex items-center gap-3">
-          <span className="text-sm font-semibold text-gray-700">Modo Tarjeta{showTranslations && ' (بطاقات)'}:</span>
+          <span className="text-sm font-semibold text-gray-700">Modo Tarjeta:</span>
           <button
             onClick={() => setFlashcardMode(!flashcardMode)}
             className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
@@ -750,14 +728,9 @@ function UsefulSentencesSection() {
             />
           </button>
           <span className="text-sm text-gray-600">
-            {flashcardMode ? `Activado${showTranslations ? ' (مفعّل)' : ''}` : `Desactivado${showTranslations ? ' (معطّل)' : ''}`}
+            {flashcardMode ? 'Activado' : 'Desactivado'}
           </span>
         </div>
-        {flashcardMode && showTranslations && (
-          <p className="text-xs text-gray-500" dir="rtl" style={{ fontFamily: 'var(--font-cairo), "Segoe UI", Tahoma, sans-serif' }}>
-            انقر على البطاقة أو مرر الماوس لإظهار الترجمة
-          </p>
-        )}
       </div>
 
       {/* Sentences Grid */}

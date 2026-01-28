@@ -64,19 +64,14 @@ export default function ClickableText({ text, difficultWords = [] }: ClickableTe
                 clearTimeout(longPressRef.current);
                 longPressRef.current = null;
                 // treat as click => open dictionary or hint
-                if (!soloSpanish && level === 'beginner') {
-                  setSelectedWord(wordInfo); // show Arabic faint
-                } else {
-                  // show Spanish simple definition if available
-                  try {
-                    const entry = (window as any).__getDictionaryEntry?.(wordInfo.word);
-                    if (entry && entry.summary) {
-                      setSelectedWord({ ...wordInfo, explanation: entry.summary });
-                      return;
-                    }
-                  } catch (e) {}
-                  setSelectedWord(wordInfo);
-                }
+                try {
+                  const entry = (window as any).__getDictionaryEntry?.(wordInfo.word);
+                  if (entry && entry.summary) {
+                    setSelectedWord({ ...wordInfo, explanation: entry.summary });
+                    return;
+                  }
+                } catch (e) {}
+                setSelectedWord(wordInfo);
               }
             }}
             className="underline decoration-dotted decoration-purple-400 hover:decoration-solid hover:bg-purple-50 hover:decoration-purple-600 transition-all cursor-help px-1 rounded"
@@ -101,15 +96,9 @@ export default function ClickableText({ text, difficultWords = [] }: ClickableTe
           title={selectedWord.word}
         >
           <div className="space-y-2">
-            <div>
-              <span className="font-semibold text-gray-700">Traducción: </span>
-              <span dir="rtl" style={{ fontFamily: 'var(--font-cairo)' }} className="text-base">
-                {selectedWord.translation}
-              </span>
-            </div>
             {selectedWord.explanation && (
               <div className="pt-2 border-t border-gray-200">
-                <span className="font-semibold text-gray-700">Explicación: </span>
+                <span className="font-semibold text-gray-700">Significado: </span>
                 <span>{selectedWord.explanation}</span>
               </div>
             )}

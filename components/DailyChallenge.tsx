@@ -5,13 +5,6 @@ import { Target, Trophy, CheckCircle } from 'lucide-react';
 import { getDailyChallenge, updateChallengeProgress, type DailyChallenge } from '@/lib/utils/dailyChallenge';
 import { addXP } from '@/lib/utils/progress';
 import { playSuccessSound } from '@/lib/utils/sounds';
-import { Cairo } from 'next/font/google';
-
-const cairo = Cairo({
-  variable: '--font-cairo',
-  subsets: ['arabic', 'latin'],
-  weight: ['400', '600', '700'],
-});
 
 export default function DailyChallenge() {
   const [challenge, setChallenge] = useState<DailyChallenge | null>(null);

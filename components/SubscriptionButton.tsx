@@ -65,9 +65,6 @@ export default function SubscriptionButton({
         <p className="text-gray-900 font-semibold">
           Todo el contenido es gratis actualmente
         </p>
-        <p className="text-sm text-gray-600 mt-1" dir="rtl" style={{ fontFamily: 'var(--font-cairo, inherit)' }}>
-          كل المحتوى مجاني الآن
-        </p>
       </div>
     );
   }

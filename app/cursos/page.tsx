@@ -19,13 +19,6 @@ import {
   Trophy, Target, Zap, Users, Sparkles, TrendingUp, BookMarked, Languages
 } from 'lucide-react';
 import Link from 'next/link';
-import { Cairo } from 'next/font/google';
-
-const cairo = Cairo({
-  variable: '--font-cairo',
-  subsets: ['arabic', 'latin'],
-  weight: ['400', '600', '700'],
-});
 
 export default function CursosPage() {
   const [selectedLevel, setSelectedLevel] = useState<'all' | 'beginner' | 'intermediate' | 'advanced'>('all');
@@ -81,7 +74,7 @@ export default function CursosPage() {
   };
 
   return (
-    <div className={`min-h-screen bg-slate-50 py-12 ${cairo.variable} font-sans`}>
+    <div className="min-h-screen bg-slate-50 py-12 font-sans">
       <div className="w-full max-w-7xl mx-auto px-4">
         
         {/* Hero Section */}
