@@ -83,7 +83,7 @@ export default function Navigation() {
             <div className="hidden md:flex flex-1 max-w-2xl mx-8">
               <button
                 onClick={() => setSearchOverlayOpen(true)}
-                className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 hover:border-slate-500 transition-all duration-200 text-left focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-slate-950"
+                className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-500 hover:bg-slate-800 hover:border-slate-300 transition-all duration-200 text-left focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-slate-950"
                 aria-label="Buscar"
               >
                 <Search className="w-5 h-5 text-slate-400 flex-shrink-0" aria-hidden="true" />

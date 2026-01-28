@@ -40,7 +40,7 @@ export default function Home() {
 						<div className="flex flex-col sm:flex-row gap-3 mb-4 justify-center md:justify-start">
 							<Link
 								href="/cursos"
-								className="group relative px-8 py-4 bg-gray-900 text-white font-bold rounded-lg shadow-sm hover:bg-gray-800 transition-all duration-200 flex items-center justify-center gap-2"
+								className="group relative px-8 py-4 bg-gray-900 text-white font-bold rounded-xl shadow-sm hover:bg-gray-800 transition-all duration-200 flex items-center justify-center gap-2"
 							>
 								<GraduationCap className="w-5 h-5 text-white" aria-hidden="true" />
 								<span>Empezar Gratis Ahora</span>
@@ -49,7 +49,7 @@ export default function Home() {
 
 							<Link
 								href="/juegos"
-								className="px-8 py-4 bg-white border-2 border-gray-900 text-gray-900 font-bold rounded-lg shadow-sm hover:bg-gray-50 transition-all duration-200 flex items-center justify-center gap-2"
+								className="px-8 py-4 bg-white border-2 border-gray-900 text-gray-900 font-bold rounded-xl shadow-sm hover:bg-gray-50 transition-all duration-200 flex items-center justify-center gap-2"
 							>
 								<Gamepad2 className="w-5 h-5 text-gray-900" aria-hidden="true" />
 								<span>Jugar Ahora</span>
@@ -57,7 +57,7 @@ export default function Home() {
 
 							<Link
 								href="/lectura"
-								className="px-8 py-4 bg-white/90 border border-gray-300 text-gray-900 font-semibold rounded-lg shadow-sm hover:bg-white transition-all duration-200 flex items-center justify-center gap-2"
+								className="px-8 py-4 bg-white border border-gray-400 text-gray-900 font-bold rounded-xl shadow-sm hover:bg-gray-50 transition-all duration-200 flex items-center justify-center gap-2"
 							>
 								<FileText className="w-5 h-5 text-gray-800" aria-hidden="true" />
 								<span>Lectura</span>
@@ -68,7 +68,7 @@ export default function Home() {
 						<div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
 						<Link
 							href="/gramatica"
-							className="group p-6 bg-gradient-to-br from-blue-100 to-blue-200 border border-blue-300 rounded-lg hover:shadow-md hover:from-blue-200 hover:to-blue-300 transition-all text-center"
+							className="group p-6 bg-gradient-to-br from-blue-100 to-blue-200 border border-blue-300 rounded-xl hover:shadow-md hover:from-blue-200 hover:to-blue-300 transition-all text-center"
 						>
 							<BookOpen className="w-8 h-8 text-blue-700 mb-3 mx-auto" aria-hidden="true" />
 							<div className="text-base font-semibold text-blue-950">Gramática</div>
@@ -76,7 +76,7 @@ export default function Home() {
 
 						<Link
 							href="/vocabulario"
-							className="group p-6 bg-gradient-to-br from-green-100 to-green-200 border border-green-300 rounded-lg hover:shadow-md hover:from-green-200 hover:to-green-300 transition-all text-center"
+							className="group p-6 bg-gradient-to-br from-green-100 to-green-200 border border-green-300 rounded-xl hover:shadow-md hover:from-green-200 hover:to-green-300 transition-all text-center"
 						>
 							<Languages className="w-8 h-8 text-green-700 mb-3 mx-auto" aria-hidden="true" />
 							<div className="text-base font-semibold text-green-950">Vocabulario</div>
@@ -84,7 +84,7 @@ export default function Home() {
 
 						<Link
 							href="/tramites"
-							className="group p-6 bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-300 rounded-lg hover:shadow-md hover:from-slate-200 hover:to-slate-300 transition-all text-center"
+							className="group p-6 bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-300 rounded-xl hover:shadow-md hover:from-slate-200 hover:to-slate-300 transition-all text-center"
 						>
 							<FileText className="w-8 h-8 text-slate-800 mb-3 mx-auto" aria-hidden="true" />
 							<div className="text-base font-semibold text-slate-950">Trámites en España</div>
@@ -92,7 +92,7 @@ export default function Home() {
 
 						<Link
 							href="/examenes-espanol-gratis"
-							className="group p-6 bg-gradient-to-br from-red-100 to-red-200 border border-red-300 rounded-lg hover:shadow-md hover:from-red-200 hover:to-red-300 transition-all text-center"
+							className="group p-6 bg-gradient-to-br from-red-100 to-red-200 border border-red-300 rounded-xl hover:shadow-md hover:from-red-200 hover:to-red-300 transition-all text-center"
 						>
 							<FileCheck className="w-8 h-8 text-red-700 mb-3 mx-auto" aria-hidden="true" />
 							<div className="text-base font-semibold text-red-950">Exámenes</div>
@@ -131,7 +131,7 @@ export default function Home() {
 
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 					<ModernCard 
-						icon={<Car className="w-8 h-8 text-white" aria-hidden="true" />}
+						icon={<Car className="w-8 h-8 text-blue-100" aria-hidden="true" />}
 						gradient="from-blue-600 via-indigo-600 to-blue-600"
 						title="Carnet de Conducir"
 						description="18 capítulos completos + Simulador oficial DGT"
@@ -141,7 +141,7 @@ export default function Home() {
 					/>
 					
 					<ModernCard 
-						icon={<Award className="w-8 h-8 text-white" aria-hidden="true" />}
+						icon={<Award className="w-8 h-8 text-blue-100" aria-hidden="true" />}
 						gradient="from-blue-500 via-purple-500 to-pink-500"
 						title="Nacionalidad Española"
 						description="Preparación completa para el examen CCSE oficial"
@@ -152,7 +152,7 @@ export default function Home() {
 					/>
 					
 					<ModernCard 
-						icon={<FileText className="w-8 h-8" />}
+						icon={<FileText className="w-8 h-8 text-emerald-50" aria-hidden="true" />}
 						gradient="from-green-500 via-emerald-500 to-teal-500"
 						title="Guías de Trámites"
 						description="Documentos, checklists y guías paso a paso"
@@ -198,7 +198,7 @@ export default function Home() {
 					<div className="grid md:grid-cols-3 gap-6">
 						<Link
 							href="/alfabeto"
-							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+							className="group bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all"
 						>
 							<div className="flex items-center gap-4 mb-4">
 								<div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-white">
@@ -219,7 +219,7 @@ export default function Home() {
 
 						<Link
 							href="/pronunciacion-espanol-guia"
-							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+							className="group bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all"
 						>
 							<div className="flex items-center gap-4 mb-4">
 								<div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white">
@@ -240,7 +240,7 @@ export default function Home() {
 
 						<Link
 							href="/conjugador-verbos"
-							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+							className="group bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all"
 						>
 							<div className="flex items-center gap-4 mb-4">
 								<div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center text-white">
@@ -261,7 +261,7 @@ export default function Home() {
 
 						<Link
 							href="/simulator"
-							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+							className="group bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all"
 						>
 							<div className="flex items-center gap-4 mb-4">
 								<div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center text-white">
@@ -282,7 +282,7 @@ export default function Home() {
 
 						<Link
 							href="/numeros"
-							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+							className="group bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all"
 						>
 							<div className="flex items-center gap-4 mb-4">
 								<div className="w-12 h-12 bg-amber-500 rounded-lg flex items-center justify-center text-white">
@@ -303,7 +303,7 @@ export default function Home() {
 
 						<Link
 							href="/frases-espanol-conversacion"
-							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+							className="group bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all"
 						>
 							<div className="flex items-center gap-4 mb-4">
 								<div className="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center text-white">
@@ -324,7 +324,7 @@ export default function Home() {
 
 						<Link
 							href="/ejercicios-espanol-interactivos"
-							className="group bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all"
+							className="group bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all"
 						>
 							<div className="flex items-center gap-4 mb-4">
 								<div className="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center text-white">
@@ -390,8 +390,8 @@ export default function Home() {
 						<div className="text-sm text-gray-700">Estudiantes de todo el mundo</div>
 					</div>
 					<div className="p-6 bg-gray-50 border border-gray-200 rounded-lg">
-						<div className="text-lg font-bold mb-2 text-gray-900">2026</div>
-						<div className="text-sm text-gray-700">Contenido actualizado</div>
+						<div className="text-lg font-bold mb-2 text-gray-900">99/100</div>
+						<div className="text-sm text-gray-700">Rendimiento optimizado</div>
 					</div>
 				</div>
 			</div>

@@ -39,7 +39,7 @@ export default function GameCard({
       type="button"
       onClick={onClick}
       className={cx(
-        'group text-left w-full bg-white rounded-2xl border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-200 p-5',
+        'group text-left w-full bg-white rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-200 px-5 py-6',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2',
         className
       )}
@@ -55,13 +55,13 @@ export default function GameCard({
         </div>
       )}
 
-      <div className="min-h-[64px]">
+      <div className="min-h-[72px]">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-lg font-extrabold text-slate-900 leading-tight">{title}</h3>
+          <h3 className="text-base md:text-lg font-extrabold text-slate-900 leading-tight">{title}</h3>
           <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-slate-500 flex-shrink-0 mt-1 transition-colors" aria-hidden="true" />
         </div>
         {description ? (
-          <p className="text-sm text-slate-600 mt-2 line-clamp-2">{description}</p>
+          <p className="text-sm md:text-base text-slate-600 mt-2">{description}</p>
         ) : null}
       </div>
 
