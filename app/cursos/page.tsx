@@ -52,16 +52,25 @@ export default function CursosPage() {
     const course = getCourseById(courseId);
     const lesson = course?.lessons.find(l => l.id === lessonId);
     if (lesson) {
-      const routes: Record<string, string> = {
-        alfabeto: '/alfabeto',
-        numeros: '/numeros',
-        lectura: '/lectura',
-        gramatica: '/gramatica',
-        vocabulario: '/vocabulario',
-        juegos: '/juegos',
-        nacionalidad: '/nacionalidad',
+      // Special handling for driving lessons
+      if (courseId === 'carnet-1' && lesson.contentId.startsWith('driving-')) {
+        router.push(`/driving-license#${lesson.contentId}`);
+        return;
+      }
+      
+      const routes: Record<string, (contentId: string) => string> = {
+        gramatica: (id) => `/gramatica/${id}`,
+        nacionalidad: (id) => `/nacionalidad#${id}`,
+        lectura: (id) => `/lectura#${id}`,
+        vocabulario: () => '/vocabulario',
+        juegos: () => '/juegos',
+        alfabeto: () => '/alfabeto',
+        numeros: () => '/numeros',
       };
-      router.push(routes[lesson.type] || '/');
+      const routeBuilder = routes[lesson.type];
+      if (routeBuilder) {
+        router.push(routeBuilder(lesson.contentId));
+      }
     }
   };
 
