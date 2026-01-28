@@ -4,6 +4,8 @@ import { cx } from './classNames';
 
 type Accent = 'purple' | 'blue' | 'green' | 'amber' | 'rose' | 'slate';
 
+export type GameCardAccent = Accent;
+
 const accentMap: Record<Accent, { bg: string; ring: string }> = {
   purple: { bg: 'bg-gradient-to-br from-purple-600 to-blue-600', ring: 'group-hover:ring-purple-200' },
   blue: { bg: 'bg-gradient-to-br from-blue-600 to-cyan-600', ring: 'group-hover:ring-blue-200' },
@@ -33,6 +35,22 @@ export default function GameCard({
   className?: string;
 }) {
   const acc = accentMap[accent];
+  const normalizedIcon = (() => {
+    if (!icon) return null;
+    if (typeof icon === 'string' || typeof icon === 'number') {
+      return <span className="text-[22px] leading-none text-white">{icon}</span>;
+    }
+    if (React.isValidElement(icon)) {
+      type IconProps = { className?: string; 'aria-hidden'?: boolean };
+      const el = icon as React.ReactElement<IconProps>;
+      const prev = el.props.className ?? '';
+      return React.cloneElement<IconProps>(el, {
+        className: cx('w-7 h-7 text-white', prev),
+        'aria-hidden': el.props['aria-hidden'] ?? true,
+      });
+    }
+    return null;
+  })();
 
   return (
     <button
@@ -45,13 +63,24 @@ export default function GameCard({
       )}
     >
       {imageUrl ? (
-        <div className="w-full h-28 rounded-xl overflow-hidden border border-slate-200 mb-4 bg-slate-50">
+        <div className="relative w-full h-28 rounded-xl overflow-hidden border border-slate-200 mb-4 bg-slate-50">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={imageUrl} alt={title} className="w-full h-full object-cover" />
+          {normalizedIcon ? (
+            <div
+              className={cx(
+                'absolute left-3 top-3 inline-flex items-center justify-center w-10 h-10 rounded-xl ring-4 ring-white/70 shadow-sm',
+                acc.bg
+              )}
+              aria-hidden="true"
+            >
+              {normalizedIcon}
+            </div>
+          ) : null}
         </div>
       ) : (
         <div className={cx('inline-flex items-center justify-center w-14 h-14 rounded-2xl ring-4 ring-transparent mb-4', acc.bg, acc.ring)}>
-          <span className="text-2xl text-white">{icon}</span>
+          {normalizedIcon}
         </div>
       )}
 

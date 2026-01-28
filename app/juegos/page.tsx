@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { games, getGameById } from '@/lib/data/games';
-import { CheckCircle, XCircle, Trophy, RotateCcw, Gamepad2, BookOpen, Grid3x3, ArrowLeft } from 'lucide-react';
+import { CheckCircle, XCircle, Trophy, RotateCcw, Gamepad2, BookOpen, Grid3x3, ArrowLeft, Puzzle, CheckSquare, PenLine, ListOrdered, Zap, Swords, Route } from 'lucide-react';
 import GameResultModal from '@/components/GameResultModal';
 import GameRenderer from '@/components/games/GameRenderer';
 import dynamic from 'next/dynamic';
@@ -14,6 +14,7 @@ import type { GameQuestion, LibraryEntry } from '@/lib/types';
 import GameTabs from '@/components/games/ui/GameTabs';
 import GameButton from '@/components/games/ui/GameButton';
 import GameCard from '@/components/games/ui/GameCard';
+import type { GameCardAccent } from '@/components/games/ui/GameCard';
 import GameShell from '@/components/games/ui/GameShell';
 import NounAgreementGame from '@/components/games/NounAgreementGame';
 
@@ -61,17 +62,25 @@ function JuegosContent() {
     return false;
   };
 
-  const sanitizeQuestions = (qs: any[]): any[] => {
+  type QuestionLike = {
+    question?: unknown;
+    options?: unknown;
+    correctAnswer?: unknown;
+    explanation?: unknown;
+  };
+
+  const sanitizeQuestions = (qs: unknown[]): GameQuestion[] => {
     if (!Array.isArray(qs)) return [];
-    return qs.filter((q) => {
-      if (!q) return false;
-      return !(
-        hasArabic(q.question) ||
-        hasArabic(q.options) ||
-        hasArabic(q.correctAnswer) ||
-        hasArabic(q.explanation)
-      );
-    });
+    return (qs as QuestionLike[])
+      .filter((q): q is QuestionLike => Boolean(q))
+      .filter((q) => {
+        return !(
+          hasArabic(q.question) ||
+          hasArabic(q.options) ||
+          hasArabic(q.correctAnswer) ||
+          hasArabic(q.explanation)
+        );
+      }) as GameQuestion[];
   };
 
   const fetchOrderOrMcq = async (gameId: string, level: number) => {
@@ -191,12 +200,9 @@ function JuegosContent() {
         setScore(prevScore => prevScore + currentQuestion.points);
         
         // Update daily challenge progress for games (only on correct answer)
-        try {
-          const { updateChallengeProgress } = require('@/lib/utils/dailyChallenge');
-          updateChallengeProgress('play-games', 1);
-        } catch (e) {
-          // Ignore if module not available
-        }
+        import('@/lib/utils/dailyChallenge')
+          .then(({ updateChallengeProgress }) => updateChallengeProgress('play-games', 1))
+          .catch(() => {});
       }
     }
   };
@@ -240,7 +246,7 @@ function JuegosContent() {
         (async () => {
           try {
             await fetch('/api/progress/save', { method: 'POST', body: JSON.stringify({ gameId: game.id, score, level: currentLevel }), headers: { 'content-type': 'application/json' } });
-          } catch (e) {}
+          } catch {}
         })();
       }
     }
@@ -276,12 +282,21 @@ function JuegosContent() {
     }
   };
 
-  // Define gradient colors for each game
-  const gameGradients: Record<string, string> = {
-    'multiple-choice': 'from-green-500 to-emerald-500',
-    'fill-blank': 'from-purple-500 to-pink-500',
-    'order': 'from-blue-600 to-indigo-600',
-    'word-race': 'from-blue-600 to-indigo-600',
+  const gameIconById: Record<string, React.ReactNode> = {
+    'noun-agreement': <Puzzle aria-hidden="true" />,
+    'multiple-choice': <CheckSquare aria-hidden="true" />,
+    'fill-blank': <PenLine aria-hidden="true" />,
+    'order': <ListOrdered aria-hidden="true" />,
+    'word-race': <Zap aria-hidden="true" />,
+    'quick-quiz-verbos': <Zap aria-hidden="true" />,
+  };
+
+  const libraryIconById: Record<string, React.ReactNode> = {
+    'quick-quiz-verbos': <CheckSquare aria-hidden="true" />,
+    'sample-wordrace-1': <Zap aria-hidden="true" />,
+    'laberinto-decisiones': <Route aria-hidden="true" />,
+    'desafio-multifase': <Swords aria-hidden="true" />,
+    'genero-y-numero': <Puzzle aria-hidden="true" />,
   };
 
   return (
@@ -341,7 +356,7 @@ function JuegosContent() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                 {games.map((gameItem) => {
-                  const accent =
+                  const accent: GameCardAccent =
                     gameItem.id === 'multiple-choice'
                         ? 'green'
                         : gameItem.id === 'fill-blank'
@@ -356,8 +371,8 @@ function JuegosContent() {
                       key={gameItem.id}
                       title={gameItem.name}
                       description={gameItem.description}
-                      icon={gameItem.icon}
-                      accent={accent as any}
+                      icon={gameIconById[gameItem.id] ?? <Gamepad2 aria-hidden="true" />}
+                      accent={accent}
                       onClick={() => handleStartGame(gameItem.id)}
                       meta={
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-100 rounded-full">
@@ -400,6 +415,7 @@ function JuegosContent() {
                       description={g.excerpt}
                       imageUrl={g.image}
                       accent="purple"
+                      icon={libraryIconById[g.id] ?? <BookOpen aria-hidden="true" />}
                       meta={
                         g.level ? (
                           <span
