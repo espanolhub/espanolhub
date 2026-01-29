@@ -28,6 +28,7 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
   const [options, setOptions] = useState<string[]>([]);
   const [highScore, setHighScoreState] = useState(0);
   const [gameOverKey, setGameOverKey] = useState(0);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
   const [questionKey, setQuestionKey] = useState(0);
   const [showSubmit, setShowSubmit] = useState(false);
   const [submitName, setSubmitName] = useState('');
@@ -101,8 +102,14 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
   const handleAnswer = (answer: string) => {
     if (showResult) return;
     
-    const correct = words[currentIndex].category || 'general';
-    const correctAnswer = answer === correct;
+    const correctAnswer = answer === words[currentIndex].spanish;
+    
+    // Store user answer for results
+    setUserAnswers(prev => {
+      const newAnswers = [...prev];
+      newAnswers[currentIndex] = answer;
+      return newAnswers;
+    });
     
     setSelectedAnswer(answer);
     setIsCorrect(correctAnswer);
@@ -127,6 +134,14 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
   const handleTimeOut = () => {
     setShowResult(true);
     setIsCorrect(false);
+    
+    // Store empty answer for results
+    setUserAnswers(prev => {
+      const newAnswers = [...prev];
+      newAnswers[currentIndex] = '';
+      return newAnswers;
+    });
+    
     setTimeout(() => {
       endGame();
     }, 1500);
@@ -159,7 +174,7 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
       setShowSubmit(false);
     } catch (e) {
       console.error('failed to post score', e);
-      alert('Error al guardar la puntuación');
+      alert('Failed to save score');
     } finally {
       setSubmittingScore(false);
     }
@@ -169,6 +184,12 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
   const progress = ((currentIndex + 1) / words.length) * 100;
 
   if (gameOver) {
+    const correctAnswers = words.filter((word, index) => 
+      userAnswers[index] === word.spanish
+    ).length;
+    const incorrectAnswers = words.length - correctAnswers;
+    const accuracy = Math.round((correctAnswers / words.length) * 100);
+
     return (
       <GameShell className="max-w-5xl mx-auto">
         <div key={gameOverKey} className="text-center word-race-fade-in">
@@ -179,6 +200,75 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
         <div className="text-6xl font-bold text-blue-600 mb-4">{score}</div>
         <div className="text-xl text-gray-600 mb-6">
           Mejor resultado: <span className="font-bold text-yellow-600">{highScore}</span>
+        </div>
+
+        {/* Detailed Results Section */}
+        <div className="bg-white rounded-xl border border-gray-200 shadow-lg p-6 mb-6">
+          <h3 className="text-2xl font-bold text-gray-800 mb-4">📊 Resultados Detallados</h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+              <div className="text-green-600 text-3xl font-bold">{correctAnswers}</div>
+              <div className="text-green-700 text-sm">Correctas</div>
+            </div>
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+              <div className="text-red-600 text-3xl font-bold">{incorrectAnswers}</div>
+              <div className="text-red-700 text-sm">Incorrectas</div>
+            </div>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="text-blue-600 text-3xl font-bold">{accuracy}%</div>
+              <div className="text-blue-700 text-sm">Precisión</div>
+            </div>
+          </div>
+
+          {/* Incorrect Answers Review */}
+          {incorrectAnswers > 0 && (
+            <div className="mb-6">
+              <h4 className="text-lg font-semibold text-red-600 mb-3">❌ Revisa tus errores:</h4>
+              <div className="space-y-2 max-h-60 overflow-y-auto">
+                {words.map((word, index) => {
+                  const userAnswer = userAnswers[index];
+                  const isCorrect = userAnswer === word.spanish;
+                  
+                  if (!isCorrect) {
+                    return (
+                      <div key={index} className="bg-red-50 border border-red-200 rounded-lg p-3 text-left">
+                        <div className="flex justify-between items-center">
+                          <div>
+                            <span className="font-semibold text-gray-700">Árabe: {word.arabic}</span>
+                            <div className="text-sm text-gray-600">Tu respuesta: <span className="text-red-600 font-medium">{userAnswer || 'Sin respuesta'}</span></div>
+                            <div className="text-sm text-green-600 font-medium">Correcto: {word.spanish}</div>
+                          </div>
+                          <div className="text-2xl">
+                            {isCorrect ? '✅' : '❌'}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return null;
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Learning Tips */}
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <h4 className="text-lg font-semibold text-blue-700 mb-2">💡 Consejos de aprendizaje:</h4>
+            <ul className="text-sm text-blue-600 space-y-1">
+              {accuracy >= 80 && (
+                <li>• ¡Excelente trabajo! Sigue practicando para mantener tu nivel.</li>
+              )}
+              {accuracy >= 60 && accuracy < 80 && (
+                <li>• Buen progreso. Enfócate en las palabras que te costaron más.</li>
+              )}
+              {accuracy < 60 && (
+                <li>• Sigue practicando. La repetición es clave para aprender vocabulario.</li>
+              )}
+              <li>• Revisa las palabras incorrectas y practícalas varias veces.</li>
+              <li>• Intenta asociar las palabras con imágenes o situaciones.</li>
+            </ul>
+          </div>
         </div>
         <div className="flex gap-4 justify-center">
           <div className="flex flex-col gap-3">

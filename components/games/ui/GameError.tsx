@@ -30,26 +30,26 @@ export default function GameError({
   const getErrorTitle = () => {
     switch (type) {
       case 'network':
-        return 'مشكلة في الاتصال';
+        return 'Connection Error';
       case 'server':
-        return 'مشكلة في الخادم';
+        return 'Server Error';
       case 'loading':
-        return 'مشكلة في التحميل';
+        return 'Loading Error';
       default:
-        return 'حدث خطأ غير متوقع';
+        return 'Unexpected Error';
     }
   };
 
   const getErrorMessage = () => {
     switch (type) {
       case 'network':
-        return 'لا يمكن الاتصال بالخادم. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.';
+        return 'Cannot connect to server. Please check your internet connection and try again.';
       case 'server':
-        return 'الخادم يواجه مشكلة حالياً. يرجى المحاولة بعد قليل.';
+        return 'Server is currently experiencing issues. Please try again in a moment.';
       case 'loading':
-        return 'فشل تحميل بيانات اللعبة. يرجى تحديث الصفحة والمحاولة مرة أخرى.';
+        return 'Failed to load game data. Please refresh the page and try again.';
       default:
-        return error || 'حدث خطأ غير متوقع في اللعبة. يرجى المحاولة مرة أخرى.';
+        return error || 'An unexpected error occurred in the game. Please try again.';
     }
   };
 

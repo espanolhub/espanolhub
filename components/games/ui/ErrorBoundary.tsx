@@ -45,19 +45,19 @@ export class GameErrorBoundary extends Component<Props, State> {
             </div>
             
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
-              حدث خطأ في اللعبة
+              Game Error
             </h2>
             
             <p className="text-gray-600 mb-6">
-              عذراً، حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.
+              Sorry, an unexpected error occurred. Please try again.
             </p>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
               <p className="text-sm text-gray-600 mb-2">
-                تفاصيل الخطأ:
+                Error Details:
               </p>
               <p className="text-xs text-gray-500 font-mono">
-                {this.state.error?.message || 'خطأ غير معروف'}
+                {this.state.error?.message || 'Unknown error'}
               </p>
             </div>
 
@@ -67,14 +67,14 @@ export class GameErrorBoundary extends Component<Props, State> {
                 className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
                 <RefreshCw className="w-4 h-4" />
-                إعادة المحاولة
+                Retry
               </button>
               
               <button
                 onClick={() => window.location.href = '/juegos'}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
               >
-                العودة للألعاب
+                Back to Games
               </button>
             </div>
           </div>
