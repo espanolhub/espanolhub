@@ -151,14 +151,32 @@ export default function NounAgreementGame({
       const correct = card.gender === target;
       if (correct) {
         onCorrect(10);
+        // Add visual feedback for correct placement
+        const cardElement = document.querySelector(`[data-card-uid="${uid}"]`);
+        if (cardElement) {
+          cardElement.classList.add('animate-pulse', 'ring-2', 'ring-green-400');
+        }
       } else {
         onFail();
+        // Add visual feedback for incorrect placement
+        const cardElement = document.querySelector(`[data-card-uid="${uid}"]`);
+        if (cardElement) {
+          cardElement.classList.add('animate-pulse', 'ring-2', 'ring-red-400');
+        }
       }
 
       if (target === 'masculino') setL1Mas((prev) => [...prev, uid]);
       else setL1Fem((prev) => [...prev, uid]);
 
       setSelectedCardUid(null);
+      
+      // Remove visual feedback after animation
+      setTimeout(() => {
+        const cardElement = document.querySelector(`[data-card-uid="${uid}"]`);
+        if (cardElement) {
+          cardElement.classList.remove('animate-pulse', 'ring-2', 'ring-green-400', 'ring-red-400');
+        }
+      }, 1000);
     },
     [l1Cards, l1Mas, l1Fem, onCorrect, onFail]
   );
@@ -570,7 +588,7 @@ export default function NounAgreementGame({
           {/* Cards */}
           <div className="lg:col-span-2 bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-6">
             <h3 className="text-slate-900 font-bold text-lg mb-4">Arrastra o selecciona</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {l1Cards.map((c) => {
                 const placed = isPlaced(c.uid);
                 const selected = selectedCardUid === c.uid;
@@ -585,11 +603,13 @@ export default function NounAgreementGame({
                       setSelectedCardUid((prev) => (prev === c.uid ? null : c.uid));
                     }}
                     className={[
-                      'select-none text-left rounded-xl border p-3 transition',
-                      placed ? 'opacity-40 cursor-not-allowed bg-slate-100' : 'hover:bg-white hover:shadow-sm',
-                      selected ? 'border-blue-500 bg-blue-50 shadow-md' : 'border-slate-200 bg-white',
+                      'select-none text-left rounded-xl border p-3 transition-all duration-300',
+                      'min-h-[80px]', // Ensure minimum height for touch
+                      placed ? 'opacity-40 cursor-not-allowed bg-slate-100' : 'hover:bg-white hover:shadow-md hover:scale-105',
+                      selected ? 'border-blue-500 bg-blue-50 shadow-md ring-2 ring-blue-300' : 'border-slate-200 bg-white',
                     ].join(' ')}
                     aria-label={`Sustantivo: ${c.noun}`}
+                    data-card-uid={c.uid}
                   >
                     <div className="text-slate-900 font-bold text-base">{titleCase(c.noun)}</div>
                     {c.hint ? <div className="text-xs text-slate-500 mt-1">{c.hint}</div> : null}
@@ -616,7 +636,7 @@ export default function NounAgreementGame({
                       if (selectedCardUid) placeCard(selectedCardUid, 'masculino');
                     }}
                     variant="secondary"
-                    className="bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-700"
+                    className="bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-700 min-h-[44px]" // iOS touch target
                   >
                     Colocar
                   </GameButton>
@@ -650,14 +670,14 @@ export default function NounAgreementGame({
                       if (selectedCardUid) placeCard(selectedCardUid, 'femenino');
                     }}
                     variant="secondary"
-                    className="bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-700"
+                    className="bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-700 min-h-[44px]" // iOS touch target
                   >
                     Colocar
                   </GameButton>
                 </div>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {l1Fem.slice(0, 12).map((uid) => {
-                    const c = l1Cards.find((x) => x.uid === uid);
+                    const c = l1Fem.find((x) => x.uid === uid);
                     return (
                       <span key={uid} className="px-2 py-1 rounded-full text-xs bg-slate-800 text-slate-200 border border-slate-700">
                         {c ? titleCase(c.noun) : '—'}
@@ -674,7 +694,7 @@ export default function NounAgreementGame({
             </div>
 
             <div className="mt-5 text-xs text-slate-400">
-              Tip: si fallas, el combo se reinicia.
+              <p>Tip: si fallas, el combo se reinicia.</p>
             </div>
           </div>
         </div>

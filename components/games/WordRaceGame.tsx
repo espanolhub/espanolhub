@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Trophy, Clock, RotateCcw, CheckCircle, XCircle } from 'lucide-react';
 import { getRandomWordPairs, WordPair } from '@/lib/services/geminiService';
 import { getHighScore, setHighScore } from '@/lib/utils/highScore';
+import { cachedFetch } from '@/lib/utils/cache';
 import GameShell from '@/components/games/ui/GameShell';
 import GameButton from '@/components/games/ui/GameButton';
 
@@ -109,6 +110,9 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
     
     if (correctAnswer) {
       setScore(score + 10);
+      // Add bonus points for quick answers
+      const timeBonus = Math.max(0, Math.floor(timeLeft * 2));
+      setScore(prev => prev + timeBonus);
     }
     
     setTimeout(() => {
@@ -146,11 +150,12 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
   const submitScore = async (name?: string) => {
     try {
       setSubmittingScore(true);
-      await fetch('/api/games/leaderboard', {
+      const response = await cachedFetch('/api/games/leaderboard', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ gameId: gameId || GAME_ID, score, name: name || submitName || null }),
-      });
+      }, 5); // cache for 5 minutes
+      const data = await response.json();
       setShowSubmit(false);
     } catch (e) {
       console.error('failed to post score', e);
@@ -256,9 +261,14 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
       {/* Question */}
       {currentWord && (
         <div key={questionKey} className="mb-8 word-race-slide-in">
-          <div className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl p-8 text-center mb-6">
+          <div className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl p-8 text-center mb-6 shadow-lg">
             <h3 className="text-5xl font-bold text-white mb-4">{currentWord.spanish}</h3>
-            <p className="text-white text-lg">¿A qué categoría pertenece?</p>
+            <p className="text-white text-lg mb-2">¿A qué categoría pertenece?</p>
+            {timeLeft > 3 && (
+              <div className="text-white/80 text-sm">
+                ¡Responde rápido para obtener puntos extra!
+              </div>
+            )}
           </div>
 
           {/* Options */}
@@ -274,26 +284,50 @@ export default function WordRaceGame({ onBack, gameId, rounds, timePerQuestion, 
                   key={option}
                   onClick={() => handleAnswer(option)}
                   disabled={showResult}
-                  className={`p-6 rounded-xl font-semibold text-lg transition-all word-race-fade-up hover:scale-105 active:scale-95 ${
+                  className={`p-6 rounded-xl font-semibold text-lg transition-all word-race-fade-up hover:scale-105 active:scale-95 relative overflow-hidden ${
                     showCorrect
-                      ? 'bg-green-500 text-white'
+                      ? 'bg-green-500 text-white shadow-lg'
                       : showIncorrect
-                      ? 'bg-red-500 text-white'
+                      ? 'bg-red-500 text-white shadow-lg'
                       : isSelected
-                      ? 'bg-blue-500 text-white'
-                      : 'bg-white text-slate-900 border-2 border-slate-300 hover:border-blue-500'
+                      ? 'bg-blue-500 text-white shadow-md'
+                      : 'bg-white text-slate-900 border-2 border-slate-300 hover:border-blue-500 hover:shadow-md'
                   }`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="flex items-center justify-between">
+                  {/* Background animation for correct/incorrect */}
+                  {(showCorrect || showIncorrect) && (
+                    <div className={`absolute inset-0 animate-pulse ${
+                      showCorrect ? 'bg-green-400' : 'bg-red-400'
+                    } opacity-30`} />
+                  )}
+                  
+                  <div className="flex items-center justify-between relative z-10">
                     <span>{option}</span>
-                    {showCorrect && <CheckCircle className="w-6 h-6" />}
+                    {showCorrect && (
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-6 h-6" />
+                        {timeLeft > 3 && (
+                          <span className="text-sm">+{Math.floor(timeLeft * 2)} pts</span>
+                        )}
+                      </div>
+                    )}
                     {showIncorrect && <XCircle className="w-6 h-6" />}
                   </div>
                 </button>
               );
             })}
           </div>
+          
+          {/* Score indicator for correct answers */}
+          {showResult && isCorrect && (
+            <div className="mt-4 text-center animate-bounce">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full font-semibold">
+                <Trophy className="w-5 h-5" />
+                +10{timeLeft > 3 ? ` +${Math.floor(timeLeft * 2)} rápido` : ''} puntos
+              </div>
+            </div>
+          )}
         </div>
       )}
     </GameShell>

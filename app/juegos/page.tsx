@@ -3,21 +3,29 @@
 import { useState, useEffect, useMemo, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { games, getGameById } from '@/lib/data/games';
-import { CheckCircle, XCircle, Trophy, RotateCcw, Gamepad2, BookOpen, Grid3x3, ArrowLeft, Puzzle, CheckSquare, PenLine, ListOrdered, Zap, Swords, Route } from 'lucide-react';
+import { CheckCircle, XCircle, Trophy, RotateCcw, Gamepad2, BookOpen, Grid3x3, ArrowLeft, Puzzle, CheckSquare, PenLine, ListOrdered, Zap, Swords, Route, Volume2 } from 'lucide-react';
 import GameResultModal from '@/components/GameResultModal';
 import GameRenderer from '@/components/games/GameRenderer';
 import dynamic from 'next/dynamic';
 const WordRaceGame = dynamic(() => import('@/components/games/WordRaceGame'), { ssr: false });
 import { addXP, unlockAchievement, updateStats, getUserProgress } from '@/lib/utils/progress';
 import { getRandomQuestions } from '@/lib/utils/gameUtils';
+import { cachedFetch, gameCache } from '@/lib/utils/cache';
 import type { GameQuestion, LibraryEntry } from '@/lib/types';
-import GameTabs from '@/components/games/ui/GameTabs';
+import GameShell from '@/components/games/ui/GameShell';
 import GameButton from '@/components/games/ui/GameButton';
 import GameCard from '@/components/games/ui/GameCard';
 import type { GameCardAccent } from '@/components/games/ui/GameCard';
 import { cx } from '@/components/games/ui/classNames';
-import GameShell from '@/components/games/ui/GameShell';
+import { GameErrorBoundary } from '@/components/games/ui/ErrorBoundary';
+import GameError from '@/components/games/ui/GameError';
+import GameTabs from '@/components/games/ui/GameTabs';
 import NounAgreementGame from '@/components/games/NounAgreementGame';
+import VocabularyMatchGame from '@/components/games/VocabularyMatchGame';
+import GrammarQuizGame from '@/components/games/GrammarQuizGame';
+import PronunciationGame from '@/components/games/PronunciationGame';
+import VerbConjugationGame from '@/components/games/VerbConjugationGame';
+import MemoryCardGame from '@/components/games/MemoryCardGame';
 
 type TabType = 'principales' | 'biblioteca' | 'todos';
 
@@ -40,6 +48,7 @@ function JuegosContent() {
   const [levelSelectActive, setLevelSelectActive] = useState(false);
   const [showLevelUp, setShowLevelUp] = useState(false);
   const [levelUpTo, setLevelUpTo] = useState(0);
+  const [gameError, setGameError] = useState<{ type: 'network' | 'server' | 'general' | 'loading'; message?: string } | null>(null);
   const urlGameInitialized = useRef(false);
 
   const baseGame = selectedGame ? getGameById(selectedGame) : null;
@@ -86,10 +95,16 @@ function JuegosContent() {
 
   const fetchOrderOrMcq = async (gameId: string, level: number) => {
     const apiPath = gameId === 'order' ? '/api/games/order' : '/api/games/multiple-choice';
-    const res = await fetch(`${apiPath}?level=${level}`);
-    if (!res.ok) return [];
-    const data = await res.json();
-    return data.questions ?? [];
+    const url = `${apiPath}?level=${level}`;
+    
+    try {
+      const response = await cachedFetch(url, {}, 15); // cache for 15 minutes
+      const data = await response.json();
+      return data.questions ?? [];
+    } catch (error) {
+      console.error('Error fetching game data:', error);
+      return [];
+    }
   };
 
   const handleStartGame = async (gameId: string, chosenLevel?: number) => {
@@ -116,6 +131,10 @@ function JuegosContent() {
           setCurrentLevel(chosenLevel);
         } catch (e) {
           console.error('Error loading game:', e);
+          setGameError({ 
+            type: 'server', 
+            message: 'فشل تحميل بيانات اللعبة. يرجى المحاولة مرة أخرى.' 
+          });
           setSelectedQuestions([]);
         } finally {
           setLevelLoading(false);
@@ -129,14 +148,16 @@ function JuegosContent() {
 
     if (gameId === 'fill-blank') {
       try {
-        const res = await fetch('/api/games/fill-blank?level=1');
-        if (res.ok) {
-          const data = await res.json();
-          const qs = sanitizeQuestions((data.questions ?? []).slice(0, 21));
-          setSelectedQuestions(qs);
-        } else setSelectedQuestions([]);
+        const response = await cachedFetch('/api/games/fill-blank?level=1', {}, 20); // cache for 20 minutes
+        const data = await response.json();
+        const qs = sanitizeQuestions((data.questions ?? []).slice(0, 21));
+        setSelectedQuestions(qs);
       } catch (e) {
         console.error('Error loading fill-blank game:', e);
+        setGameError({ 
+          type: 'server', 
+          message: 'فشل تحميل لعبة ملء الفراغ. يرجى المحاولة مرة أخرى.' 
+        });
         setSelectedQuestions([]);
       }
       return;
@@ -163,9 +184,8 @@ function JuegosContent() {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch('/api/library/juegos/grouped');
-        if (!res.ok) return;
-        const data = await res.json();
+        const response = await cachedFetch('/api/library/juegos/grouped', {}, 30); // cache for 30 minutes
+        const data = await response.json();
         const list: LibraryEntry[] = [];
         Object.values(data).forEach((arr: unknown) => {
           if (Array.isArray(arr)) {
@@ -175,6 +195,10 @@ function JuegosContent() {
         if (mounted) setLibraryTitles(list);
       } catch (e) {
         console.error('Error loading library games:', e);
+        setGameError({ 
+          type: 'network', 
+          message: 'فشل تحميل مكتبة الألعاب. يرجى التحقق من اتصالك بالإنترنت.' 
+        });
       }
     })();
     return () => { mounted = false; };
@@ -267,6 +291,7 @@ function JuegosContent() {
     setLevelSelectActive(false);
     setShowLevelUp(false);
     setLevelUpTo(0);
+    setGameError(null); // Reset error state
   };
 
   const handleLevelUpContinue = async () => {
@@ -281,6 +306,10 @@ function JuegosContent() {
       setLevelUpTo(0);
     } catch (e) {
       console.error('Error loading next level:', e);
+      setGameError({ 
+        type: 'server', 
+        message: 'فشل تحميل المستوى التالي. يرجى المحاولة مرة أخرى.' 
+      });
       setGameFinished(true);
     } finally {
       setLevelLoading(false);
@@ -288,6 +317,11 @@ function JuegosContent() {
   };
 
   const gameIconById: Record<string, React.ReactNode> = {
+    'vocabulary-match': <Puzzle aria-hidden="true" />,
+    'grammar-quiz': <BookOpen aria-hidden="true" />,
+    'pronunciation-practice': <Volume2 className="w-5 h-5" aria-hidden="true" />,
+    'verb-conjugation': <PenLine aria-hidden="true" />,
+    'memory-cards': <Grid3x3 aria-hidden="true" />,
     'noun-agreement': <Puzzle aria-hidden="true" />,
     'multiple-choice': <CheckSquare aria-hidden="true" />,
     'fill-blank': <PenLine aria-hidden="true" />,
@@ -305,32 +339,55 @@ function JuegosContent() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full mb-4 border border-blue-200">
-            <Gamepad2 className="w-5 h-5 text-blue-600" aria-hidden="true" />
-            <span className="text-sm font-bold text-slate-900">Aprende Jugando</span>
-          </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
-            Juegos Educativos
-          </h1>
-          <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
-            Aprende divirtiéndote con juegos educativos interactivos y desafiantes
-          </p>
-        </div>
+    <GameErrorBoundary>
+      <div className="min-h-screen bg-white">
+        <div className="container mx-auto px-4 py-8">
+          {gameError ? (
+            <GameError
+              error={gameError.message}
+              type={gameError.type}
+              onRetry={() => {
+                setGameError(null);
+                if (selectedGame) {
+                  handleStartGame(selectedGame);
+                }
+              }}
+              onBack={handleReset}
+            />
+          ) : selectedEntry ? (
+            <GameShell className="max-w-4xl mx-auto">
+              <GameButton onClick={() => setSelectedEntry(null)} className="mb-6" variant="secondary">
+                <ArrowLeft className="w-5 h-5 text-gray-900" aria-hidden="true" />
+                Volver a Juegos
+              </GameButton>
+              {/* render playable library entry */}
+              <GameRenderer entry={selectedEntry} />
+            </GameShell>
+          ) : !selectedGame ? (
+            <>
+              {/* Cache Controls - for development/debugging */}
+              {process.env.NODE_ENV === 'development' && (
+                <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                  <div className="flex items-center justify-center gap-4 text-sm">
+                    <span className="text-yellow-800">
+                      Cache: {gameCache.size()} items
+                    </span>
+                    <button
+                      onClick={() => gameCache.debug()}
+                      className="px-3 py-1 bg-yellow-200 text-yellow-800 rounded hover:bg-yellow-300"
+                    >
+                      Debug
+                    </button>
+                    <button
+                      onClick={() => gameCache.clear()}
+                      className="px-3 py-1 bg-red-200 text-red-800 rounded hover:bg-red-300"
+                    >
+                      Clear Cache
+                    </button>
+                  </div>
+                </div>
+              )}
 
-        {selectedEntry ? (
-          <GameShell className="max-w-4xl mx-auto">
-            <GameButton onClick={() => setSelectedEntry(null)} className="mb-6" variant="secondary">
-              <ArrowLeft className="w-5 h-5 text-gray-900" aria-hidden="true" />
-              Volver a Juegos
-            </GameButton>
-            {/* render playable library entry */}
-            <GameRenderer entry={selectedEntry} />
-          </GameShell>
-        ) : !selectedGame ? (
-          <>
             <GameTabs<TabType>
               value={activeTab}
               onChange={setActiveTab}
@@ -366,19 +423,29 @@ function JuegosContent() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
                 {games.map((gameItem) => {
                   const accent: GameCardAccent =
-                    gameItem.id === 'multiple-choice'
-                        ? 'green'
-                        : gameItem.id === 'fill-blank'
-                          ? 'blue'
-                          : gameItem.id === 'order'
-                            ? 'purple'
-                            : gameItem.id === 'word-race'
-                              ? 'orange'
-                              : gameItem.id === 'noun-agreement'
-                                ? 'pink'
-                                : gameItem.id === 'quick-quiz-verbos'
-                                  ? 'amber'
-                                  : 'slate';
+                    gameItem.id === 'vocabulary-match'
+                        ? 'blue'
+                        : gameItem.id === 'grammar-quiz'
+                          ? 'purple'
+                          : gameItem.id === 'pronunciation-practice'
+                            ? 'rose'
+                            : gameItem.id === 'verb-conjugation'
+                              ? 'green'
+                              : gameItem.id === 'memory-cards'
+                                ? 'amber'
+                                : gameItem.id === 'multiple-choice'
+                                  ? 'green'
+                                  : gameItem.id === 'fill-blank'
+                                    ? 'blue'
+                                    : gameItem.id === 'order'
+                                      ? 'purple'
+                                      : gameItem.id === 'word-race'
+                                        ? 'orange'
+                                        : gameItem.id === 'noun-agreement'
+                                          ? 'pink'
+                                          : gameItem.id === 'quick-quiz-verbos'
+                                            ? 'amber'
+                                            : 'slate';
                   return (
                     <GameCard
                       key={gameItem.id}
@@ -455,6 +522,68 @@ function JuegosContent() {
               </div>
             )}
           </>
+        ) : selectedGame === 'vocabulary-match' ? (
+          <GameShell className="max-w-4xl mx-auto">
+            <GameButton onClick={handleReset} className="mb-6" variant="secondary">
+              <ArrowLeft className="w-5 h-5 text-slate-900" aria-hidden="true" />
+              Volver a Juegos
+            </GameButton>
+            <VocabularyMatchGame 
+              onBack={handleReset} 
+              questions={game?.questions || []} 
+              title={game?.name || 'Vocabulary Match'} 
+            />
+          </GameShell>
+        ) : selectedGame === 'grammar-quiz' ? (
+          <GameShell className="max-w-4xl mx-auto">
+            <GameButton onClick={handleReset} className="mb-6" variant="secondary">
+              <ArrowLeft className="w-5 h-5 text-slate-900" aria-hidden="true" />
+              Volver a Juegos
+            </GameButton>
+            <GrammarQuizGame 
+              onBack={handleReset} 
+              questions={game?.questions || []} 
+              title={game?.name || 'Grammar Quiz'}
+              level="beginner" 
+            />
+          </GameShell>
+        ) : selectedGame === 'pronunciation-practice' ? (
+          <GameShell className="max-w-4xl mx-auto">
+            <GameButton onClick={handleReset} className="mb-6" variant="secondary">
+              <ArrowLeft className="w-5 h-5 text-slate-900" aria-hidden="true" />
+              Volver a Juegos
+            </GameButton>
+            <PronunciationGame 
+              onBack={handleReset} 
+              questions={game?.questions || []} 
+              title={game?.name || 'Pronunciation Practice'} 
+            />
+          </GameShell>
+        ) : selectedGame === 'verb-conjugation' ? (
+          <GameShell className="max-w-4xl mx-auto">
+            <GameButton onClick={handleReset} className="mb-6" variant="secondary">
+              <ArrowLeft className="w-5 h-5 text-slate-900" aria-hidden="true" />
+              Volver a Juegos
+            </GameButton>
+            <VerbConjugationGame 
+              onBack={handleReset} 
+              questions={game?.questions || []} 
+              title={game?.name || 'Verb Conjugation'}
+              tense="presente" 
+            />
+          </GameShell>
+        ) : selectedGame === 'memory-cards' ? (
+          <GameShell className="max-w-6xl mx-auto">
+            <GameButton onClick={handleReset} className="mb-6" variant="secondary">
+              <ArrowLeft className="w-5 h-5 text-slate-900" aria-hidden="true" />
+              Volver a Juegos
+            </GameButton>
+            <MemoryCardGame 
+              onBack={handleReset} 
+              questions={game?.questions || []} 
+              title={game?.name || 'Memory Cards'} 
+            />
+          </GameShell>
         ) : selectedGame === 'noun-agreement' ? (
           <GameShell className="max-w-5xl mx-auto">
             <GameButton onClick={handleReset} className="mb-6" variant="secondary">
@@ -567,20 +696,33 @@ function JuegosContent() {
                             key={index}
                             onClick={() => !showResult && handleAnswer(option)}
                             disabled={showResult}
-                            className={`w-full text-left px-6 py-4 rounded-lg border-2 transition-all ${
+                            className={`w-full text-left px-6 py-4 rounded-lg border-2 transition-all transform hover:scale-[1.02] active:scale-[0.98] ${
                               showCorrect
-                                ? 'border-green-500 bg-green-50'
+                                ? 'border-green-500 bg-green-50 shadow-lg'
                                 : showIncorrect
-                                ? 'border-red-500 bg-red-50'
+                                ? 'border-red-500 bg-red-50 shadow-lg'
                                 : isSelected
-                                ? 'border-pink-500 bg-pink-50'
-                                : 'border-gray-200 bg-white hover:border-pink-300'
+                                ? 'border-pink-500 bg-pink-50 shadow-md'
+                                : 'border-gray-200 bg-white hover:border-pink-300 hover:shadow-md'
                             }`}
                           >
                             <div className="flex items-center justify-between">
-                              <span className="text-lg">{option}</span>
-                              {showCorrect && <CheckCircle className="w-6 h-6 text-green-600" aria-hidden="true" />}
-                              {showIncorrect && <XCircle className="w-6 h-6 text-red-600" aria-hidden="true" />}
+                              <div className="flex items-center gap-3">
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
+                                  showCorrect
+                                    ? 'bg-green-500 text-white'
+                                    : showIncorrect
+                                    ? 'bg-red-500 text-white'
+                                    : isSelected
+                                    ? 'bg-pink-500 text-white'
+                                    : 'bg-gray-200 text-gray-600'
+                                }`}>
+                                  {String.fromCharCode(65 + index)}
+                                </div>
+                                <span className="text-lg">{option}</span>
+                              </div>
+                              {showCorrect && <CheckCircle className="w-6 h-6 text-green-600" />}
+                              {showIncorrect && <XCircle className="w-6 h-6 text-red-600" />}
                             </div>
                           </button>
                         );
@@ -591,33 +733,81 @@ function JuegosContent() {
                   {/* Fill Blank */}
                   {currentQuestion.type === 'fill-blank' && (
                     <div className="space-y-4">
-                      <p className="text-lg text-gray-700 mb-4">
-                        Escribe la respuesta correcta:
-                      </p>
-                      <input
-                        type="text"
-                        value={typeof selectedAnswer === 'string' ? selectedAnswer : ''}
-                        onChange={(e) => !showResult && setSelectedAnswer(e.target.value)}
-                        onKeyPress={(e) => {
-                          if (e.key === 'Enter' && selectedAnswer && !showResult) {
-                            handleAnswer(selectedAnswer);
-                          }
-                        }}
-                        disabled={showResult}
-                        className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-lg focus:border-pink-500 focus:outline-none"
-                        placeholder="Escribe tu respuesta..."
-                      />
+                      <div className="bg-blue-50 rounded-lg p-4 mb-4">
+                        <p className="text-lg text-gray-700 font-medium mb-2">
+                          Completa la frase:
+                        </p>
+                        <div className="text-xl font-semibold text-blue-800">
+                          {currentQuestion.question.split('_____').map((part, index, array) => (
+                            <span key={index}>
+                              {part}
+                              {index < array.length - 1 && (
+                                <input
+                                  type="text"
+                                  value={typeof selectedAnswer === 'string' ? selectedAnswer : ''}
+                                  onChange={(e) => !showResult && setSelectedAnswer(e.target.value)}
+                                  onKeyPress={(e) => {
+                                    if (e.key === 'Enter' && selectedAnswer && !showResult) {
+                                      handleAnswer(selectedAnswer);
+                                    }
+                                  }}
+                                  disabled={showResult}
+                                  className={`mx-2 px-3 py-2 border-2 rounded-lg text-lg focus:outline-none transition-all ${
+                                    showResult
+                                      ? selectedAnswer === currentQuestion.correctAnswer
+                                        ? 'border-green-500 bg-green-50'
+                                        : 'border-red-500 bg-red-50'
+                                      : 'border-blue-300 bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200'
+                                  }`}
+                                  placeholder="?"
+                                  style={{ width: '120px' }}
+                                />
+                              )}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      {!showResult && (
+                        <div className="flex gap-3 justify-center">
+                          <GameButton onClick={() => selectedAnswer && handleAnswer(selectedAnswer)} variant="primary">
+                            Verificar Respuesta
+                          </GameButton>
+                          <button
+                            onClick={() => setSelectedAnswer('')}
+                            className="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors"
+                          >
+                            Limpiar
+                          </button>
+                        </div>
+                      )}
+                      
                       {showResult && (
                         <div className={`p-4 rounded-lg ${
                           selectedAnswer === currentQuestion.correctAnswer
                             ? 'bg-green-50 border-2 border-green-500'
                             : 'bg-red-50 border-2 border-red-500'
                         }`}>
-                          <p className="font-semibold">
-                            {selectedAnswer === currentQuestion.correctAnswer ? '✓ Correcto!' : '✗ Incorrecto'}
-                          </p>
+                          <div className="flex items-center gap-2 mb-2">
+                            {selectedAnswer === currentQuestion.correctAnswer ? (
+                              <>
+                                <CheckCircle className="w-6 h-6 text-green-600" />
+                                <span className="font-semibold text-green-700">¡Correcto!</span>
+                              </>
+                            ) : (
+                              <>
+                                <XCircle className="w-6 h-6 text-red-600" />
+                                <span className="font-semibold text-red-700">Incorrecto</span>
+                              </>
+                            )}
+                          </div>
+                          {selectedAnswer !== currentQuestion.correctAnswer && (
+                            <p className="text-gray-700">
+                              Tu respuesta: <span className="font-medium">{selectedAnswer || '(vacío)'}</span>
+                            </p>
+                          )}
                           <p className="text-gray-700 mt-2">
-                            La respuesta correcta es: <strong>{currentQuestion.correctAnswer}</strong>
+                            Respuesta correcta: <strong>{currentQuestion.correctAnswer}</strong>
                           </p>
                         </div>
                       )}
@@ -875,6 +1065,7 @@ function JuegosContent() {
         )}
       </div>
     </div>
+    </GameErrorBoundary>
   );
 }
 

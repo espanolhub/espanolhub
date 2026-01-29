@@ -2,6 +2,99 @@ import { Game } from '../types';
 
 export const games: Game[] = [
   {
+    id: 'vocabulary-match',
+    name: 'Vocabulary Match',
+    description: 'Empareja palabras españolas con sus traducciones',
+    icon: '🔗',
+    questions: [
+      // Basic Vocabulary
+      { id: 'vm1', question: 'agua', type: 'match', options: ['water', 'fire', 'earth', 'air'], correctAnswer: 'water', points: 10 },
+      { id: 'vm2', question: 'casa', type: 'match', options: ['house', 'car', 'tree', 'book'], correctAnswer: 'house', points: 10 },
+      { id: 'vm3', question: 'perro', type: 'match', options: ['dog', 'cat', 'bird', 'fish'], correctAnswer: 'dog', points: 10 },
+      { id: 'vm4', question: 'libro', type: 'match', options: ['book', 'pen', 'paper', 'desk'], correctAnswer: 'book', points: 10 },
+      { id: 'vm5', question: 'comida', type: 'match', options: ['food', 'drink', 'clothes', 'shoes'], correctAnswer: 'food', points: 10 },
+      { id: 'vm6', question: 'amigo', type: 'match', options: ['friend', 'enemy', 'family', 'stranger'], correctAnswer: 'friend', points: 10 },
+      { id: 'vm7', question: 'familia', type: 'match', options: ['family', 'work', 'school', 'home'], correctAnswer: 'family', points: 10 },
+      { id: 'vm8', question: 'trabajo', type: 'match', options: ['work', 'play', 'sleep', 'eat'], correctAnswer: 'work', points: 10 },
+      { id: 'vm9', question: 'escuela', type: 'match', options: ['school', 'hospital', 'store', 'park'], correctAnswer: 'school', points: 10 },
+      { id: 'vm10', question: 'tiempo', type: 'match', options: ['time', 'money', 'love', 'hate'], correctAnswer: 'time', points: 10 },
+    ],
+  },
+  {
+    id: 'grammar-quiz',
+    name: 'Grammar Quiz',
+    description: 'Practica gramática española con ejercicios interactivos',
+    icon: '📝',
+    questions: [
+      // Ser vs Estar
+      { id: 'gq1', question: 'Yo _____ estudiante.', type: 'fill-blank', correctAnswer: 'soy', points: 10 },
+      { id: 'gq2', question: 'Ella _____ en casa.', type: 'fill-blank', correctAnswer: 'está', points: 10 },
+      { id: 'gq3', question: 'Nosotros _____ amigos.', type: 'fill-blank', correctAnswer: 'somos', points: 10 },
+      { id: 'gq4', question: 'Ellos _____ contentos.', type: 'fill-blank', correctAnswer: 'están', points: 10 },
+      // Prepositions
+      { id: 'gq5', question: 'El libro está _____ la mesa.', type: 'fill-blank', correctAnswer: 'en', points: 10 },
+      { id: 'gq6', question: 'Voy _____ la escuela.', type: 'fill-blank', correctAnswer: 'a', points: 10 },
+      { id: 'gq7', question: 'El gato está _____ el sofá.', type: 'fill-blank', correctAnswer: 'debajo de', points: 10 },
+      // Articles
+      { id: 'gq8', question: '_____ mesa es grande.', type: 'fill-blank', correctAnswer: 'La', points: 10 },
+      { id: 'gq9', question: '_____ libros son interesantes.', type: 'fill-blank', correctAnswer: 'Los', points: 10 },
+      { id: 'gq10', question: 'Me gusta _____ café.', type: 'fill-blank', correctAnswer: 'el', points: 10 },
+    ],
+  },
+  {
+    id: 'pronunciation-practice',
+    name: 'Pronunciation Practice',
+    description: 'Practica la pronunciación con reconocimiento de voz',
+    icon: '🎤',
+    questions: [
+      { id: 'pp1', question: 'hola', type: 'match', correctAnswer: 'hola', points: 15 },
+      { id: 'pp2', question: 'gracias', type: 'match', correctAnswer: 'gracias', points: 15 },
+      { id: 'pp3', question: 'por favor', type: 'match', correctAnswer: 'por favor', points: 15 },
+      { id: 'pp4', question: 'buenos días', type: 'match', correctAnswer: 'buenos días', points: 15 },
+      { id: 'pp5', question: 'me llamo', type: 'match', correctAnswer: 'me llamo', points: 15 },
+      { id: 'pp6', question: '¿Cómo estás?', type: 'match', correctAnswer: '¿Cómo estás?', points: 15 },
+      { id: 'pp7', question: 'muy bien', type: 'match', correctAnswer: 'muy bien', points: 15 },
+      { id: 'pp8', question: 'hasta luego', type: 'match', correctAnswer: 'hasta luego', points: 15 },
+    ],
+  },
+  {
+    id: 'verb-conjugation',
+    name: 'Verb Conjugation',
+    description: 'Practica la conjugación de verbos regulares',
+    icon: '📚',
+    questions: [
+      // Present Tense -AR verbs
+      { id: 'vc1', question: 'Conjuga el verbo "hablar" para yo:', type: 'fill-blank', correctAnswer: 'hablo', points: 10 },
+      { id: 'vc2', question: 'Conjuga el verbo "hablar" para tú:', type: 'fill-blank', correctAnswer: 'hablas', points: 10 },
+      { id: 'vc3', question: 'Conjuga el verbo "hablar" para él:', type: 'fill-blank', correctAnswer: 'habla', points: 10 },
+      { id: 'vc4', question: 'Conjuga el verbo "hablar" para nosotros:', type: 'fill-blank', correctAnswer: 'hablamos', points: 10 },
+      // Present Tense -ER verbs
+      { id: 'vc5', question: 'Conjuga el verbo "comer" para yo:', type: 'fill-blank', correctAnswer: 'como', points: 10 },
+      { id: 'vc6', question: 'Conjuga el verbo "comer" para tú:', type: 'fill-blank', correctAnswer: 'comes', points: 10 },
+      { id: 'vc7', question: 'Conjuga el verbo "comer" para él:', type: 'fill-blank', correctAnswer: 'come', points: 10 },
+      { id: 'vc8', question: 'Conjuga el verbo "comer" para nosotros:', type: 'fill-blank', correctAnswer: 'comemos', points: 10 },
+      // Present Tense -IR verbs
+      { id: 'vc9', question: 'Conjuga el verbo "vivir" para yo:', type: 'fill-blank', correctAnswer: 'vivo', points: 10 },
+      { id: 'vc10', question: 'Conjuga el verbo "vivir" para tú:', type: 'fill-blank', correctAnswer: 'vives', points: 10 },
+    ],
+  },
+  {
+    id: 'memory-cards',
+    name: 'Memory Cards',
+    description: 'Juego de memoria para aprender vocabulario',
+    icon: '🧠',
+    questions: [
+      { id: 'mc1', question: 'gato', type: 'match', correctAnswer: 'cat', points: 20 },
+      { id: 'mc2', question: 'perro', type: 'match', correctAnswer: 'dog', points: 20 },
+      { id: 'mc3', question: 'casa', type: 'match', correctAnswer: 'house', points: 20 },
+      { id: 'mc4', question: 'agua', type: 'match', correctAnswer: 'water', points: 20 },
+      { id: 'mc5', question: 'comida', type: 'match', correctAnswer: 'food', points: 20 },
+      { id: 'mc6', question: 'libro', type: 'match', correctAnswer: 'book', points: 20 },
+      { id: 'mc7', question: 'amigo', type: 'match', correctAnswer: 'friend', points: 20 },
+      { id: 'mc8', question: 'familia', type: 'match', correctAnswer: 'family', points: 20 },
+    ],
+  },
+  {
     id: 'noun-agreement',
     name: 'Género y Número: Sustantivos',
     description: 'Masculino/Femenino + Singular/Plural en 3 niveles',
