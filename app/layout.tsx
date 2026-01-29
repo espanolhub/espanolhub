@@ -12,6 +12,7 @@ import WebVitalsTracker from '@/components/WebVitalsTracker';
 import { GoogleTagManager } from '@next/third-parties/google';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import { LoadingProvider } from '@/components/GlobalLoading';
+import { SmartNavigationProvider } from '@/components/SmartNavigationProvider';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -242,13 +243,15 @@ export default function RootLayout({
                 <LoadingProvider>
                   <Providers>
                     <WebVitalsTracker />
-                    <NavigationWrapper />
-                    <GlobalPronounceListener />
-                    <GlobalDictionaryProvider />
-                    <main id="main-content" className="flex-grow w-full">
-                      {children}
-                    </main>
-                    <Footer />
+                    <SmartNavigationProvider>
+                      <NavigationWrapper />
+                      <GlobalPronounceListener />
+                      <GlobalDictionaryProvider />
+                      <main id="main-content" className="flex-grow w-full">
+                        {children}
+                      </main>
+                      <Footer />
+                    </SmartNavigationProvider>
                   </Providers>
                 </LoadingProvider>
               </ErrorBoundary>
@@ -258,13 +261,15 @@ export default function RootLayout({
               <LoadingProvider>
                 <Providers>
                   <WebVitalsTracker />
-                  <NavigationWrapper />
-                  <GlobalPronounceListener />
-                  <GlobalDictionaryProvider />
-                  <main id="main-content" className="flex-grow w-full">
-                    {children}
-                  </main>
-                  <Footer />
+                  <SmartNavigationProvider>
+                    <NavigationWrapper />
+                    <GlobalPronounceListener />
+                    <GlobalDictionaryProvider />
+                    <main id="main-content" className="flex-grow w-full">
+                      {children}
+                    </main>
+                    <Footer />
+                  </SmartNavigationProvider>
                 </Providers>
               </LoadingProvider>
             </ErrorBoundary>

@@ -2,31 +2,32 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { Download, ShoppingCart, BookOpen, GraduationCap, Award, FileText, Filter, Sparkles, Star } from 'lucide-react';
-import { resources, getResourcesByCategory, getResourcesByPrice } from '@/lib/data/resources';
-import ResourceCard from '@/components/ResourceCard';
-import type { Resource } from '@/lib/types/resources';
+import { BookOpen, GraduationCap, Award, FileText, Filter, Sparkles, Star, Play, Clock, CheckCircle, BarChart3, Lock, Unlock } from 'lucide-react';
+import { interactiveLessons, getInteractiveLessonsByCategory, getInteractiveLessonsByLevel } from '@/lib/data/interactive-lessons';
+import type { InteractiveLesson } from '@/lib/data/interactive-lessons';
+import InteractiveLessonCard from '@/components/InteractiveLessonCard';
 
 export default function RecursosPage() {
-  const [selectedCategory, setSelectedCategory] = useState<Resource['category'] | 'all'>('all');
-  const [selectedPrice, setSelectedPrice] = useState<'all' | 'free' | 'paid'>('all');
+  const [selectedCategory, setSelectedCategory] = useState<InteractiveLesson['category'] | 'all'>('all');
+  const [selectedLevel, setSelectedLevel] = useState<'all' | 'beginner' | 'intermediate' | 'advanced'>('all');
 
-  const filteredResources = useMemo(() => {
-    let filtered = resources;
+  const filteredLessons = useMemo(() => {
+    let filtered = interactiveLessons;
 
     if (selectedCategory !== 'all') {
-      filtered = getResourcesByCategory(selectedCategory);
+      filtered = getInteractiveLessonsByCategory(selectedCategory);
     }
 
-    if (selectedPrice !== 'all') {
-      filtered = filtered.filter(r => r.price === selectedPrice);
+    if (selectedLevel !== 'all') {
+      filtered = filtered.filter(lesson => lesson.level === selectedLevel);
     }
 
     return filtered;
-  }, [selectedCategory, selectedPrice]);
+  }, [selectedCategory, selectedLevel]);
 
-  const freeCount = useMemo(() => resources.filter(r => r.price === 'free').length, []);
-  const paidCount = useMemo(() => resources.filter(r => r.price === 'paid').length, []);
+  const beginnerCount = useMemo(() => interactiveLessons.filter(l => l.level === 'beginner').length, []);
+  const intermediateCount = useMemo(() => interactiveLessons.filter(l => l.level === 'intermediate').length, []);
+  const advancedCount = useMemo(() => interactiveLessons.filter(l => l.level === 'advanced').length, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12">
@@ -34,42 +35,42 @@ export default function RecursosPage() {
         {/* Enhanced Hero Section */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-purple-100 px-4 py-2 rounded-full mb-6">
-            <Download className="w-4 h-4 text-blue-600" />
-            <span className="text-sm font-semibold text-blue-600">Guías, PDFs y Materiales</span>
+            <BookOpen className="w-4 h-4 text-blue-600" />
+            <span className="text-sm font-semibold text-blue-600">Lecciones Interactivas</span>
             <Star className="w-4 h-4 text-blue-600" />
           </div>
           
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
-              Recursos Descargables
+              Lecciones Interactivas
             </span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-3">
-            Materiales profesionales para acelerar tu aprendizaje
+            Aprende español con lecciones interactivas y ejercicios prácticos
           </p>
           
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Guías PDF, hojas de referencia, ejercicios y recursos premium
+            Gramática, vocabulario, preparación de exámenes y conversación
           </p>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-            <Download className="w-10 h-10 text-blue-600 mx-auto mb-2" />
-            <div className="text-3xl font-bold text-gray-800">{resources.length}</div>
-            <div className="text-sm text-gray-600">Recursos Totales</div>
+            <BookOpen className="w-10 h-10 text-blue-600 mx-auto mb-2" />
+            <div className="text-3xl font-bold text-gray-800">{interactiveLessons.length}</div>
+            <div className="text-sm text-gray-600">Lecciones Totales</div>
           </div>
           <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-            <FileText className="w-10 h-10 text-green-600 mx-auto mb-2" />
-            <div className="text-3xl font-bold text-gray-800">{freeCount}</div>
-            <div className="text-sm text-gray-600">Recursos Gratis</div>
+            <Play className="w-10 h-10 text-green-600 mx-auto mb-2" />
+            <div className="text-3xl font-bold text-gray-800">{beginnerCount}</div>
+            <div className="text-sm text-gray-600">Nivel Principiante</div>
           </div>
           <div className="bg-white rounded-xl shadow-lg p-6 text-center">
             <Award className="w-10 h-10 text-blue-600 mx-auto mb-2" />
-            <div className="text-3xl font-bold text-gray-800">{paidCount}</div>
-            <div className="text-sm text-gray-600">Recursos Premium</div>
+            <div className="text-3xl font-bold text-gray-800">{intermediateCount + advancedCount}</div>
+            <div className="text-sm text-gray-600">Niveles Intermedio y Avanzado</div>
           </div>
         </div>
 
@@ -103,27 +104,29 @@ export default function RecursosPage() {
               </div>
             </div>
 
-            {/* Price Filter */}
+            {/* Level Filter */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Precio
+                Nivel
               </label>
               <div className="flex flex-wrap gap-2">
-                {(['all', 'free', 'paid'] as const).map((price) => (
+                {(['all', 'beginner', 'intermediate', 'advanced'] as const).map((level) => (
                   <button
-                    key={price}
-                    onClick={() => setSelectedPrice(price)}
+                    key={level}
+                    onClick={() => setSelectedLevel(level)}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                      selectedPrice === price
-                        ? price === 'free' 
+                      selectedLevel === level
+                        ? level === 'beginner' 
                           ? 'bg-green-600 text-white shadow-md'
-                          : price === 'paid'
-                          ? 'bg-blue-600 text-white shadow-md'
+                          : level === 'intermediate'
+                          ? 'bg-yellow-600 text-white shadow-md'
+                          : level === 'advanced'
+                          ? 'bg-red-600 text-white shadow-md'
                           : 'bg-blue-600 text-white shadow-md'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
-                    {price === 'all' ? 'Todos' : price === 'free' ? 'Gratis' : 'Premium'}
+                    {level === 'all' ? 'Todos' : level === 'beginner' ? 'Principiante' : level === 'intermediate' ? 'Intermedio' : 'Avanzado'}
                   </button>
                 ))}
               </div>
@@ -131,18 +134,18 @@ export default function RecursosPage() {
           </div>
         </div>
 
-        {/* Resources Grid */}
-        {filteredResources.length > 0 ? (
+        {/* Lessons Grid */}
+        {filteredLessons.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-            {filteredResources.map((resource) => (
-              <ResourceCard key={resource.id} resource={resource} />
+            {filteredLessons.map((lesson) => (
+              <InteractiveLessonCard key={lesson.id} lesson={lesson} />
             ))}
           </div>
         ) : (
           <div className="bg-white rounded-xl shadow-lg p-12 text-center">
             <FileText className="w-16 h-16 text-gray-400 mx-auto mb-4" />
             <p className="text-lg text-gray-600">
-              No se encontraron recursos con estos filtros.
+              No se encontraron lecciones con estos filtros.
             </p>
           </div>
         )}

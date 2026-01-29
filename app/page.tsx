@@ -48,19 +48,19 @@ export default function Home() {
 							</Link>
 
 							<Link
+								href="/recursos"
+								className="px-8 py-4 bg-purple-600 text-white font-bold rounded-xl shadow-sm hover:bg-purple-700 transition-all duration-200 flex items-center justify-center gap-2"
+							>
+								<Book className="w-5 h-5 text-white" aria-hidden="true" />
+								<span>Lecciones Interactivas</span>
+							</Link>
+
+							<Link
 								href="/juegos"
 								className="px-8 py-4 bg-white border-2 border-gray-900 text-gray-900 font-bold rounded-xl shadow-sm hover:bg-gray-50 transition-all duration-200 flex items-center justify-center gap-2"
 							>
 								<Gamepad2 className="w-5 h-5 text-gray-900" aria-hidden="true" />
 								<span>Jugar Ahora</span>
-							</Link>
-
-							<Link
-								href="/lectura"
-								className="px-8 py-4 bg-white border border-gray-400 text-gray-950 font-bold rounded-xl shadow-sm hover:bg-gray-50 transition-all duration-200 flex items-center justify-center gap-2"
-							>
-								<FileText className="w-5 h-5 text-gray-950" aria-hidden="true" />
-								<span>Lectura</span>
 							</Link>
 						</div>
 
@@ -83,11 +83,11 @@ export default function Home() {
 						</Link>
 
 						<Link
-							href="/tramites"
-							className="group p-6 bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-300 rounded-xl hover:shadow-md hover:from-slate-200 hover:to-slate-300 transition-all text-center"
+							href="/recursos"
+							className="group p-6 bg-gradient-to-br from-purple-100 to-purple-200 border border-purple-300 rounded-xl hover:shadow-md hover:from-purple-200 hover:to-purple-300 transition-all text-center"
 						>
-							<FileText className="w-8 h-8 text-slate-900 mb-3 mx-auto" aria-hidden="true" />
-							<div className="text-base font-semibold text-slate-950">Trámites en España</div>
+							<Book className="w-8 h-8 text-purple-700 mb-3 mx-auto" aria-hidden="true" />
+							<div className="text-base font-semibold text-purple-950">Lecciones</div>
 						</Link>
 
 						<Link
