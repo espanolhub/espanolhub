@@ -18,10 +18,8 @@ function detectUserLanguage(request: NextRequest): string {
     })
     .sort((a, b) => b.quality - a.quality);
 
-  // Check if Arabic is preferred
-  const hasArabic = languages.some(lang => lang.code === 'ar' && lang.quality > 0.5);
-  
-  return hasArabic ? 'ar' : 'es';
+  // Always return Spanish - remove Arabic support
+  return 'es';
 }
 
 export async function middleware(request: NextRequest) {

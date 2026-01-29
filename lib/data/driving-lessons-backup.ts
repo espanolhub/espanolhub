@@ -8,12 +8,13 @@ export interface DrivingLesson {
   category?: string;
   content: string;
   createdAt?: string;
-  resumenClave?: { es: string };
+  resumenClave?: { es: string; ar?: string };
   erroresComunes?: string[];
   isFree?: boolean;
 }
 
 export const drivingLessons: DrivingLesson[] = [
+  // 15 enriched driving lessons
   {
     id: 'driving-1-definiciones',
     title: 'Capítulo 1: Definiciones',
@@ -26,28 +27,28 @@ export const drivingLessons: DrivingLesson[] = [
       'Desconocer los tipos de vehículos según su clasificación',
       'Confundir carril con arcén'
     ],
-    content: `# Capítulo 1: Definiciones Básicas
+    content: `# Capítulo 1: Definiciones Básicas (التعريفات الأساسية)
 
-## Introducción
+## Introducción / المقدمة
 
 Este capítulo establece los conceptos fundamentales que debes conocer antes de comenzar a conducir. Comprender estas definiciones es esencial para interpretar correctamente las normas de tráfico.
 
 ---
 
-## 1. Vehículo
+## 1. Vehículo (المركبة)
 
 ### Definición
 Un **vehículo** es todo medio de transporte que circula por las vías públicas, capaz de transportar personas o mercancías.
 
 ### Tipos de Vehículos
 
-#### Vehículos de Motor
+#### Vehículos de Motor (مركبات بمحرك)
 - **Automóviles**: Turismos, todoterrenos, monovolúmenes
 - **Motocicletas**: Ciclomotores (hasta 50cc) y motocicletas (más de 50cc)
 - **Camiones**: Vehículos de transporte de mercancías
 - **Autobuses**: Vehículos de transporte de pasajeros
 
-#### Vehículos sin Motor
+#### Vehículos sin Motor (مركبات بدون محرك)
 - **Bicicletas**: Vehículos de dos ruedas accionados por pedales
 - **Vehículos de tracción animal**: Carros tirados por animales
 
@@ -57,7 +58,7 @@ Un **vehículo** es todo medio de transporte que circula por las vías públicas
 
 ---
 
-## 2. Conductor
+## 2. Conductor (السائق)
 
 ### Definición
 Persona que **maneja o está al mando** de un vehículo en circulación.
@@ -77,14 +78,14 @@ Persona que **maneja o está al mando** de un vehículo en circulación.
 
 ---
 
-## 3. Vía Pública
+## 3. Vía Pública (الطريق العام)
 
 ### Definición
 Cualquier camino, calle o carretera **abierta al tránsito público**, tanto urbana como interurbana.
 
 ### Tipos de Vías
 
-#### Autopistas
+#### Autopistas (الطرق السريعة)
 - **Código**: AP (autopista de peaje) o A (gratuita)
 - **Características**: 
   - Múltiples carriles en cada dirección
@@ -93,23 +94,23 @@ Cualquier camino, calle o carretera **abierta al tránsito público**, tanto urb
   - Acceso y salida solo por enlaces
 - **Velocidad máxima**: 120 km/h
 
-#### Autovías
+#### Autovías (الطرق السريعة العادية)
 - **Código**: A
 - **Características**: Similar a autopista pero puede tener cruces
 - **Velocidad máxima**: 120 km/h
 
-#### Carreteras Convencionales
+#### Carreteras Convencionales (الطرق التقليدية)
 - **Código**: N (nacional), C (comarcal)
 - Un carril por sentido
 - **Velocidad máxima**: 90-100 km/h
 
-#### Vías Urbanas
+#### Vías Urbanas (الطرق الحضرية)
 - Calles dentro de poblaciones
 - **Velocidad máxima**: 20-50 km/h según tipo
 
 ---
 
-## 4. Carril
+## 4. Carril (الممر)
 
 ### Definición
 Banda longitudinal en que puede estar dividida la calzada, delimitada o no por marcas viales.
@@ -129,7 +130,7 @@ Banda longitudinal en que puede estar dividida la calzada, delimitada o no por m
 
 ---
 
-## 5. Arcén
+## 5. Arcén (الحافة)
 
 ### Definición
 Franja longitudinal **fuera de la calzada**, contigua a la misma, no destinada normalmente a la circulación.
@@ -151,7 +152,7 @@ Franja longitudinal **fuera de la calzada**, contigua a la misma, no destinada n
 
 ---
 
-## 6. Calzada
+## 6. Calzada (الطريق المعبد)
 
 ### Definición
 Parte de la vía **destinada a la circulación de vehículos**. Se compone de uno o varios carriles.
@@ -163,7 +164,7 @@ Parte de la vía **destinada a la circulación de vehículos**. Se compone de un
 
 ---
 
-## 7. Intersección
+## 7. Intersección (التقاطع)
 
 ### Definición
 Zona donde se cruzan dos o más vías.
@@ -175,11 +176,12 @@ Zona donde se cruzan dos o más vías.
 
 ---
 
-## Resumen Visual
+## Resumen Visual / ملخص بصري
 
 \`\`\`
 ┌─────────────────────────────────────┐
 │        ARCÉN    │ CALZADA │  ARCÉN  │
+│       (حافة)    │ (طريق)  │ (حافة)  │
 ├─────────────────┼─────────┼─────────┤
 │                 │ CARRIL 1│         │
 │                 │ CARRIL 2│         │
@@ -188,7 +190,7 @@ Zona donde se cruzan dos o más vías.
 
 ---
 
-## Preguntas de Autoevaluación
+## Preguntas de Autoevaluación / أسئلة التقييم الذاتي
 
 1. ¿Cuál es la diferencia entre autopista y autovía?
 2. ¿Puede circular un turismo por el arcén?
@@ -197,21 +199,21 @@ Zona donde se cruzan dos o más vías.
 
 ---
 
-## Resumen Clave
+## العربية: ملخص شامل
 
-### Conceptos Fundamentales:
-- **Vehículo**: Medio de transporte en vías públicas
-- **Conductor**: Persona que maneja el vehículo y asume la responsabilidad
-- **Vía Pública**: Cualquier camino abierto al tráfico público
-- **Carril**: Franja longitudinal dentro de la vía
-- **Arcén**: Zona lateral solo para emergencias
-- **Calzada**: Parte destinada a la circulación de vehículos
-- **Intersección**: Zona donde se cruzan dos o más vías
+### المفاهيم الأساسية:
+- **المركبة**: وسيلة نقل على الطرق العامة
+- **السائق**: من يقود المركبة ويتحمل المسؤولية
+- **الطريق العام**: أي طريق مفتوح للمرور العام
+- **الممر**: شريط طولي ضمن الطريق
+- **الحافة**: منطقة جانبية للطوارئ فقط
+- **الطريق المعبد**: الجزء المخصص لحركة المركبات
+- **التقاطع**: منطقة تقاطع طريقين أو أكثر
 
-### Consejos Importantes:
-✓ El arcén no es para circulación normal
-✓ El conductor asume la responsabilidad, no el propietario
-✓ Debes conocer los tipos de vías y velocidades permitidas`,
+### نصائح مهمة:
+✓ الحافة ليست للسير العادي
+✓ السائق يتحمل المسؤولية وليس المالك
+✓ يجب معرفة أنواع الطرق والسرعات المسموحة`,
   },
   {
     id: 'driving-2-velocidades',
@@ -219,7 +221,8 @@ Zona donde se cruzan dos o más vías.
     category: 'velocidad',
     isFree: true,
     resumenClave: { 
-      es: 'Límites generales: Autopistas 120 km/h, carreteras 90 km/h, ciudades 20-50 km/h. Adaptar siempre a las condiciones.' 
+      es: 'Límites generales: Autopistas 120 km/h, carreteras 90 km/h, ciudades 20-50 km/h. Adaptar siempre a las condiciones.', 
+      ar: 'حدود عامة: الطرق السريعة 120 كم/س، الطرق العادية 90 كم/س، المدن 20-50 كم/س. التكيف دائماً مع الظروف.' 
     },
     erroresComunes: [
       'No adaptar velocidad a lluvia, niebla o hielo',
@@ -228,26 +231,26 @@ Zona donde se cruzan dos o más vías.
       'No reducir velocidad en curvas cerradas',
       'Confundir límites según tipo de vehículo'
     ],
-    content: `# Capítulo 2: Límites de Velocidad
+    content: `# Capítulo 2: Límites de Velocidad (حدود السرعة)
 
-## Introducción
+## Introducción / المقدمة
 
 La velocidad es uno de los factores más importantes en la seguridad vial. **No solo debes respetar los límites**, sino también **adaptar tu velocidad** a las condiciones de la vía, el tráfico y el clima.
 
 ---
 
-## Tabla de Velocidades Máximas
+## Tabla de Velocidades Máximas / جدول السرعات القصوى
 
-### Turismos y Motocicletas
+### Turismos y Motocicletas (السيارات والدراجات النارية)
 
-| Tipo de Vía | Velocidad Máxima |
-|-------------|------------------|
-| **Autopista/Autovía** | 120 km/h |
-| **Carretera Convencional** | 90-100 km/h* |
-| **Vía Urbana (calle de un carril)** | 20 km/h |
-| **Vía Urbana (calle con una acera)** | 30 km/h |
-| **Vía Urbana (calle con dos carriles)** | 50 km/h |
-| **Travesías** | 50 km/h |
+| Tipo de Vía | Velocidad Máxima | السرعة القصوى |
+|-------------|------------------|----------------|
+| **Autopista/Autovía** | 120 km/h | 120 كم/س |
+| **Carretera Convencional** | 90-100 km/h* | 90-100 كم/س |
+| **Vía Urbana (calle de un carril)** | 20 km/h | 20 كم/س |
+| **Vía Urbana (calle con una acera)** | 30 km/h | 30 كم/س |
+| **Vía Urbana (calle con dos carriles)** | 50 km/h | 50 كم/س |
+| **Travesías** | 50 km/h | 50 كم/س |
 
 *100 km/h en vías con al menos dos carriles por sentido separados por mediana.
 
@@ -261,7 +264,7 @@ La velocidad es uno de los factores más importantes en la seguridad vial. **No 
 
 ---
 
-## Velocidades Mínimas
+## Velocidades Mínimas / السرعات الدنيا
 
 ### En Autopistas y Autovías
 ⚠️ **Mínimo**: 60 km/h en carril derecho
@@ -311,7 +314,7 @@ La velocidad es uno de los factores más importantes en la seguridad vial. **No 
 
 ---
 
-## Señales de Velocidad
+## Señales de Velocidad / إشارات السرعة
 
 ### Señales de Límite
 
@@ -443,28 +446,28 @@ Durante el primer año (pegatina "L"):
 
 ---
 
-## Resumen Clave
+## العربية: ملخص شامل
 
-### Límites de Velocidad Básicos:
-- **Autopistas**: 120 km/h (turismos), 100 km/h (novatos)
-- **Carreteras Convencionales**: 90-100 km/h
-- **Dentro de Ciudades**: 20-50 km/h según tipo de calle
+### حدود السرعة الأساسية:
+- **الطرق السريعة**: 120 كم/س (السيارات)، 100 كم/س (المبتدئين)
+- **الطرق التقليدية**: 90-100 كم/س
+- **داخل المدن**: 20-50 كم/س حسب نوع الشارع
 
-### Reducción Obligatoria de Velocidad:
-- **Lluvia intensa**: -20 km/h
-- **Nieve o hielo**: -50%
-- **Niebla densa**: hasta 50 km/h
+### التخفيض الإلزامي للسرعة:
+- **مطر شديد**: -20 كم/س
+- **ثلج أو جليد**: -50%
+- **ضباب كثيف**: حتى 50 كم/س
 
-### Sanciones:
-- Exceso 20 km/h: 100€
-- Exceso 30 km/h: 300€ + 2 puntos
-- Exceso 60 km/h: 600€ + 6 puntos + posible retirada del permiso
+### العقوبات:
+- تجاوز 20 كم/س: 100 يورو
+- تجاوز 30 كم/س: 300 يورو + نقطتين
+- تجاوز 60 كم/س: 600 يورو + 6 نقاط + سحب محتمل للرخصة
 
-### Consejos de Oro:
-✓ La velocidad máxima no es un objetivo
-✓ Adaptarse a las condiciones meteorológicas
-✓ Mantener distancia de seguridad
-✓ Reducir antes de curvas
+### نصائح ذهبية:
+✓ السرعة القصوى ليست هدفاً
+✓ التكيف مع الظروف الجوية
+✓ الحفاظ على مسافة الأمان
+✓ التخفيض قبل المنعطفات
 
 ---
 
@@ -479,259 +482,226 @@ Durante el primer año (pegatina "L"):
     id: 'driving-3-senales',
     title: 'Capítulo 3: Señales de Tránsito',
     category: 'señales',
-    resumenClave: { es: 'Clasificación y significado de señales.' },
-    erroresComunes: ['Interpretar señal incorrectly', 'Ignorar señales de obra'],
-    content: `# Señales de Tránsito
+    resumenClave: { es: 'Clasificación y significado de señales.', ar: 'تصنيف ومعنى الإشارات.' },
+    erroresComunes: ['Interpretar علامة شاذة incorrectly', 'Ignorar señales de obra'],
+    content: `# Señales de Tránsito (لافتات المرور)
 
 Señales de advertencia, prioridad, prohibición e información.
 
-Señales de tráfico españolas.`,
+Señales de tráfico españolas.
   },
   {
     id: 'driving-4-prioridad',
     title: 'Capítulo 4: Prioridad',
     category: 'prioridad',
-    resumenClave: { es: 'Reglas de prioridad en cruces, rotondas e intersecciones.' },
+    resumenClave: { es: 'Reglas de prioridad en cruces, rotondas y intersecciones.', ar: 'قواعد الأفضلية في التقاطعات والدوارات.' },
     erroresComunes: ['No ceder en intersecciones sin señal', 'Mala aproximación a glorietas'],
-    content: `# Prioridad
+    content: `# Prioridad (الأسبقية)
 
 Criterios para determinar quién tiene prioridad en diferentes situaciones.
 
-Normas de prioridad en la circulación.`,
+Normas de prioridad en la circulación.
   },
   {
     id: 'driving-5-condiciones',
     title: 'Capítulo 5: Condiciones de la Carretera',
     category: 'condiciones',
-    resumenClave: { es: 'Cómo adaptar la conducción a lluvia, hielo y niebla.' },
+    resumenClave: { es: 'Cómo adaptar la conducción a lluvia, hielo y niebla.', ar: 'كيفية تكييف القيادة مع المطر والجليد والضباب.' },
     erroresComunes: ['Velocidad inadecuada en lluvia', 'Distancia de frenado insuficiente'],
-    content: `# Condiciones de la Carretera
+    content: `# Condiciones de la Carretera (حالات الطريق)
 
 Técnicas y recomendaciones para conducir con seguridad en condiciones adversas.
 
-Conducción segura en condiciones difíciles.`,
+Conducción segura en condiciones difíciles.
   },
   {
     id: 'driving-6-alcohol-drogas',
     title: 'Capítulo 6: Alcohol y Drogas',
     category: 'seguridad',
-    resumenClave: { es: 'Efectos, límites legales y sanciones.' },
+    resumenClave: { es: 'Efectos, límites legales y sanciones.', ar: 'الآثار والحدود القانونية والعقوبات.' },
     erroresComunes: ['Conducir tras consumo leve', 'Desconocer límites para noveles'],
-    content: `# Alcohol y Drogas
+    content: `# Alcohol y Drogas (الكحول والمخدرات)
 
 Efectos en la conducción, límites legales y pruebas de alcoholemia.
 
-Alcohol y conducción: efectos y consecuencias.`,
+Alcohol y conducción: efectos y consecuencias.
   },
   {
     id: 'driving-7-noche',
     title: 'Capítulo 7: Conducción Nocturna',
     category: 'seguridad',
-    resumenClave: { es: 'Visibilidad, uso de luces y riesgos nocturnos.' },
+    resumenClave: { es: 'Visibilidad, uso de luces y riesgos nocturnos.', ar: 'الرؤية، استخدام الأضواء والمخاطر الليلية.' },
     erroresComunes: ['Uso inadecuado de luces', 'Velocidad excesiva por mala visión'],
-    content: `# Conducción Nocturna
+    content: `# Conducción Nocturna (القيادة الليلية)
 
 Buenas prácticas para circular de noche y evitar riesgos.
 
-Conducción nocturna segura.`,
+Conducción nocturna segura.
   },
   {
     id: 'driving-8-estacionamiento',
     title: 'Capítulo 8: Estacionamiento',
     category: 'normas',
-    resumenClave: { es: 'Normas de estacionamiento y señales asociadas.' },
+    resumenClave: { es: 'Normas de estacionamiento y señales asociadas.', ar: 'قواعد الوقوف والإشارات المتعلقة.' },
     erroresComunes: ['Estacionar en zona prohibida', 'No usar freno de mano en pendiente'],
-    content: `# Estacionamiento
+    content: `# Estacionamiento (الوقوف)
 
 Tipos de estacionamiento, señales y sanciones por infracciones.
 
-Normas de estacionamiento y sanciones.`,
+Normas de estacionamiento y sanciones.
   },
   {
     id: 'driving-9-seguridad-infantil',
     title: 'Capítulo 9: Seguridad Infantil',
     category: 'seguridad',
-    resumenClave: { es: 'Sistemas de retención y ubicación de sillas infantiles.' },
+    resumenClave: { es: 'Sistemas de retención y ubicación de sillas infantiles.', ar: 'أنظمة الحماية ومواقع مقاعد الأطفال.' },
     erroresComunes: ['No asegurar correctamente la silla', 'Uso de sistemas inadecuados'],
-    content: `# Seguridad Infantil
+    content: `# Seguridad Infantil (أمان الأطفال)
 
 Recomendaciones y tipos de sillas según edad y peso.
 
-Sistemas de retención infantil.`,
+Sistemas de retención infantil.
   },
   {
     id: 'driving-10-mantenimiento',
     title: 'Capítulo 10: Mantenimiento del Vehículo',
     category: 'mantenimiento',
-    resumenClave: { es: 'Chequeos esenciales y frecuencia de mantenimiento.' },
+    resumenClave: { es: 'Chequeos esenciales y frecuencia de mantenimiento.', ar: 'الفحوصات الأساسية وتكرار الصيانة.' },
     erroresComunes: ['Ignorar luces de aviso', 'No revisar presión de neumáticos'],
-    content: `# Mantenimiento del Vehículo
+    content: `# Mantenimiento del Vehículo (صيانة المركبة)
 
 Lista de comprobación básica para mantener el vehículo en condiciones seguras.
 
-Mantenimiento básico del vehículo.`,
+Mantenimiento básico del vehículo.
   },
   {
     id: 'driving-11-motores-frenos',
     title: 'Capítulo 11: Motores y Frenos',
     category: 'mecanica',
-    resumenClave: { es: 'Principios básicos del motor y sistema de frenos.' },
+    resumenClave: { es: 'Principios básicos del motor y sistema de frenos.', ar: 'مبادئ أساسية للمحرك ونظام الفرامل.' },
     erroresComunes: ['Frenos desgastados', 'No revisar niveles de aceite'],
-    content: `# Motores y Frenos
+    content: `# Motores y Frenos (المحركات والفرامل)
 
 Conceptos básicos sobre mantenimiento de motor y prevención de fallos.
 
-Mantenimiento del motor y prevención.`,
+Mantenimiento del motor y prevención.
   },
   {
     id: 'driving-12-climatologia',
     title: 'Capítulo 12: Climatología',
     category: 'clima',
-    resumenClave: { es: 'Adaptaciones a lluvia, nieve y viento.' },
+    resumenClave: { es: 'Adaptaciones a lluvia, nieve y viento.', ar: 'التكيف مع المطر والثلج والرياح.' },
     erroresComunes: ['Conducir demasiado rápido en lluvia', 'No usar cadenas cuando es obligatorio'],
-    content: `# Climatología
+    content: `# Climatología (المناخ)
 
 Cómo actuar según condiciones meteorológicas adversas.
 
-Conducción en condiciones meteorológicas adversas.`,
+Conducción en condiciones meteorológicas adversas.
   },
   {
     id: 'driving-13-emergencias',
     title: 'Capítulo 13: Emergencias',
     category: 'emergencias',
-    resumenClave: { es: 'Procedimientos ante averías o accidentes.' },
+    resumenClave: { es: 'Procedimientos ante averías o accidentes.', ar: 'إجراءات عند الأعطال أو الحوادث.' },
     erroresComunes: ['No señalizar el vehículo averiado', 'Salir sin protección'],
-    content: `# Emergencias
+    content: `# Emergencias (حالات الطوارئ)
 
 Actuación ante accidente, primeras medidas y comunicación con los servicios.
 
-Procedimientos en caso de accidente.`,
+Procedimientos en caso de accidente.
   },
   {
     id: 'driving-14-manejo-ciudad',
     title: 'Capítulo 14: Conducción en Ciudad',
     category: 'ciudad',
-    resumenClave: { es: 'Normas urbanas y convivencia con peatones y ciclistas.' },
+    resumenClave: { es: 'Normas urbanas y convivencia con peatones y ciclistas.', ar: 'قواعد في المدينة والتعايش مع المشاة وراكبي الدراجات.' },
     erroresComunes: ['No respetar pasos peatones', 'Circular por carriles bici'],
-    content: `# Conducción en Ciudad
+    content: `# Conducción en Ciudad (القيادة في المدينة)
 
 Buenas prácticas para circular en entornos urbanos.
 
-Conducción urbana segura.`,
+Conducción urbana segura.
   },
   {
     id: 'driving-15-repaso-final',
     title: 'Capítulo 15: Repaso Final',
     category: 'repaso',
-    resumenClave: { es: 'Resumen de puntos clave y recomendaciones antes del examen.' },
+    resumenClave: { es: 'Resumen de puntos clave y recomendaciones antes del examen.', ar: 'ملخص للنقاط الرئيسية والتوصيات قبل الامتحان.' },
     erroresComunes: ['No repasar señales clave', 'Olvidar documentación necesaria'],
-    content: `# Repaso Final
+    content: `# Repaso Final (المراجعة النهائية)
 
 Checklist y ejercicios de repaso antes del examen oficial.
 
 Preparación para el examen teórico.
-
-## Documentación Necesaria
-
-### Para el Examen Teórico
-- **DNI o pasaporte** en vigor
-- **Permiso de conducir** si aplica
-- **Documentación del vehículo** si aplica
-
-### Conceptos Clave a Repasar
-
-#### Señales de Tráfico
-- Todas las categorías y significados
-- Señales de advertencia, prioridad, prohibición e información
-
-#### Límites de Velocidad
-- Por tipo de vía y vehículo
-- Reducciones obligatorias en condiciones adversas
-
-#### Prioridad
-- Reglas en cruces, glorietas e intersecciones
-- Casos especiales y excepciones
-
-#### Maniobras
-- Técnicas correctas y señalización
-- Adelantamiento, giros y estacionamiento
-
-#### Normas y Sanciones
-- Sistema de puntos y multas
-- Infracciones más comunes y sus consecuencias
-
-## Consejos para el Día del Examen
-
-### Preparación
-- **Dormir bien** la noche anterior
-- **Llegar con tiempo suficiente**
-- **Mantener la calma** durante el examen
-- **Leer cuidadosamente** cada pregunta
-- **Repasar las respuestas** antes de entregar
-
-## Ejercicios de Repaso
-
-1. Identifica señales de tráfico comunes
-2. Calcula límites de velocidad según tipo de vía
-3. Determina quién tiene prioridad en diferentes situaciones
-4. Practica maniobras en espacios seguros
-
-Este capítulo es un repaso completo de todos los conceptos importantes antes del examen.
-
-## Checklist Pre-Examen
-
-### Documentación
-- DNI o pasaporte en vigor
-- Permiso de conducir si aplica
-- Documentación del vehículo si aplica
-
-### Conceptos Principales
-- Señales de tráfico, límites de velocidad, prioridad, maniobras, normas y sanciones
-
-### Consejos para el Día del Examen
-- Buen descanso, llegada temprana, calma, lectura cuidadosa, repaso antes de entregar`,
   },
   {
     id: 'driving-16-maniobras',
     title: 'Capítulo 16: Maniobras',
     category: 'maniobras',
-    resumenClave: { es: 'Técnicas de giro, adelantamiento, cambio de dirección y estacionamiento.' },
+    resumenClave: { es: 'Técnicas de giro, adelantamiento, cambio de dirección y estacionamiento.', ar: 'تقنيات الانعطاف والتجاوز وتغيير الاتجاه والوقوف.' },
     erroresComunes: ['No señalizar antes de maniobrar', 'Adelantar sin visibilidad suficiente', 'Girar sin reducir velocidad'],
-    content: `# Maniobras
+    content: `# Maniobras (المناورات)
 
 Las maniobras son cambios en la posición del vehículo que requieren señalización, precaución y respeto de las normas de tráfico.
 
 ## Tipos de Maniobras
 
-### Giro
+### Giro (الانعطاف)
 - Señalizar con intermitentes con suficiente anticipación
 - Reducir la velocidad antes del giro
 - Respetar las señales y marcas viales
 
-### Adelantamiento
+### Adelantamiento (التجاوز)
 - Solo cuando haya visibilidad suficiente
 - Señalizar la intención de adelantar
 - Volver al carril derecho después de completar el adelantamiento
 
-### Cambio de Dirección
+### Cambio de Dirección (تغيير الاتجاه)
 - Señalizar con anticipación
 - Comprobar los espejos retrovisores
 - Asegurar que no haya vehículos en el ángulo muerto
 
-### Estacionamiento
+### Estacionamiento (الوقوف)
 - Buscar espacios permitidos
 - Señalizar antes de estacionar
 - Dejar espacio suficiente para otros vehículos
 
-Las maniobras son cambios en la posición del vehículo que requieren señalización, precaución y respeto de las normas de tráfico.`,
+Las maniobras son cambios en la posición del vehículo que requieren señalización, precaución y respeto a las normas de tráfico.
+
+أنواع المناورات:
+- الانعطاف: استخدام الإشارات مسبقاً، تقليل السرعة، احترام الإشارات
+- التجاوز: فقط عندما تكون الرؤية كافية، الإشارة، العودة للحارة اليمنى
+- تغيير الاتجاه: الإشارة مسبقاً، فحص المرايا، التأكد من عدم وجود مركبات
+- الوقوف: البحث عن أماكن مسموحة، الإشارة، ترك مساحة كافية`,
   },
   {
     id: 'driving-17-normas-multas',
     title: 'Capítulo 17: Normas y Multas',
     category: 'normas',
-    resumenClave: { es: 'Sistema de puntos, tipos de infracciones y sanciones.' },
-    erroresComunes: ['Desconocer sistema de puntos', 'Ignorar multas menores'],
-    content: `# Normas y Multas
+    resumenClave: { es: 'Infracciones comunes, sistema de puntos y sanciones económicas.', ar: 'المخالفات الشائعة، نظام النقاط والعقوبات المالية.' },
+    erroresComunes: ['Desconocer las infracciones graves', 'Ignorar el sistema de puntos', 'No conocer las multas por exceso de velocidad'],
+    content: `# Normas y Multas (القواعد والمخالفات)
+
+El sistema de tráfico español se rige por normas estrictas para garantizar la seguridad vial.
+
+## Infracciones Comunes
+
+### Leves (المخالفات البسيطة)
+- Estacionamiento en zona prohibida
+- No llevar el cinturón de seguridad
+- Multa: 80-200€
+
+### Graves (المخالفات الخطيرة)
+- Exceso de velocidad moderado (20-30 km/h)
+- No respetar señal de Stop
+- Multa: 200-500€ + pérdida de puntos
+
+### Muy Graves (المخالفات الخطيرة جداً)
+- Exceso de velocidad superior a 30 km/h
+- Conducir bajo los efectos del alcohol
+- Multa: 500€+ + pérdida de puntos + posible retirada del permiso
+
+## Sistema de Puntos
 
 El permiso de conducir tiene 12 puntos iniciales:
 - Infracciones leves: No pérdida de puntos
@@ -745,60 +715,44 @@ El permiso de conducir tiene 12 puntos iniciales:
 
 El sistema de tráfico español se rige por normas estrictas para garantizar la seguridad.
 
-## Infracciones
-- **Leves**: Estacionamiento en zona prohibida, no usar cinturón (80-200€)
-- **Graves**: Exceso de velocidad 20-30 km/h, no respetar señal Stop (200-500€ + puntos)
-- **Muy Graves**: Exceso de velocidad más de 30 km/h, conducción bajo efectos del alcohol (500+€ + puntos + retirada del permiso)
+المخالفات:
+- البسيطة: الوقوف في منطقة محظورة، عدم ربط الحزام (80-200 يورو)
+- الخطيرة: تجاوز السرعة 20-30 كم/س، عدم احترام إشارة Stop (200-500 يورو + نقاط)
+- الخطيرة جداً: تجاوز السرعة أكثر من 30 كم/س، القيادة تحت تأثير الكحول (500+ يورو + نقاط + سحب الرخصة)
 
-## Sistema de Puntos
-- 12 puntos iniciales, puede perderse 2-6 puntos o retirarse el permiso.`,
+نظام النقاط: 12 نقطة أولية، يمكن فقدان 2-6 نقاط أو سحب الرخصة.`,
   },
   {
     id: 'driving-18-repaso-completo',
     title: 'Capítulo 18: Repaso Completo',
     category: 'repaso',
-    resumenClave: { es: 'Resumen completo de todos los conceptos para el examen final.' },
-    erroresComunes: ['No repasar todos los temas', 'Olvidar conceptos básicos'],
-    content: `# Repaso Completo
+    resumenClave: { es: 'Repaso exhaustivo de todos los temas antes del examen práctico y teórico.', ar: 'مراجعة شاملة لجميع المواضيع قبل الامتحان العملي والنظري.' },
+    erroresComunes: ['No repasar señales específicas', 'Olvidar documentación', 'Nerviosismo excesivo'],
+    content: `# Repaso Completo (المراجعة الشاملة)
+
+Este capítulo es un repaso exhaustivo de todos los conceptos importantes antes del examen.
 
 ## Checklist Pre-Examen
 
 ### Documentación Necesaria
-- **DNI o pasaporte** en vigor
-- **Permiso de conducir** si aplica
-- **Documentación del vehículo** si aplica
-- **Seguro en vigor** si aplica
+- ✅ DNI o pasaporte en vigor
+- ✅ Permiso de conducir (si aplica)
+- ✅ Documentación del vehículo
+- ✅ Seguro en vigor
 
 ### Conceptos Clave a Repasar
+1. **Señales de Tráfico**: Todas las categorías y significados
+2. **Límites de Velocidad**: Por tipo de vía y vehículo
+3. **Prioridad**: Reglas en cruces, rotondas e intersecciones
+4. **Maniobras**: Técnicas correctas y señalización
+5. **Normas y Sanciones**: Sistema de puntos y multas
 
-#### Señales de Tráfico
-- Todas las categorías y significados
-- Señales de advertencia, prioridad, prohibición e información
-
-#### Límites de Velocidad
-- Por tipo de vía y vehículo
-- Reducciones obligatorias en condiciones adversas
-
-#### Prioridad
-- Reglas en cruces, glorietas e intersecciones
-- Casos especiales y excepciones
-
-#### Maniobras
-- Técnicas correctas y señalización
-- Adelantamiento, giros y estacionamiento
-
-#### Normas y Sanciones
-- Sistema de puntos y multas
-- Infracciones más comunes y sus consecuencias
-
-## Consejos para el Día del Examen
-
-### Preparación
-- **Dormir bien** la noche anterior
-- **Llegar con tiempo suficiente**
-- **Mantener la calma** durante el examen
-- **Leer cuidadosamente** cada pregunta
-- **Repasar las respuestas** antes de entregar
+### Consejos para el Día del Examen
+- Dormir bien la noche anterior
+- Llegar con tiempo suficiente
+- Mantener la calma
+- Leer cuidadosamente cada pregunta
+- Repasar las respuestas antes de entregar
 
 ## Ejercicios de Repaso
 
@@ -809,41 +763,38 @@ El sistema de tráfico español se rige por normas estrictas para garantizar la 
 
 Este capítulo es un repaso completo de todos los conceptos importantes antes del examen.
 
-## Checklist Final
+قائمة المراجعة:
+- الوثائق: الهوية، رخصة القيادة، وثائق المركبة، التأمين
+- المفاهيم الرئيسية: إشارات المرور، حدود السرعة، الأولوية، المناورات، القواعد والعقوبات
 
-### Documentación
-- DNI o pasaporte en vigor
-- Permiso de conducir si aplica
-- Documentación del vehículo si aplica
-- Seguro en vigor si aplica
-
-### Conceptos Principales
-- Señales de tráfico, límites de velocidad, prioridad, maniobras, normas y sanciones
-
-### Consejos para el Día del Examen
-- Buen descanso, llegada temprana, calma, lectura cuidadosa, repaso antes de entregar`,
+نصائح ليوم الامتحان:
+- النوم الجيد، الوصول مبكراً، الهدوء، القراءة بعناية، المراجعة قبل التسليم`,
   },
 ];
 
-// Helper functions
-export function getDrivingLessonById(id: string): DrivingLesson | undefined {
-  return drivingLessons.find(lesson => lesson.id === id);
-}
-
-export function getDrivingLessonsByCategory(category: string): DrivingLesson[] {
-  return drivingLessons.filter(lesson => lesson.category === category);
-}
-
-export function getFreeDrivingLessons(): DrivingLesson[] {
-  return drivingLessons.filter(lesson => lesson.isFree);
-}
+const STORAGE_KEY = 'driving_lessons_v1';
 
 export function getAllDrivingLessons(): DrivingLesson[] {
+  try {
+    if (typeof window !== 'undefined') {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        return JSON.parse(raw);
+      }
+    }
+  } catch (e) {}
   return drivingLessons;
 }
 
-// Admin functions
-export function persistDrivingLessons(lessons: DrivingLesson[]): void {
-  // This would typically save to a database
-  console.log('Persisting driving lessons:', lessons);
+export function getDrivingLessonById(id: string): DrivingLesson | undefined {
+  return getAllDrivingLessons().find(l => l.id === id);
 }
+
+export function persistDrivingLessons(list: DrivingLesson[]) {
+  try {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+    }
+  } catch (e) {}
+}
+
