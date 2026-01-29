@@ -77,6 +77,7 @@ export default function NounAgreementGame({
   const [streak, setStreak] = useState(0);
   const [muted, setMuted] = useState(false);
   const [flash, setFlash] = useState<Flash>('none');
+  const [userAnswers, setUserAnswers] = useState<Array<{noun: string; userGender: string; correctGender: string; isCorrect: boolean}>>([]);
 
   const multiplier = computeMultiplier(streak);
 
@@ -376,6 +377,9 @@ export default function NounAgreementGame({
   const restartAll = () => {
     resetTimers();
     setPhase('intro');
+    setScore(0);
+    setStreak(0);
+    setUserAnswers([]);
     setLevel(1);
     setScore(0);
     setStreak(0);
@@ -538,15 +542,90 @@ export default function NounAgreementGame({
   }
 
   if (phase === 'complete') {
+    const correctAnswers = userAnswers.filter(answer => answer.isCorrect).length;
+    const incorrectAnswers = userAnswers.filter(answer => !answer.isCorrect).length;
+    const totalAnswers = userAnswers.length;
+    const accuracy = totalAnswers > 0 ? Math.round((correctAnswers / totalAnswers) * 100) : 0;
+    
     return (
       <GameShell className="max-w-5xl mx-auto">
         {header}
-        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 sm:p-8 text-center">
+        <div className="bg-white rounded-xl border border-gray-200 shadow-lg p-6 sm:p-8 text-center">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 mb-4 shadow-md">
             <Trophy className="w-10 h-10 text-white" aria-hidden="true" />
           </div>
           <h3 className="text-3xl font-extrabold text-slate-900 mb-2">¡Juego completado!</h3>
-          <p className="text-slate-600 mb-4">Tu puntuación final:</p>
+          
+          {/* Detailed Results Section */}
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 mb-6">
+            <h4 className="text-2xl font-bold text-gray-800 mb-4">📊 Resultados Detallados</h4>
+            
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <div className="text-green-600 text-3xl font-bold">{correctAnswers}</div>
+                <div className="text-green-700 text-sm">Correctas</div>
+              </div>
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                <div className="text-red-600 text-3xl font-bold">{incorrectAnswers}</div>
+                <div className="text-red-700 text-sm">Incorrectas</div>
+              </div>
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div className="text-blue-600 text-3xl font-bold">{accuracy}%</div>
+                <div className="text-blue-700 text-sm">Precisión</div>
+              </div>
+              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                <div className="text-amber-600 text-3xl font-bold">{score}</div>
+                <div className="text-amber-700 text-sm">Puntuación</div>
+              </div>
+            </div>
+
+            {/* Noun Agreement Mistakes Review */}
+            {incorrectAnswers > 0 && (
+              <div className="mb-6">
+                <h5 className="text-lg font-semibold text-red-600 mb-3">❌ Revisa tus errores de género y número:</h5>
+                <div className="space-y-2 max-h-60 overflow-y-auto">
+                  {userAnswers.filter(answer => !answer.isCorrect).map((answer, index) => (
+                    <div key={index} className="bg-red-50 border border-red-200 rounded-lg p-3 text-left">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <span className="font-semibold text-gray-700">Sustantivo: {answer.noun}</span>
+                          <div className="text-sm text-gray-600">Tu respuesta: <span className="text-red-600 font-medium">{answer.userGender}</span></div>
+                          <div className="text-sm text-green-600 font-medium">Correcto: {answer.correctGender}</div>
+                          <div className="text-sm text-blue-600 mt-1">
+                            💡 Recuerda: los sustantivos tienen género (masculino/femenino) y número (singular/plural)
+                          </div>
+                        </div>
+                        <div className="text-2xl">
+                          ❌
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Learning Tips */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <h5 className="text-lg font-semibold text-blue-700 mb-2">💡 Consejos de aprendizaje:</h5>
+              <ul className="text-sm text-blue-600 space-y-1">
+                {accuracy >= 80 && (
+                  <li>• ¡Excelente trabajo! Tu comprensión del género y número en español es sobresaliente.</li>
+                )}
+                {accuracy >= 60 && accuracy < 80 && (
+                  <li>• ¡Buen progreso! Enfócate en los sustantivos que te costaron más clasificar.</li>
+                )}
+                {accuracy < 60 && (
+                  <li>• Sigue practicando. El género y número requieren práctica constante.</li>
+                )}
+                <li>• Recuerda las reglas: -o/-a para masculino/femenino, -s/-es para singular/plural.</li>
+                <li>• Practica con artículos: el/la, los/las para reforzar el género.</li>
+                <li>• Los sustantivos que terminan en -d, -z, -ión suelen ser femeninos.</li>
+                <li>• La práctica regular es la clave para dominar los acuerdos de sustantivos.</li>
+              </ul>
+            </div>
+          </div>
+
           <div className="text-5xl font-extrabold text-amber-600 mb-6">{score}</div>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <GameButton onClick={restartAll} variant="primary" size="lg" className="bg-blue-600 border-blue-600 hover:bg-blue-700 text-white">

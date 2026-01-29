@@ -20,12 +20,20 @@ export default function GrammarQuizGame({ onBack, questions, title, level }: Gra
   const [gameFinished, setGameFinished] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [hintsUsed, setHintsUsed] = useState(0);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
   const currentQuestion = questions[currentQuestionIndex];
 
   const handleAnswer = (answer: string) => {
     setSelectedAnswer(answer);
     setShowResult(true);
+    
+    // Store user answer for results
+    setUserAnswers(prev => {
+      const newAnswers = [...prev];
+      newAnswers[currentQuestionIndex] = answer;
+      return newAnswers;
+    });
     
     if (answer === currentQuestion.correctAnswer) {
       const points = showHint ? Math.max(5, currentQuestion.points - 5) : currentQuestion.points;
@@ -52,6 +60,7 @@ export default function GrammarQuizGame({ onBack, questions, title, level }: Gra
     setGameFinished(false);
     setShowHint(false);
     setHintsUsed(0);
+    setUserAnswers([]);
   };
 
   const getHint = () => {
@@ -80,39 +89,117 @@ export default function GrammarQuizGame({ onBack, questions, title, level }: Gra
   if (gameFinished) {
     const maxScore = questions.reduce((sum, q) => sum + q.points, 0);
     const percentage = Math.round((score / maxScore) * 100);
+    const correctAnswers = questions.filter((q, index) => 
+      userAnswers[index] === q.correctAnswer
+    ).length;
+    const incorrectAnswers = questions.length - correctAnswers;
     
     return (
-      <div className="text-center py-12">
-        <div className="text-6xl mb-4">🏆</div>
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">¡Quiz Completado!</h2>
-        <div className="space-y-4 mb-6">
-          <div className="text-2xl font-semibold text-blue-600">
-            Puntuación: {score} / {maxScore}
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center py-12">
+          <div className="text-6xl mb-4">🏆</div>
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">¡Quiz Completado!</h2>
+          
+          {/* Detailed Results Section */}
+          <div className="bg-white rounded-xl border border-gray-200 shadow-lg p-6 mb-6">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">📊 Resultados Detallados</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <div className="text-green-600 text-3xl font-bold">{correctAnswers}</div>
+                <div className="text-green-700 text-sm">Correctas</div>
+              </div>
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                <div className="text-red-600 text-3xl font-bold">{incorrectAnswers}</div>
+                <div className="text-red-700 text-sm">Incorrectas</div>
+              </div>
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div className="text-blue-600 text-3xl font-bold">{percentage}%</div>
+                <div className="text-blue-700 text-sm">Precisión</div>
+              </div>
+              <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                <div className="text-purple-600 text-3xl font-bold">{hintsUsed}</div>
+                <div className="text-purple-700 text-sm">Pistas</div>
+              </div>
+            </div>
+
+            {/* Score Summary */}
+            <div className="space-y-4 mb-6">
+              <div className="text-2xl font-semibold text-blue-600">
+                Puntuación: {score} / {maxScore}
+              </div>
+              <div className="text-xl text-gray-600">
+                Porcentaje: {percentage}%
+              </div>
+              <div className="text-sm text-gray-500">
+                Pistas utilizadas: {hintsUsed}
+              </div>
+            </div>
+
+            {/* Grammar Mistakes Review */}
+            {incorrectAnswers > 0 && (
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-red-600 mb-3">❌ Revisa tus errores de gramática:</h4>
+                <div className="space-y-2 max-h-60 overflow-y-auto">
+                  {questions.map((question, index) => {
+                    const userAnswer = userAnswers[index];
+                    const isCorrect = userAnswer === question.correctAnswer;
+                    
+                    if (!isCorrect) {
+                      return (
+                        <div key={index} className="bg-red-50 border border-red-200 rounded-lg p-3 text-left">
+                          <div className="flex justify-between items-center">
+                            <div>
+                              <span className="font-semibold text-gray-700">Pregunta: {question.question}</span>
+                              <div className="text-sm text-gray-600">Tu respuesta: <span className="text-red-600 font-medium">{userAnswer || 'Sin respuesta'}</span></div>
+                              <div className="text-sm text-green-600 font-medium">Correcto: {question.correctAnswer}</div>
+                            </div>
+                            <div className="text-2xl">
+                              {isCorrect ? '✅' : '❌'}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    }
+                    return null;
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Learning Tips */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <h4 className="text-lg font-semibold text-blue-700 mb-2">💡 Consejos de aprendizaje:</h4>
+              <ul className="text-sm text-blue-600 space-y-1">
+                {percentage >= 90 && (
+                  <li>• ¡Excelente trabajo! Tu comprensión gramatical es sobresaliente.</li>
+                )}
+                {percentage >= 70 && percentage < 90 && (
+                  <li>• ¡Buen trabajo! Enfócate en las reglas gramaticales que te costaron más.</li>
+                )}
+                {percentage < 70 && (
+                  <li>• Sigue practicando. La gramática requiere tiempo y práctica constante.</li>
+                )}
+                <li>• Revisa las reglas gramaticales de las preguntas incorrectas.</li>
+                <li>• Practica con ejemplos adicionales para reforzar las reglas.</li>
+                <li>• Usa un libro de gramática como referencia cuando tengas dudas.</li>
+                {hintsUsed > 0 && (
+                  <li>• Intenta reducir el uso de pistas en el próximo intento para mejorar tu autonomía.</li>
+                )}
+                <li>• La práctica regular es la clave para dominar la gramática española.</li>
+              </ul>
+            </div>
           </div>
-          <div className="text-xl text-gray-600">
-            Porcentaje: {percentage}%
+
+          <div className="flex gap-4 justify-center">
+            <GameButton onClick={handleReset} variant="secondary">
+              <RotateCcw className="w-5 h-5 mr-2" />
+              Intentar de Nuevo
+            </GameButton>
+            <GameButton onClick={onBack}>
+              Volver a Juegos
+            </GameButton>
           </div>
-          <div className="text-sm text-gray-500">
-            Pistas utilizadas: {hintsUsed}
-          </div>
-          {percentage >= 90 && (
-            <div className="text-lg font-bold text-green-600">¡Excelente trabajo!</div>
-          )}
-          {percentage >= 70 && percentage < 90 && (
-            <div className="text-lg font-bold text-blue-600">¡Buen trabajo!</div>
-          )}
-          {percentage < 70 && (
-            <div className="text-lg font-bold text-orange-600">Sigue practicando</div>
-          )}
-        </div>
-        <div className="flex gap-4 justify-center">
-          <GameButton onClick={handleReset} variant="secondary">
-            <RotateCcw className="w-5 h-5 mr-2" />
-            Repetir Quiz
-          </GameButton>
-          <GameButton onClick={onBack}>
-            Volver a Juegos
-          </GameButton>
         </div>
       </div>
     );

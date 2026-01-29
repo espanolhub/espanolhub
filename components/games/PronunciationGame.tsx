@@ -21,6 +21,7 @@ export default function PronunciationGame({ onBack, questions, title }: Pronunci
   const [gameFinished, setGameFinished] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [speechSupported, setSpeechSupported] = useState(true);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
   
   const recognitionRef = useRef<any>(null);
   const currentQuestion = questions[currentQuestionIndex];
@@ -158,6 +159,13 @@ export default function PronunciationGame({ onBack, questions, title }: Pronunci
   };
 
   const handleNext = () => {
+    // Store user answer for results
+    setUserAnswers(prev => {
+      const newAnswers = [...prev];
+      newAnswers[currentQuestionIndex] = recognitionResult;
+      return newAnswers;
+    });
+
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setRecognitionResult('');
@@ -177,6 +185,7 @@ export default function PronunciationGame({ onBack, questions, title }: Pronunci
     setShowResult(false);
     setGameFinished(false);
     setIsRecording(false);
+    setUserAnswers([]);
   };
 
   const playExample = () => {
@@ -186,24 +195,120 @@ export default function PronunciationGame({ onBack, questions, title }: Pronunci
   };
 
   if (gameFinished) {
+    const maxScore = questions.reduce((sum, q) => sum + q.points, 0);
+    const percentage = Math.round((score / maxScore) * 100);
+    const correctAnswers = questions.filter((q, index) => {
+      const userAnswer = userAnswers[index] || '';
+      const correctAnswer = String(q.correctAnswer).toLowerCase();
+      return userAnswer.toLowerCase().includes(correctAnswer) || correctAnswer.includes(userAnswer.toLowerCase());
+    }).length;
+    const incorrectAnswers = questions.length - correctAnswers;
+    
     return (
-      <div className="text-center py-12">
-        <div className="text-6xl mb-4">🎤</div>
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">¡Práctica Completada!</h2>
-        <div className="text-2xl font-semibold text-blue-600 mb-6">
-          Puntuación: {score} / {questions.reduce((sum, q) => sum + q.points, 0)}
-        </div>
-        <div className="text-lg text-gray-600 mb-6">
-          Has practicado la pronunciación de {questions.length} palabras
-        </div>
-        <div className="flex gap-4 justify-center">
-          <GameButton onClick={handleReset} variant="secondary">
-            <RotateCcw className="w-5 h-5 mr-2" />
-            Practicar de Nuevo
-          </GameButton>
-          <GameButton onClick={onBack}>
-            Volver a Juegos
-          </GameButton>
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center py-12">
+          <div className="text-6xl mb-4">🎤</div>
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">¡Práctica Completada!</h2>
+          
+          {/* Detailed Results Section */}
+          <div className="bg-white rounded-xl border border-gray-200 shadow-lg p-6 mb-6">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">📊 Resultados Detallados</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <div className="text-green-600 text-3xl font-bold">{correctAnswers}</div>
+                <div className="text-green-700 text-sm">Correctas</div>
+              </div>
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                <div className="text-red-600 text-3xl font-bold">{incorrectAnswers}</div>
+                <div className="text-red-700 text-sm">Incorrectas</div>
+              </div>
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div className="text-blue-600 text-3xl font-bold">{percentage}%</div>
+                <div className="text-blue-700 text-sm">Precisión</div>
+              </div>
+            </div>
+
+            {/* Score Summary */}
+            <div className="space-y-4 mb-6">
+              <div className="text-2xl font-semibold text-blue-600">
+                Puntuación: {score} / {maxScore}
+              </div>
+              <div className="text-xl text-gray-600">
+                Porcentaje: {percentage}%
+              </div>
+              <div className="text-lg text-gray-600">
+                Has practicado la pronunciación de {questions.length} palabras
+              </div>
+            </div>
+
+            {/* Pronunciation Mistakes Review */}
+            {incorrectAnswers > 0 && (
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-red-600 mb-3">❌ Revisa tus errores de pronunciación:</h4>
+                <div className="space-y-2 max-h-60 overflow-y-auto">
+                  {questions.map((question, index) => {
+                    const userAnswer = userAnswers[index] || '';
+                    const correctAnswer = String(question.correctAnswer).toLowerCase();
+                    const isCorrect = userAnswer.toLowerCase().includes(correctAnswer) || correctAnswer.includes(userAnswer.toLowerCase());
+                    
+                    if (!isCorrect) {
+                      return (
+                        <div key={index} className="bg-red-50 border border-red-200 rounded-lg p-3 text-left">
+                          <div className="flex justify-between items-center">
+                            <div>
+                              <span className="font-semibold text-gray-700">Palabra: {question.correctAnswer}</span>
+                              <div className="text-sm text-gray-600">Pregunta: {question.question}</div>
+                              <div className="text-sm text-gray-600">Tu pronunciación: <span className="text-red-600 font-medium">{userAnswer || 'Sin respuesta'}</span></div>
+                              <div className="text-sm text-green-600 font-medium">Correcto: {question.correctAnswer}</div>
+                              <div className="text-sm text-blue-600 mt-1">
+                                💡 Escucha atentamente los sonidos y practica varias veces
+                              </div>
+                            </div>
+                            <div className="text-2xl">
+                              {isCorrect ? '✅' : '❌'}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    }
+                    return null;
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Learning Tips */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <h4 className="text-lg font-semibold text-blue-700 mb-2">💡 Consejos de aprendizaje:</h4>
+              <ul className="text-sm text-blue-600 space-y-1">
+                {percentage >= 80 && (
+                  <li>• ¡Excelente pronunciación! Tu habilidad para hablar español es impresionante.</li>
+                )}
+                {percentage >= 60 && percentage < 80 && (
+                  <li>• ¡Buen progreso! Enfócate en las palabras que te costaron más pronunciar.</li>
+                )}
+                {percentage < 60 && (
+                  <li>• Sigue practicando. La pronunciación mejora con la práctica constante.</li>
+                )}
+                <li>• Escucha atentamente cómo se pronuncian las palabras en español.</li>
+                <li>• Practica frente a un espejo para observar la posición de tu boca.</li>
+                <li>• Graba tu voz y compárala con la pronunciación nativa.</li>
+                <li>• Habla más despacio al principio, luego aumenta la velocidad gradualmente.</li>
+                <li>• No tengas miedo a cometer errores, son parte del aprendizaje.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex gap-4 justify-center">
+            <GameButton onClick={handleReset} variant="secondary">
+              <RotateCcw className="w-5 h-5 mr-2" />
+              Practicar de Nuevo
+            </GameButton>
+            <GameButton onClick={onBack}>
+              Volver a Juegos
+            </GameButton>
+          </div>
         </div>
       </div>
     );

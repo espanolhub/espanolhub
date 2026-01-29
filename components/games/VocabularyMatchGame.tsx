@@ -18,6 +18,7 @@ export default function VocabularyMatchGame({ onBack, questions, title }: Vocabu
   const [showResult, setShowResult] = useState(false);
   const [gameFinished, setGameFinished] = useState(false);
   const [shuffledOptions, setShuffledOptions] = useState<string[]>([]);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
   const currentQuestion = questions[currentQuestionIndex];
 
@@ -31,6 +32,13 @@ export default function VocabularyMatchGame({ onBack, questions, title }: Vocabu
   const handleAnswer = (answer: string) => {
     setSelectedAnswer(answer);
     setShowResult(true);
+    
+    // Store user answer for results
+    setUserAnswers(prev => {
+      const newAnswers = [...prev];
+      newAnswers[currentQuestionIndex] = answer;
+      return newAnswers;
+    });
     
     if (answer === currentQuestion.correctAnswer) {
       setScore(prevScore => prevScore + currentQuestion.points);
@@ -53,6 +61,7 @@ export default function VocabularyMatchGame({ onBack, questions, title }: Vocabu
     setSelectedAnswer(null);
     setShowResult(false);
     setGameFinished(false);
+    setUserAnswers([]);
   };
 
   const speakText = (text: string) => {
@@ -65,21 +74,100 @@ export default function VocabularyMatchGame({ onBack, questions, title }: Vocabu
   };
 
   if (gameFinished) {
+    const correctAnswers = questions.filter((q, index) => 
+      userAnswers[index] === q.correctAnswer
+    ).length;
+    const incorrectAnswers = questions.length - correctAnswers;
+    const accuracy = Math.round((correctAnswers / questions.length) * 100);
+
     return (
-      <div className="text-center py-12">
-        <div className="text-6xl mb-4">🎉</div>
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">¡Juego Completado!</h2>
-        <div className="text-2xl font-semibold text-blue-600 mb-6">
-          Puntuación Final: {score} / {questions.reduce((sum, q) => sum + q.points, 0)}
-        </div>
-        <div className="flex gap-4 justify-center">
-          <GameButton onClick={handleReset} variant="secondary">
-            <RotateCcw className="w-5 h-5 mr-2" />
-            Jugar de Nuevo
-          </GameButton>
-          <GameButton onClick={onBack}>
-            Volver a Juegos
-          </GameButton>
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center py-12">
+          <div className="text-6xl mb-4">🎉</div>
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">¡Juego Completado!</h2>
+          <div className="text-2xl font-semibold text-blue-600 mb-6">
+            Puntuación Final: {score} / {questions.reduce((sum, q) => sum + q.points, 0)}
+          </div>
+
+          {/* Detailed Results Section */}
+          <div className="bg-white rounded-xl border border-gray-200 shadow-lg p-6 mb-6">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">📊 Resultados Detallados</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <div className="text-green-600 text-3xl font-bold">{correctAnswers}</div>
+                <div className="text-green-700 text-sm">Correctas</div>
+              </div>
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                <div className="text-red-600 text-3xl font-bold">{incorrectAnswers}</div>
+                <div className="text-red-700 text-sm">Incorrectas</div>
+              </div>
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div className="text-blue-600 text-3xl font-bold">{accuracy}%</div>
+                <div className="text-blue-700 text-sm">Precisión</div>
+              </div>
+            </div>
+
+            {/* Incorrect Answers Review */}
+            {incorrectAnswers > 0 && (
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-red-600 mb-3">❌ Revisa tus errores:</h4>
+                <div className="space-y-2 max-h-60 overflow-y-auto">
+                  {questions.map((question, index) => {
+                    const userAnswer = userAnswers[index];
+                    const isCorrect = userAnswer === question.correctAnswer;
+                    
+                    if (!isCorrect) {
+                      return (
+                        <div key={index} className="bg-red-50 border border-red-200 rounded-lg p-3 text-left">
+                          <div className="flex justify-between items-center">
+                            <div>
+                              <span className="font-semibold text-gray-700">Pregunta: {question.question}</span>
+                              <div className="text-sm text-gray-600">Tu respuesta: <span className="text-red-600 font-medium">{userAnswer || 'Sin respuesta'}</span></div>
+                              <div className="text-sm text-green-600 font-medium">Correcto: {question.correctAnswer}</div>
+                            </div>
+                            <div className="text-2xl">
+                              {isCorrect ? '✅' : '❌'}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    }
+                    return null;
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Learning Tips */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <h4 className="text-lg font-semibold text-blue-700 mb-2">💡 Consejos de aprendizaje:</h4>
+              <ul className="text-sm text-blue-600 space-y-1">
+                {accuracy >= 80 && (
+                  <li>• ¡Excelente trabajo! Tu vocabulario es muy bueno.</li>
+                )}
+                {accuracy >= 60 && accuracy < 80 && (
+                  <li>• Buen progreso. Enfócate en las palabras que te costaron más.</li>
+                )}
+                {accuracy < 60 && (
+                  <li>• Sigue practicando. La repetición es clave para aprender vocabulario.</li>
+                )}
+                <li>• Revisa las palabras incorrectas y practícalas varias veces.</li>
+                <li>• Intenta asociar las palabras con imágenes o situaciones.</li>
+                <li>• Usa tarjetas de vocabulario (flashcards) para repasar.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex gap-4 justify-center">
+            <GameButton onClick={handleReset} variant="secondary">
+              <RotateCcw className="w-5 h-5 mr-2" />
+              Jugar de Nuevo
+            </GameButton>
+            <GameButton onClick={onBack}>
+              Volver a Juegos
+            </GameButton>
+          </div>
         </div>
       </div>
     );
